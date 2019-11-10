@@ -49,6 +49,15 @@ class Admin extends CI_Controller {
 		$this->load->view('admin\index', $data);
 	}
 
+	public function DoTambahpanitia(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$kompetisi = $this->input->post('kompetisi');
+		$this->adminModel->tambahPanitia($username,$password,$kompetisi);
+		echo "1";
+
+	}
+
 	##################PANITIA###################
 	##################LOMBA#####################
 

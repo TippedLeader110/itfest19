@@ -22,7 +22,7 @@
 							Username*
 						</td>
 						<td>
-							<input type="input" name="nama">
+							<input type="input" name="username">
 						</td>
 					</tr>
 					<tr>
@@ -30,16 +30,16 @@
 							Password*
 						</td>
 						<td>
-							<input type="" name="">
+							<input type="password" name="password">
 						</td>
 					</tr>
 					<tr>
 						<td>Cabang Kompetisi*</td>
 						<td>
-							<select id="optionKompetisi">
-									<option name="null">----- Pilih cabang kompetisi -----</option>
+							<select name="kompetisi" id="optionKompetisi">
+									<option value="null">----- Pilih cabang kompetisi -----</option>
 								<?php foreach ($dataLomba as $key => $value): ?>
-									<option name="<?php echo $value->id_lomba ?>"><?php echo $value->nama_lomba ?></option>
+									<option value="<?php echo $value->id_lomba ?>"><?php echo $value->nama_lomba ?></option>
 								<?php endforeach ?>
 							</select>
 						</td>
@@ -64,7 +64,7 @@
 	$('#form').submit(function(event) {
 		event.preventDefault(); 
 		$.ajax({
-			url: '<?php echo base_url('admin/DoTambahlomba') ?>',
+			url: '<?php echo base_url('admin/DoTambahpanitia') ?>',
 			type: 'POST',
 			data:new FormData(this),
             processData:false,
@@ -77,10 +77,10 @@
             },
             success: function(data){
             	if (data==1) {
-            	Swal.fire('Berhasil !!', 'Kompetisi berhasil ditambahkan !!', 'success')
+            	Swal.fire('Berhasil !!', 'Panitia berhasil ditambahkan !!', 'success')
             	}
             	else
-            		Swal.fire('Kesalahan!!', 'Gagal upload !!', 'error')
+            		Swal.fire('Kesalahan!!', 'Gagal Menambahkan !!', 'error')
             }
 		})
 	});

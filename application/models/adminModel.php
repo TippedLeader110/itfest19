@@ -74,6 +74,16 @@ class adminModel extends CI_Model {
 		$this->session->unset_userdata('logo');
 	}
 
+	public function tambahPanitia($username,$password,$kompetisi)
+	{	
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		$data = array('username' => $username,
+			'password' => $password,
+			'id_lomba' => $kompetisi
+		);
+		$this->db->insert('user', $data);
+	}
+
 	public function getDatafullTable($table){
 		$data = $this->db->get($table)->result();
 		return $data;
