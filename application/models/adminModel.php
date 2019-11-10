@@ -1,10 +1,12 @@
 <?php
+define('PUBPATH',str_replace(SELF,'',FCPATH)); // added
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class adminModel extends CI_Model {
 
 	function __construct(){
 		parent::__construct();
+
 
 	}
 
@@ -70,6 +72,34 @@ class adminModel extends CI_Model {
 		$this->db->insert('lomba', $data);
 		$this->session->unset_userdata('rule');
 		$this->session->unset_userdata('logo');
+	}
+
+	public function getDatafullTable($table){
+		$data = $this->db->get($table)->result();
+		return $data;
+	}
+
+	public function deleteDatabyID($id,$kolomID,$table){
+		$this->db->where($kolomID , $id)->delete($table);
+		return 1;
+	}
+
+	public function deleteFile($id){
+		$data = $this->db->where('id_lomba', $id)->get('lomba');
+		$logo = $data->row()->url_logo;
+		$rule = $data->row()->rule;
+		$logolink = PUBPATH.'public/kompetisi/logo/'.$logo;
+		$rulelink = PUBPATH.'public/kompetisi/rule/'.$rule;
+		if (unlink($logolink)) {
+			echo "deleted file : " .$logo;
+		}
+		if (unlink($rulelink)) {
+			echo "deleted file L " .$rule;
+			return 1;
+		}
+
+
+		
 	}
 }
 ?>

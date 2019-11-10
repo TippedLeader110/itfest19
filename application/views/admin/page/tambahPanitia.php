@@ -1,14 +1,14 @@
 <div class="row">
 	<div class="col-12">
-		<h3>Kompetisi</h3>
+		<h3>Panitia</h3>
 	</div>
 </div>
 <div class="subpage">
 	<div class="row">
 		<div class="col-12">
-			<h4>Tambah Kompetisi</h4>
+			<h4>Tambah Panitia</h4>
 			<hr>
-			Menambahkan Cabang Kompetisi Baru untuk ITFest 4.0 Universitas Sumatera Utara
+			Menambahkan hak akses untuk panitia cabang kompetisi baru ITFest 4.0 Universitas Sumatera Utara
 		</div>
 	</div>
 	<!-- <form id="datalomba" action="<?php echo base_url('admin\DoTambahlomba') ?>" method="post"> -->
@@ -19,7 +19,7 @@
 				<table class="table table-borderless">
 					<tr>
 						<td>
-							Nama Lomba*
+							Username*
 						</td>
 						<td>
 							<input type="input" name="nama">
@@ -27,26 +27,21 @@
 					</tr>
 					<tr>
 						<td>
-							Deskripsi Lomba*
+							Password*
 						</td>
 						<td>
-							<textarea name="deskripsi"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Rulebook*
-						</td>
-						<td>
-							<input type="file" name="rule">
+							<input type="" name="">
 						</td>
 					</tr>
 					<tr>
+						<td>Cabang Kompetisi*</td>
 						<td>
-							Logo Lomba*
-						</td>
-						<td>
-							<input type="file" name="logo">
+							<select id="optionKompetisi">
+									<option name="null">----- Pilih cabang kompetisi -----</option>
+								<?php foreach ($dataLomba as $key => $value): ?>
+									<option name="<?php echo $value->id_lomba ?>"><?php echo $value->nama_lomba ?></option>
+								<?php endforeach ?>
+							</select>
 						</td>
 					</tr>
 				</table>	
@@ -58,7 +53,7 @@
 		<div class="col-12">
 			<button class="btn btn-primary">Tambah</button>&nbsp;
 			</form>
-			<form action="<?php echo base_url('admin\lomba') ?>">
+			<form action="<?php echo base_url('admin\panitia') ?>">
 			<button class="btn btn-danger">Batal</button>
 			</form>
 		</div>
@@ -83,8 +78,6 @@
             success: function(data){
             	if (data==1) {
             	Swal.fire('Berhasil !!', 'Kompetisi berhasil ditambahkan !!', 'success')
-            	var delay = 1500; 
-				setTimeout(function(){ window.location = '<?php echo base_url('admin/lomba') ?>'; }, delay);
             	}
             	else
             		Swal.fire('Kesalahan!!', 'Gagal upload !!', 'error')

@@ -20,16 +20,46 @@ class Admin extends CI_Controller {
 		];
 		$this->load->view('admin\index', $data);
 	}
+	##################PANITIA###################
 
+	public function panitia(){
+		$data = [
+			'page'=>'admin\page\Panitia',
+			'title' => 'Kompetisi'
+		];
+		$this->load->view('admin\index', $data);
+	}
 
+	public function dataPanitia(){
+		$dataPanitia = $this->adminModel->getDatafullTable('panitia');
+		$data = [
+			'title' => 'Kompetisi',
+			'dataPanitia' => $dataPanitia
+		];
+		$this->load->view('admin\page\ajax\panitia', $data);
+	}
+
+	public function tambahPanitia(){
+		$dataLomba = $this->adminModel->getDatafullTable('lomba');
+		$data = [
+			'page'=>'admin\page\tambahPanitia',
+			'title' => 'Tambah Panitia',
+			'dataLomba' => $dataLomba
+		];
+		$this->load->view('admin\index', $data);
+	}
+
+	##################PANITIA###################
 	##################LOMBA#####################
 
 
 
 	public function lomba(){
+		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
 			'page'=>'admin\page\Lomba',
-			'title' => 'Kompetisi'
+			'title' => 'Kompetisi',
+			'dataLomba' => $dataLomba
 		];
 		$this->load->view('admin\index', $data);
 	}
@@ -42,7 +72,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin\index', $data);
 	}
 	public function DoTambahlomba(){
-		
+
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
         $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
@@ -53,6 +83,9 @@ class Admin extends CI_Controller {
             $image= $data['upload_data']['file_name']; //set file name ke variable image
             $this->adminModel->kompetisi_FlashLOGO($image); //simpan data sementara
             $ver = 1;
+        }
+        else{
+        	$ver = 0;
         }
 
         $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
@@ -65,6 +98,10 @@ class Admin extends CI_Controller {
             $this->adminModel->kompetisi_FlashRULE($pdf); //simpan data sementara
             $ver = 1;
         }
+        else{
+        	$ver = 0;
+        }
+
         if ($ver == 1) {
         $ver=0;
         $deskripsi = $this->input->post('deskripsi');
@@ -77,6 +114,21 @@ class Admin extends CI_Controller {
         }
 	}
 
+	public function doHapuslomba(){
+		$idLomba = $this->input->post('idLomba');
+		if ($this->adminModel->deleteFile($idLomba)==1) {
+			$this->adminModel->deleteDatabyID($idLomba,'id_lomba','lomba');
+			echo 'Deleted by ID : '.$idLomba.'';
+		}
+		else{
+			echo "Something went wrong !!";
+		}
+
+	}
+
+	public function testdelete($idLomba){
+		$this->adminModel->deleteFile($idLomba);
+	}
 
 	##################Lomba#####################
 
