@@ -1,31 +1,33 @@
 @font-face {
-    font-family: "Jost Light";
-    src: url("../../webfonts/Jost-300-Light.ttf") format('ttf'),
-    url("../../webfonts/Jost-300-Light.ttf") format('ttf');
+    font-family: "JOST_LIGHT";
+    src: url("../../../public/custom/fonts/Jost-300-Light.ttf") format('woff'),
+    url("https://localhost/itfest/public/custom/fonts/Jost-300-Light.ttf") format('woff');
 }
 @font-face {
-    font-family: "Jost Bold";
-    src: url("../../webfonts/Jost-700-Bold.ttf") format('ttf'),
-    url("../../webfonts/Jost-700-Bold.ttf") format('ttf');
+    font-family: "JOST_BOOK";
+    src: url("../../../public/custom/fonts/Jost-400-Book.ttf") format('woff'),
+    url("https://localhost/itfest/public/custom/fonts/Jost-400-Book.ttf") format('woff');
 }
 @font-face {
-    font-family: "COCOGOOSE";
-    src: url("../../webfonts/Cocogoose.woff") format('woff'),
-    url("../../webfonts/Cocogoose.woff") format('woff');
+    font-family: "JOST_BOLD";
+    src: url("../../../public/custom/fonts/Jost-700-Bold.ttf") format('woff'),
+    url("https://localhost/itfest/public/custom/fonts/Jost-700-Bold.ttf") format('woff');
 }
 @font-face {
     font-family: "Gotham Thin";
-    src: url("../../webfonts/Gotham-Thin.otf") format('woff'),
-    url("../../webfonts/Gotham-Thin.otf") format('woff');
+    src: url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff'),
+    url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff');
 }
 body{
 	margin: 0;
 	padding: 0;
-	font-family: Jost Light, 'Arial';
+	font-family: 'JOST_BOOK', 'Arial';
+        background-color: #E6E8FF;
+        font-size: 20px;
 }
 @media screen and (max-width: 768px) {
 	body#itfest{
-		background: url('../../images/itfest-mobile.jpg') no-repeat;
+		background: url('../../../public/images/itfest-mobile.jpg') no-repeat;
 		background-size: cover;
 	}
 }
@@ -37,12 +39,15 @@ nav.navbar{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	transition-duration: 1s;
+        color: #01013F;
 }
 nav.black{
 	/*background: rgba(51,51,51,0.5);*/
 	/*background: rgba(34,137,147,0.5);*/
-	background: linear-gradient(to right, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
+	background: linear-gradient(to right, #24c6dc, #514a9d);
+/*        linear-gradient(to right, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
 }
 .navbar-toggler{
 	border:none;
@@ -50,7 +55,7 @@ nav.black{
 .navbar-dark .navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
 .nav-item{
 	margin-left: 30px;
-	font-size: 13px;
+	font-size: 15px;
 	letter-spacing: 1px;
 }
 .nav-link{
@@ -63,7 +68,7 @@ nav.black{
 	cursor: pointer;
 }
 .active{
-	border-bottom: 2px solid #40aa6a;
+	border-bottom: 2px solid #fff;
 }
 .nav-link:hover{
 	color: green;
@@ -77,13 +82,13 @@ nav.black{
 .logo-nav{
 	width: 50px;
 	min-height: 50px;
-	background: url('../../images/logo-itfest-white-edit.png') no-repeat;
+	background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;
 	background-size: cover;
 	background-position: center;
 	transition-duration: 1.5s;
 }
 .logo-nav-white{
-	background: url('../../images/logo-itfest-white.png') no-repeat;
+	background: url('../../../public/images/logo-itfest-white.png') no-repeat;
 	width: 50px;
 	min-height: 50px;
 	background-size: cover;
@@ -92,10 +97,16 @@ nav.black{
 .garis{
 	width: 0%;
 	height: 2px;
-	background: #40aa6a;
+/*	background: linear-gradient(to left, #35BDED, #7247B2);*/
+        background: linear-gradient(to right, #24c6dc, #514a9d);
 	transition: width 0.5s;
 	margin-top: 10px;
 }
+
+nav.black .garis{
+        background: #FFD662;
+}
+
 #br{
 	transition-timing-function: ease;
 	-webkit-transition-timing-function: ease;
@@ -104,23 +115,54 @@ button.signup{
 	font-size: 13px;
 	border-radius: 100px;
 	/*background: linear-gradient(to left top, #00a7e6, #00ae92, #40aa6a);	*/
-	background: #36A07C;
+	background: #4F77AA;
 	color: #fff;
 	transition-duration: 1.3s;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 }
+
+nav.black button.signup{
+        background: rgba(255,255,255,0.28);
+	color: #FFF;
+}
+
+nav.black button.signup:hover{
+        background: rgba(255,255,255,1);
+	color: #4F77AA;
+}
+
 button.signup:hover{
-	background: #228993;
+/*	background: #228993;*/
+        background: #301876;
 	color: #fff;
 }
 @media screen and (max-width: 768px) {
 	nav{
+/*
 		background: -webkit-linear-gradient(left, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
 		background: -o-linear-gradient(left, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
 		background: linear-gradient(to right, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
+*/
+                background: -webkit-linear-gradient(to right, #24c6dc, #514a9d);
+		background: -o-linear-gradient(to right, #24c6dc, #514a9d);
+		background: linear-gradient(to right, #24c6dc, #514a9d);
     	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
+        
+        button.signup{
+                background: rgba(255,255,255,0.2);
+                
+        }
+        
+        button.signup:hover{
+                background: #fff;
+                color: #4F77AA;
+        }
+        
+        .garis{
+                background: #FFD662;
+        }
 }
 
 /* HEADER */
@@ -129,7 +171,7 @@ header#about{
 	padding-left: 100px;
 	min-height: 695px;
 	/*background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);*/
-	background: url('../../images/web-me-2.jpg') no-repeat;
+	background: url('../../../public/images/web-me-2.jpg') no-repeat;
 	background-size: contain;
 }
 .logo-head{
@@ -137,11 +179,11 @@ header#about{
 }
 h3.head{
 	text-align: left;
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 	color: #000;
 }
 h4.head-2{
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 	letter-spacing: 4px;
 	text-align: left;
 }
@@ -151,7 +193,7 @@ h4.head-2{
 	margin-top: 30px;
 }
 :root{
-	--gradient: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
+	--gradient: linear-gradient(to right, #24c6dc, #514a9d);
 }
 button.head1{
 	margin-right: 10px;
@@ -214,7 +256,7 @@ button.head2:hover{
 #about-section{
 	padding-top: 100px;
 	min-height: 685px;
-	background: url('../../images/web-me-2-about.jpg') no-repeat;
+	background: url('../../../public/images/web-me-2-about.jpg') no-repeat;
 	background-size: contain;
 }
 .hr-about{
@@ -223,7 +265,7 @@ button.head2:hover{
 	border-radius: 50px;
 }
 h2.about2{
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 }
 .col-test{
 	padding-top: 70px;
@@ -235,7 +277,7 @@ h2.about2{
 .col-about-2{
 	padding-top: 50px;
 	padding-left: 50px;
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 	text-align: justify;
 }
 .garis-text{
@@ -266,7 +308,7 @@ h2.about2{
 #kompetisi-section{
 	padding-top: 130px;
 	padding-bottom: 100px;
-	background: url('../../images/kompetisi.jpg') no-repeat;
+	background: url('../../../public/images/kompetisi.jpg') no-repeat;
 	background-size: cover;
 }
 .card{
@@ -284,11 +326,11 @@ h2.about2{
 	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659);
 }
 .h1-kompetisi{
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 }
 .p-judul-kompetisi{
-	font-family: 'Jost Light', 'Arial';
-	font-size: 16px;
+	font-family: 'JOST_LIGHT', 'Arial';
+	font-size: 20px;
 }
 .hr-kompetisi{
 	width: 50px;
@@ -302,7 +344,7 @@ h4.card-title{
 	font-weight: bold;
 }
 .btn-kompetisi{
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 	padding-left: 50px;
 	padding-right: 50px;
 	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659);
@@ -331,7 +373,7 @@ h4.card-title{
 	min-height: 695px;
 	padding-top: 130px;
 	padding-bottom: 100px;
-	background: url('../../images/video-teaser.jpg') no-repeat;
+	background: url('../../../public/images/video-teaser.jpg') no-repeat;
 	background-size: cover;
 }
 .video-content{
@@ -348,16 +390,16 @@ h4.card-title{
 /*TIMELINE*/
 #timeline-section{
 	min-height: 705px;
-	background: url('../../images/footer-3.jpg') no-repeat;
+	background: url('../../../public/images/footer-3.jpg') no-repeat;
 	background-size: cover;
 	padding-top: 100px;
 }
 .h1-timeline{
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 }
 .col-timeline{
 	padding-top: 50px;
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 	border-radius: 10px;
 }
 .hr-timeline{
@@ -380,8 +422,8 @@ h4.card-title{
 	padding-top: 130px;
 	padding-bottom: 20px;
 	text-align: left;
-	font-family: 'Jost Light', 'Arial';
-	background: url('../../images/map.jpg') no-repeat;
+	font-family: 'JOST_LIGHT', 'Arial';
+	background: url('../../../public/images/map.jpg') no-repeat;
 	background-size: cover;
 }
 .col-img-kontak{
@@ -403,23 +445,23 @@ h4.card-title{
 
 /*FORM-DAFTAR*/
 body.daftar{
-	background: url('../../images/daftar.jpg') no-repeat;
+	background: url('../../../public/images/daftar.jpg') no-repeat;
 	background-size: cover;
 }
 #form-daftar{
 	padding-top: 10px;
 	padding-bottom: 100px;
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 }
 .form-title{
 	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
 	width: 100%;
-	font-family: "Jost Light", 'Roboto';
+	font-family: "JOST_BOLD", 'Roboto';
 	padding: 20px 0 10px 30px;
 	color: #fff;
 }
 label.label-judul{
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 }
 .col-form{
 	background: #f1f1f1;
@@ -472,21 +514,21 @@ label.label-judul{
 
 /*DASBOARD*/
 #bg-dasboard{
-	background: url('../../images/dasboard.jpg') no-repeat;
+	background: url('../../../public/images/dasboard.jpg') no-repeat;
 	background-size: cover;
 }
 .dasboard-nama-tim{
-	font-family: 'Jost Light', 'Roboto';
+	font-family: 'JOST_BOLD', 'Roboto';
 }
 .dasboard-lomba{
-	font-family: 'Jost Light', 'Arial';
-	font-size: 20px;
+	font-family: 'JOST_LIGHT', 'Arial';
+	font-size: 24px;
 }
 .justify{
 	text-align: justify;
 }
 #dasboard form{
-	font-family: 'Jost Light', 'Arial';
+	font-family: 'JOST_LIGHT', 'Arial';
 	text-align: left;
 }
 .btn-dasboard{
@@ -494,7 +536,7 @@ label.label-judul{
 }
 @media screen and (max-width: 768px) {
 	#bg-dasboard{
-		background: url('../../images/dasboard-mobile.jpg') no-repeat;
+		background: url('../../../public/images/dasboard-mobile.jpg') no-repeat;
 		background-size: cover;
 		padding-bottom: 50px;
 	}
