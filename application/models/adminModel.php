@@ -20,34 +20,47 @@ class adminModel extends CI_Model {
 		$match = password_verify($pwd , $user->row()->password);
 		$id = $user->row()->id_user;
 		$nama = $user->row()->nama;
-
-		$num2 = $this->db
-		->where('keterangan_panitia', 'super_admin')
-		->where('id_panitia', $id)
-		->get('panitia')->num_rows();
-
-
-		if ($num2==0) {
-			return 0;
+		$user = $user->row()->username;
+		if ($match) {
+				$this->session->set_userdata([
+					'username' =>  $user,
+					'status' => 'login-admin',
+					'name' => $nama
+				]);
+				$this->logLoginAdmin();
+				return 1;
 		}
 		else
 		{
-			$num = $user->num_rows();
-			if ($match) 
-			{
-				$this->session->set_userdata([
-					'username' =>  $user,
-					'status' => 'login',
-					'name' => $nama
-				]);
-				return $num;
-			}
-			else{
-				return 0;
-				}				
+			return 0;
 		}
 	}
 
+	public function logLoginAdmin(){
+		$ip = $this->getIP();
+		$user = $this->session->userdata('username');
+		$query = $this->db
+			->where('username', $user)
+			->get('user');
+		$id_panitia = $query->row()->id_user;
+		$data = array('ip_address' => $ip,
+			'keterangan' => 'Login Admin',
+			'waktu' => time(),
+			'id_panitia' => $id_panitia
+		 );
+		$this->db->insert('log_panitia', $data);
+
+	}
+
+	public function getIP(){
+		$ip = getenv('HTTP_CLIENT_IP')?:
+		getenv('HTTP_X_FORWARDED_FOR')?:
+		getenv('HTTP_X_FORWARDED')?:
+		getenv('HTTP_FORWARDED_FOR')?:
+		getenv('HTTP_FORWARDED')?:
+		getenv('REMOTE_ADDR');
+		return $ip;
+	}
 
 	public function kompetisi_FlashLOGO($data)
 	{
@@ -68,7 +81,6 @@ class adminModel extends CI_Model {
 			'rule' => $rule,
 			'url_logo' => $logo
 		);
-
 		$this->db->insert('lomba', $data);
 		$this->session->unset_userdata('rule');
 		$this->session->unset_userdata('logo');
@@ -76,12 +88,20 @@ class adminModel extends CI_Model {
 
 	public function tambahPanitia($username,$password,$kompetisi)
 	{	
-		$password = password_hash($password, PASSWORD_DEFAULT);
+		$row = $this->db->where('username',$username)->get('user')->num_rows();
+
+		if ($row==0) {
+			$password = password_hash($password, PASSWORD_DEFAULT);
 		$data = array('username' => $username,
 			'password' => $password,
 			'id_lomba' => $kompetisi
 		);
 		$this->db->insert('user', $data);
+		echo "1";
+		}
+		else{
+			echo '2';
+		}
 	}
 
 	public function getDatafullTable($table){

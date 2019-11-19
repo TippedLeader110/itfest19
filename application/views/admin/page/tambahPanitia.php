@@ -80,7 +80,7 @@
             	Swal.fire('Berhasil !!', 'Panitia berhasil ditambahkan !!', 'success')
             	}
             	else
-            		Swal.fire('Kesalahan!!', 'Gagal Menambahkan !!', 'error')
+            		Swal.fire('Kesalahan!!', 'Username telah digunakan !!', 'error')
             }
 		})
 	});

@@ -10,10 +10,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url("admin\login"));
-		}
-		else
+		$this->loginProtocol();
 		$data = [
 			'page'=>'admin\page\dashboard',
 			'title' => 'Dashboard'
@@ -23,6 +20,7 @@ class Admin extends CI_Controller {
 	##################PANITIA###################
 
 	public function panitia(){
+		$this->loginProtocol();
 		$data = [
 			'page'=>'admin\page\Panitia',
 			'title' => 'Kompetisi'
@@ -31,6 +29,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function dataPanitia(){
+		
 		$dataPanitia = $this->adminModel->getDatafullTable('panitia');
 		$data = [
 			'title' => 'Kompetisi',
@@ -40,6 +39,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function tambahPanitia(){
+		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
 			'page'=>'admin\page\tambahPanitia',
@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 		$password = $this->input->post('password');
 		$kompetisi = $this->input->post('kompetisi');
 		$this->adminModel->tambahPanitia($username,$password,$kompetisi);
-		echo "1";
+		
 
 	}
 
@@ -64,6 +64,7 @@ class Admin extends CI_Controller {
 
 
 	public function lomba(){
+		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
 			'page'=>'admin\page\Lomba',
@@ -74,6 +75,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function tambahLomba(){
+		$this->loginProtocol();
 		$data = [
 			'page'=>'admin\page\tambahLomba',
 			'title' => 'Tambah Kompetisi'
@@ -150,6 +152,7 @@ class Admin extends CI_Controller {
 
 	public function doLogin()
 	{
+		
 		$user = $this->input->post('user');
 		$pwd = $this->input->post('pwd');
 		// echo "0";
@@ -169,5 +172,12 @@ class Admin extends CI_Controller {
 		$p = password_hash("adminitfestusu2020admin", PASSWORD_DEFAULT);
 		$data = ['username'=>$a, 'password' => $p];
 		$this->db->insert('user', $data);
+	}
+
+	public function loginProtocol()
+	{
+		if(($this->session->userdata('status') != "login-admin") && ($this->session->userdata('panitia-id') == NULL)){
+			redirect(base_url("admin\login"));
+		}
 	}
 }
