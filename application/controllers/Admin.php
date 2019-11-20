@@ -12,20 +12,20 @@ class Admin extends CI_Controller {
 	{
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin\page\dashboard',
+			'page'=>'admin/page/dashboard',
 			'title' => 'Dashboard'
 		];
-		$this->load->view('admin\index', $data);
+		$this->load->view('admin/index', $data);
 	}
 	##################PANITIA###################
 
 	public function panitia(){
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin\page\Panitia',
+			'page'=>'admin/page/Panitia',
 			'title' => 'Kompetisi'
 		];
-		$this->load->view('admin\index', $data);
+		$this->load->view('admin/index', $data);
 	}
 
 	public function dataPanitia(){
@@ -35,18 +35,18 @@ class Admin extends CI_Controller {
 			'title' => 'Kompetisi',
 			'dataPanitia' => $dataPanitia
 		];
-		$this->load->view('admin\page\ajax\panitia', $data);
+		$this->load->view('admin/page/ajax/panitia', $data);
 	}
 
 	public function tambahPanitia(){
 		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
-			'page'=>'admin\page\tambahPanitia',
+			'page'=>'admin/page/tambahPanitia',
 			'title' => 'Tambah Panitia',
 			'dataLomba' => $dataLomba
 		];
-		$this->load->view('admin\index', $data);
+		$this->load->view('admin/index', $data);
 	}
 
 	public function DoTambahpanitia(){
@@ -67,20 +67,20 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
-			'page'=>'admin\page\Lomba',
+			'page'=>'admin/page/Lomba',
 			'title' => 'Kompetisi',
 			'dataLomba' => $dataLomba
 		];
-		$this->load->view('admin\index', $data);
+		$this->load->view('admin/index', $data);
 	}
 
 	public function tambahLomba(){
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin\page\tambahLomba',
+			'page'=>'admin/page/tambahLomba',
 			'title' => 'Tambah Kompetisi'
 		];
-		$this->load->view('admin\index', $data);
+		$this->load->view('admin/index', $data);
 	}
 	public function DoTambahlomba(){
 
@@ -147,7 +147,7 @@ class Admin extends CI_Controller {
 
 	public function login()
 	{
-		$this->load->view('admin\login');
+		$this->load->view('admin/login');
 	}
 
 	public function doLogin()
@@ -177,7 +177,7 @@ class Admin extends CI_Controller {
 	public function loginProtocol()
 	{
 		if(($this->session->userdata('status') != "login-admin") && ($this->session->userdata('panitia-id') == NULL)){
-			redirect(base_url("admin\login"));
+			redirect(base_url("admin/login"));
 		}
 	}
 }
