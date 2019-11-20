@@ -53,7 +53,7 @@ class Panitia extends CI_Controller {
 
 	#######################TAHAP#########################
 
-	public function tahapTambah()
+	public function tambahTahap()
 	{
 		$this->loginProtocol();
 		$data = [
