@@ -74,6 +74,11 @@ class panitiaModel extends CI_Model {
 		return $this->db->where('id_lomba', $var)->get('lomba')->result();
 	}
 
+	public function getKompetisiTahap(){
+		$var = $this->session->userdata('panitia-id');
+		return $this->db->where('id_lomba', $var)->get('tahap_lomba')->result();
+	}
+
 	public function kompetisi_tahapTambah($file,$desk,$id)
 	{
 		$data = array('file_tahap' => $file,
@@ -81,6 +86,11 @@ class panitiaModel extends CI_Model {
 			'id_lomba' => $id
 		);
 		$this->db->insert('tahap_lomba', $data);
+	}
+
+	public function delDatabyid($datab,$kol,$id){
+		$this->db->where($kol, $id)->delete($datab);
+		return 1;
 	}
 }
 ?>

@@ -55,10 +55,18 @@ class Panitia extends CI_Controller {
 	public function Tahap()
 	{
 		$this->loginProtocol();
+		$dataGet = $this->panitiaModel->getKompetisiTahap();
 		$data = [
-			'title' => 'Tambah Tahap'
+			'title' => 'Tambah Tahap',
+			'dataTahap' => $dataGet
 		];
 		$this->load->view('panitia/page/tahap', $data);
+	}
+
+	public function hapusTahap(){
+		$id = $this->input->post('value');
+		$done = $this->panitiaModel->delDatabyid('tahap_lomba', 'id_tahap', $id);
+		echo $done;
 	}
 
 	public function tambahTahap()

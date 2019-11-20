@@ -13,7 +13,7 @@
 		<?php if (isset($dataTahap)): ?>
 			<?php $cout = 1 ?>
 			<?php foreach ($dataTahap as $key => $dTahap): ?>
-				<div class="col-4">
+				<div class="col-4" style="margin-top: 20px;">
 					<div class="card">
 					    <div class="card-header" id="headingThree">
 					      	<div class="text-title">
@@ -25,9 +25,9 @@
 						</div>
 				    <div class="card-body card-size">
 				    	<div class="text-justify text-card">
-				    		<?php echo $dTahap->deskripsi ?>
+				    		<?php echo $dTahap->deskripsi_tahap ?>
 				    	</div>
-				    	<button class="btn btn-outline-success">Download</button>&nbsp;<button class="btn btn-outline-primary">Edit</button>
+				    	<button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button>
 				    </div>
 					</div>
 				</div>
@@ -40,4 +40,61 @@
 	$('#tambahDO').click(function(event) {
 		$('#contentPage').load('tambahTahap');
 	});
+
+	function openInNewTab(va) {
+		var url = "<?php echo base_url('public/kompetisi/tahap/')?>";
+		url.append(va);
+	  	var win = window.open(url, '_blank');
+	  	win.focus();
+	}
+
+	function reload(){
+		$('#contentPage').load('Tahap');
+	}
+
+	function hapusTahap(value){
+		console.log(value);
+		Swal.fire({
+		title: 'Apakah anda yakin?',
+		text: "Perubahan tidak dapat diundurkan!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya, Hapus!!',
+		cancelButtonText: 'Mungkin tidak'
+		}).then((result) => {
+			if (result.value) {
+			    $.ajax({
+			    	url: '<?php echo base_url('panitia/hapusTahap') ?>',
+			    	type: 'post',
+			    	data: {value:value},
+			    	success: function(er){
+			    		if (er==1) {
+							console.log(er);
+							Swal.fire(
+						      'Terhapus!',
+						      'Tahapan seleksi dengan id #'+ value +' telah di hapus!!.',
+						      'success'
+						    );
+						    reload();
+						}
+						else{
+							console.log(er);
+							Swal.fire('Gagal','Terjadi kesalahan', 'error');
+						}
+
+			    		
+			    	},
+			    	error: function(er){
+
+			    	}
+			    });
+			}
+			else{
+			}
+		})
+	}
+
+
 </script>
