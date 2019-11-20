@@ -12,5 +12,5 @@
 
    $("#KelolahTahapan").click(function(event) {
    		event.preventDefault();
-   		$('#contentPage').load('tambahTahap');
+   		$('#contentPage').load('Tahap');
    });

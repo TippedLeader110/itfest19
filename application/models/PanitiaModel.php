@@ -31,7 +31,7 @@ class panitiaModel extends CI_Model {
 					'username' =>  $username,
 					'status' => 'login-panitia',
 					'name' => $nama,
-					'panitia-id' => $num2
+					'panitia-id' => $num2,
 				]);
 				$this->LogLoginPanitia();
 				return 1;
@@ -74,6 +74,13 @@ class panitiaModel extends CI_Model {
 		return $this->db->where('id_lomba', $var)->get('lomba')->result();
 	}
 
-
+	public function kompetisi_tahapTambah($file,$desk,$id)
+	{
+		$data = array('file_tahap' => $file,
+			'deskripsi_tahap' => $desk,
+			'id_lomba' => $id
+		);
+		$this->db->insert('tahap_lomba', $data);
+	}
 }
 ?>

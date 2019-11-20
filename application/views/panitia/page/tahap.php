@@ -1,46 +1,43 @@
-<div class="page">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h5>Tahapan seleksi kompetisi ITFest 4.0 Universitas Sumatera Utara</h5>
-				<hr>
-			</div>
+<div class="container-fluid">
+	<div class="row">
+		<div>
+			<h5>kelolah jumlah tahapan seleksi kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
+			<hr>
+			
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="row">
-					<div class="col-12">
-						<div class="form-group">
-							<label class="form-control-label" for="judulSeleksi">Judul Tahapan Seleksi</label>
-							<input class="form-control" type="text" name="judul" id="judulSeleksi" required>
-							<div class="invalid-feedback">Tolong isi judul</div>
+		<div class="container-fluid">
+			<button class="btn btn-primary" id="tambahDO">Tambah</button>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 20px;">
+		<?php if (isset($dataTahap)): ?>
+			<?php $cout = 1 ?>
+			<?php foreach ($dataTahap as $key => $dTahap): ?>
+				<div class="col-4">
+					<div class="card">
+					    <div class="card-header" id="headingThree">
+					      	<div class="text-title">
+					      		<h5 class="mb-0">
+					      		Tahap #<?php echo $cout ?>
+					      		<?php $cout++; ?>
+					      		</h5>
+					      	</div>
 						</div>
-					</div>
-					<div class="col-12">
-						<div class="form-group">
-							<label class="form-control-label" for="deskripsiSeleksi">Judul Tahapan Seleksi</label>
-							<textarea class="form-control" id="deskripsiSeleksi"></textarea>
-								<div class="invalid-feedback">Tolong Deskripsi</div>
-						</div>
+				    <div class="card-body card-size">
+				    	<div class="text-justify text-card">
+				    		<?php echo $dTahap->deskripsi ?>
+				    	</div>
+				    	<button class="btn btn-outline-success">Download</button>&nbsp;<button class="btn btn-outline-primary">Edit</button>
+				    </div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-8">
-						<div class="custom-file">
-						    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Tahapan Seleksi...</label>
-						    <div class="invalid-feedback">Tolong input file</div>
-						</div>
-					</div>
-					<div class="col-3">
-						<button class="btn btn-outline-primary">Tambah</button>
-					</div>
-				</div>
-			</div>
-		</div>
+			<?php endforeach ?>
+		<?php endif ?>
 	</div>
 </div>
 
 <script type="text/javascript">
-
+	$('#tambahDO').click(function(event) {
+		$('#contentPage').load('tambahTahap');
+	});
 </script>

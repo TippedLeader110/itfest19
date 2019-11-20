@@ -34,13 +34,13 @@
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
+                        <a href="#">Laporan Singkat</a>
+                    </li>
+                    <li>
                         <a href="#">Laporan Lulus</a>
                     </li>
                     <li>
                         <a href="#">Laporan Berkas</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
                     </li>
                 </ul>
             </li>
