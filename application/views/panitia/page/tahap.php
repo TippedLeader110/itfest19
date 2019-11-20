@@ -2,15 +2,39 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<button id="tambahTahap" class="btn">Tambah</button>
+				<h5>Tahapan seleksi kompetisi ITFest 4.0 Universitas Sumatera Utara</h5>
+				<hr>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<div id="tambahShow">
-					<input type="text" class="form-control " name="judul" id="judul" placeholder="Judul Tahap">
-					<textarea class="form-control" name="deskripsi" placeholder="Deskripsi"></textarea>
-					<input type="file" name="file">
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label class="form-control-label" for="judulSeleksi">Judul Tahapan Seleksi</label>
+							<input class="form-control" type="text" name="judul" id="judulSeleksi" required>
+							<div class="invalid-feedback">Tolong isi judul</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label class="form-control-label" for="deskripsiSeleksi">Judul Tahapan Seleksi</label>
+							<textarea class="form-control" id="deskripsiSeleksi"></textarea>
+								<div class="invalid-feedback">Tolong Deskripsi</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-8">
+						<div class="custom-file">
+						    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Tahapan Seleksi...</label>
+						    <div class="invalid-feedback">Tolong input file</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<button class="btn btn-outline-primary">Tambah</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -19,23 +43,4 @@
 
 <script type="text/javascript">
 
-	$(document).ready(function(e) {
-		$('#tambahShow').hide('fast');
-	});
-
-	$('#tambahTahap').click(function(e) {
-		e.preventDefault();
-		// Swal.fire('TEST','TEST','error');
-		$('#tambahShow').toggle('fast');
-		$('#tambahTahap').toggleClass('btn-primary');
-		var ali;
-		ali = $('#judul').val();
-		console.log(ali);
-	});
-
-	$('#judul').keyup(function(event) {
-		var ali;
-		ali = $('#judul').val();
-		console.log(ali);
-	});
 </script>
