@@ -18,10 +18,7 @@ class Pendaftaran extends CI_Controller {
 	 */
 
 	public function main(){
-		
-	}
-	public function PendaftaranPesertaLomba(){
-		$this->load->view('Pendaftaran/pendaftaranlomba');
+		$this->load->view('Pendaftaran/pendaftaranPesertaLomba');
 	}
 }
 ?>
