@@ -30,14 +30,14 @@
 <body>
 
 <div class="container border" style="margin-top: 5px; padding: 2px 2px 2px 2px;">
-	<h3>Pendaftaran Peserta Lomba</h3>
+	<h4>Pendaftaran Peserta Lomba - ITFest 4.0</h4>
 </div>
 
 
 <form>
 	<div class="container border" style="margin-top: 10px; margin-bottom: 10px;">
 	<div class="row">
-		<div class="col-6 border" style="padding-bottom: 20px;"> <!-- bagian kiri -->
+		<div class="col-6 " style="padding-bottom: 20px; margin-top: 10px; margin-bottom: 10px;"> <!-- bagian kiri -->
 
 			<div class="border" style="padding: 5px 5px 5px 5px;">
 				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Data Lomba</b></header>
@@ -173,7 +173,7 @@
 
 		<!-- Batas Kanan dan kiri -->
 
-		<div class="col-6 border" style="padding-bottom: 20px;"> <!-- bagian kanan -->
+		<div class="col-6" style="padding-bottom: 20px; margin-top: 10px; margin-bottom: 10px;"> <!-- bagian kanan -->
 			<div class="border" style="padding: 3px 3px 3px 3px;">
 				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Anggota Tim 1</b></header>
 				<div class="row">

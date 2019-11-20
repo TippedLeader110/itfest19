@@ -23,5 +23,8 @@ class Pendaftaran extends CI_Controller {
 	public function PendaftaranPesertaLomba(){
 		$this->load->view('Pendaftaran/pendaftaranlomba');
 	}
+	public function PendaftaranPesertaSeminar(){
+		$this->load->view('Pendaftaran/pendaftaranPesertaSeminar');
+	}
 }
 ?>
