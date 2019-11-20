@@ -1,46 +1,99 @@
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<div class="page">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<button id="tambahTahap" class="btn">Tambah</button>
-			</div>
+<div class="container-fluid">
+	<div class="row">
+		<div>
+			<h5>kelolah jumlah tahapan seleksi kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
+			<hr>
+			
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<div id="tambahShow">
-					<input type="text" class="form-control " name="judul" id="judul" placeholder="Judul Tahap">
-					<textarea class="form-control" name="deskripsi" placeholder="Deskripsi"></textarea>
-					<input type="file" name="file">
+		<div class="container-fluid">
+			<button class="btn btn-primary" id="tambahDO">Tambah</button>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 0px;">
+		<?php if (isset($dataTahap)): ?>
+			<?php $cout = 1 ?>
+			<?php foreach ($dataTahap as $key => $dTahap): ?>
+				<div class="col-4" style="margin-top: 20px;">
+					<div class="card">
+					    <div class="card-header" id="headingThree">
+					      	<div class="text-title">
+					      		<h5 class="mb-0">
+					      		Tahap #<?php echo $cout ?>
+					      		<?php $cout++; ?>
+					      		</h5>
+					      	</div>
+						</div>
+				    <div class="card-body card-size">
+				    	<div class="text-justify text-card">
+				    		<?php echo $dTahap->deskripsi_tahap ?>
+				    	</div>
+				    	<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
+				    </div>
+					</div>
 				</div>
-			</div>
-		</div>
+			<?php endforeach ?>
+		<?php endif ?>
 	</div>
 </div>
 
 <script type="text/javascript">
-
-	$(document).ready(function(e) {
-		$('#tambahShow').hide('fast');
+	$('#tambahDO').click(function(event) {
+		$('#contentPage').load('tambahTahap');
 	});
 
-	$('#tambahTahap').click(function(e) {
-		e.preventDefault();
-		// Swal.fire('TEST','TEST','error');
-		$('#tambahShow').toggle('fast');
-		$('#tambahTahap').toggleClass('btn-primary');
-		var ali;
-		ali = $('#judul').val();
-		console.log(ali);
-	});
+	function openInNewTab(va) {
+		var url = "<?php echo base_url('public/kompetisi/tahap/')?>" + va;
+	  	var win = window.open(url, '_blank');
+	  	win.focus();
+	}
 
-	$('#judul').keyup(function(event) {
-		var ali;
-		ali = $('#judul').val();
-		console.log(ali);
-	});
+	function reload(){
+		$('#contentPage').load('Tahap');
+	}
+
+	function hapusTahap(value){
+		console.log(value);
+		Swal.fire({
+		title: 'Apakah anda yakin?',
+		text: "Perubahan tidak dapat diundurkan!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya, Hapus!!',
+		cancelButtonText: 'Mungkin tidak'
+		}).then((result) => {
+			if (result.value) {
+			    $.ajax({
+			    	url: '<?php echo base_url('panitia/hapusTahap') ?>',
+			    	type: 'post',
+			    	data: {value:value},
+			    	success: function(er){
+			    		if (er==1) {
+							console.log(er);
+							Swal.fire(
+						      'Terhapus!',
+						      'Tahapan seleksi dengan id #'+ value +' telah di hapus!!.',
+						      'success'
+						    );
+						    reload();
+						}
+						else{
+							console.log(er);
+							Swal.fire('Gagal','Terjadi kesalahan', 'error');
+						}
+
+			    		
+			    	},
+			    	error: function(er){
+
+			    	}
+			    });
+			}
+			else{
+			}
+		})
+	}
+
+
 </script>

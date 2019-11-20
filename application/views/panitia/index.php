@@ -5,70 +5,90 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 	<title><?php echo $title ?></title>
 </head>
-<body>
-	<header>
-		<!-- NAVBAR BOOTSTRAP -->
-		<?php $this->load->view('panitia/navbar'); ?>
-	</header>
-	<div class="mainpage">
-		<div class="row" style="margin-right: 0px;">
-			<div class="col-3 leftbar">
-				<div id="fixed" class="sticky-top">
-					<?php $this->load->view('panitia/leftbar') ?>
-				</div>
-			</div>
-			<div class="col-9 rightbar">
-				<div class="row">
-					<div class="col-8">
-						<?php $this->load->view($page); ?>
-						<div class="container" style="background: white;border: 1px solid gray">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</div>
-					</div>
-					<div class="col-4">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body style="background: #fafafa;">
+	<?php foreach ($dataGet as $key => $value): ?>
+	<?php endforeach ?>
+	<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><center><img width="100px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"><br>
+            	<h4><?php echo $value->nama_lomba ?></h4>
+            </center></h3>
+            <strong>
+            	<img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>">
+            </strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Laporan Singkat</a>
+                    </li>
+                    <li>
+                        <a href="#">Laporan Lulus</a>
+                    </li>
+                    <li>
+                        <a href="#">Laporan Berkas</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pagePesertamenu" data-toggle='collapse' aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-user"></i>
+                    Peserta
+                </a>
+                <ul class="collapse list-unstyled" id="pagePesertamenu">
+                	<li>
+                		<a href="">Seleksi Berkas</a>
+                	</li>
+                	<li>
+                		<a href="">Daftar Peserta</a>
+                	</li>
+                	<li>
+                		<a href="">Peserta Lulu</a>
+                	</li>
+                </ul>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Tahapan Kompetisi
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#" id="KelolahTahapan">Kelolah Tahapan</a>
+                    </li>
+                    <li>
+                        <a href="#">Laporan Tahapan</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- NAVBAR -->
+       	<?php $this->load->view('panitia/navbar') ?>
+        <!-- NAVBAR -->
+        <div id="contentPage">
+        	
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
-<script type="text/javascript">
-// $(document).ready(function(e) {
-//     var tinggi =  $('header').height();
-//     console.log(tinggi);
-
-//     $(window).scroll(function(event) {
-//     	var d = $(window).scrollTop();
-//     	console.log(d);
-//     	if (d>=tinggi) {
-//     		$('#fixed').addClass('position-fixed');
-//     	}
-//     	else{
-//     		$('#fixed').removeClass('position-fixed');
-//     	}
-//     });
-
-// });
-</script>
+<script type="text/javascript" src="<?php echo base_url('/assets/js/panitia.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>

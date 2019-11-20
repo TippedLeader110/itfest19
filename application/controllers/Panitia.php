@@ -52,13 +52,48 @@ class Panitia extends CI_Controller {
 	}
 
 	#######################TAHAP#########################
+	public function Tahap()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->panitiaModel->getKompetisiTahap();
+		$data = [
+			'title' => 'Tambah Tahap',
+			'dataTahap' => $dataGet
+		];
+		$this->load->view('panitia/page/tahap', $data);
+	}
 
-	public function tahapTambah()
+	public function hapusTahap(){
+		$id = $this->input->post('value');
+		$done = $this->panitiaModel->delDatabyid('tahap_lomba', 'id_tahap', $id);
+		echo $done;
+	}
+
+	public function tambahTahap()
 	{
 		$this->loginProtocol();
 		$data = [
 			'title' => 'Tambah Tahap'
 		];
-		$this->load->view('panitia/page/tahap', $data);
+		$this->load->view('panitia/page/tambahTahap', $data);
+	}
+
+	public function doTambahtahap(){
+		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
+        $config['allowed_types']='pdf|JPEG|jpg|pdf'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload',$config,'tahapUP'); //call library upload 
+        $this->tahapUP->initialize($config);
+        if($this->tahapUP->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->tahapUP->data()); //ambil file name yang diupload
+            $filename= $data['upload_data']['file_name']; //set file name ke variable image
+            $desk = $this->input->post('deskripsi');
+            $id = $this->input->post('id');
+            $this->panitiaModel->kompetisi_tahapTambah($filename,$desk,$id); //simpan data sementara
+            echo "1";
+        }
+        else{
+        	echo "Gagal Upload / Unknown Folder / Tidak ada permission DIR";
+        }
 	}
 }
