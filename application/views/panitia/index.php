@@ -27,17 +27,17 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li class="active">
+            <li>
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Laporan Singkat</a>
+                        <a href="#" id="reportSingkat">Laporan Singkat</a>
                     </li>
                     <li>
-                        <a href="#">Laporan Lulus</a>
+                        <a href="#" id="reportTahap">Laporan Tahapan</a>
                     </li>
                     <li>
                         <a href="#">Laporan Berkas</a>
@@ -68,9 +68,6 @@
                     <li>
                         <a href="#" id="KelolahTahapan">Kelolah Tahapan</a>
                     </li>
-                    <li>
-                        <a href="#">Laporan Tahapan</a>
-                    </li>
                 </ul>
             </li>
         </ul>
@@ -92,3 +89,7 @@
 
 <script type="text/javascript" src="<?php echo base_url('/assets/js/panitia.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
+
+<script type="text/javascript">
+	$('#contentPage').load('reSingkat');
+</script>

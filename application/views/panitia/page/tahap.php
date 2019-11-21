@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<div>
+		<div class="col-12">
 			<h5>kelolah jumlah tahapan seleksi kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 			
@@ -15,7 +15,7 @@
 			<?php foreach ($dataTahap as $key => $dTahap): ?>
 				<div class="col-4" style="margin-top: 20px;">
 					<div class="card">
-					    <div class="card-header" id="headingThree">
+					    <div class="card-header card-header-mod" id="headingThree">
 					      	<div class="text-title">
 					      		<h5 class="mb-0">
 					      		Tahap #<?php echo $cout ?>

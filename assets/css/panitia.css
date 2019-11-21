@@ -150,8 +150,9 @@ span {
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #6d7fcc;
+    /*background: #6d7fcc;*/
+    background: #fafafa;
 }
 
 a[data-toggle="collapse"] {
@@ -284,4 +285,9 @@ a.article:hover {
 .text-title{
   max-width: 450px;
   overflow: hidden;
+}
+
+.card-header-mod{
+  overflow: auto;
+  height: 80px;
 }
