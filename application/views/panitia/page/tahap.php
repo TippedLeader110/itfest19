@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<div>
+		<div class="col-12">
 			<h5>kelolah jumlah tahapan seleksi kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 			

@@ -2,6 +2,14 @@
 	
 <?php endforeach ?>
 
-<h5>Total Jumlah TIM : <?php echo $vasubreTahap->jumlah ?></h5>
-<h5>Total Tim Lulus : <?php echo $vasubreTahap->jumlah-$vasubreTahap->jumlah_gagal ?></h5>
-<h5>Total Tim Gagal : <?php echo $vasubreTahap->jumlah_gagal ?></h5>
+<table>
+	<tr>
+		<td><h6>Jumlah Tim yang mengikuti Seleksi </h6></td><td><h6> : <?php echo $vasubreTahap->jumlah ?></h6></td>
+	</tr>
+	<tr>
+		<td><h6>Total Tim Lulus Seleksi </h6></td><td><h6> : <?php echo $vasubreTahap->jumlah-$vasubreTahap->jumlah_gagal ?></h6></td>
+	</tr>
+	<tr>
+		<td><h6>Total Tim Gagal Seleksi </h6></td><td><h6> : <?php echo $vasubreTahap->jumlah_gagal ?></h6></td>
+	</tr>
+</table>
