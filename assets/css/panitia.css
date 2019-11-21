@@ -286,7 +286,7 @@ a.article:hover {
   overflow: hidden;
 }
 
-.card-header{
+.card-header-mod{
   overflow: auto;
   height: 80px;
 }

@@ -115,15 +115,11 @@
 	  		<div class="card-body">
 	  			<div>
 	    			<h1 class="card-title text-center">
-						<?php $nilai = $Ddash->total_peserta+$nilai1; echo $nilai; ?>
+						<?php $nilai = $Ddash->jumlah_tolak+$nilai1; echo $nilai; ?>
 	    			</h1>
 	    		</div>
 	  		</div>
 		</div>
 	</div>
-
-	
-
 	</div>
 	</div>
-

@@ -95,7 +95,14 @@ class panitiaModel extends CI_Model {
 
 	public function getTahap($id)
 	{
-		$this->db->where('id_lomba', $id)->get('lomba_tahap');
+		$data = $this->db->where('id_lomba', $id)->get('tahap_lomba');
+		return $data->result();
+	}
+
+	public function detailTahap($id,$thp)
+	{
+		$query = $this->db->query("CALL seleksi_info('.$id.','.$thp.')");
+        return $query->result();
 	}
 
 	public function getSingkat($id)

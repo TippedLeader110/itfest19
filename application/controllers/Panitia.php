@@ -68,12 +68,23 @@ class Panitia extends CI_Controller {
 	{
 		$this->loginProtocol();
 		$id = $this->session->userdata('panitia-id');
-		$dataGet = $this->panitiaModel->getTahap('$id');
+		$dataGet = $this->panitiaModel->getTahap($id);
 		$data = [
 			'title' => 'Laporan Singkat',
-			'reTahap' => $dataGet
+			'reTahap' => $dataGet,
 		];
 		$this->load->view('panitia/page/reTahap', $data);
+	}
+
+	public function subreTahap(){
+		$this->loginProtocol();
+		$tahap = $this->uri->segment(3);
+		$id = $this->session->userdata('panitia-id');
+		$dataGet = $this->panitiaModel->detailTahap($id,$tahap);
+		$data = [
+			'subreTahap' => $dataGet
+		];
+		$this->load->view('panitia/page/subpage/reTahap', $data);	
 	}
 
 	#######################TAHAP#########################

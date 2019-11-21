@@ -89,3 +89,7 @@
 
 <script type="text/javascript" src="<?php echo base_url('/assets/js/panitia.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
+
+<script type="text/javascript">
+	$('#contentPage').load('reSingkat');
+</script>

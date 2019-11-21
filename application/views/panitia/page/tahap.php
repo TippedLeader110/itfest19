@@ -15,7 +15,7 @@
 			<?php foreach ($dataTahap as $key => $dTahap): ?>
 				<div class="col-4" style="margin-top: 20px;">
 					<div class="card">
-					    <div class="card-header" id="headingThree">
+					    <div class="card-header card-header-mod" id="headingThree">
 					      	<div class="text-title">
 					      		<h5 class="mb-0">
 					      		Tahap #<?php echo $cout ?>
