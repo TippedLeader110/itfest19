@@ -92,5 +92,16 @@ class panitiaModel extends CI_Model {
 		$this->db->where($kol, $id)->delete($datab);
 		return 1;
 	}
+
+	public function getTahap($id)
+	{
+		$this->db->where('id_lomba', $id)->get('lomba_tahap');
+	}
+
+	public function getSingkat($id)
+	{
+		$query = $this->db->query("CALL report_lomba('.$id.')");
+        return $query->result();
+	}
 }
 ?>

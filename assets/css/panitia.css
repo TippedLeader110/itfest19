@@ -285,3 +285,8 @@ a.article:hover {
   max-width: 450px;
   overflow: hidden;
 }
+
+.card-header{
+  overflow: auto;
+  height: 80px;
+}

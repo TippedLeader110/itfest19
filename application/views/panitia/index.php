@@ -34,10 +34,10 @@
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Laporan Singkat</a>
+                        <a href="#" id="reportSingkat">Laporan Singkat</a>
                     </li>
                     <li>
-                        <a href="#">Laporan Lulus</a>
+                        <a href="#" id="reportTahap">Laporan Tahapan</a>
                     </li>
                     <li>
                         <a href="#">Laporan Berkas</a>
@@ -67,9 +67,6 @@
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
                         <a href="#" id="KelolahTahapan">Kelolah Tahapan</a>
-                    </li>
-                    <li>
-                        <a href="#">Laporan Tahapan</a>
                     </li>
                 </ul>
             </li>
