@@ -12,4 +12,7 @@
 	<tr>
 		<td><h6>Total Tim Gagal Seleksi </h6></td><td><h6> : <?php echo $vasubreTahap->jumlah_gagal ?></h6></td>
 	</tr>
+	<tr>
+		<td colspan="2" align="right"><button class="btn btn-light">Seleksi Tim</button></td>
+	</tr>
 </table>

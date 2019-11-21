@@ -27,7 +27,7 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li class="active">
+            <li>
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-home"></i>
                     Dashboard
