@@ -110,5 +110,51 @@ class panitiaModel extends CI_Model {
 		$query = $this->db->query("CALL report_lomba('.$id.')");
         return $query->result();
 	}
+
+	public function getBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->query("CALL berkas_info('.$id.')");
+		return $query->result();
+	}
+
+	public function getsumBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getnewBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim is null', NULL, FALSE);
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getrejectBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim', 0);
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getacepttBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim', 1);
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}	
 }
 ?>

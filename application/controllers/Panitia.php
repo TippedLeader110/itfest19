@@ -87,6 +87,18 @@ class Panitia extends CI_Controller {
 		$this->load->view('panitia/page/subpage/reTahap', $data);	
 	}
 
+	public function reBerkas()
+	{
+		$this->loginProtocol();
+		$id = $this->session->userdata('panitia-id');
+		$dataGet = $this->panitiaModel->getBerkas($id);
+		$data = [
+			'title' => 'Laporan Singkat',
+			'reBerkas' => $dataGet,
+		];
+		$this->load->view('panitia/page/reBerkas', $data);
+	}
+
 	#######################TAHAP#########################
 	public function Tahap()
 	{
@@ -132,4 +144,5 @@ class Panitia extends CI_Controller {
         	echo "Gagal Upload / Unknown Folder / Tidak ada permission DIR";
         }
 	}
+
 }
