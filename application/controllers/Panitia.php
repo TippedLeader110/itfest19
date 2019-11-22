@@ -103,8 +103,73 @@ class Panitia extends CI_Controller {
 	}
 	#######################TIM###########################
 
+	public function seleksiBerkas()
+	{
+		$this->loginProtocol();
+		
+		$data = [
+			'title' => 'Kelolah Tim Peserta'
+		];
+		$this->load->view('panitia/page/seleksiBerkas', $data);
+	}
+
+	public function subseleksiBerkas()
+	{
+		$this->loginProtocol();
+		// if ($this->input->get('cari')!=null) {
+			// var_dump($this->input->get('cari'));
+		// }
+		$id = $this->session->userdata('panitia-id');
+		// $dataGet = $this->panitiaModel->getTim($id);
+		$this->load->library('pagination');
+		$config['per_page'] = 5;
+		$from = $this->uri->segment(3);
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+		$data['from'] = $from;
+		$tag = $this->input->get('tag');
+		if ($this->input->get('cari')!=NUll) {
+			$cari = $this->input->get('cari');
+			$dataGet = $this->panitiaModel->getBerkascari($config['per_page'],$from,$id,$cari,$tag);
+			$jumlah_data = $this->panitiaModel->sumBerkascari('tim',$id,$cari,$tag);
+			$data = [
+				'title' => 'Kelolah Tim Peserta',
+				'daftarTim' => $dataGet,
+				'cari' => $cari
+			];
+		}
+		else{
+			$dataGet = $this->panitiaModel->getBerkas2($config['per_page'],$from,$id,$tag);
+			$jumlah_data = $this->panitiaModel->sumBerkas('tim',$id,$tag);
+			$data = [
+				'title' => 'Kelolah Tim Peserta',
+				'daftarTim' => $dataGet
+			];
+		}
+		$config['total_rows'] = $jumlah_data;
+		$this->pagination->initialize($config);		
+		
+		$this->load->view('panitia/page/subpage/seleksiBerkas', $data);
+	}
 
 	public function daftarTim(){
+		$this->loginProtocol();
 		
 		$data = [
 			'title' => 'Kelolah Tim Peserta'
@@ -114,6 +179,7 @@ class Panitia extends CI_Controller {
 
 	public function subdaftarTim()
 	{
+		$this->loginProtocol();
 		// if ($this->input->get('cari')!=null) {
 			// var_dump($this->input->get('cari'));
 		// }
@@ -166,7 +232,18 @@ class Panitia extends CI_Controller {
 		$this->load->view('panitia/page/subpage/daftarTim', $data);
 	}
 
-	
+	public function modalTim()
+	{
+		$this->loginProtocol();
+		$tim = $this->input->get('tim');
+		// var_dump($tim);
+		$dataGet = $this->panitiaModel->infoTim($tim);
+		$data = [
+				'title' => 'Kelolah Tim Peserta',
+				'modalTim' => $dataGet
+			];
+		$this->load->view('panitia/page/subpage/modalTim', $data);
+	}
 	#######################TIM###########################
 	#######################TAHAP#########################
 	public function Tahap()

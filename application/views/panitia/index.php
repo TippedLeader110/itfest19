@@ -20,6 +20,7 @@
         <div class="sidebar-header">
             <h3><center><img width="100px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"><br>
             	<h4><?php echo $value->nama_lomba ?></h4>
+            	<?php $judul =$value->nama_lomba ?>
             </center></h3>
             <strong>
             	<img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>">
@@ -51,7 +52,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pagePesertamenu">
                 	<li>
-                		<a href="#">Seleksi Berkas</a>
+                		<a href="#" id="seleksiBerkas">Seleksi Berkas</a>
                 	</li>
                 	<li>
                 		<a href="#" id="daftarTim">Tim Peserta</a>

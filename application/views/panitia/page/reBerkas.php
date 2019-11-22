@@ -45,8 +45,12 @@
 				    <span class="badge badge-primary badge-pill"><?php echo $Berkas->jumlah ?></span>
 				</li>
 			    <li class="list-group-item d-flex justify-content-between align-items-center">
-				    Jumlah Tim belum verifikasi pembayaran
+				    Jumlah Tim sudah verifikasi pembayaran
 				    <span class="badge badge-primary badge-pill"><?php echo $Singkat->jumlah_bayar ?></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+				    Jumlah Tim belum verifikasi pembayaran
+				    <span class="badge badge-primary badge-pill"><?php echo $Berkas->jumlah-$Singkat->jumlah_bayar ?></span>
 				</li>
 			</ul>
 			</div>

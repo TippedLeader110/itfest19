@@ -2,12 +2,23 @@
 	<div class="table-responsive">
 		<table class="table table-striped">
 			<tr>
-				<th>Nama Tim</th><th>Universitas</th><th>Aksi</th>
+				<th>Nama Tim</th><th>Universitas</th><th>Status Tim</th><th>Aksi</th>
 			</tr>
 		<?php foreach ($daftarTim as $key => $dTim): ?>
 			<tr>
 				<td><?php echo $dTim->nama_team ?></td>
 				<td><?php echo $dTim->asal_univ ?></td>
+
+				<?php if ($dTim->status_tim==1): ?>
+					<td>Sudah Terverifikasi</td>
+				<?php endif ?>
+				<?php if ($dTim->status_tim==NULL): ?>
+					<td>Belum Terverifikasi</td>
+				<?php endif ?>
+				<?php if ($dTim->status_tim=='0'): ?>
+					<td>Ditolak</td>
+				<?php endif ?>
+
 				<td><button class="btn btn-outline-info" onclick="timInfo(<?php echo $dTim->id_tim ?>)">Info</button></td>
 			</tr>
 		<?php endforeach ?>
@@ -43,11 +54,13 @@
     	e.preventDefault();
     	var href = $(this).attr("href");
     	// console.log(href);
+    	tag = $('#tag').val();
+		tag = encodeURIComponent(tag);
     	<?php if (isset($cari)): ?>
-		$('.subContent').load('<?php echo base_url('panitia/subdaftarTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>');
+		$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&tag=' + tag);
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('.subContent').load('<?php echo base_url('panitia/subdaftarTim')?>' + href);
+    	$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas')?>' + href + '?tag=' + tag);
 		<?php endif ?>
 	});
 
@@ -55,11 +68,13 @@
     	e.preventDefault();
     	var href = $(this).find('a').attr("href");
     	// console.log(href);
+    	tag = $('#tag').val();
+		tag = encodeURIComponent(tag);
 		<?php if (isset($cari)): ?>
-		$('.subContent').load('<?php echo base_url('panitia/subdaftarTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>');
+		$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&tag=' + tag);
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('.subContent').load('<?php echo base_url('panitia/subdaftarTim')?>' + href);
+    	$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas')?>' + href + '?tag=' + tag);
 		<?php endif ?>
 	});
 

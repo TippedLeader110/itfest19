@@ -33,3 +33,8 @@
    		event.preventDefault();
    		$('#contentPage').load('daftarTim');
    	});   
+
+   	$("#seleksiBerkas").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('seleksiBerkas');
+   	});   
