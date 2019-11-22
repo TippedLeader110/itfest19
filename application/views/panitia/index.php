@@ -40,24 +40,24 @@
                         <a href="#" id="reportTahap">Laporan Tahapan</a>
                     </li>
                     <li>
-                        <a href="#">Laporan Berkas</a>
+                        <a href="#" id="reportBerkas">Laporan Berkas</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#pagePesertamenu" data-toggle='collapse' aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-user"></i>
-                    Peserta
+                    Tim
                 </a>
                 <ul class="collapse list-unstyled" id="pagePesertamenu">
                 	<li>
-                		<a href="">Seleksi Berkas</a>
+                		<a href="#">Seleksi Berkas</a>
                 	</li>
                 	<li>
-                		<a href="">Daftar Peserta</a>
+                		<a href="#" id="daftarTim">Tim Peserta</a>
                 	</li>
                 	<li>
-                		<a href="">Peserta Lulu</a>
+                		<a href="#">Seleksi Tim</a>
                 	</li>
                 </ul>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

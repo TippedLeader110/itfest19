@@ -8,6 +8,7 @@ class panitiaModel extends CI_Model {
 		parent::__construct();
 	}
 
+
 	public function doLogin($user_real, $pwd)
 	{
 		$user = $this->db
@@ -93,6 +94,22 @@ class panitiaModel extends CI_Model {
 		return 1;
 	}
 
+	public function sumData($table,$id)
+	{
+		return $this->db->where('id_lomba', $id)->get($table)->num_rows();
+	}
+
+	public function sumDatacari($table,$id,$cari)
+	{
+		return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+	}
+
+	public function cariData($kolom,$id,$table,$id_lomba)
+	{
+		$data =$this->db->where('id_lomba', $id_lomba)->like($kolom, $id)->get($table); 
+		return $data->result();
+	}
+
 	public function getTahap($id)
 	{
 		$data = $this->db->where('id_lomba', $id)->get('tahap_lomba');
@@ -131,7 +148,7 @@ class panitiaModel extends CI_Model {
 	{
 		// select * from tim where id_lomba = 1 order by id_tim DESC;
 		$query = $this->db->where('id_lomba', 1)
-		->where('status_tim is null', NULL, FALSE);
+		->where('status_tim is null', NULL, FALSE)
 		->order_by("id_tim", "desc")
 		->get('tim');
 		return $query->result();
@@ -141,7 +158,7 @@ class panitiaModel extends CI_Model {
 	{
 		// select * from tim where id_lomba = 1 order by id_tim DESC;
 		$query = $this->db->where('id_lomba', 1)
-		->where('status_tim', 0);
+		->where('status_tim', 0)
 		->order_by("id_tim", "desc")
 		->get('tim');
 		return $query->result();
@@ -151,10 +168,25 @@ class panitiaModel extends CI_Model {
 	{
 		// select * from tim where id_lomba = 1 order by id_tim DESC;
 		$query = $this->db->where('id_lomba', 1)
-		->where('status_tim', 1);
+		->where('status_tim', 1)
 		->order_by("id_tim", "desc")
 		->get('tim');
 		return $query->result();
 	}	
+
+	// public function getTim($id)
+	// {
+	// 	$data =$this->db->where('id_lomba', $id)->get('tim'); 
+	// 	return $data->result();
+	// }
+
+	function getTim($number,$offset,$id){
+		return $query = $this->db->where('id_lomba', $id)->get('tim',$number,$offset)->result();		
+	}
+
+	function getTimcari($number,$offset,$id,$cari){
+		return $query = $this->db->where('id_lomba', $id)->like('nama_team', $cari)->get('tim',$number,$offset)->result();		
+	}
+	
 }
 ?>
