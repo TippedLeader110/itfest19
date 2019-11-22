@@ -86,7 +86,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-kompetisi">
-					<center><h1 class="h1-kompetisi">Seminar & Talkshow</h1>
+					<center><h1 class="h1-kompetisi text-white">Seminar & Talkshow</h1>
 					<hr class="hr-kompetisi"><br></center>
 				</div>
 				<div class="col-md-6 col-timeline">
@@ -111,10 +111,10 @@
 					<center><h1 class="about2">Tentang ITFest 2019</h1>
 					<hr class="hr-about"></center>
 				</div> -->
-				<div class="col-md-6 col-test">
+				<div class="col-md-7 col-test">
 					<img class="col-test-img" src="<?=base_url()?>assets/images/about-2.png" alt="">
 				</div>
-				<div class="col-md-6 col-about-2">
+				<div class="col-md-5 col-about-2">
 					<div class="garis-text d-none d-lg-block"></div>
 					<h2 class="about2">Tentang ITFest 3.0 2019</h2>
 					ITFEST 2019 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2019 memiliki tema “Integrated Creation For Society”. Rangkaian kegiatan ITFEST 2019 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
@@ -207,8 +207,7 @@
 					<!-- End Google Map -->
 				</div>
 				<div class="col-md-12 col-img-kontak">
-					<span class="p-footer">Server Supported By: </span><br/>
-					<a href="https://idcloudhost.com"><img class="img-kontak" src="<?=base_url()?>assets/images/idcloudhost.png" alt="" width="200px"></a><hr>
+					<hr><br>
 					<a href="#"><img class="img-kontak" src="<?=base_url()?>assets/images/sosmed/warna/fb.png" alt="" width="30px"></a>
 					<a href="https://www.instagram.com/itfestusu/"><img class="img-kontak" src="<?=base_url()?>assets/images/sosmed/warna/ig.png" alt="" width="30px"></a>
 					<a href="#"><img class="img-kontak" src="<?=base_url()?>assets/images/sosmed/warna/twit.png" alt="" width="30px"></a>

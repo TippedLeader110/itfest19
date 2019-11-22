@@ -82,7 +82,7 @@ nav.black{
 .logo-nav{
 	width: 50px;
 	min-height: 50px;
-	background: url('../../images/logo-itfest-white-edit.png') no-repeat;
+	background: url('../../images/logo-itfest-biru2.png') no-repeat;
 	background-size: cover;
 	background-position: center;
 	transition-duration: 1.5s;
@@ -180,6 +180,7 @@ header#about{
 h3.head{
 	text-align: left;
 	font-family: 'JOST_BOLD', 'Roboto';
+        font-size: 40px;
 	color: #000;
 }
 h4.head-2{
@@ -204,28 +205,29 @@ button.head1{
 	background: transparent;
 	border-style:solid;
 	border-width: 2px;
-	border-color: #ffcc33;
+	border-color: #4f77a9;
 	transition-duration: 1.3s;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 }
 button.head1:hover{
-	border-color: #ffb846;
-	background: #ffb846;
+	border-color: #4f77a9;
+	background: #4f77a9;
 	color: white;
 }
 button.head2{
 	font-size: 13px;
 	border-radius: 100px;
 	padding: 8px 65px;
-	background: #36A07C;
-	color: #fff;
+	background: #b7d4ff;
+	color: #000;
 	transition-duration: 1.3s;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 }
 button.head2:hover{
-	background: #ffb846;
+	background: #4f77a9;
+        color: #FFF;
 }
 @media screen and (max-width: 768px) {
 	header#about{
@@ -252,10 +254,28 @@ button.head2:hover{
 }
 /* END-HEADER */
 
+/* SEMINAR */
+#seminar-section{
+	padding-top: 50px;
+	min-height: 695px;
+        padding-bottom: 50px;
+	background: url('../../images/seminar-section1a-01.jpg') no-repeat;
+	background-size: contain;
+}
+@media screen and (max-width: 768px) {
+	#seminar-section{
+		padding-left: 0px;
+		background: transparent;
+		background-size: cover;
+	}
+}
+/* END-SEMINAR */
+
 /* ABOUT */
 #about-section{
 	padding-top: 100px;
 	min-height: 685px;
+        padding-bottom: 100px;
 	background: url('../../images/web-me-2-about.jpg') no-repeat;
 	background-size: contain;
 }
@@ -306,7 +326,7 @@ h2.about2{
 
 /*KOMPETISI*/
 #kompetisi-section{
-	padding-top: 130px;
+	padding-top: 60px;
 	padding-bottom: 100px;
 	background: url('../../images/kompetisi.jpg') no-repeat;
 	background-size: cover;
@@ -334,7 +354,7 @@ h2.about2{
 }
 .hr-kompetisi{
 	width: 50px;
-	border: 3px solid #36a07c;
+	border: 3px solid #FFD662;
 	border-radius: 50px;
 }
 h4.card-title{
@@ -398,7 +418,8 @@ h4.card-title{
 	font-family: 'JOST_BOLD', 'Roboto';
 }
 .col-timeline{
-	padding-top: 50px;
+	padding-top: 36px;
+        padding-bottom: 30px;
 	font-family: 'JOST_LIGHT', 'Arial';
 	border-radius: 10px;
 }
