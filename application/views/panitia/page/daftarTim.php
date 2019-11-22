@@ -32,14 +32,16 @@
 	var send = null;
 	$('#cari').keyup(function(event) {
 		clearTimeout(timer); 
-       	timer = setTimeout(getData, 500)
+       	timer = setTimeout(getData, 300)
+		$('#loadingmessage').show();
+		$('.subContent').hide();
 		send = $(this).val();
 		encoded = encodeURIComponent(send);
 		console.log(encoded);
 	});
 
 	function getData(){
-		$('#loadingmessage').show();
+		$('.subContent').show();
 		$('.subContent').load('<?php echo base_url('panitia/subdaftarTim?cari=') ?>' + encoded ,function() {
 			$('#loadingmessage').hide();
 		});
