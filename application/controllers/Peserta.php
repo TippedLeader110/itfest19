@@ -60,7 +60,7 @@ class Peserta extends CI_Controller {
 		$this->input->post('id_kompetisi');
 	}
 	public function kontenHome(){
-		$this->load->view->('peserta/page/home');
+		$this->load->view('peserta/page/home');
 	}
 
 }
