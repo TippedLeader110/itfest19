@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
@@ -15,7 +16,6 @@
 	<title><?php echo $title ?></title>
 </head>
 <body style="background: #fafafa;">
-	
 	<!-- Leftbar -->
 	<?php $this->load->view('peserta/leftbar') ?>
 	<!-- ----- >
@@ -27,8 +27,7 @@
         <!-- NAVBAR -->
 
         <div id="contentPage">
-        	<?php $this->load->view('peserta/page/home') ?>
-        	<?php $this->load->view('peserta/page/progres') ?>
+        	<?php $this->load->view($page) ?>
         </div>
     </div>
 </div>

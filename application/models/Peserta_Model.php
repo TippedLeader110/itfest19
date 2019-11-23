@@ -27,5 +27,9 @@ class Peserta_Model extends CI_Model {
 			return 1;
 		}
 	}
+
+	public function ambil_data_tim(){
+		return $this->db->get('tim',)
+	}
 }
 ?>

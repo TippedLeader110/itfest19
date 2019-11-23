@@ -22,7 +22,7 @@ class Peserta extends CI_Controller {
 	 */
 	public function login_protocol(){
 		if(is_null($this->session->userdata('id_tim'))){
-			redirect(base_url('index.php/Peserta/loginpage'));
+			redirect(base_url('index.php/Peserta/login_page'));
 		}
 	}
 	public function login_page(){
@@ -48,10 +48,12 @@ class Peserta extends CI_Controller {
 	}
 	public function index(){
 		$this->login_protocol();
-		$data = [
-			'page'=>'peserta/page/dashboard',
+		$data = array(
+			'page'=>'peserta/page/home',
 			'title' => 'Dashboard'
-		];
+		);
+
+		$data_tim = $this->Peserta_Model->ambil_data_tim()
 
 		$this->load->view('peserta/index',$data);
 	}
