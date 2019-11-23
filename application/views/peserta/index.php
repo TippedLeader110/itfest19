@@ -27,10 +27,9 @@
         <!-- NAVBAR -->
 
         <div id="contentPage">
-        	<?php $this->load->view($page) ?>
+        	<?php //$this->load->view($page) ?>
         </div>
     </div>
-</div>
 </body>
 </html>
 
@@ -38,9 +37,10 @@
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
+
 	$('#home').click(function(event) {
 		console.log('log');
-		$('#contentPage').load('kontenHome');
+		$('#contentPage').load('<?php echo base_url("index.php/Peserta/")?>');
 	});
 	$('#progres').click(function(event) {
 		console.log('log');

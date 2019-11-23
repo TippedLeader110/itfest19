@@ -28,8 +28,8 @@ class Peserta_Model extends CI_Model {
 		}
 	}
 
-	public function ambil_data_tim(){
-		return $this->db->get('tim',)
+	public function ambil_data_tim($id_team){
+		return $this->db->get_where('data_tim',$id_team)->result();
 	}
 }
 ?>

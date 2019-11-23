@@ -8,21 +8,13 @@
 				<th>Anggota Tim</th>
 				<th>Lomba</th>
 			</tr>
+			<?php foreach($data_tim as $key){?>
 			<tr>
-				<td>RNG Carried</td>
-				<td>Ali</td>
-				<td></td>
+				<td><?php echo $key->nama_team ?></td>
+				<td><?php echo $key->nama_peserta ?></td>
+				<td><?php echo $key->nama_lomba ?></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td>Muha</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+		<?php } ?>
 		</table>
 	</div>
 </div>

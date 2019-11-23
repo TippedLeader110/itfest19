@@ -48,12 +48,16 @@ class Peserta extends CI_Controller {
 	}
 	public function index(){
 		$this->login_protocol();
+
+		$id_team = ['id_tim'=>$this->session->userdata('id_tim')];
+		$data_tim = $this->Peserta_Model->ambil_data_tim($id_team);
+
 		$data = array(
 			'page'=>'peserta/page/home',
-			'title' => 'Dashboard'
-		);
+			'title' => 'Dashboard',
+			'data_tim' => $data_tim
 
-		$data_tim = $this->Peserta_Model->ambil_data_tim()
+		);
 
 		$this->load->view('peserta/index',$data);
 	}
@@ -67,6 +71,5 @@ class Peserta extends CI_Controller {
 	public function kontenProgres(){
 		$this->load->view('peserta/page/progres');
 	}
-
 }
 ?>
