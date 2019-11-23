@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
-	<link rel="icon" href="<?=base_url()?>assets/images/favicon.ico" type="image/ico" />
+	<title>ITFest 2020 Universitas Sumatera Utara</title>
+	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -68,7 +68,7 @@
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
 					<h3 class="head">INTEGRATED CREATION<br>FOR SOCIETY</h3>
-					<h4 class="head-2">ITFEST 3.0 2019</h4>
+					<h4 class="head-2">ITFEST 2020	</h4>
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">
@@ -133,7 +133,7 @@
 					<p class="p-judul-kompetisi">Bangunlah negeri dengan berinovasi melalui kompetisi</p><br></center>
 				</div>
 				<div class="card-columns">
-					<?php
+					<!-- <?php
 					foreach ($kompetisi as $key => $value) {
 						?>
 						<div class="card">
@@ -145,7 +145,7 @@
 						</div>
 						<?php
 					}
-					 ?>
+					 ?> -->
 				</div>
 			</div>
 		</div>
