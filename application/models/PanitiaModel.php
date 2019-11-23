@@ -99,6 +99,39 @@ class panitiaModel extends CI_Model {
 		return $this->db->where('id_lomba', $id)->get($table)->num_rows();
 	}
 
+	public function sumBerkas($table,$id,$tag)
+	{
+		if ($tag==1) {
+			return $this->db->where('id_lomba', $id)->get($table)->num_rows();
+		}
+		elseif ($tag==2) {
+			return $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->get($table)->num_rows();	
+		}
+		elseif ($tag==3) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 1)->get($table)->num_rows();	
+		}
+		elseif ($tag==4) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 0)->get($table)->num_rows();	
+		}
+	}
+
+	public function sumBerkascari($table,$id,$cari,$tag)
+	{
+		// return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+		if ($tag==1) {
+			return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+		}
+		elseif ($tag==2) {
+			return $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+		elseif ($tag==3) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 1)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+		elseif ($tag==4) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 0)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+	}
+
 	public function sumDatacari($table,$id,$cari)
 	{
 		return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
@@ -184,9 +217,43 @@ class panitiaModel extends CI_Model {
 		return $query = $this->db->where('id_lomba', $id)->get('tim',$number,$offset)->result();		
 	}
 
+	function getBerkas2($number,$offset,$id,$tag){
+		if ($tag==1) {
+			return $query = $this->db->where('id_lomba', $id)->get('tim',$number,$offset)->result();		
+		}
+		elseif ($tag==2) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==3) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 1)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==4) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 0)->get('tim',$number,$offset)->result();			
+		}
+	}
+
 	function getTimcari($number,$offset,$id,$cari){
 		return $query = $this->db->where('id_lomba', $id)->like('nama_team', $cari)->get('tim',$number,$offset)->result();		
 	}
 	
+	function getBerkascari($number,$offset,$id,$cari,$tag){
+		if ($tag==1) {
+			return $query = $this->db->where('id_lomba', $id)->like('nama_team', $cari)->get('tim',$number,$offset)->result();		
+		}
+		elseif ($tag==2) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==3) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 1)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==4) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 0)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+	}
+
+	function infoTim($id){
+		return $query = $this->db->query('CALL tim_info('.$id.')')->result();
+	}
+
 }
 ?>
