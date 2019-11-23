@@ -1,22 +1,22 @@
 @font-face {
     font-family: "JOST_LIGHT";
-    src: url("../../webfonts/Jost-300-Light.ttf") format('woff'),
+    src: url("../../../public/custom/fonts/Jost-300-Light.ttf") format('woff'),
     url("https://localhost/itfest/public/custom/fonts/Jost-300-Light.ttf") format('woff');
 }
 @font-face {
     font-family: "JOST_BOOK";
-    src: url("../../webfonts/Jost-400-Book.ttf") format('woff'),
+    src: url("../../../public/custom/fonts/Jost-400-Book.ttf") format('woff'),
     url("https://localhost/itfest/public/custom/fonts/Jost-400-Book.ttf") format('woff');
 }
 @font-face {
     font-family: "JOST_BOLD";
-    src: url("../../webfonts/Jost-700-Bold.ttf") format('woff'),
+    src: url("../../../public/custom/fonts/Jost-700-Bold.ttf") format('woff'),
     url("https://localhost/itfest/public/custom/fonts/Jost-700-Bold.ttf") format('woff');
 }
 @font-face {
     font-family: "Gotham Thin";
-    src: url("../../webfonts/Gotham-Thin.otf") format('woff'),
-    url("../../webfonts/Gotham-Thin.otf") format('woff');
+    src: url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff'),
+    url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff');
 }
 body{
 	margin: 0;
@@ -27,7 +27,7 @@ body{
 }
 @media screen and (max-width: 768px) {
 	body#itfest{
-		background: url('../../images/itfest-mobile.jpg') no-repeat;
+		background: url('../../../public/images/itfest-mobile.jpg') no-repeat;
 		background-size: cover;
 	}
 }
@@ -82,13 +82,13 @@ nav.black{
 .logo-nav{
 	width: 50px;
 	min-height: 50px;
-	background: url('../../images/logo-itfest-biru2.png') no-repeat;
+	background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;
 	background-size: cover;
 	background-position: center;
 	transition-duration: 1.5s;
 }
 .logo-nav-white{
-	background: url('../../images/logo-itfest-white.png') no-repeat;
+	background: url('../../../public/images/logo-itfest-white.png') no-repeat;
 	width: 50px;
 	min-height: 50px;
 	background-size: cover;
@@ -111,7 +111,7 @@ nav.black .garis{
 	transition-timing-function: ease;
 	-webkit-transition-timing-function: ease;
 }
-button.signup, button.daftar{
+button.signup{
 	font-size: 13px;
 	border-radius: 100px;
 	/*background: linear-gradient(to left top, #00a7e6, #00ae92, #40aa6a);	*/
@@ -132,7 +132,7 @@ nav.black button.signup:hover{
 	color: #4F77AA;
 }
 
-button.signup:hover, button.daftar:hover{
+button.signup:hover{
 /*	background: #228993;*/
         background: #301876;
 	color: #fff;
@@ -163,23 +163,15 @@ button.signup:hover, button.daftar:hover{
         .garis{
                 background: #FFD662;
         }
-        
-        .logo-nav{
-                width: 50px;
-                min-height: 50px;
-                background: url('../../images/logo-itfest-white.png') no-repeat;
-                background-size: cover;
-                background-position: center;
-        }
 }
 
 /* HEADER */
 header#about{
-	padding-top: 200px;
+	padding-top: 250px;
 	padding-left: 100px;
 	min-height: 695px;
 	/*background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);*/
-	background: url('../../images/web-me-2.jpg') no-repeat;
+	background: url('../../../public/images/web-me-2.jpg') no-repeat;
 	background-size: contain;
 }
 .logo-head{
@@ -188,7 +180,6 @@ header#about{
 h3.head{
 	text-align: left;
 	font-family: 'JOST_BOLD', 'Roboto';
-        font-size: 34px;
 	color: #000;
 }
 h4.head-2{
@@ -213,29 +204,28 @@ button.head1{
 	background: transparent;
 	border-style:solid;
 	border-width: 2px;
-	border-color: #4f77a9;
+	border-color: #ffcc33;
 	transition-duration: 1.3s;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 }
 button.head1:hover{
-	border-color: #4f77a9;
-	background: #4f77a9;
+	border-color: #ffb846;
+	background: #ffb846;
 	color: white;
 }
 button.head2{
 	font-size: 13px;
 	border-radius: 100px;
 	padding: 8px 65px;
-	background: #b7d4ff;
-	color: #000;
+	background: #36A07C;
+	color: #fff;
 	transition-duration: 1.3s;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
 }
 button.head2:hover{
-	background: #4f77a9;
-        color: #FFF;
+	background: #ffb846;
 }
 @media screen and (max-width: 768px) {
 	header#about{
@@ -244,11 +234,10 @@ button.head2:hover{
 		background-size: cover;
 	}
 	h3.head{
-		padding-left: 8%;
-                padding-top: 70px;
+		padding-left: 15%;
 	}
 	h4.head-2{
-		padding-left: 8%;
+		text-align: center;
 	}
     button.head1{
     	width: 70%;
@@ -263,30 +252,11 @@ button.head2:hover{
 }
 /* END-HEADER */
 
-/* SEMINAR */
-#seminar-section{
-	padding-top: 50px;
-	min-height: 695px;
-        padding-bottom: 50px;
-	background: url('../../images/seminar-section1a-01.jpg') no-repeat;
-	background-size: contain;
-}
-@media screen and (max-width: 768px) {
-	#seminar-section{
-		padding-left: 0px;
-		background: transparent;
-		background-size: cover;
-                color: #000;
-	}
-}
-/* END-SEMINAR */
-
 /* ABOUT */
 #about-section{
 	padding-top: 100px;
 	min-height: 685px;
-        padding-bottom: 100px;
-	background: url('../../images/web-me-2-about.jpg') no-repeat;
+	background: url('../../../public/images/web-me-2-about.jpg') no-repeat;
 	background-size: contain;
 }
 .hr-about{
@@ -317,7 +287,7 @@ h2.about2{
 	margin-left: -25px;
 	border-radius: 50px;
 	position: absolute;
-	background: #4F77A9;
+	background: #36a07c;
 	float: left;
 }
 .btn-about{
@@ -336,9 +306,9 @@ h2.about2{
 
 /*KOMPETISI*/
 #kompetisi-section{
-	padding-top: 60px;
+	padding-top: 130px;
 	padding-bottom: 100px;
-	background: url('../../images/kompetisi.jpg') no-repeat;
+	background: url('../../../public/images/kompetisi.jpg') no-repeat;
 	background-size: cover;
 }
 .card{
@@ -364,7 +334,7 @@ h2.about2{
 }
 .hr-kompetisi{
 	width: 50px;
-	border: 3px solid #FFD662;
+	border: 3px solid #36a07c;
 	border-radius: 50px;
 }
 h4.card-title{
@@ -403,7 +373,7 @@ h4.card-title{
 	min-height: 695px;
 	padding-top: 130px;
 	padding-bottom: 100px;
-	background: url('../../images/video-teaser.jpg') no-repeat;
+	background: url('../../../public/images/video-teaser.jpg') no-repeat;
 	background-size: cover;
 }
 .video-content{
@@ -420,7 +390,7 @@ h4.card-title{
 /*TIMELINE*/
 #timeline-section{
 	min-height: 705px;
-	background: url('../../images/footer-3.jpg') no-repeat;
+	background: url('../../../public/images/footer-3.jpg') no-repeat;
 	background-size: cover;
 	padding-top: 100px;
 }
@@ -428,8 +398,7 @@ h4.card-title{
 	font-family: 'JOST_BOLD', 'Roboto';
 }
 .col-timeline{
-	padding-top: 36px;
-        padding-bottom: 30px;
+	padding-top: 50px;
 	font-family: 'JOST_LIGHT', 'Arial';
 	border-radius: 10px;
 }
@@ -454,7 +423,7 @@ h4.card-title{
 	padding-bottom: 20px;
 	text-align: left;
 	font-family: 'JOST_LIGHT', 'Arial';
-	background: url('../../images/map.jpg') no-repeat;
+	background: url('../../../public/images/map.jpg') no-repeat;
 	background-size: cover;
 }
 .col-img-kontak{
@@ -476,7 +445,7 @@ h4.card-title{
 
 /*FORM-DAFTAR*/
 body.daftar{
-	background: url('../../images/daftar.jpg') no-repeat;
+	background: url('../../../public/images/daftar.jpg') no-repeat;
 	background-size: cover;
 }
 #form-daftar{
@@ -545,7 +514,7 @@ label.label-judul{
 
 /*DASBOARD*/
 #bg-dasboard{
-	background: url('../../images/dasboard.jpg') no-repeat;
+	background: url('../../../public/images/dasboard.jpg') no-repeat;
 	background-size: cover;
 }
 .dasboard-nama-tim{
@@ -567,7 +536,7 @@ label.label-judul{
 }
 @media screen and (max-width: 768px) {
 	#bg-dasboard{
-		background: url('../../images/dasboard-mobile.jpg') no-repeat;
+		background: url('../../../public/images/dasboard-mobile.jpg') no-repeat;
 		background-size: cover;
 		padding-bottom: 50px;
 	}
