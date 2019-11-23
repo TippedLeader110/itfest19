@@ -25,7 +25,7 @@ class Peserta extends CI_Controller {
 			redirect(base_url('index.php/Peserta/loginpage'));
 		}
 	}
-	public function loginpage(){
+	public function login_page(){
 		$this->load->view('peserta/login');
 	}
 	public function login(){
@@ -56,6 +56,12 @@ class Peserta extends CI_Controller {
 		$this->load->view('peserta/index',$data);
 	}
 
+	public function upload_file_kompetisi(){
+		$this->input->post('id_kompetisi');
+	}
+	public function kontenHome(){
+		$this->load->view->('peserta/page/home');
+	}
 
 }
 ?>
