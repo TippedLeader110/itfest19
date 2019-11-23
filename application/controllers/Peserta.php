@@ -62,6 +62,9 @@ class Peserta extends CI_Controller {
 	public function kontenHome(){
 		$this->load->view('peserta/page/home');
 	}
+	public function kontenProgres(){
+		$this->load->view('peserta/page/progres');
+	}
 
 }
 ?>

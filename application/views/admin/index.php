@@ -12,17 +12,17 @@
 	<title><?php echo $title ?></title>
 </head>
 <body style="background: #fafafa;">
-	<?php foreach ($dataGet as $key => $value): ?>
-	<?php endforeach ?>
+<!-- 	<?php foreach ($dataGet as $key => $value): ?>
+	<?php endforeach ?> -->
 	<div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><center><img width="100px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"><br>
-            	<h4><?php echo $value->nama_lomba ?></h4>
+            <!-- <!-- <h3><center><img width="100px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"><br>
+            	<h4><!-- <?php echo $value->nama_lomba ?> --></h4>
             </center></h3>
             <strong>
-            	<img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>">
+            	<!-- <img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"> -->
             </strong>
         </div>
 
