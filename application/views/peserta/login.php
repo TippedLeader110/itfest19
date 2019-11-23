@@ -52,7 +52,7 @@
 				if (data==1) {
 					console.log(data);
 					Swal.fire('Berhasil', 'Selamat Datang ' + showName, "success");
-					window.open('<?php echo base_url('index.php/Peserta/')?>');
+					window.open('<?php echo base_url("index.php/Peserta/")?>');
 				}
 				else{
 					console.log(data);

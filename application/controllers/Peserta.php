@@ -34,7 +34,8 @@ class Peserta extends CI_Controller {
 
 		$data = array(
 						'username_tim' => $username,
-						'password_tim' => $password
+						'password_tim' => md5($password),
+						'status_tim' => 1,
 		);
 
 		$success = $this->Peserta_Model->login($data);

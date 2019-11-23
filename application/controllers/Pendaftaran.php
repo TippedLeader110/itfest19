@@ -35,7 +35,7 @@ class Pendaftaran extends CI_Controller {
 						'nama_team'=>$this->input->post('nama_tim'),
 						'id_lomba'=>$this->input->post('cabang_lomba'),
 						'asal_univ'=>$this->input->post('universitas_tim'),
-						'password_tim'=>$this->input->post('password_tim')
+						'password_tim'=>md5($this->input->post('password_tim'))
 		);
 
 		// Insert data tim dan ngambil id team
