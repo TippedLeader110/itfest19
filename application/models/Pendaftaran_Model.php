@@ -37,7 +37,11 @@ class Pendaftaran_Model extends CI_Model {
 
 	// Fungsi untuk update kolom id ketua di tabel tim
 	public function update_id_ketua($id_ketua,$id_team){
-		$this->db->query("update id_ketua='"+$id_ketua+"' from tim where id_tim = '"+$id_team+"';");
+		$this->db->query("update tim set id_ketua=".$id_ketua." where id_tim=".$id_team.";");
+	}
+
+	public function cek_nama_tim($nama_tim){
+		return $this->db->query("select * from tim where nama_team = '".$nama_tim."';")->num_rows();
 	}
 }
 ?>

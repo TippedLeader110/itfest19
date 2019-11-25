@@ -12,10 +12,10 @@ class Bendahara extends CI_Controller {
 	{
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin/page/dashboard',
+			'page'=>'bendahara/page/dashboard',
 			'title' => 'Dashboard'
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('bendahara/index', $data);
 	}
 	##################PANITIA###################
 

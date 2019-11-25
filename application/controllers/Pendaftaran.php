@@ -32,18 +32,19 @@ class Pendaftaran extends CI_Controller {
 	public function daftar_kompetisi(){
 		// Nyusun data yang akan dikirim ke tabel tim
 		$data_team = array(
-						'nama_team'=>$this->input->post('nama_team'),
+						'nama_team'=>$this->input->post('nama_tim'),
 						'id_lomba'=>$this->input->post('cabang_lomba'),
-						'asal_univ'=>$this->input->post('universitas_team'),
-						'nama_ketua'=>$this->input->post('nama_ketua'),
+						'asal_univ'=>$this->input->post('universitas_tim'),
+						'password_tim'=>md5($this->input->post('password_tim'))
 		);
 
 		// Insert data tim dan ngambil id team
 		$id_team = $this->Pendaftaran_Model->tambah_tim($data_team);
 
 		// Persiapan config untuk upload berkas ketua
-		$config['upload_path']          = './file_pendaftaran/';
+		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
 	    $config['allowed_types']        = 'zip|rar';
+	    $config['file_name']            = password_hash($this->input->post('file_ketua'), PASSWORD_DEFAULT);
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
 
@@ -52,29 +53,32 @@ class Pendaftaran extends CI_Controller {
 	    $this->upload->initialize($config);
 
 	    if($this->upload->do_upload('file_ketua')) {
-	        $link_file = array('upload_data'=>$this->upload->data());
+	        $data = array('upload_data'=>$this->upload->data());
+	        $link_file= $data['upload_data']['file_name']; 
 	        $status_upload = 1;
 	    }
 	    else{
 	    	$status_upload = 0;
 	    }
-	    var_dump($status_upload);
 
 		// Nyusun data yang akan dikirim ke tabel peserta sebagai ketua
 		$data_ketua = array(
-						'nama'=>$this->input->post('nama_ketua'),
-						'e-mail'=>$this->input->post('e-mail_ketua'),
+						'nama_peserta'=>$this->input->post('nama_ketua'),
+						'email'=>$this->input->post('email_ketua'),
 						'no_hp'=>$this->input->post('no_hp_ketua'),
 						'jenis_kelamin'=>$this->input->post('jenis_kelamin_ketua'),
-						'id_team' =>$id_team,
-						'url_file'=> $link_file
+						'id_tim' =>$id_team,
+						'url_berkas'=> $link_file
 		);
-
 		// insert data ketua dan nyimpan id nya
 		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);		
 		// Update data di tabel tim supaya kolom id_ketua enggak null
-		$this->Pendaftaran_Model->update_id_ketua($id_ketua);
 
+	
+		$this->Pendaftaran_Model->update_id_ketua($id_ketua,$id_team);
+
+
+		$jumlah_anggota = $this->input->post('jumlah_anggota');
 		//kalau jumlah anggota 1
 		if($jumlah_anggota == 1){
 
@@ -132,6 +136,13 @@ class Pendaftaran extends CI_Controller {
 		}
 
 		echo 1;
+
+		}
+
+		public function cek_nama_tim(){
+			$nama_tim = $this->input->post('nama_tim');
+			$num_rows =  $this->Pendaftaran_Model->cek_nama_tim($nama_tim);
+			echo $num_rows;
 		}
 
 	}
