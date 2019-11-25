@@ -42,3 +42,7 @@
    		event.preventDefault();
    		$('#contentPage').load('seleksiTim');
    	});   
+  $("#logoout").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('logout');
+    });  

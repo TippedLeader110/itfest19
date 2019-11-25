@@ -28,6 +28,12 @@ class Panitia extends CI_Controller {
 		$this->load->view('panitia/login');
 	}
 
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url("panitia/login"));
+	}
+
 	public function loginProtocol()
 	{
 		if(($this->session->userdata('status') != "login-panitia") && ($this->session->userdata('panitia-id') == NULL)){
