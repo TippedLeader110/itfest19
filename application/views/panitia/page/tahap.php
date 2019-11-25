@@ -27,7 +27,7 @@
 				    	<div class="text-justify text-card">
 				    		<?php echo $dTahap->deskripsi_tahap ?>
 				    	</div>
-				    	<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
+				    	<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
 				    </div>
 					</div>
 				</div>
@@ -45,6 +45,10 @@
 		var url = "<?php echo base_url('public/kompetisi/tahap/')?>" + va;
 	  	var win = window.open(url, '_blank');
 	  	win.focus();
+	}
+
+	function editTahap(id){
+		$('#contentPage').load('<?php echo base_url('panitia/editTahap/') ?>'+id);
 	}
 
 	function reload(){

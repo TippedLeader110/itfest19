@@ -8,6 +8,7 @@ class panitiaModel extends CI_Model {
 		parent::__construct();
 	}
 
+
 	public function doLogin($user_real, $pwd)
 	{
 		$user = $this->db
@@ -79,11 +80,12 @@ class panitiaModel extends CI_Model {
 		return $this->db->where('id_lomba', $var)->get('tahap_lomba')->result();
 	}
 
-	public function kompetisi_tahapTambah($file,$desk,$id)
+	public function kompetisi_tahapTambah($file,$desk,$id,$deadline)
 	{
 		$data = array('file_tahap' => $file,
 			'deskripsi_tahap' => $desk,
-			'id_lomba' => $id
+			'id_lomba' => $id,
+			'deadline' => $deadline
 		);
 		$this->db->insert('tahap_lomba', $data);
 	}
@@ -91,6 +93,55 @@ class panitiaModel extends CI_Model {
 	public function delDatabyid($datab,$kol,$id){
 		$this->db->where($kol, $id)->delete($datab);
 		return 1;
+	}
+
+	public function sumData($table,$id)
+	{
+		return $this->db->where('id_lomba', $id)->get($table)->num_rows();
+	}
+
+	public function sumBerkas($table,$id,$tag)
+	{
+		if ($tag==1) {
+			return $this->db->where('id_lomba', $id)->get($table)->num_rows();
+		}
+		elseif ($tag==2) {
+			return $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->get($table)->num_rows();	
+		}
+		elseif ($tag==3) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 1)->get($table)->num_rows();	
+		}
+		elseif ($tag==4) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 0)->get($table)->num_rows();	
+		}
+	}
+
+	public function sumBerkascari($table,$id,$cari,$tag)
+	{
+		// return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+		if ($tag==1) {
+			return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+		}
+		elseif ($tag==2) {
+			return $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+		elseif ($tag==3) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 1)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+		elseif ($tag==4) {
+			return $this->db->where('id_lomba', $id)->where('status_tim', 0)->like('nama_team',$cari)->get($table)->num_rows();	
+		}
+	}
+
+	public function sumDatacari($table,$id,$cari)
+	{
+		return $this->db->where('id_lomba', $id)->like('nama_team',$cari)->get($table)->num_rows();
+	}
+
+	public function cariData($kolom,$id,$table,$id_lomba)
+	{
+		$data =$this->db->where('id_lomba', $id_lomba)->like($kolom, $id)->get($table); 
+		return $data->result();
 	}
 
 	public function getTahap($id)
@@ -109,6 +160,141 @@ class panitiaModel extends CI_Model {
 	{
 		$query = $this->db->query("CALL report_lomba('.$id.')");
         return $query->result();
+	}
+
+	public function getBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->query("CALL berkas_info('.$id.')");
+		return $query->result();
+	}
+
+	public function getsumBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getnewBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim is null', NULL, FALSE)
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getrejectBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim', 0)
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}
+
+	public function getacepttBerkas($id)
+	{
+		// select * from tim where id_lomba = 1 order by id_tim DESC;
+		$query = $this->db->where('id_lomba', 1)
+		->where('status_tim', 1)
+		->order_by("id_tim", "desc")
+		->get('tim');
+		return $query->result();
+	}	
+
+	// public function getTim($id)
+	// {
+	// 	$data =$this->db->where('id_lomba', $id)->get('tim'); 
+	// 	return $data->result();
+	// }
+
+	function getTim($number,$offset,$id){
+		return $query = $this->db->where('id_lomba', $id)->get('tim',$number,$offset)->result();		
+	}
+
+	function getBerkas2($number,$offset,$id,$tag){
+		if ($tag==1) {
+			return $query = $this->db->where('id_lomba', $id)->get('tim',$number,$offset)->result();		
+		}
+		elseif ($tag==2) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==3) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 1)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==4) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 0)->get('tim',$number,$offset)->result();			
+		}
+	}
+
+	function getTimcari($number,$offset,$id,$cari){
+		return $query = $this->db->where('id_lomba', $id)->like('nama_team', $cari)->get('tim',$number,$offset)->result();		
+	}
+	
+	function getBerkascari($number,$offset,$id,$cari,$tag){
+		if ($tag==1) {
+			return $query = $this->db->where('id_lomba', $id)->like('nama_team', $cari)->get('tim',$number,$offset)->result();		
+		}
+		elseif ($tag==2) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim is null', NULL, FALSE)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==3) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 1)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+		elseif ($tag==4) {
+			return $query = $this->db->where('id_lomba', $id)->where('status_tim', 0)->like('nama_team', $cari)->get('tim',$number,$offset)->result();			
+		}
+	}
+
+	function infoTim($id){
+		return $query = $this->db->query('CALL tim_info('.$id.')')->result();
+	}
+
+	function infoseleksiTim($tim,$id){
+		
+		return $query = $this->db->query('CALL tahap_tim('.$id.', '.$tim.')')->result();
+	}
+
+	public function kompetisi_tahapEdit($file,$desk,$id,$deadline,$id_tahap)
+	{
+		$data = array('file_tahap' => $file,
+			'deskripsi_tahap' => $desk,
+			'id_lomba' => $id,
+			'deadline' => $deadline
+		);
+		$this->db->set( 'deskripsi_tahap', $desk);
+		$this->db->set( 'id_lomba', $id);
+		$this->db->set( 'deadline', $deadline);
+		$this->db->set('file_tahap',$file);
+		$this->db->where('id_tahap',$id_tahap);
+		$this->db->update('tahap_lomba');
+	}
+
+	public function getseleksiTim($limit,$from,$id){
+		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."  LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+	}
+
+	public function sumseleksiTim($id){
+		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."");
+		return $query->num_rows();
+	}
+
+	public function getseleksiTimcari($limit,$from,$id,$cari){
+		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+	}
+
+	public function sumseleksiTimcari($cari,$id_tahap)
+	{
+		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  ");
+		return $query->num_rows();	
 	}
 }
 ?>

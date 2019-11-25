@@ -13,14 +13,36 @@
    $("#KelolahTahapan").click(function(event) {
    		event.preventDefault();
    		$('#contentPage').load('Tahap');
-   });
+   	});
 
 	$("#reportTahap").click(function(event) {
    		event.preventDefault();
    		$('#contentPage').load('reTahap');
-   });   
+   	});   
 	$("#reportSingkat").click(function(event) {
    		event.preventDefault();
-   		console.log('test');
    		$('#contentPage').load('reSingkat');
-   });   
+   	});  
+
+	$("#reportBerkas").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('reBerkas');
+   	});   
+
+   	$("#daftarTim").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('daftarTim');
+   	});   
+
+   	$("#seleksiBerkas").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('seleksiBerkas');
+   	});   
+   	$("#seleksiTim").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('seleksiTim');
+   	});   
+  $("#logoout").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('logout');
+    });  

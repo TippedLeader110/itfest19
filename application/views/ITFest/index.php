@@ -67,13 +67,8 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-<<<<<<< HEAD
-					<h3 class="head">INTEGRATED CREATION<br>FOR SOCIETY</h3>
-					<h4 class="head-2">ITFEST 2020	</h4>
-=======
-                                        <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+                    <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
 					<h4 class="head-2">ITFEST 4.0 2020</h4>
->>>>>>> desain-utama
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">

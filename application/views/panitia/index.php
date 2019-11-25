@@ -20,6 +20,7 @@
         <div class="sidebar-header">
             <h3><center><img width="100px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>"><br>
             	<h4><?php echo $value->nama_lomba ?></h4>
+            	<?php $judul =$value->nama_lomba ?>
             </center></h3>
             <strong>
             	<img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>">
@@ -40,24 +41,24 @@
                         <a href="#" id="reportTahap">Laporan Tahapan</a>
                     </li>
                     <li>
-                        <a href="#">Laporan Berkas</a>
+                        <a href="#" id="reportBerkas">Laporan Berkas</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#pagePesertamenu" data-toggle='collapse' aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-user"></i>
-                    Peserta
+                    Tim
                 </a>
                 <ul class="collapse list-unstyled" id="pagePesertamenu">
                 	<li>
-                		<a href="">Seleksi Berkas</a>
+                		<a href="#" id="seleksiBerkas">Seleksi Berkas</a>
                 	</li>
                 	<li>
-                		<a href="">Daftar Peserta</a>
+                		<a href="#" id="daftarTim">Tim Peserta</a>
                 	</li>
                 	<li>
-                		<a href="">Peserta Lulu</a>
+                		<a href="#" id="seleksiTim">Seleksi Tim</a>
                 	</li>
                 </ul>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
