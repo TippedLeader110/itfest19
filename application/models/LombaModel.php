@@ -47,9 +47,8 @@ class LombaModel extends CI_Model {
 	}
 
 	public function getDatabyName($name){
-		$this->db->where('namaLomba', $name);
-		$this->db->where('active', '1');
-		return $this->db->get('Lomba');
+		$this->db->where('nama_lomba', $name);
+		return $this->db->get('lomba');
 	}
 
 	public function getData($id)
