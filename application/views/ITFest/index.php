@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url('ITFest/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
+						<a href="<?=base_url('Home/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
 				</ul>
 			</div>
@@ -67,8 +67,13 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
+<<<<<<< HEAD
 					<h3 class="head">INTEGRATED CREATION<br>FOR SOCIETY</h3>
 					<h4 class="head-2">ITFEST 2020	</h4>
+=======
+                                        <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+					<h4 class="head-2">ITFEST 4.0 2020</h4>
+>>>>>>> desain-utama
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">
@@ -95,7 +100,7 @@
 				<div class="col-md-6 col-timeline">
 					<div class="text-timeline" style="margin-top:20%;">
 						<center><h3 class="h1-timeline">Dapatkan Tiketmu Segera!</h3>
-						<p><b><a href="https://tiket.itfestusu.id/"><button class="btn px-5 signup h1-timeline">DAFTAR SEMINAR</button></a></b></p>
+						<p><b><a href="https://tiket.itfestusu.id/"><button class="btn px-5 daftar h1-timeline">DAFTAR SEMINAR</button></a></b></p>
 						<h3 class="h1-timeline">GRATIS!</h3></center>
 						<p>Untuk <b>anak putus sekolah</b> mendapatkan tiket <b>GRATIS</b>. Syarat dan ketentuan hubungi ke <b>+6285216011504</b></p>
 					</div>
