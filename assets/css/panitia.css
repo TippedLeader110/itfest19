@@ -291,3 +291,8 @@ a.article:hover {
   overflow: auto;
   height: 80px;
 }
+
+#contentPage{
+    background: white;
+    /*padding: 00px 5px 5px 20px;*/
+}

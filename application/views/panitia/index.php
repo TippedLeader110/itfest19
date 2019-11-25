@@ -80,7 +80,7 @@
         <!-- NAVBAR -->
        	<?php $this->load->view('panitia/navbar') ?>
         <!-- NAVBAR -->
-        <div id="contentPage">
+        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded">
         	
         </div>
     </div>
