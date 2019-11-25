@@ -26,7 +26,6 @@ class LombaModel extends CI_Model {
 	}
 
 	public function getAllData(){
-		$this->db->where('active', '1');
 		return $this->db->get('Lomba');
 	}
 

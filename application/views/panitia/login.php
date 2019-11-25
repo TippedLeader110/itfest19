@@ -131,7 +131,13 @@
 			success: function(data){
 				if (data==1) {
 					console.log(data);
-					Swal.fire('Berhasil', 'Selamat Datang Admin ITFest' + showName, "success");
+					Swal.fire({
+						icon: 'success',
+					  	title: 'Selamat Datang',
+					  	text: 'Admin/Panitia ITFest 4.0',
+					  	showConfirmButton: false,
+					  	timer: 1500
+					});
 					setTimeout(function () {
        				window.location.href = "<?php echo base_url('panitia/') ?>"; //will redirect to your blog page (an ex: blog.html)
     				}, 1500);

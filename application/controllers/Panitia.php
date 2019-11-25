@@ -415,10 +415,11 @@ class Panitia extends CI_Controller {
 
 	public function doTambahtahap(){
 		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
-        $config['allowed_types']='pdf|JPEG|jpg|pdf'; //type file yang boleh di upload
+        $config['allowed_types']='PDF|JPEG|jpg|pdf'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUP'); //call library upload 
         $this->tahapUP->initialize($config);
+        $data = array('upload_data' => $this->tahapUP->data()); //ambil file name yang diupload
         if($this->tahapUP->do_upload("file")){ //upload file
             $data = array('upload_data' => $this->tahapUP->data()); //ambil file name yang diupload
             $filename= $data['upload_data']['file_name']; //set file name ke variable image
@@ -435,7 +436,7 @@ class Panitia extends CI_Controller {
 
 	public function doEdittahap(){
 		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
-        $config['allowed_types']='pdf|JPEG|jpg|pdf'; //type file yang boleh di upload
+        $config['allowed_types']='PDF|JPEG|jpg|pdf'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUP'); //call library upload 
         $this->tahapUP->initialize($config);

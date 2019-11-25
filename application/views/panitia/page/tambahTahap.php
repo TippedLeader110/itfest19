@@ -31,7 +31,7 @@
 						<input class="form-control" type="date" name="deadline">
 					</div>
 					<div class="col-12" style="margin-top: 20px;">
-						<button class="btn btn-outline-primary">Edit</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
+						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
 					</div>
 				</div>
 			</div>

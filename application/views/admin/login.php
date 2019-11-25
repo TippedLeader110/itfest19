@@ -1,39 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Admin</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/login.css') ?>">
+	<title>Login ITFest 4.0</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--===============================================================================================-->
+	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/css/main.css">
+<!--===============================================================================================-->
+<!-- Custom -->
+<link href="<?=base_url()?>assets/custom/css/custom.css" rel="stylesheet">
 </head>
-<body class="body">
-	<div class="col-10 offset-1 loginframe">
-		<div class="row">
-			<div class="col-6">
-				<h1><b>LOGO ITFEST</b></h1>
-			</div>
-			<div class="col-6">
-				<form method="post" name="login" id="login">
-					<div class="col-12">
-						<div class="row">
-							<h3>login</h3>
-						</div>
-						<div class="row">
-							<input class="form-control" type="text" id="username" name="username" placeholder="Username">
-						</div>
-						<div class="row">
-							<input class="form-control" type="password" id="password" name="password" placeholder="Password">
-						</div>
-						<div class="row">
-							<button type="submit" class="btn btn-primary">Login</button>
-						</div>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100mod">
+				<a href="<?=base_url()?>"><div class="login100-pic js-tilt" data-tilt>
+					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
+				</div></a>
+
+				<form class="login100-form validate-form" method="POST" id="login">
+					<span class="login100-form-title text-white">
+						LOGIN ADMIN
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" id="username" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-at" aria-hidden="true"></i>
+						</span>
 					</div>
-				</form>	
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" id="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					<div class="text-center p-t-0">
+						<span class="txt1">
+							Kembali ke
+						</span>
+						<a class="txt2" href="<?=base_url()?>">
+							Beranda
+						</a>
+					</div>
+				</form>
 			</div>
-		</div>			
+		</div>
 	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="<?=base_url()?>assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/js/main.js"></script>
+
 </body>
+</html>
+
+
+	<script src="<?=base_url()?>assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="<?=base_url()?>assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/login/js/main.js"></script>
+
+</body>
+</html>
+
 <!-- <script type="text/javascript" src="ajax/login.js"></script> -->
 <script type="text/javascript">
 	$('#login').submit(function(e) {
@@ -51,7 +131,16 @@
 			success: function(data){
 				if (data==1) {
 					console.log(data);
-					Swal.fire('Berhasil', 'Selamat Datang ' + showName, "success");
+					Swal.fire({
+						icon: 'success',
+					  	title: 'Selamat Datang',
+					  	text: 'Admin/Panitia ITFest 4.0',
+					  	showConfirmButton: false,
+					  	timer: 1500
+					});
+					setTimeout(function () {
+       				window.location.href = "<?php echo base_url('admin/') ?>"; //will redirect to your blog page (an ex: blog.html)
+    				}, 1500);
 				}
 				else{
 					console.log(data);
