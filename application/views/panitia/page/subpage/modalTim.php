@@ -1,4 +1,4 @@
-<?php echo $tag ?>
+<!-- <?php echo $tag ?> -->
 <?php $count=1; ?>
 <?php foreach ($modalTim as $key => $mTim): ?>
 <?php endforeach ?>
