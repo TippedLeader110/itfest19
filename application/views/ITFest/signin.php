@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login ITFest 3.0</title>
+	<title>Login ITFest 4.0</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="<?=base_url()?>assets/images/favicon.ico"/>
+	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/login/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -30,7 +30,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<a href="<?=base_url()?>"><div class="login100-pic js-tilt" data-tilt>
-					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 3.0">
+					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
 				</div></a>
 
 				<form class="login100-form validate-form" method="POST" action="<?=base_url('Auth/login')?>">
