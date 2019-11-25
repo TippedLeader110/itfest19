@@ -2,10 +2,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h5>Tahapan seleksi kompetisi ITFest 4.0 Universitas Sumatera Utara</h5>
+				<h5>Edit seleksi kompetisi ITFest 4.0 Universitas Sumatera Utara</h5>
 				<hr>
 			</div>
 		</div>
+		<?php foreach ($editTahap as $key => $eTahap): ?>
+			
+		<?php endforeach ?>
 		<form id="formTahap">
 		<div class="row">
 			<div class="col-12">
@@ -13,8 +16,9 @@
 					<div class="col-12">
 						<div class="form-group">
 							<input type="text" hidden name="id" value="<?php echo $this->session->userdata('panitia-id'); ?>">
+							<input hidden type="text" name="origin" value="<?php echo $eTahap->id_tahap ?>">
 							<label class="form-control-label" for="deskripsiSeleksi">Deskripsi Tahapan Seleksi</label>
-							<textarea name="deskripsi" class="form-control" id="deskripsiSeleksi"></textarea>
+							<textarea name="deskripsi" class="form-control" id="deskripsiSeleksi"><?php echo $eTahap->deskripsi_tahap ?></textarea>
 								<div class="invalid-feedback">Tolong Deskripsi</div>
 						</div>
 					</div>
@@ -49,7 +53,7 @@
 	$('#formTahap').submit(function(event) {
 		event.preventDefault();
 		$.ajax({
-			url: '<?php echo base_url('panitia/doTambahtahap') ?>',
+			url: '<?php echo base_url('panitia/doEdittahap') ?>',
 			type: 'post',
 			data:new FormData(this),
 			processData:false,
@@ -58,7 +62,7 @@
 			success: function(er){
 				if (er==1) {
 					console.log(er);
-					Swal.fire('Berhasil','Tahapan seleksi berhasil ditambahkan', 'success');
+					Swal.fire('Berhasil','Tahapan seleksi berhasil diedit', 'success');
 				}
 				else{
 					console.log(er);

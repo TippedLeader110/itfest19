@@ -1,10 +1,10 @@
-<?php if (isset($daftarTim)): ?>
+<?php if (isset($seleksiTim)): ?>
 	<div class="table-responsive">
 		<table class="table table-striped">
 			<tr>
 				<th>Nama Tim</th><th>Universitas</th><th>Status Tim</th><th>Aksi</th>
 			</tr>
-		<?php foreach ($daftarTim as $key => $dTim): ?>
+		<?php foreach ($seleksiTim as $key => $dTim): ?>
 			<tr>
 				<td><?php echo $dTim->nama_team ?></td>
 				<td><?php echo $dTim->asal_univ ?></td>
@@ -19,19 +19,20 @@
 					<td>Ditolak</td>
 				<?php endif ?>
 
-				<td><button class="btn btn-outline-info" onclick="timInfo(<?php echo $dTim->id_tim ?>)">Info</button></td>
+				<td><button class="btn btn-outline-info" onclick="timInfo(<?php echo $dTim->id_tim ?>)">Seleksi</button></td>
 			</tr>
 		<?php endforeach ?>
 		</table>
 	</div>
-	<?php echo $this->pagination->create_links(); ?>
 	<?php endif ?>
-	<?php if (!isset($daftarTim)): ?>
-	<center><sub>Nothing to see here.....</sub></center>
-<?php endif ?>
+	<?php if (!isset($seleksiTim)): ?>
+		<center><sub>Nothing to see here.....</sub></center>
+	<?php endif ?>
+
+	<?php echo $this->pagination->create_links(); ?>
 
 <div class="modal" tabindex="-1" role="dialog" id="modalTim">
-  	<div class="modal-dialog modal-lg" role="document">
+  	<div class="modal-dialog" role="document">
     	<div class="modal-content">
       		<div class="modal-header">
         		<h4 class="modal-title">Informasi Detail Tim</h4>
@@ -50,38 +51,43 @@
 </div>
 
 <script type="text/javascript">
+
 	$("span.page-link a").click(function(e) {
     	e.preventDefault();
     	var href = $(this).attr("href");
-    	// console.log(href);
+    	console.log(href);
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
     	<?php if (isset($cari)): ?>
-		$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&tag=' + tag);
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas')?>' + href + '?tag=' + tag);
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
 	$("span.page-link").click(function(e) {
+		// console.log('2');
     	e.preventDefault();
     	var href = $(this).find('a').attr("href");
-    	// console.log(href);
+    	console.log(href);
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
 		<?php if (isset($cari)): ?>
-		$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&tag=' + tag);
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('.subContent').load('<?php echo base_url('panitia/subseleksiBerkas')?>' + href + '?tag=' + tag);
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
+	// console.log(1);
 	function timInfo(id)
 	{
 		console.log(id);
-		$('.modal-body').load('<?php echo base_url('panitia/modalTim?tim=') ?>' + id + '&tag=<?php echo $tag ?>');
+		$('.modal-body').load('<?php echo base_url('panitia/modalTimseleksi?tim=') ?>' + id + '&id=<?php echo $id ?>');
 		$('#modalTim').modal('toggle');
 	}
+
+
 </script>
