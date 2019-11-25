@@ -111,7 +111,7 @@ nav.black .garis{
 	transition-timing-function: ease;
 	-webkit-transition-timing-function: ease;
 }
-button.signup{
+button.signup, button.daftar{
 	font-size: 13px;
 	border-radius: 100px;
 	/*background: linear-gradient(to left top, #00a7e6, #00ae92, #40aa6a);	*/
@@ -132,7 +132,7 @@ nav.black button.signup:hover{
 	color: #4F77AA;
 }
 
-button.signup:hover{
+button.signup:hover, button.daftar:hover{
 /*	background: #228993;*/
         background: #301876;
 	color: #fff;
@@ -163,11 +163,19 @@ button.signup:hover{
         .garis{
                 background: #FFD662;
         }
+        
+        .logo-nav{
+                width: 50px;
+                min-height: 50px;
+                background: url('../../images/logo-itfest-white.png') no-repeat;
+                background-size: cover;
+                background-position: center;
+        }
 }
 
 /* HEADER */
 header#about{
-	padding-top: 250px;
+	padding-top: 200px;
 	padding-left: 100px;
 	min-height: 695px;
 	/*background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);*/
@@ -180,7 +188,7 @@ header#about{
 h3.head{
 	text-align: left;
 	font-family: 'JOST_BOLD', 'Roboto';
-        font-size: 40px;
+        font-size: 34px;
 	color: #000;
 }
 h4.head-2{
@@ -236,10 +244,11 @@ button.head2:hover{
 		background-size: cover;
 	}
 	h3.head{
-		padding-left: 15%;
+		padding-left: 8%;
+                padding-top: 70px;
 	}
 	h4.head-2{
-		text-align: center;
+		padding-left: 8%;
 	}
     button.head1{
     	width: 70%;
@@ -267,6 +276,7 @@ button.head2:hover{
 		padding-left: 0px;
 		background: transparent;
 		background-size: cover;
+                color: #000;
 	}
 }
 /* END-SEMINAR */
@@ -307,7 +317,7 @@ h2.about2{
 	margin-left: -25px;
 	border-radius: 50px;
 	position: absolute;
-	background: #36a07c;
+	background: #4F77A9;
 	float: left;
 }
 .btn-about{

@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
-	<link rel="icon" href="<?=base_url()?>assets/images/favicon.ico" type="image/ico" />
+	<title>ITFest 2020 Universitas Sumatera Utara</title>
+	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url('ITFest/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
+						<a href="<?=base_url('Home/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
 				</ul>
 			</div>
@@ -67,8 +67,8 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-					<h3 class="head">INTEGRATED CREATION<br>FOR SOCIETY</h3>
-					<h4 class="head-2">ITFEST 3.0 2019</h4>
+                    <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+					<h4 class="head-2">ITFEST 4.0 2020</h4>
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">
@@ -95,7 +95,7 @@
 				<div class="col-md-6 col-timeline">
 					<div class="text-timeline" style="margin-top:20%;">
 						<center><h3 class="h1-timeline">Dapatkan Tiketmu Segera!</h3>
-						<p><b><a href="https://tiket.itfestusu.id/"><button class="btn px-5 signup h1-timeline">DAFTAR SEMINAR</button></a></b></p>
+						<p><b><a href="https://tiket.itfestusu.id/"><button class="btn px-5 daftar h1-timeline">DAFTAR SEMINAR</button></a></b></p>
 						<h3 class="h1-timeline">GRATIS!</h3></center>
 						<p>Untuk <b>anak putus sekolah</b> mendapatkan tiket <b>GRATIS</b>. Syarat dan ketentuan hubungi ke <b>+6285216011504</b></p>
 					</div>
@@ -138,9 +138,9 @@
 						?>
 						<div class="card">
 							<div class="card-body text-center">
-								<img src="<?=$value->urlLogo?>" alt="" style="max-height: 100px;">
-								<h4 class="card-title"><?=$value->namaLomba?></h4>
-								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->namaLomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
+								<img src="<?php echo base_url('public/kompetisi/logo/') ?><?=$value->url_logo?>" alt="" style="max-height: 100px;">
+								<h4 class="card-title"><?=$value->nama_lomba?></h4>
+								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->nama_lomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
 							</div>
 						</div>
 						<?php

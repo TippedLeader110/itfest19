@@ -38,3 +38,11 @@
    		event.preventDefault();
    		$('#contentPage').load('seleksiBerkas');
    	});   
+   	$("#seleksiTim").click(function(event) {
+   		event.preventDefault();
+   		$('#contentPage').load('seleksiTim');
+   	});   
+  $("#logoout").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('logout');
+    });  

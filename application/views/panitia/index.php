@@ -58,7 +58,7 @@
                 		<a href="#" id="daftarTim">Tim Peserta</a>
                 	</li>
                 	<li>
-                		<a href="#">Seleksi Tim</a>
+                		<a href="#" id="seleksiTim">Seleksi Tim</a>
                 	</li>
                 </ul>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

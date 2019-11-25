@@ -127,9 +127,6 @@ class adminModel extends CI_Model {
 			echo "deleted file L " .$rule;
 			return 1;
 		}
-
-
-		
 	}
 }
 ?>

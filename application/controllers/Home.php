@@ -250,8 +250,8 @@ class Home extends CI_Controller {
 
 	public function index(){
 		$this->load->model('LombaModel');
-		//$data['kompetisi'] = $this->LombaModel->getAllData()->result();
-		$this->load->view('ITFest/index');//, $data);
+		$data['kompetisi'] = $this->LombaModel->getAllData()->result();
+		$this->load->view('ITFest/index', $data);//, $data);
 	}
 
 	public function kompetisi(){

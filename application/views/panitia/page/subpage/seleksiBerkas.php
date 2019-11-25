@@ -81,7 +81,7 @@
 	function timInfo(id)
 	{
 		console.log(id);
-		$('.modal-body').load('<?php echo base_url('panitia/modalTim?tim=') ?>' + id);
+		$('.modal-body').load('<?php echo base_url('panitia/modalTim?tim=') ?>' + id + '&tag=<?php echo $tag ?>');
 		$('#modalTim').modal('toggle');
 	}
 </script>
