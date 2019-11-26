@@ -128,5 +128,26 @@ class adminModel extends CI_Model {
 			return 1;
 		}
 	}
+
+	public function sumPanitia()
+	{
+		return $this->db->get('user_lomba')->num_rows();
+	}
+
+	public function sumPanitiacari($cari)
+	{
+		return $this->db->like('username', $cari)->get('user_lomba')->num_rows();
+	}
+
+	public function getPanitia($number,$offset)
+	{
+		return $query = $this->db->get('user_lomba',$number,$offset)->result();		
+	}
+
+	public function getPanitiacari($number,$offset,$cari)
+	{
+		return $query = $this->db->like('username', $cari)->get('user_lomba',$number,$offset)->result();		
+	}
+
 }
 ?>

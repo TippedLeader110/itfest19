@@ -17,8 +17,10 @@
                 Welcome Admin <?php echo $var = $this->session->userdata('username'); ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url("admin/logout") ?>"><i class="fas fa-sign-out-alt"></i>Log-out</a>
+                <a id="editAdmin" class="dropdown-item" href="#"><i class="fas fa-user-edit"></i></i>Ganti Password</a>
+                <a  class="dropdown-item" href="<?php echo base_url('admin/logout') ?>" ><i class="fas fa-sign-out-alt"></i>Log-out</a>
               </div>
+              
             </li>
         </ul>
         </div>

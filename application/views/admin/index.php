@@ -2,7 +2,9 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
+    <link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
@@ -50,10 +52,10 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pagePesertamenu">
                 	<li>
-                		<a href="#" id="seleksiBerkas">Kompetisi</a>
+                		<a href="#" id="kompetisiPage">Kompetisi</a>
                 	</li>
                 	<li>
-                		<a href="#" id="daftarTim">Panitia</a>
+                		<a href="#" id="panitiaPage">Panitia</a>
                 	</li>
                 	<li>
                 		<a href="#" id="seleksiTim">Log Tim</a>
@@ -72,7 +74,7 @@
         <!-- NAVBAR -->
        	<?php $this->load->view('admin/navbar') ?>
         <!-- NAVBAR -->
-        <div id="contentPage">
+        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded">
         	
         </div>
     </div>
@@ -84,5 +86,5 @@
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
-	$('#contentPage').load('reSingkat');
+	// $('#contentPage').load('reSingkat');
 </script>

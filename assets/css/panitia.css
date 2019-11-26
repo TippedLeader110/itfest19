@@ -289,10 +289,10 @@ a.article:hover {
 
 .card-header-mod{
   overflow: auto;
-  height: 80px;
+  /*height: 80px;*/
 }
 
 #contentPage{
     background: white;
-    /*padding: 00px 5px 5px 20px;*/
+    padding: 20px 5px 5px 20px;
 }

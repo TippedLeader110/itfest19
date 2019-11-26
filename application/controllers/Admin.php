@@ -22,19 +22,65 @@ class Admin extends CI_Controller {
 	public function panitia(){
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin/page/Panitia',
 			'title' => 'Kompetisi'
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/page/Panitia', $data);
 	}
 
 	public function dataPanitia(){
 		
-		$dataPanitia = $this->adminModel->getDatafullTable('panitia');
-		$data = [
-			'title' => 'Kompetisi',
-			'dataPanitia' => $dataPanitia
-		];
+		// $dataPanitia = $this->adminModel->getDatafullTable('user_lomba');
+
+		$this->load->library('pagination');
+		$config['per_page'] = 10;
+		if ($this->uri->segment(3)==null) {
+			$from = 0;
+		}
+		else{
+			$from = $this->uri->segment(3);
+		}
+		$config['first_link']       = 'First';
+        $config['last_link']        = 'Last';
+        $config['next_link']        = 'Next';
+        $config['prev_link']        = 'Prev';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+		$data['from'] = $from;
+		if ($this->input->get('cari')!=NUll) {
+			$cari = $this->input->get('cari');
+			$dataGet = $this->adminModel->getPanitiacari($config['per_page'],$from,$cari);
+			$jumlah_data = $this->adminModel->sumPanitiacari($cari);
+			$data = [
+				'title' => 'Daftar Panitia',
+				'dataPanitia' => $dataGet,
+				'cari' => $cari,
+				'num' => $from
+			];
+		}
+		else{
+			$dataGet = $this->adminModel->getPanitia($config['per_page'],$from);
+			// var_dump($dataGet);
+			$jumlah_data = $this->adminModel->sumPanitia();
+			$data = [
+				'title' => 'Daftar Panitia',
+				'dataPanitia' => $dataGet,
+				'num' => $from
+			];
+		}
+		$config['total_rows'] = $jumlah_data;
+		$this->pagination->initialize($config);		
 		$this->load->view('admin/page/ajax/panitia', $data);
 	}
 
@@ -42,11 +88,10 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
-			'page'=>'admin/page/tambahPanitia',
 			'title' => 'Tambah Panitia',
 			'dataLomba' => $dataLomba
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/page/tambahPanitia', $data);
 	}
 
 	public function DoTambahpanitia(){
@@ -67,53 +112,53 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$dataLomba = $this->adminModel->getDatafullTable('lomba');
 		$data = [
-			'page'=>'admin/page/Lomba',
 			'title' => 'Kompetisi',
 			'dataLomba' => $dataLomba
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/page/Lomba', $data);
 	}
 
 	public function tambahLomba(){
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin/page/tambahLomba',
 			'title' => 'Tambah Kompetisi'
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('admin/page/tambahLomba', $data);
 	}
 	public function DoTambahlomba(){
-
+		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
-        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'logoup'); //call library upload 
         $this->logoup->initialize($config);
+        // var_dump("done1");
+        // echo $this->logoup->display_errors(); 
         if($this->logoup->do_upload("logo")){ //upload file
             $data = array('upload_data' => $this->logoup->data()); //ambil file name yang diupload
-            $image= $data['upload_data']['file_name']; //set file name ke variable image
+            $image= $data['upload_data']['file_name'];
             $this->adminModel->kompetisi_FlashLOGO($image); //simpan data sementara
-            $ver = 1;
+            $ver1 = 1;
         }
         else{
-        	$ver = 0;
+        	$ver1 = 0;
         }
-
+        echo $this->logoup->display_errors(); 
+        $config['encrypt_name'] = TRUE;
         $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
-        $config['allowed_types']='pdf'; //type file yang boleh di upload
+        $config['allowed_types']='pdf|PDF'; //type file yang boleh di upload
         $this->load->library('upload',$config,'ruleup');
         $this->ruleup->initialize($config);
         if($this->ruleup->do_upload("rule")){ //upload file
             $data = array('upload_data' => $this->ruleup->data()); //ambil file name yang diupload
             $pdf= $data['upload_data']['file_name']; //set file name ke variable pdf
             $this->adminModel->kompetisi_FlashRULE($pdf); //simpan data sementara
-            $ver = 1;
+            $ver2 = 1;
         }
         else{
-        	$ver = 0;
+        	$ver2 = 0;
         }
-
-        if ($ver == 1) {
+        if ($ver1==1 && $ver2==1) {
         $ver=0;
         $deskripsi = $this->input->post('deskripsi');
         $nama = $this->input->post('nama');
@@ -126,7 +171,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function doHapuslomba(){
-		$idLomba = $this->input->post('idLomba');
+		$this->loginProtocol();
+		$idLomba = $this->input->post('value');
 		if ($this->adminModel->deleteFile($idLomba)==1) {
 			$this->adminModel->deleteDatabyID($idLomba,'id_lomba','lomba');
 			echo 'Deleted by ID : '.$idLomba.'';
@@ -138,6 +184,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function testdelete($idLomba){
+		$this->loginProtocol();
 		$this->adminModel->deleteFile($idLomba);
 	}
 
@@ -147,7 +194,14 @@ class Admin extends CI_Controller {
 
 	public function login()
 	{
+		$this->session->sess_destroy();
 		$this->load->view('admin/login');
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url("admin/login"));
 	}
 
 	public function doLogin()
@@ -176,7 +230,10 @@ class Admin extends CI_Controller {
 
 	public function loginProtocol()
 	{
-		if(($this->session->userdata('status') != "login-admin") && ($this->session->userdata('panitia-id') == NULL)){
+		if(($this->session->userdata('status') == "login-admin")){
+			
+		}
+		else{
 			redirect(base_url("admin/login"));
 		}
 	}

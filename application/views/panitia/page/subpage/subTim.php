@@ -59,10 +59,10 @@
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
     	<?php if (isset($cari)): ?>
-		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
@@ -74,10 +74,10 @@
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
 		<?php if (isset($cari)): ?>
-		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 

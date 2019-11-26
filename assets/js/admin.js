@@ -14,7 +14,22 @@ $("#KelolahTahapan").click(function(event) {
   $('#contentPage').load('Tahap');
 });
 
-$("#logoout").click(function(event) {
+$("#logoutadmin").click(function(event) {
   event.preventDefault();
   $('#contentPage').load('logout');
-});  
+});
+
+$("#kompetisiPage").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('lomba');
+});
+
+$("#panitiaPage").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('panitia');
+});
+
+$("#editAdmin").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('Tahap');
+});
