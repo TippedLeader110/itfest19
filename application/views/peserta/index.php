@@ -4,6 +4,9 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/peserta.css') ?>">
+
+	<script src="<?php echo base_url('/assets/js/peserta.js') ?>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
@@ -27,7 +30,7 @@
         <!-- NAVBAR -->
 
         <div id="contentPage">
-        	<?php //$this->load->view($page) ?>
+        	<?php $this->load->view($page) ?>
         </div>
     </div>
 </body>
@@ -40,31 +43,23 @@
 
 	$('#home').click(function(event) {
 		console.log('log');
-		$('#contentPage').load('<?php echo base_url("index.php/Peserta/")?>');
+		$('#contentPage').load('<?php echo base_url("index.php/Peserta/kontenHome")?>');
 	});
 	$('#progres').click(function(event) {
 		console.log('log');
-		$('#contentPage').load('kontenProgres');
+		$('#contentPage').load('<?php echo base_url("index.php/Peserta/kontenProgres")?>');
+	});
+	$('#uploadBuktiPembayaran').click(function(event) {
+		console.log('log');
+		$('#contentPage').load('<?php echo base_url("index.php/Peserta/upload_bukti_pembayaran")?>');
+	});
+	$('#uploadBerkasPendaftaran').click(function(event) {
+		console.log('log');
+		$('#contentPage').load('<?php echo base_url("index.php/Peserta/upload_berkas")?>');
 	});
 
 
-	// Vanilla JavaScript
-	document.addEventListener('DOMContentLoaded', function () {
-	  myStepper = new Stepper(document.querySelector('#stepper-example'))
-	})
 
-	// As a jQuery Plugin
-	$(document).ready(function () {
-	  var myStepper = new Stepper($('#stepper-example'))
-	})
-
-	myStepper = new Stepper(document.querySelector('#stepper-example'),{
-  	linear: false
-	})
-
-	myStepper = new Stepper(document.querySelector('#stepper-example'),{
-  	animation: true
-	})
 
 
 </script>
