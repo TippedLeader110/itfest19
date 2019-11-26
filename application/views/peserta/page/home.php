@@ -1,6 +1,7 @@
+<?php $this->load->view('peserta/page/progres') ?>
 <div id="home">
 	<div class="container border">
-		<h4><b>Data</b></h4>
+
 		<table class="table table-bordered" style="margin-top: 10px;"> 
 			<!-- Tampilin data --->
 			<tr>
@@ -18,5 +19,3 @@
 		</table>
 	</div>
 </div>
-
-<?php $this->load->view('peserta/page/progres') ?>

@@ -17,22 +17,37 @@
         <ul class="list-unstyled components">
             <li>
                 <a href="#home" id="home" data-toggle="collapse" aria-expanded="false" class="">
-                    <i class="fas fa-home"></i>
+                    <i class="fa fa-home"></i>
                     Home
                 </a>
                 
             </li>
             <li>
                 <a href="#progres" id="progres" data-toggle="collapse" aria-expanded="false" class="">
-                    <i class="fas fa-tasks"></i>
+                    <i class="fa fa-tasks"></i>
                     Progres
                 </a>
             </li>
 
+            <li>
+                <a href="#uploadSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    Upload Berkas
+                </a>
+                <ul class="collapse list-unstyled" id="uploadSubmenu">
+                    <li>
+                        <a href="#" id="uploadBuktiPembayaran">Upload Bukti Pembayaran</a>
+                    </li>
+                    <li>
+                        <a href="#" id="uploadBerkasPendaftaran">Upload Berkas Pendaftaran</a>
+                    </li>
+                </ul>
+            </li>
+
             <br><br><br><br><br><br><br><br><br>
             <li>
-                <a href="" data-toggle="collapse" aria-expanded="false" class="">
-                    <i class="fas fa-sign-out"></i>
+                <a href="<?php echo base_url('index.php/peserta/logout') ?>">
+                    <i class="fa fa-sign-out"></i>
                     Logout
                 </a>
             </li>

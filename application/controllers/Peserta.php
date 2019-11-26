@@ -46,6 +46,12 @@ class Peserta extends CI_Controller {
 			echo "0";
 		}
 	}
+	public function logout(){
+		session_start();
+		session_unset();
+		session_destroy();
+		header("location:login_page");
+	}
 	public function index(){
 		$this->login_protocol();
 
@@ -70,6 +76,12 @@ class Peserta extends CI_Controller {
 	}
 	public function kontenProgres(){
 		$this->load->view('peserta/page/progres');
+	}
+	public function upload_bukti_pembayaran(){
+		$this->load->view('peserta/page/upload_bukti_pembayaran');
+	}
+	public function upload_berkas(){
+		$this->load->view('peserta/page/upload_berkas');
 	}
 }
 ?>
