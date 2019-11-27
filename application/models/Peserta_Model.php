@@ -29,7 +29,14 @@ class Peserta_Model extends CI_Model {
 	}
 
 	public function ambil_data_tim($id_team){
-		return $this->db->get_where('data_tim',$id_team)->result();
+		return $this->db->where('id_tim',$id_team)->get('data_tim')->result();
+	}
+	public function ambil_info_tim($id_team){
+		return $this->db->where('id_tim',$id_team)->get('tim')->result();
+	}
+	public function getDatafullTable($table){
+		$data = $this->db->get($table)->result();
+		return $data;
 	}
 }
 ?>

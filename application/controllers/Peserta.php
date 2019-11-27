@@ -55,24 +55,42 @@ class Peserta extends CI_Controller {
 	public function index(){
 		$this->login_protocol();
 
-		$id_team = ['id_tim'=>$this->session->userdata('id_tim')];
-		$data_tim = $this->Peserta_Model->ambil_data_tim($id_team);
 
 		$data = array(
 			'page'=>'peserta/page/home',
-			'title' => 'Dashboard',
-			'data_tim' => $data_tim
+			'title' => 'Dashboard'
 
 		);
 
 		$this->load->view('peserta/index',$data);
 	}
+	public function tahapPeserta(){
+		
+		$tahapPeserta = $this->Peserta_Model->getDatafullTable('tahap_tim');
+		// var_dump($tahapPeserta);
+		$data = [
+			'tahapPeserta' => $tahapPeserta
+		];
+		$this->load->view('peserta/page/progres', $data);
+	}
 
 	public function upload_file_kompetisi(){
 		$this->input->post('id_kompetisi');
 	}
+
 	public function kontenHome(){
-		$this->load->view('peserta/page/home');
+
+		$kontenHome = $this->Peserta_Model->getDatafullTable('tim');
+		// var_dump($kontenHome);
+		$id_team = $this->session->userdata('id_tim');
+		$value = $this->Peserta_Model->ambil_data_tim($id_team);
+		$data = [
+			'kontenHome' => $kontenHome,
+			'dataTim' => $value
+		];
+
+
+		$this->load->view('peserta/page/home', $data);
 	}
 	public function kontenProgres(){
 		$this->load->view('peserta/page/progres');

@@ -54,3 +54,36 @@
         </ul>
 
     </nav>
+<script type="text/javascript">
+    $('#contentPage').load('<?php echo base_url('peserta/tahapPeserta') ?>');
+
+    $('#home').click(function(event) {
+        console.log('log');
+        $('#contentPage').load('<?php echo base_url('peserta/kontenHome')?>');
+    });
+    $('#progres').click(function(event) {
+        console.log('log');
+        $('#contentPage').load('<?php echo base_url('peserta/tahapPeserta')?>');
+    });
+    $('#uploadBuktiPembayaran').click(function(event) {
+        console.log('log');
+        $('#contentPage').load('<?php echo base_url('peserta/upload_bukti_pembayaran')?>');
+    });
+    $('#uploadBerkasPendaftaran').click(function(event) {
+        console.log('log');
+        $('#contentPage').load('<?php echo base_url("peserta/upload_berkas")?>');
+    });
+
+    
+       $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+</script>

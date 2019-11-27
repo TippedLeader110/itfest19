@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Admin</title>
+	<title>Login Peserta - ITFest 2020</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/login.css') ?>">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
