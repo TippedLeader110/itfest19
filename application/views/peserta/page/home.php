@@ -2,14 +2,6 @@
 	<div style="margin-bottom: 25px;">
 		<h4 class="">Dashboard Peserta | ITFest USU 2020</h4>
 	</div>
-	<div class="card bg-danger" style="width: auto; margin-top: 10px;">
-		  <div class="card-header">
-		    <b style="color: white; font-size: 22px;">INFORMASI</b>
-		  </div>
-		  <ul class="list-group list-group-flush">
-		    <li class="list-group-item">Isi informasi dari panitia </li>
-		  </ul>
-	</div>
 	<div class="row" style="margin-top: 20px; padding: 10px 10px 10px 10px;">
 		<div class="col-2 bg-dark bulat" style="height:180px; max-height: 180px; color:	white;">
 			<p style="padding-top: 70px; padding-left: 10px;">logo kompetisi</p>
@@ -30,6 +22,14 @@
 				</tr>
 			</table>
 		</div>
+	</div>
+	<div class="card bg-danger" style="width: auto; margin-top: 10px;">
+		  <div class="card-header">
+		    <b style="color: white; font-size: 22px;">INFORMASI </b>
+		  </div>
+		  <ul class="list-group list-group-flush">
+		    <li class="list-group-item">Isi informasi dari panitia </li>
+		  </ul>
 	</div>
 
 	
