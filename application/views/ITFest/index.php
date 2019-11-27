@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 2020 Universitas Sumatera Utara</title>
-	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
+	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
+	<link rel="icon" href="<?=base_url()?>assets/images/favvicon.png" type="image/png" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -67,8 +67,8 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-                    <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
-					<h4 class="head-2">ITFEST 4.0 2020</h4>
+                                        <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+					<h4 class="head-2">ITFEST 2020</h4>
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">
@@ -116,8 +116,8 @@
 				</div>
 				<div class="col-md-5 col-about-2">
 					<div class="garis-text d-none d-lg-block"></div>
-					<h2 class="about2">Tentang ITFest 3.0 2019</h2>
-					ITFEST 2019 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2019 memiliki tema “Integrated Creation For Society”. Rangkaian kegiatan ITFEST 2019 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
+					<h2 class="about2">Tentang ITFest 2020</h2>
+					ITFEST 2020 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2020 memiliki tema “Social Culture Awareness Through Technology for Millenials”. Rangkaian kegiatan ITFEST 2020 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
 				</div>
 				<!-- <button class="btn px-4 btn-primary btn-about">DAFTAR SEMINAR DISINI</button> -->
 			</div>
@@ -138,9 +138,9 @@
 						?>
 						<div class="card">
 							<div class="card-body text-center">
-								<img src="<?php echo base_url('public/kompetisi/logo/') ?><?=$value->url_logo?>" alt="" style="max-height: 100px;">
-								<h4 class="card-title"><?=$value->nama_lomba?></h4>
-								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->nama_lomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
+								<img src="<?=$value->urlLogo?>" alt="" style="max-height: 100px;">
+								<h4 class="card-title"><?=$value->namaLomba?></h4>
+								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->namaLomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
 							</div>
 						</div>
 						<?php
@@ -157,7 +157,7 @@
 				<div class="col-md-12 col-acara">
 					<center><h1 class="h1-kompetisi">Video Teaser</h1>
 					<hr class="hr-kompetisi">
-					<p class="p-judul-kompetisi">Lihat keseruan dan acara apa saja yang akan hadir di ITFest 2019</p><br></center>
+					<p class="p-judul-kompetisi">Lihat keseruan dan acara apa saja yang akan hadir di ITFest 2020</p><br></center>
 				</div>
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
@@ -291,3 +291,4 @@
 	</script>
 </body>
 </html>
+html>
