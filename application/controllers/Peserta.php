@@ -74,6 +74,16 @@ class Peserta extends CI_Controller {
 		$this->load->view('peserta/page/progres', $data);
 	}
 
+	public function notifikasi(){
+		
+		$notifikasi = $this->Peserta_Model->getDatafullTable('tahap_tim');
+		// var_dump($tahapPeserta);
+		$data = [
+			'notifikasi' => $notifikasi
+		];
+		$this->load->view('peserta/page/notifikasi', $data);
+	}
+
 	public function upload_file_kompetisi(){
 		$this->input->post('id_kompetisi');
 	}
@@ -100,6 +110,12 @@ class Peserta extends CI_Controller {
 	}
 	public function upload_berkas(){
 		$this->load->view('peserta/page/upload_berkas');
+	}
+	public function informasiTim(){
+		$this->load->view('peserta/page/infoTim');
+	}
+	public function tahapKompetisi(){
+		$this->load->view('peserta/page/tahapKompetisi');
 	}
 }
 ?>

@@ -23,58 +23,41 @@
                 
             </li>
             <li>
-                <a href="#progres" id="progres" data-toggle="collapse" aria-expanded="false" class="">
-                    <i class="fa fa-tasks"></i>
-                    Progres
+                <a href="#infoTim" id="infoTim" data-toggle="collapse" aria-expanded="false" class="">
+                    <i class="fa fa-info"></i>
+                    Info Tim
                 </a>
             </li>
 
             <li>
-                <a href="#uploadSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fa fa-upload" aria-hidden="true"></i>
-                    Upload Berkas
-                </a>
-                <ul class="collapse list-unstyled" id="uploadSubmenu">
-                    <li>
-                        <a href="#" id="uploadBuktiPembayaran">Upload Bukti Pembayaran</a>
-                    </li>
-                    <li>
-                        <a href="#" id="uploadBerkasPendaftaran">Upload Berkas Pendaftaran</a>
-                    </li>
-                </ul>
-            </li>
-
-            <br><br><br><br><br><br><br><br><br>
-            <li>
-                <a href="<?php echo base_url('index.php/peserta/logout') ?>">
-                    <i class="fa fa-sign-out"></i>
-                    Logout
+                <a href="#tahapKompetisi" id="tahapKompetisi" class="">
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                    Tahap Kompetisi
                 </a>
             </li>
         </ul>
-
     </nav>
 <script type="text/javascript">
-    $('#contentPage').load('<?php echo base_url('peserta/tahapPeserta') ?>');
+
 
     $('#home').click(function(event) {
         console.log('log');
         $('#contentPage').load('<?php echo base_url('peserta/kontenHome')?>');
     });
-    $('#progres').click(function(event) {
+    $('#infoTim').click(function(event) {
         console.log('log');
-        $('#contentPage').load('<?php echo base_url('peserta/tahapPeserta')?>');
+        $('#contentPage').load('<?php echo base_url('peserta/informasiTim')?>');
     });
     $('#uploadBuktiPembayaran').click(function(event) {
         console.log('log');
         $('#contentPage').load('<?php echo base_url('peserta/upload_bukti_pembayaran')?>');
     });
-    $('#uploadBerkasPendaftaran').click(function(event) {
+    $('#tahapKompetisi').click(function(event) {
         console.log('log');
-        $('#contentPage').load('<?php echo base_url("peserta/upload_berkas")?>');
+        $('#contentPage').load('<?php echo base_url("peserta/tahapKompetisi")?>');
     });
 
-    
+
        $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"

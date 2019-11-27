@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="https://unpkg.com/bs-stepper/dist/css/bs-stepper.min.css">
 	<script src="https://unpkg.com/bs-stepper/dist/js/bs-stepper.min.js"></script>
 	<title><?php echo $title ?></title>
+
+	<style type="text/css">
+		.bulat {
+		  background-color: #bbb;
+		  border-radius: 50%;
+		  display: inline-block;
+		}
+	</style>
 </head>
 <body style="background: #fafafa;">
 	<!-- Leftbar -->
@@ -41,5 +49,5 @@
 <script src="<?php echo base_url('/assets/js/peserta.js') ?>"></script>
 
 <script type="text/javascript">
-	    $('#contentPage').load('<?php echo base_url('peserta/tahapPeserta') ?>');
+	    $('#contentPage').load('<?php echo base_url('peserta/kontenHome') ?>');
 </script>
