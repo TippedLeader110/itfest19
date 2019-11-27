@@ -102,6 +102,9 @@ class Peserta extends CI_Controller {
 
 		$this->load->view('peserta/page/home', $data);
 	}
+	public function ambil_data_timlomba(){
+
+	}
 	public function kontenProgres(){
 		$this->load->view('peserta/page/progres');
 	}
@@ -112,10 +115,25 @@ class Peserta extends CI_Controller {
 		$this->load->view('peserta/page/upload_berkas');
 	}
 	public function informasiTim(){
-		$this->load->view('peserta/page/infoTim');
+		$id = $this->session->userdata('id_tim');
+		// var_dump($id);
+		// die;
+		$value1 = $this->Peserta_Model->ambilDataLombaTim($id);
+		$value2 = $this->Peserta_Model->ambilDataAnggota($id);
+		// $value2 = $this->Peserta_Model->getDatafullTable('tim');
+
+		$data = [
+			'dataTim' => $value1,
+			'dataAnggota' => $value2
+
+		];
+
+
+		$this->load->view('peserta/page/infoTim', $data);
 	}
 	public function tahapKompetisi(){
 		$this->load->view('peserta/page/tahapKompetisi');
 	}
+
 }
 ?>

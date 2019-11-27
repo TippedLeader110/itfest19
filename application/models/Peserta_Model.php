@@ -38,5 +38,15 @@ class Peserta_Model extends CI_Model {
 		$data = $this->db->get($table)->result();
 		return $data;
 	}
+	public function ambilDataLombaTim($id_lomba){
+
+		$data = $this->db->query("SELECT * FROM lomba a INNER JOIN tim b on a.id_lomba = b.id_lomba where id_tim = ".$id_lomba." ")->result();
+
+		return $data;
+	}
+	public function ambilDataAnggota($id_lomba){
+		$data = $this->db->query("CALL tim_info(".$id_lomba.")")->result();
+		return $data;
+	}
 }
 ?>
