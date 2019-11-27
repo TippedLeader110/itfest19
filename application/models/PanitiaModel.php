@@ -52,11 +52,10 @@ class panitiaModel extends CI_Model {
 		$id_panitia = $query->row()->id_user;
 		$data = array('ip_address' => $ip,
 			'keterangan' => 'Login Panitia',
-			'waktu' => time(),
+			'waktu' => date("Y-m-d H:i:s"),
 			'id_panitia' => $id_panitia
 		 );
 		$this->db->insert('log_panitia', $data);
-
 	}
 
 	public function getIP(){

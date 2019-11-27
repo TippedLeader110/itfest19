@@ -66,6 +66,14 @@
 							Beranda
 						</a>
 					</div>
+					<div class="text-center p-t-0">
+						<span class="txt1">
+							Beralih ke
+						</span>
+						<a class="txt2" href="<?=base_url('admin')?>">
+							Dashboard Admin
+						</a>
+					</div>
 				</form>
 			</div>
 		</div>

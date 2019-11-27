@@ -33,3 +33,23 @@ $("#editAdmin").click(function(event) {
   event.preventDefault();
   $('#contentPage').load('Tahap');
 });
+
+$("#reSingkat").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('reSingkat');
+});
+
+$("#reportTeam").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('tim');
+});
+
+$('#logTim').click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('logTim');
+});
+
+$('#logPanitia').click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('logPanitia');
+});

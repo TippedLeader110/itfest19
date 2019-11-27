@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
     <link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
+    	
 	<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" crossorigin="anonymous"></script>
+    <!-- MDBOOTSTRAP -->
+      <link href="<?php echo base_url('/assets/css/addons/datatables.min.css') ?>" rel="stylesheet">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+      <!-- Bootstrap core CSS -->
+	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>"> -->
+
+    <link rel="stylesheet" href="<?php echo base_url('/assets/css/mdb.min.css') ?>">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
 	<title><?php echo $title ?></title>
 </head>
 <body style="background: #fafafa;">
@@ -35,10 +43,10 @@
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li id="reportSingkatSide" class="bawah">
-                        <a href="#" id="reportSingkat">Laporan Singkat</a>
+                        <a href="#" id="reSingkat">Laporan Singkat</a>
                     </li>
                     <li>
-                        <a href="#" id="reportTahap">Team</a>
+                        <a href="#" id="reportTeam">Team</a>
                     </li>
                     <li>
                         <a href="#" id="reportBerkas">Seminar</a>
@@ -58,10 +66,10 @@
                 		<a href="#" id="panitiaPage">Panitia</a>
                 	</li>
                 	<li>
-                		<a href="#" id="seleksiTim">Log Tim</a>
+                		<a href="#" id="logTim">Log Tim</a>
                 	</li>
                     <li>
-                        <a href="#" id="seleksiTim">Log Panitia</a>
+                        <a href="#" id="logPanitia">Log Panitia</a>
                     </li>
                 </ul>
             </li>
@@ -82,9 +90,17 @@
 </body>
 </html>
 
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>
+  <!-- Bootstrap core JavaScript -->
+  <!-- MDB core JavaScript -->
+<script type="text/javascript" src="<?php echo base_url('/assets/js/mdb.min.js') ?>"></script>
+  <!-- Your custom scripts (optional) -->
+<script type="text/javascript" src="<?php echo base_url('/assets/js/addons/datatables.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/admin.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
-	// $('#contentPage').load('reSingkat');
+	$('#contentPage').load('reSingkat');
 </script>

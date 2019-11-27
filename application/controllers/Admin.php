@@ -104,7 +104,44 @@ class Admin extends CI_Controller {
 	}
 
 	##################PANITIA###################
+
+	public function tim(){
+		$this->loginProtocol();
+		$dataTim = $this->adminModel->getDatafullTable('data_tim_ketua');
+		$data = [
+			'title' => 'Data Tim',
+			'dataTim' => $dataTim
+		];
+		$this->load->view('admin/page/tim', $data);
+	}
+	##################TIM#######################
+
 	##################LOMBA#####################
+
+	
+
+	public function logTIm(){
+		$this->loginProtocol();
+		$logTim = $this->adminModel->getDatafullTable('log_tim_en');
+		$data = [
+			'title' => 'log TIm',
+			'logTim' => $logTim
+		];
+		$this->load->view('admin/page/logTIm', $data);
+	}
+
+
+
+	public function logPanitia(){
+		$this->loginProtocol();
+		$logPanitia = $this->adminModel->getDatafullTable('log_panitia_en');
+		$data = [
+			'title' => 'log Panitia',
+			'logPanitia' => $logPanitia
+		];
+		$this->load->view('admin/page/logPanitia', $data);
+	}
+
 
 
 
@@ -118,6 +155,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/page/Lomba', $data);
 	}
 
+	public function editLomba(){
+		$this->loginProtocol();
+		$id = $this->uri->segment(3);
+		$dataLomba = $this->adminModel->getDatabyID($id,'id_lomba','lomba');
+		$data = [
+			'title' => 'Edit Kompetisi',
+			'dataLomba' => $dataLomba
+		];
+		$this->load->view('admin/page/editLomba', $data);
+	}
+
 	public function tambahLomba(){
 		$this->loginProtocol();
 		$data = [
@@ -125,6 +173,7 @@ class Admin extends CI_Controller {
 		];
 		$this->load->view('admin/page/tambahLomba', $data);
 	}
+
 	public function DoTambahlomba(){
 		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
@@ -170,6 +219,57 @@ class Admin extends CI_Controller {
         }
 	}
 
+
+	public function DoEditlomba(){
+		$this->loginProtocol();
+		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload',$config,'logoup'); //call library upload 
+        $this->logoup->initialize($config);
+        // var_dump("done1");
+        // echo $this->logoup->display_errors(); 
+        if($this->logoup->do_upload("logo")){ //upload file
+            $data = array('upload_data' => $this->logoup->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name'];
+            $this->adminModel->kompetisi_FlashLOGO($image); //simpan data sementara
+            $ver1 = 1;
+        }
+        else{
+        	$ver1 = 0;
+        }
+        echo $this->logoup->display_errors(); 
+        $config['encrypt_name'] = TRUE;
+        $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
+        $config['allowed_types']='pdf|PDF'; //type file yang boleh di upload
+        $this->load->library('upload',$config,'ruleup');
+        $this->ruleup->initialize($config);
+        if($this->ruleup->do_upload("rule")){ //upload file
+            $data = array('upload_data' => $this->ruleup->data()); //ambil file name yang diupload
+            $pdf= $data['upload_data']['file_name']; //set file name ke variable pdf
+            $this->adminModel->kompetisi_FlashRULE($pdf); //simpan data sementara
+            $ver2 = 1;
+        }
+        else{
+        	$ver2 = 0;
+        }
+        if ($ver1==1 && $ver2==1) {
+        $ver=0;
+        $deskripsi = $this->input->post('deskripsi');
+        var_dump($deskripsi);
+        $nama = $this->input->post('nama');
+        var_dump($nama);
+        $id = $this->input->post('id');
+        var_dump($id);
+
+        $this->adminModel->kompetisiDoEdit($deskripsi,$nama,$id);
+        echo "1";
+        }
+        else{
+        	echo "0";
+        }
+	}
+
 	public function doHapuslomba(){
 		$this->loginProtocol();
 		$idLomba = $this->input->post('value');
@@ -181,6 +281,28 @@ class Admin extends CI_Controller {
 			echo "Something went wrong !!";
 		}
 
+	}
+
+	public function reSingkat()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->adminModel->getSingkat();
+		$dataGet2 = $this->adminModel->getSingkat2();
+		$data = [
+			'title' => 'Laporan Singkat',
+			'reTahap' => $dataGet,
+			'reTahapkompe' => $dataGet2
+		];
+		$this->load->view('admin/page/reSingkat', $data);
+	}
+
+	public function doHapusPanitia()
+	{
+		$this->loginProtocol();
+		$id = $this->input->post('value');
+		if ($this->adminModel->deleteDatabyID($id,'id_user','user')) {
+			echo 'Deleted by ID : '.$id.'';
+		}
 	}
 
 	public function testdelete($idLomba){
