@@ -4,7 +4,7 @@
 	<title>Login ITFest 4.0</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!--===============================================================================================-->
 	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 <!--===============================================================================================-->
@@ -33,7 +33,7 @@
 					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
 				</div></a>
 
-				<form class="login100-form validate-form" method="POST" action="<?=base_url('Auth/login')?>">
+				<form class="login100-form validate-form" id="login">
 					<span class="login100-form-title text-white">
 						LOGIN
 					</span>
@@ -121,24 +121,30 @@
 		var showName = "<?php echo $this->session->userdata('nama_tim') ?>";
 		var user = $('#username_tim').val();
 		var pwd = $('#password_tim').val();
+		if (user==''&&pwd=='') {
+			Swal.fire('Kesalahan', 'Tolong isi kolom username dan password', "error");
+		}
+		else{
+		console.log(user);
+		console.log(pwd);
 		$.ajax({
 			url: '<?php echo base_url('Peserta/login') ?>',
 			type: 'post',
 			data: {user, pwd},
 			error: function(data){
-				// Swal.fire('Login Gagal')
+				Swal.fire('Kesalahan', 'Terjadi kesalahan dengan server', "error");
 			},
 			success: function(data){
 				if (data==1) {
 					console.log(data);
 					Swal.fire('Berhasil', 'Selamat Datang ' + showName, "success");
-					setTimeout(function(){window.open('<?php echo base_url("index.php/Peserta/")?>','_self');},2000);
+					setTimeout(function(){window.open('<?php echo base_url("Peserta/")?>','_self');},2000);
 				}
-				else if (data==null) {
-					Swal.fire('Berkas belum diverifikasi', 'Berkas anda belum diverifikasi oleh pihak panitia', "info");
+				else if (data=='blm') {
+					Swal.fire('Berkas belum diverifikasi', 'Berkas tim sedang diverifikasi silahkan menunggu sampai berkas diverifikasi oleh panitia. Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id', "info");
 				}
-				else if (data=='0') {
-					Swal.fire('Berkas Tim ditolak', 'Berkas anda tidak memenuhi syarat atau melanggar aturan', "error");
+				else if (data=='tolak') {
+					Swal.fire('Berkas Tim ditolak', 'Berkas anda tidak memenuhi syarat atau melanggar aturan.Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id', "error");
 				}
 				else{
 					console.log(data);
@@ -147,6 +153,7 @@
 
 			}
 		})
+		}
 	});
 
 </script>

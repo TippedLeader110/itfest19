@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h5>Dafftar Tim | ITFest 4.0 Universitas Sumatera Utara</h5>
+				<h5>Daftar Tim | ITFest 4.0 Universitas Sumatera Utara</h5>
 				<hr>
 			</div>
 		</div>

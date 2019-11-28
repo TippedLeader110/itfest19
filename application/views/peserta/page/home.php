@@ -2,24 +2,27 @@
 <div class="container-fluid bg-white" style="padding: 10px 10px 10px 10px;">
 	<div style="margin-bottom: 25px;">
 		<h4 class="">Dashboard Peserta | ITFest USU 2020</h4>
+		<hr>
 	</div>
 	<div class="row" style="margin-top: 20px; padding: 10px 10px 10px 10px;">
-		<div class="col-2 bg-dark bulat" style="height:180px; max-height: 180px; color:	white;">
-			<p style="padding-top: 70px; padding-left: 10px;">logo kompetisi</p>
-		</div>
+		<?php foreach ($dataLomba as $key => $DLomba): ?>
+		<?php endforeach ?>
+		<?php foreach ($dataTim as $key => $value): ?>
+			
+		<?php endforeach ?>
 		<div class="col-10" style="width: auto;">
 			<table border="0" style="width: 400px; margin-top: 17px;" class="table table-borderless">
 				<tr>
 					<td>Nama Tim</td>
-					<td>blabla</td>
+					<td><?php echo $value->nama_team ?></td>
 				</tr>
 				<tr>
-					<td>Kompetisi yang diikuti</td>
-					<td>blabla</td>
+					<td>Asal Universitas</td>
+					<td><?php echo $value->asal_univ ?></td>
 				</tr>
 				<tr>
-					<td>Deadline terdekat</td>
-					<td>blabla</td>
+					<td>Status Pembayaran</td>
+					<td><?php echo $value->status_pembayaran ?></td>
 				</tr>
 			</table>
 		</div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
     <div class="container-fluid">
 
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -14,7 +14,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                 <i class="fas fa-user"></i>
-                Welcome <?php echo $var = $this->session->userdata('username'); ?>
+                Welcome <?php echo $var = $this->session->userdata('nama_tim'); ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="<?php echo base_url('index.php/peserta/logout') ?>">Logout</a>

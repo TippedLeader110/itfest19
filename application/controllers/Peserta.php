@@ -25,19 +25,28 @@ class Peserta extends CI_Controller {
 			redirect(base_url('index.php/Peserta/login_page'));
 		}
 	}
+
 	public function login_page(){
 		$this->load->view('peserta/login');
 	}
+
 	public function login(){
 		$username = $this->input->post('user');
 		$password = $this->input->post('pwd');
-		$success = $this->Peserta_Model->login($user, $pwd);
-		if ($success) {
-			echo $success;
+		$success = $this->Peserta_Model->login($username, $password);
+		// var_dump($success);die;
+		if (isset($success)) {
+			if ($success==1)
+				echo 1;
+			else if ($success==9)
+				echo "blm";
+			else if($success==8)
+				echo "tolak";
 		}
 		else{
 			echo "fail";
 		}
+		
 	}
 	public function logout(){
 		session_start();
@@ -45,14 +54,15 @@ class Peserta extends CI_Controller {
 		session_destroy();
 		header("location:login_page");
 	}
+
 	public function index(){
 		$this->login_protocol();
-
-
+		$id = $this->session->userdata('id_lomba');
+		$id_lomba = $this->session->userdata('id_lomba');
+		$dataL = $this->Peserta_Model->getLomba($id_lomba);		
 		$data = array(
-			'page'=>'peserta/page/home',
-			'title' => 'Dashboard'
-
+			'title' => 'Dashboard',
+			'dataLomba' => $dataL
 		);
 
 		$this->load->view('peserta/index',$data);
@@ -83,16 +93,16 @@ class Peserta extends CI_Controller {
 
 	public function kontenHome(){
 
-		$kontenHome = $this->Peserta_Model->getDatafullTable('tim');
-		// var_dump($kontenHome);
 		$id_team = $this->session->userdata('id_tim');
+		$id_lomba = $this->session->userdata('id_lomba');
+		// var_dump($id_lomba);die;
+		$dataL = $this->Peserta_Model->getLomba($id_lomba);		
+		// var_dump($dataL);die;
 		$value = $this->Peserta_Model->ambil_data_tim($id_team);
 		$data = [
-			'kontenHome' => $kontenHome,
+			'dataLomba' => $dataL,
 			'dataTim' => $value
 		];
-
-
 		$this->load->view('peserta/page/home', $data);
 	}
 	public function ambil_data_timlomba(){

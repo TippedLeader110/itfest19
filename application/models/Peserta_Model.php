@@ -17,28 +17,45 @@ class Peserta_Model extends CI_Model {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function login($user_real, $pwd){
-		$user = $this->db
-			->where('username', $user_real)
-			->where('id_lomba', 0)
-			->get('tim');
-			
-		$match = password_verify($pwd , $user->row()->password);
-		$status = $result[0]->status_tim;
+	public function getLomba($id)
+	{
+		return $this->db->where('id_lomba', $id)->get('lomba')->result();
+	}
 
-		if($match)
-			$this->session->set_userdata([
-					'nama_tim' =>  $result[0]->nama_team,
-					'id_tim' => $result[0]->id_tim
+	public function login($user_real, $pwd){
+		// var_dump($user_real);die;
+		$data = $this->db
+			->where('username_tim', $user_real)
+			->get('tim');
+
+		// var_dump($data->result());die;
+		$match = password_verify($pwd , $data->row()->password_tim);
+		$status = $data->row()->status_tim;
+
+		if ($match) {
+
+			if ($status==1) {
+				$this->session->set_userdata([
+					'nama_tim' =>  $data->row()->nama_team,
+					'id_tim' => $data->row()->id_tim,
+					'id_lomba' => $data->row()->id_lomba
 				]);	
-			return $status;
+				return 1;
+			}
+			elseif ($status==null) {
+				return 9;
+			}
+			elseif ($status=='0') {
+				return 8;
+			}
+		}
 		else{
 			return 10;
 		}
 	}
 
 	public function ambil_data_tim($id_team){
-		return $this->db->where('id_tim',$id_team)->get('data_tim')->result();
+		return $this->db->where('id_tim',$id_team)->get('tim')->result();
 	}
 	public function ambil_info_tim($id_team){
 		return $this->db->where('id_tim',$id_team)->get('tim')->result();

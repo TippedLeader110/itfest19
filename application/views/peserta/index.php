@@ -28,7 +28,55 @@
 </head>
 <body style="background: #fafafa;">
 	<!-- Leftbar -->
-	<?php $this->load->view('peserta/leftbar') ?>
+	<!-- <?php foreach ($dataGet as $key => $value): ?>
+	<?php endforeach ?> -->
+	<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>
+                <?php foreach ($dataLomba as $key => $DLomba): ?>
+                    
+                <?php endforeach ?>
+                <center>
+                    <img width="150px;"  src="<?php 
+                    echo base_url('public/kompetisi/logo/');
+                    echo $DLomba->url_logo;
+                     ?>">
+                    <h5><?php echo $DLomba->nama_lomba ?></h5>
+                </center>
+            </h3>
+            <strong>
+            	<img width="40px;"  src="<?php 
+                    echo base_url('public/kompetisi/logo/');
+                    echo $DLomba->url_logo;
+                     ?>">
+            </strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#home" id="home"  class="">
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+                
+            </li>
+            <li>
+                <a href="#infoTim" id="infoTim" class="">
+                    <i class="fas fa-info-circle"></i>
+                    Info Tim
+                </a>
+            </li>
+
+            <li>
+                <a href="#tahapKompetisi" id="tahapKompetisi" class="">
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                    Tahap Kompetisi
+                </a>
+            </li>
+        </ul>
+    </nav>
 	<!-- ----- >
 
     <!-- Page Content  -->
@@ -37,8 +85,8 @@
        	<?php $this->load->view('peserta/navbar') ?>
         <!-- NAVBAR -->
 
-        <div id="contentPage">
-        	<!-- <?php $this->load->view($page) ?> -->
+        <div id="contentPage" class="shadow-sm p-2 mb-5 bg-white rounded">
+        	
         </div>
 
     </div>
@@ -50,4 +98,6 @@
 
 <script type="text/javascript">
 	    $('#contentPage').load('<?php echo base_url('peserta/kontenHome') ?>');
+
+	    
 </script>
