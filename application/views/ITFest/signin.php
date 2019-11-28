@@ -38,8 +38,8 @@
 						LOGIN
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Email is required">
-						<input class="input100" type="email" name="username_tim" id="username_tim" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username_tim" id="username_tim" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-at" aria-hidden="true"></i>
