@@ -1,9 +1,9 @@
 <?php if (isset($seleksiTim)): ?>
 	<div class="table-responsive">
 		<table class="table table-striped">
-			<tr>
+			<thead class="bg-custom text-white">
 				<th>Nama Tim</th><th>Universitas</th><th>Status Tim</th><th>Aksi</th>
-			</tr>
+			</thead>
 		<?php foreach ($seleksiTim as $key => $dTim): ?>
 			<tr>
 				<td><?php echo $dTim->nama_team ?></td>
@@ -19,7 +19,7 @@
 					<td>Ditolak</td>
 				<?php endif ?>
 
-				<td><button class="btn btn-outline-info" onclick="timInfo(<?php echo $dTim->id_tim ?>)">Seleksi</button></td>
+				<td><a href="#" onclick="timInfo(<?php echo $dTim->id_tim ?>)"><i class="fas fa-search"></i>Seleksi</a></td>
 			</tr>
 		<?php endforeach ?>
 		</table>

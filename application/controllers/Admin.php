@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
 			'title' => 'Tambah Panitia',
 			'dataLomba' => $dataLomba
 		];
-		$this->load->view('admin/page/tambahPanitia', $data);
+		$this->load->view('admin/page/tambahPanitia',	 $data);
 	}
 
 	public function DoTambahpanitia(){

@@ -14,6 +14,7 @@ class adminModel extends CI_Model {
 	{
 		$user = $this->db
 			->where('username', $user_real)
+			->where('id_lomba', 0)
 			->get('user');
 		// var_dump($user_real);die;
 		// var_dump($user->result());die;

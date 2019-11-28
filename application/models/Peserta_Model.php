@@ -17,14 +17,23 @@ class Peserta_Model extends CI_Model {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function login($data){
-		$result = $this->db->get_where('tim',$data)->result();
-		if(is_null($result))
-			return 0;
-		else{	
-			$this->session->set_userdata('nama_tim',$result[0]->nama_team);
-			$this->session->set_userdata('id_tim',$result[0]->id_tim);
-			return 1;
+	public function login($user_real, $pwd){
+		$user = $this->db
+			->where('username', $user_real)
+			->where('id_lomba', 0)
+			->get('tim');
+			
+		$match = password_verify($pwd , $user->row()->password);
+		$status = $result[0]->status_tim;
+
+		if($match)
+			$this->session->set_userdata([
+					'nama_tim' =>  $result[0]->nama_team,
+					'id_tim' => $result[0]->id_tim
+				]);	
+			return $status;
+		else{
+			return 10;
 		}
 	}
 

@@ -31,19 +31,12 @@ class Peserta extends CI_Controller {
 	public function login(){
 		$username = $this->input->post('user');
 		$password = $this->input->post('pwd');
-
-		$data = array(
-						'username_tim' => $username,
-						'password_tim' => md5($password),
-						'status_tim' => 1,
-		);
-
-		$success = $this->Peserta_Model->login($data);
-		if($success){
-			echo "1";
+		$success = $this->Peserta_Model->login($user, $pwd);
+		if ($success) {
+			echo $success;
 		}
 		else{
-			echo "0";
+			echo "fail";
 		}
 	}
 	public function logout(){

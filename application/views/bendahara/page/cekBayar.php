@@ -15,14 +15,13 @@
 						<th>#</th>
                         <th>Nama Tim</th>
                         <th>Email</th>
-                        <th>Status</th>
                         <th>Nama Ketua</th>
-                        <th>Bukti Pembayaran</th>
+                        <th>Status Pembayaran</th>
                         <th></th>
 						</thead>
 						<tbody>
 							<?php $count=0; ?>
-							<?php foreach ($dataTim as $key => $value): ?>
+							<?php foreach ($cekBayar as $key => $value): ?>
 								<?php $count++; ?>
 								<tr>
 									<td><?php echo $count ?></td>
@@ -30,15 +29,6 @@
 										<?php echo $value->nama_team ?>
 									</td>
 									<td><?php echo $value->email; ?></td>
-									<?php if ($value->status_tim==1): ?>
-										<td>Sudah Terverifikasi</td>
-									<?php endif ?>
-									<?php if ($value->status_tim==NULL): ?>
-										<td>Belum Terverifikasi</td>
-									<?php endif ?>
-									<?php if ($value->status_tim=='0'): ?>
-										<td>Ditolak</td>
-									<?php endif ?>
 									<td>
 										<?php echo $value->nama_peserta ?>
 									</td>
@@ -48,7 +38,7 @@
 										<?php if ($value->status_pembayaran=='Non-Active'): ?>
 											<td>Belum Melakukan pembayaran</td>
 										<?php endif ?>
-									<td><a href="">Info</a></td>
+									<td><a href="#" onclick="bayar(<?php echo $value->id_tim ?>)"><i class="fas fa-search"></i>Info</a></td>
 								</tr>
 							<?php endforeach ?>
 						</tbody>
@@ -58,11 +48,35 @@
 		</div>
 	</div>
 </div>
-
+<div class="modal" tabindex="-1" role="dialog" id="modalTim">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<h4 class="modal-title">Informasi Detail Tim</h4>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body">
+        		
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-primary" id="simpan" disabled >Simpan</button>
+        		&nbsp;<button type="button" class="btn btn-warning" id="batal" style="display: block;" data-dismiss="modal">Batal</button>
+      		</div>
+    	</div>
+  	</div>
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('#dtBasicExample').DataTable();
 		$('.dataTables_length').addClass('bs-select');
 	});
+
+	function bayar(id)
+	{
+		$('.modal-body').load('<?php echo base_url('bendahara/getTim?tim=') ?>' + id);
+		$('#modalTim').modal('toggle');		
+	}
 </script>

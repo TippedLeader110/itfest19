@@ -11,9 +11,10 @@ class panitiaModel extends CI_Model {
 
 	public function doLogin($user_real, $pwd)
 	{
-		$user = $this->db
-			->where('username', $user_real)
-			->get('user');
+		$user = $this->db->query("select * from user where username  = '$user_real' AND id_lomba  <> 0 ");
+			// ->where('username', $user_real)
+			// ->where('id_lomba', 0,FALSE)
+			// ->get('user');
 			
 		$match = password_verify($pwd , $user->row()->password);
 		$id = $user->row()->id_user;

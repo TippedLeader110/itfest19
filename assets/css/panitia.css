@@ -296,3 +296,8 @@ a.article:hover {
     background: white;
     padding: 20px 5px 5px 20px;
 }
+
+.bg-custom{
+    background: #7386D5;
+    background-color: #7386D5;
+}

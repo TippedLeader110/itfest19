@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<h5>Dashboard Panitia | ITFest4.0 Universitas Sumatera Utara</h5>
+			<h5>Dashboard Admin | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 			<h6>Laporan Singkat</h6>
 			<hr>

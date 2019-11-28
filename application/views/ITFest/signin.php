@@ -39,7 +39,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Email is required">
-						<input class="input100" type="email" name="email" placeholder="Email">
+						<input class="input100" type="email" name="username_tim" id="username_tim" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-at" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password_tim" id="password_tim" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="text-center p-t-26">
-						<a class="txt2" href="<?=base_url('Home/signup')?>">
+						<a class="txt2" href="<?=base_url('pendaftaran/')?>">
 							Daftar Lomba ITFest 4.0
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
@@ -114,3 +114,39 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	$('#login').submit(function(e) {
+		e.preventDefault();
+		var showName = "<?php echo $this->session->userdata('nama_tim') ?>";
+		var user = $('#username_tim').val();
+		var pwd = $('#password_tim').val();
+		$.ajax({
+			url: '<?php echo base_url('Peserta/login') ?>',
+			type: 'post',
+			data: {user, pwd},
+			error: function(data){
+				// Swal.fire('Login Gagal')
+			},
+			success: function(data){
+				if (data==1) {
+					console.log(data);
+					Swal.fire('Berhasil', 'Selamat Datang ' + showName, "success");
+					setTimeout(function(){window.open('<?php echo base_url("index.php/Peserta/")?>','_self');},2000);
+				}
+				else if (data==null) {
+					Swal.fire('Berkas belum diverifikasi', 'Berkas anda belum diverifikasi oleh pihak panitia', "info");
+				}
+				else if (data=='0') {
+					Swal.fire('Berkas Tim ditolak', 'Berkas anda tidak memenuhi syarat atau melanggar aturan', "error");
+				}
+				else{
+					console.log(data);
+					Swal.fire('Kesalahan', 'Username atau Password Salah', "error");
+				}
+
+			}
+		})
+	});
+
+</script>

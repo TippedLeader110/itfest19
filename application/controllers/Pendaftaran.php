@@ -21,21 +21,32 @@ class Pendaftaran extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function main(){
+	public function index(){
 		$data_lomba = $this->Pendaftaran_Model->ambil_data_lomba();
 		$data = array(
 						'data_lomba'=>$data_lomba
 		);
 		$this->load->view('Pendaftaran/pendaftaranPesertaLomba',$data);
 	}
+	public function cekUsername()
+	{
+		$data = $this->input->post("username");
+		// var_dump($data);
+		$va = $this->db->where('username_tim', $data)->get('tim')->num_rows();
+		echo $va;
+
+	}
 
 	public function daftar_kompetisi(){
 		// Nyusun data yang akan dikirim ke tabel tim
+		$pass = $this->input->post('password_tim');
+		$newpass = password_hash($pass, PASSWORD_DEFAULT);
 		$data_team = array(
+						'username_tim'=>$this->input->post('username'),
 						'nama_team'=>$this->input->post('nama_tim'),
 						'id_lomba'=>$this->input->post('cabang_lomba'),
 						'asal_univ'=>$this->input->post('universitas_tim'),
-						'password_tim'=>md5($this->input->post('password_tim'))
+						'password_tim'=> $newpass
 		);
 
 		// Insert data tim dan ngambil id team
@@ -43,7 +54,7 @@ class Pendaftaran extends CI_Controller {
 
 		// Persiapan config untuk upload berkas ketua
 		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-	    $config['allowed_types']        = 'zip|rar';
+	    $config['allowed_types']        = '*';
 	    $config['file_name']            = password_hash($this->input->post('file_ketua'), PASSWORD_DEFAULT);
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
@@ -60,6 +71,7 @@ class Pendaftaran extends CI_Controller {
 	    else{
 	    	$status_upload = 0;
 	    }
+	    echo $this->upload->display_errors();
 
 		// Nyusun data yang akan dikirim ke tabel peserta sebagai ketua
 		$data_ketua = array(
@@ -84,7 +96,7 @@ class Pendaftaran extends CI_Controller {
 
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['file_name']            = password_hash($this->input->post('file_anggota1'), PASSWORD_DEFAULT);
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -109,17 +121,42 @@ class Pendaftaran extends CI_Controller {
 		}
 		elseif($jumlah_anggota == 2){
 
+		    $this->load->library('upload',$config,'ag1');
+		    $this->load->library('upload',$config,'ag2');
+
+			$config['upload_path']          = './file_pendaftaran/';
+		    $config['allowed_types']        = '*';
+		    $config['file_name']            = password_hash($this->input->post('file_anggota1'), PASSWORD_DEFAULT);
+		    $config['overwrite']			= true;
+		    $config['max_size']             = 2048;
+		    $this->ag1->initialize($config);
+		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
+		    if ($this->ag1->do_upload('file_anggota1')) {
+		        $link_file = $this->ag1->data("file_name");
+		    }
+
+			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
+			$data_anggota1 = array(
+						'nama'=>$this->input->post('nama_anggota1'),
+						'e-mail'=>$this->input->post('e-mail_anggota1'),
+						'no_hp'=>$this->input->post('no_hp_anggota1'),
+						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota1'),
+						'id_team' =>$id_team,
+						'url_file'=>$link_file
+			);
+			//Nyimpan data anggota 1
+			$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['file_name']            = password_hash($this->input->post('file_anggota2'), PASSWORD_DEFAULT);
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
-
+		    $this->ag2->initialize($config);
 		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
-		    $this->load->library('upload',$config);
-		    if ($this->upload->do_upload('file_anggota2')) {
-		        $link_file = $this->upload->data("file_name");
+		    // $this->load->library('upload',$config);
+		    if ($this->ag2->do_upload('file_anggota2')) {
+		        $link_file = $this->ag2->data("file_name");
 		    }
 
 		    // Upload data anggota 2

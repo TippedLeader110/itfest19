@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
 
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -14,14 +14,12 @@
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                 <i class="fas fa-user"></i>
-                Welcome <?php echo $var = $this->session->userdata('username'); ?>
+                Welcome Bendahara <?php echo $var = $this->session->userdata('username'); ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a  class="dropdown-item" href="<?php echo base_url('bendahara/logout') ?>" ><i class="fas fa-sign-out-alt"></i>Log-out</a>
               </div>
+              
             </li>
         </ul>
         </div>

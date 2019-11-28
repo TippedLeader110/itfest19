@@ -4,9 +4,9 @@
 	<?php if (isset($daftarTim)): ?>
 	<div class="table-responsive">
 		<table class="table table-striped">
-			<tr>
+			<thead class="bg-custom text-white">
 				<th>Nama Tim</th><th>Universitas</th><th>Aksi</th>
-			</tr>
+			</thead>
 		<?php foreach ($daftarTim as $key => $dTim): ?>
 			<tr>
 				<td><?php echo $dTim->nama_team ?></td>

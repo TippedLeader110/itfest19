@@ -36,7 +36,7 @@
 </div>
 
 
-<form>
+<form id="form_pendaftaran">
 	<div class="container border" style="margin-top: 10px; margin-bottom: 10px;">
 	<div class="row">
 		<div class="col-6 border" style="padding-bottom: 20px;"> <!-- bagian kiri -->
@@ -45,7 +45,7 @@
 				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Data Lomba</b></header>
 				<label>Cabang Lomba</label>
 					<div class="form-group">
-						<select class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px; max-height: 30px;">
+						<select name="cabang_lomba"  class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px; max-height: 30px;">
 							<option value="" selected disabled>-- Pilih Cabang Lomba --</option>
 							<!--Nampilin list lomba-->
 								<?php foreach($data_lomba as $key){?>
@@ -74,7 +74,9 @@
 						<div class="form-group">
 								<input type="text" name="username" placeholder="Username Tim" class="form-control required" id = "username_tim" required>
 						</div>
-						<i style="color:red" class="warning" id="username_warning_red">username harus terdiri dari 6-12 karakter</i>	
+						<i style="color:red" class="warning" id="username_warning_red">username harus terdiri dari 6-12 karakter</i>
+						<i style="color:red" class="warning" id="username_warning_red_red">username sudah digunakan</i>		
+						<i style="color:green" class="warning" id="username_accept">username dapat digunakan</i>		
 						<!-- -------------------------------- -->
 						<label>Password Tim</label>
 						<div class="form-group">
@@ -185,51 +187,27 @@
 					</div>
 				</div>
 				<div style="padding-top: 5px;">
-					<label>Upload file KTM Anggota 1</label>
+					<label>Upload Berkas Anggota 1</label>
 					<div class="input-group">
 		              <div class="input-group-prepend">
 		                <span class="input-group-text" id="inputGroupFileAddon04">Upload</span>
 		              </div>
 		              <div class="custom-file">
-		                <input type="file" class="custom-file-input" id="inputGroupFile04"
+		                <input type="file" class="custom-file-input" name="file_anggota1" id="inputGroupFile04"
 		                  aria-describedby="inputGroupFileAddon04">
 		                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 		              </div>
 		            </div>
 				</div>
 
-				<div style="padding-top: 5px;">
-					<label>Upload file Surat Aktif Anggota 1</label>
-					<div class="input-group">
-		              <div class="input-group-prepend">
-		                <span class="input-group-text" id="inputGroupFileAddon05">Upload</span>
-		              </div>
-		              <div class="custom-file">
-		                <input type="file" class="custom-file-input" id="inputGroupFile05"
-		                  aria-describedby="inputGroupFileAddon05">
-		                <label class="custom-file-label" for="inputGroupFile05">Choose file</label>
-		              </div>
-		            </div>
-				</div>
+				
 
-				<div style="padding-top: 5px;">
-					<label>Upload file Foto Anggota 1</label> <br>
-					<div class="input-group">
-					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="inputGroupFileAddon06">Upload</span>
-					  </div>
-					  <div class="custom-file">
-					    <input type="file" class="custom-file-input" id="inputGroupFile06"
-					      aria-describedby="inputGroupFileAddon06">
-					    <label class="custom-file-label" for="inputGroupFile06">Choose file</label>
-					  </div>
-					</div>
-				</div>
+				
 			</div>
 
 			<!-- Tambah Angggota --->
 			<div style="margin-top: 10px; margin-bottom: 5px;">
-				<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#demo">Tambah Angggota</button>
+				<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#demo" id="addAnggota">Tambah Anggota</button>
 				  <div id="demo" class="collapse">
 				    <div class="border" style="padding: 3px 3px 3px 3px; margin-top: 5px;">
 					<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Anggota Tim 2</b></header>
@@ -265,46 +243,22 @@
 						</div>
 					</div>
 					<div style="padding-top: 5px;">
-						<label>Upload file KTM Anggota 1</label>
+						<label>Upload Berkas Anggota 2</label>
 						<div class="input-group">
 			              <div class="input-group-prepend">
 			                <span class="input-group-text" id="inputGroupFileAddon07">Upload</span>
 			              </div>
 			              <div class="custom-file">
-			                <input type="file" class="custom-file-input" id="inputGroupFile07"
+			                <input type="file" class="custom-file-input" id="inputGroupFile07" name="file_anggota2" 
 			                  aria-describedby="inputGroupFileAddon07">
 			                <label class="custom-file-label" for="inputGroupFile07">Choose file</label>
 			              </div>
 			            </div>
 					</div>
 
-					<div style="padding-top: 5px;">
-						<label>Upload file Surat Aktif Anggota 1</label>
-						<div class="input-group">
-			              <div class="input-group-prepend">
-			                <span class="input-group-text" id="inputGroupFileAddon08">Upload</span>
-			              </div>
-			              <div class="custom-file">
-			                <input type="file" class="custom-file-input" id="inputGroupFile08"
-			                  aria-describedby="inputGroupFileAddon08">
-			                <label class="custom-file-label" for="inputGroupFile08">Choose file</label>
-			              </div>
-			            </div>
-					</div>
+					
 
-					<div style="padding-top: 5px;">
-						<label>Upload file Foto Anggota 1</label> <br>
-						<div class="input-group">
-						  <div class="input-group-prepend">
-						    <span class="input-group-text" id="inputGroupFileAddon09">Upload</span>
-						  </div>
-						  <div class="custom-file">
-						    <input type="file" class="custom-file-input" id="inputGroupFile09"
-						      aria-describedby="inputGroupFileAddon09">
-						    <label class="custom-file-label" for="inputGroupFile09">Choose file</label>
-						  </div>
-						</div>
-					</div>
+					
 				</div>
 				  </div>
 			</div>
@@ -353,15 +307,34 @@
 				})
     	});
 
-        $('#username').keyup(function(){
+        $('#username_tim').keyup(function(){
         	var username = $('#username_tim').val();
-        	if(username.length() == 0 || username.length < 6 || username.length() > 12){
+        	if(username.length == 0 || username.length < 6 || username.length > 12){
         		$('#username_warning_red').show('slow');
+        		$('#username_warning_red_red').hide('slow');
         		valid = false;
         	}
         	else{
         		$('#username_warning_red').hide('slow');
-        		valid = true;
+        		$.ajax({
+        			url: '<?php echo base_url('Pendaftaran/cekUsername') ?>',
+        			type: 'POST',
+        			data: {username : username},
+        			success: function(da)
+        			{
+        				console.log(da);
+	        			if (da!=0) {
+	        				valid = false;	
+	        				$('#username_warning_red_red').show('slow');
+	        			}
+	        			else
+	        			{
+	        				$('#username_warning_red_red').hide('slow');
+	        				$('#username_accept').show('slow');
+	        				valid = true;
+	        			}
+        			}
+        		})
         	}
         });
 
@@ -389,6 +362,7 @@
 
         $('#form_pendaftaran').submit(function(event){
         	// Menambah jumlah anggota
+        	event.preventDefault();
         	if($('#nama_anggota1').val() != ""){
         		jumlah_anggota++;
         		
@@ -406,7 +380,7 @@
         		valid = false;
         		$('#nama_tim').focus();
         	}
-        	else if($('#username_tim').val() == "" || $('#username_tim').val().length() < 6 || $('#username_tim').val().length() > 12){
+        	else if($('#username_tim').val() == "" || $('#username_tim').val().length < 6 || $('#username_tim').val().length > 12){
         		valid = false;
         		$('#username_tim').focus();
         	}
@@ -448,7 +422,7 @@
 		            success: function(data){
 		            	console.log(data);
 		            	if (data==1) {
-		            	Swal.fire('Berhasil !!', 'Panitia berhasil ditambahkan !!', 'success')
+		            	Swal.fire('Pendaftaran Berhasil !!', 'Berkas tim akan diverifikasi Panitia !!', 'success')
 		            	}
 		            	else
 		            		Swal.fire('Kesalahan!!', 'Username telah digunakan !!', 'error')

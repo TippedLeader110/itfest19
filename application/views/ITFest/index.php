@@ -138,9 +138,9 @@
 						?>
 						<div class="card">
 							<div class="card-body text-center">
-								<img src="<?=$value->urlLogo?>" alt="" style="max-height: 100px;">
-								<h4 class="card-title"><?=$value->namaLomba?></h4>
-								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->namaLomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
+								<img src="<?php echo base_url('public/kompetisi/logo/') ?><?=$value->url_logo?>" alt="" style="max-height: 100px;">
+								<h4 class="card-title"><?=$value->nama_lomba?></h4>
+								<a href="<?=base_url('ITFest/kompetisi')?>?k=<?=$value->nama_lomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
 							</div>
 						</div>
 						<?php

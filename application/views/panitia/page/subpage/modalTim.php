@@ -4,7 +4,8 @@
 <?php endforeach ?>
 <div class="row">
 	<div class="col-12">
-		<table>
+		<div class="table-responsive">
+			<table class="table table-borderless">
 			<tr>
 				<td>Nama Team</td><td> : <?php echo $mTim->nama_team ?></td>
 			</tr>
@@ -55,15 +56,17 @@
 				</td>
 			</tr>
 		</table>
+		</div>
 	</div>
 	<div class="col-12" style="margin-top: 10px;">
 		<h5>Anggota Team</h5>
 		<hr>
-		<table class="table">
+		<div class="table-responsive">
+			<table class="table">
 			<?php foreach ($modalTim as $key => $mTim2): ?>
 				<tr>
 					<td  style="text-decoration: underline;">Anggota #<?php echo $count ?></td>
-					<td>Berkas Anggota <a style="text-decoration: underline;" target="_blank" href="<?php echo base_url('public/kompetisi/userdata/'); echo $mTim2->url_berkas;?>">Download</a></td>
+					<td>Berkas Anggota <a style="text-decoration: underline;" target="_blank" href="<?php echo base_url('public/kompetisi/file_pendaftaran/'); echo $mTim2->url_berkas;?>">Download</a></td>
 				</tr>
 				<tr>
 					<td>Nama Anggota</td><td> : <?php echo $mTim2->nama_peserta ?></td>
@@ -80,6 +83,7 @@
 				<?php $count++; ?>
 			<?php endforeach ?>
 		</table>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">
