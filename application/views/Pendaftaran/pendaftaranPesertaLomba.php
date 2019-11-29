@@ -3,277 +3,298 @@
 <html>
 <head>
 	<title>Pendaftaran Peserta Lomba - ITFest 4.0</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="xhttps://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!-- REGISTER CSS -->
+        <link rel="icon" href="<?=base_url()?>assets/images/favvicon.png" type="image/png" />
+	<link href="xhttps://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?=base_url()?>assets/custom/css/style.css">
+        
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script src="xhttps://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        
 	<style type="text/css">
+                #my_file {
+                display: ;
+                font-size: 14px;
+                }
 
-	#my_file {
-    	display: ;
-    	font-size: 14px;
-	}
-
-	/*#get_file {
-	    background: #4D8FAC;
-	    color: white;
-	    padding: 5px 5px 5px 5px;
-	    border-radius: 5px;
-	    margin: 3px;
-	    cursor: pointer;
-	}*/
-	[hidden] {
-  		display: none !important;
-	}
+                /*#get_file {
+                    background: #4D8FAC;
+                    color: white;
+                    padding: 5px 5px 5px 5px;
+                    border-radius: 5px;
+                    margin: 3px;
+                    cursor: pointer;
+                }*/
+                [hidden] {
+                        display: none !important;
+                }
 	</style>
 </head>
-<body>
 
-<div class="container border" style="margin-top: 5px; padding: 2px 2px 2px 2px;">
-	<h3>Pendaftaran Peserta Lomba</h3>
-</div>
-
-
-<form id="form_pendaftaran">
-	<div class="container border" style="margin-top: 10px; margin-bottom: 10px;">
-	<div class="row">
-		<div class="col-6 border" style="padding-bottom: 20px;"> <!-- bagian kiri -->
-
-			<div class="border" style="padding: 5px 5px 5px 5px;">
-				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Data Lomba</b></header>
-				<label>Cabang Lomba</label>
-					<div class="form-group">
-						<select name="cabang_lomba"  class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px; max-height: 30px;">
-							<option value="" selected disabled>-- Pilih Cabang Lomba --</option>
-							<!--Nampilin list lomba-->
-								<?php foreach($data_lomba as $key){?>
-
-								<option value="<?php echo $key->id_lomba?>"><?php echo $key->nama_lomba ?></option>
-
-
-								<?php } ?>
-							<!--/Nampilin list lomba-->
-						</select>	
-					</div>
-			</div>
-
-			<div class="border" style="padding: 3px 3px 3px 3px;">
-				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Data Tim</b></header>
-				<div class="row">
-					<div class="col-6" style="padding-top: 3px;">
-						<label>Nama Tim</label>
-						<div class="form-group">
-							<input type="text" name="nama_tim" id="nama_tim" placeholder="Nama Tim" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>	
-							<i style="color:red" class="warning" id="nama_tim_warning_red">nama tim sudah digunakan</i>
-							<i style="color:green" class="warning" id="nama_tim_warning_green">nama tim bisa digunakan</i>
-						</div>
-						<!-- ------------------------------->
-						<label>Username</label>
-						<div class="form-group">
-								<input type="text" name="username" placeholder="Username Tim" class="form-control required" id = "username_tim" required>
-						</div>
-						<i style="color:red" class="warning" id="username_warning_red">username harus terdiri dari 6-12 karakter</i>
-						<i style="color:red" class="warning" id="username_warning_red_red">username sudah digunakan</i>		
-						<i style="color:green" class="warning" id="username_accept">username dapat digunakan</i>		
-						<!-- -------------------------------- -->
-						<label>Password Tim</label>
-						<div class="form-group">
-							<input type="password" name="password_tim" id="password_tim" placeholder="Nama Tim" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>	
-						</div>
-					</div>
-					<!-- batas kanan kiri-->
-					<div class="col-6" style="padding-top: 3px;">
-						<label>Asal Universitas</label>
-						<div class="form-group">
-							<input type="text" name="universitas_tim" id="universitas_tim" placeholder="Asal Universitas" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>	
-						</div>
-						<!-- -------------------------------- -->					
-						<label>Konfirmasi Password Tim</label>
-						<div class="form-group">
-							<input type="password" name="konfirmasi_password_tim" placeholder="Konfirmasi Password" id="konfirmasi_password_tim" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>	
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- ------------------------------------------------------------ -->
-			<div class="border" style="padding: 3px 3px 3px 3px;">
-				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Ketua Tim</b></header>
-				<div class="row">
-					<div class="col-6" style="padding-top: 3px;">
-						<label>Nama Ketua</label>
-							<div class="form-group">
-								<input type="text" name="nama_ketua" placeholder="Nama Ketua" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>
-							</div>
-						<!-- -------------------------------- -->
-						<label>No. HP Ketua</label>
-							<div class="form-group">
-								<input type="number" name="no_hp_ketua" placeholder="Nama Ketua" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>
-							</div>
-					</div>
-					<!-- batas kanan kiri-->
-					<div class="col-6" style="padding-top: 3px;">
-						<label>Jenis Kelamin</label>
-							<div class="form-group">
-								<select class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" name="jenis_kelamin_ketua" required>
-									<option selected disabled value="">--Pilih Jenis Kelamin--</option>
-									<option value="Laki-laki">Laki-laki</option>
-									<option value="Perempuan">Perempuan</option>
-								</select>
-							</div>
-						
-						<label>Email Ketua</label>
-							<div class="form-group">
-								<input type="email" name="email_ketua" placeholder="Email" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" required>
-							</div>
-					</div>
-				</div>
-				<div style="padding-top: 5px;">
-					<label>Upload Berkas Ketua</label>
-					<div class="input-group">
-		              <div class="input-group-prepend">
-		                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-		              </div>
-		              <div class="custom-file">
-		                <input type="file" class="custom-file-input" id="inputGroupFile01" name="file_ketua" id="file_ketua" 
-		                  aria-describedby="inputGroupFileAddon01" required>
-		                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-		              </div>
-		            </div>
-		            <i style="font-size: 14px;color:red;">Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan ktm yang dimasukkan ke dalam ZIP</i>	
-				</div>
-
-			</div>
-			<!-- ------------------------------------------------------------ -->
-
-			
+<body class="daftar">
+	<nav class="navbar navbar-expand-sm">
+		<div class="container">
+			<a class="navbar-brand navbar-brand-edit" href="<?=base_url()?>">
+				<div class="logo-nav">
+          <img src="<?=base_url()?>assets/images/favvicon.png" alt="Beranda" width="50px">
+        </div>
+			</a>
 		</div>
+	</nav>
+        
+        <section id="form-daftar">
+		<div class="container">
+			<div class="row">
 
-		<!-- Batas Kanan dan kiri -->
+                                <div class="col-md-12 form-title">
+                                        <h3>Pendaftaran Peserta Lomba</h3>
+                                </div>
 
-		<div class="col-6 border" style="padding-bottom: 20px;"> <!-- bagian kanan -->
-			<div class="border" style="padding: 3px 3px 3px 3px;">
-				<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Anggota Tim 1</b></header>
-				<div class="row">
-					<div class="col-6" >
-						<label style="padding-top: 3px;">Nama Anggota</label>
-							<div class="form-group">
-								<input type="text" name="nama_anggota1" placeholder="Nama Anggota" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-							</div>
-						<!-- -------------------------------- -->
-						<label>No. HP</label>
-							<div class="form-group">
-								<input type="number" name="no_hp_anggota1" placeholder="No. HP" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-							</div>
-						<!-- -------------------------------- -->
+                                <div class="col-md-12 col-form">
+                                        <form id="form_pendaftaran">
+                                                <div class="col-md-6 col-form-2">
 
-					</div>
-					<!-- batas kanan kiri-->
-					<div class="col-6">
-						<label style="padding-top: 3px;">Jenis Kelamin</label>
-							<div class="form-group">
-								<select class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" name="jenis_kelamin1">
-									<option selected disabled value="">--Pilih Jenis Kelamin--</option>
-									<option value="Laki-laki">Laki-laki</option>
-									<option value="Perempuan">Perempuan</option>
-								</select>
-							</div>
-						<!-- -------------------------------- -->					
-						<label>Email</label>
-							<div class="form-group">
-								<input type="email" name="email_anggota1" placeholder="Email" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-							</div>
-					</div>
-				</div>
-				<div style="padding-top: 5px;">
-					<label>Upload Berkas Anggota 1</label>
-					<div class="input-group">
-		              <div class="input-group-prepend">
-		                <span class="input-group-text" id="inputGroupFileAddon04">Upload</span>
-		              </div>
-		              <div class="custom-file">
-		                <input type="file" class="custom-file-input" name="file_anggota1" id="inputGroupFile04"
-		                  aria-describedby="inputGroupFileAddon04">
-		                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-		              </div>
-		            </div>
-				</div>
+                                                        <div>
+                                                                <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Data Lomba</header>
+                                                                <label for="cabang-lomba">&nbsp; Cabang Lomba</label>
+                                                                        <div class="form-group pl-3">
+                                                                                <select name="cabang_lomba" class="form-control form-block" required>
+                                                                                        <option value="" selected disabled>-- Pilih Cabang Lomba --</option>
+                                                                                        <!--Nampilin list lomba-->
+                                                                                                <?php foreach($data_lomba as $key){?>
 
-				
+                                                                                                <option value="<?php echo $key->id_lomba?>"><?php echo $key->nama_lomba ?></option>
 
-				
-			</div>
 
-			<!-- Tambah Angggota --->
-			<div style="margin-top: 10px; margin-bottom: 5px;">
-				<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#demo" id="addAnggota">Tambah Anggota</button>
-				  <div id="demo" class="collapse">
-				    <div class="border" style="padding: 3px 3px 3px 3px; margin-top: 5px;">
-					<header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white;"><b>Anggota Tim 2</b></header>
-					<div class="row">
-						<div class="col-6">
-							<label style="padding-top: 3px;">Nama Anggota</label>
-								<div class="form-group">
-									<input type="text" name="nama_anggota2" placeholder="Nama Anggota" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-								</div>
-							<!-- -------------------------------- -->
-							<label>No. HP</label>
-								<div class="form-group">
-									<input type="number" name="no_hp_anggota2" placeholder="No. HP" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-								</div>
-							<!-- -------------------------------- -->
+                                                                                                <?php } ?>
+                                                                                        <!--/Nampilin list lomba-->
+                                                                                </select>	
+                                                                        </div>
+                                                        </div>
 
-						</div>
-						<!-- batas kanan kiri-->
-						<div class="col-6">
-							<label style="padding-top: 3px;">Jenis Kelamin</label>
-								<div class="form-group">
-									<select class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;" name="jenis_kelamin2">
-										<option selected disabled value="">--Pilih Jenis Kelamin--</option>
-										<option value="Laki-laki">Laki-laki</option>
-										<option value="Perempuan">Perempuan</option>
-									</select>
-								</div>
-							<!-- -------------------------------- -->					
-							<label>Email</label>
-								<div class="form-group">
-									<input type="email" name="email_anggota2" placeholder="Email" class="" style="min-width: 230px; max-width: 300px; padding: 2px 2px 2px 2px;">
-								</div>
-						</div>
-					</div>
-					<div style="padding-top: 5px;">
-						<label>Upload Berkas Anggota 2</label>
-						<div class="input-group">
-			              <div class="input-group-prepend">
-			                <span class="input-group-text" id="inputGroupFileAddon07">Upload</span>
-			              </div>
-			              <div class="custom-file">
-			                <input type="file" class="custom-file-input" id="inputGroupFile07" name="file_anggota2" 
-			                  aria-describedby="inputGroupFileAddon07">
-			                <label class="custom-file-label" for="inputGroupFile07">Choose file</label>
-			              </div>
-			            </div>
-					</div>
+                                                        <div>
+                                                                <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Data Tim</header>
+                                                                <div class="row pl-3">
+                                                                        <div class="col-6" style="padding-top: 3px;">
+                                                                                <label for="nama-tim">Nama Tim</label>
+                                                                                <div class="form-group">
+                                                                                        <input type="text" name="nama_tim" id="nama_tim" placeholder="Nama Tim" class="form-control form-block" required>	
+                                                                                        <i style="color:red; font-size: 12pt;" class="warning" id="nama_tim_warning_red">Nama tim sudah digunakan</i>
+                                                                                        <i style="color:green; font-size: 12pt;" class="warning" id="nama_tim_warning_green">Nama tim bisa digunakan</i>
+                                                                                </div>
+                                                                                <!-- ------------------------------->
+                                                                                <label>Username</label>
+                                                                                <div class="form-group">
+                                                                                                <input type="text" name="username" placeholder="Username Tim" class="form-control required" id = "username_tim" required>
+                                                                                
+                                                                                <i style="color:red; font-size: 12pt;" class="warning" id="username_warning_red">Username harus terdiri dari 6-12 karakter</i>
+                                                                                <i style="color:red; font-size: 12pt;" class="warning" id="username_warning_red_red">Username sudah digunakan</i>		
+                                                                                <i style="color:green; font-size: 12pt;" class="warning" id="username_accept">Username dapat digunakan</i>		
+                                                                                </div>
+                                                                                <!-- -------------------------------- -->
+                                                                                <label>Password Tim</label>
+                                                                                <div class="form-group">
+                                                                                        <input type="password" name="password_tim" id="password_tim" placeholder="Nama Tim" class="form-control" required>	
+                                                                                </div>
+                                                                        </div>
+                                                                        <!-- batas kanan kiri-->
+                                                                        <div class="col-6" style="padding-top: 3px;">
+                                                                                <label>Asal Universitas</label>
+                                                                                <div class="form-group">
+                                                                                        <input type="text" name="universitas_tim" id="universitas_tim" placeholder="Asal Universitas" class="form-control" required>	
+                                                                                </div>
+                                                                                <!-- -------------------------------- -->					
+                                                                                <label>Konfirmasi Password Tim</label>
+                                                                                <div class="form-group">
+                                                                                        <input type="password" name="konfirmasi_password_tim" placeholder="Konfirmasi Password" id="konfirmasi_password_tim" class="form-control" required>	
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <!-- ------------------------------------------------------------ -->
+                                                        <div>
+                                                                <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Ketua Tim</header>
+                                                                <div class="row pl-3">
+                                                                        <div class="col-6" style="padding-top: 3px;">
+                                                                                <label>Nama Ketua</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="text" name="nama_ketua" placeholder="Nama Ketua" class="form-control" required>
+                                                                                        </div>
+                                                                                <!-- -------------------------------- -->
+                                                                                <label>No. HP Ketua</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="number" name="no_hp_ketua" placeholder="No. HP Ketua" class="form-control" required>
+                                                                                        </div>
+                                                                        </div>
+                                                                        <!-- batas kanan kiri-->
+                                                                        <div class="col-6" style="padding-top: 3px;">
+                                                                                <label>Jenis Kelamin</label>
+                                                                                        <div class="form-group">
+                                                                                                <select class="form-control" name="jenis_kelamin_ketua" required>
+                                                                                                        <option selected disabled value="">--Pilih Jenis Kelamin--</option>
+                                                                                                        <option value="Laki-laki">Laki-laki</option>
+                                                                                                        <option value="Perempuan">Perempuan</option>
+                                                                                                </select>
+                                                                                        </div>
 
-					
+                                                                                <label>Email Ketua</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="email" name="email_ketua" placeholder="Email" class="form-control" required>
+                                                                                        </div>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="row ml-3">
+                                                                        <label>Upload Berkas Ketua</label>
+                                                                        <div class="input-group">
+                                                              <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                              </div>
+                                                              <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="inputGroupFile01" name="file_ketua" id="file_ketua" 
+                                                                  aria-describedby="inputGroupFileAddon01" required>
+                                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                              </div>
+                                                            </div>
+                                                            <i style="font-size: 12pt;color:red; line-height: 16px;"><br>Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan KTM yang dimasukkan ke dalam ZIP.</i>	
+                                                                </div>
 
-					
-				</div>
-				  </div>
-			</div>
-		  	<!-- -- --->
-		<div style="margin-top: 20px;">
-			<button type="submit" class="btn btn-block btn-primary">Submit</button>
-		</div>
+                                                        </div>
+                                                        <!-- ------------------------------------------------------------ -->
+                                                </div>
 
-		</div>
-	</div>
-</div>
+                                                <!-- Batas Kanan dan kiri -->
 
-</form>
+                                                <div class="col-md-6 col-form-2 form-anggota"> <!-- bagian kanan -->
+                                                        <div>
+                                                                <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Anggota Tim 1</header>
+                                                                <div class="row pl-3">
+                                                                        <div class="col-6" >
+                                                                                <label style="padding-top: 3px;">Nama Anggota</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="text" name="nama_anggota1" placeholder="Nama Anggota" class="form-control">
+                                                                                        </div>
+                                                                                <!-- -------------------------------- -->
+                                                                                <label>No. HP</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="number" name="no_hp_anggota1" placeholder="No. HP" class="form-control">
+                                                                                        </div>
+                                                                                <!-- -------------------------------- -->
 
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                                                                        </div>
+                                                                        <!-- batas kanan kiri-->
+                                                                        <div class="col-6">
+                                                                                <label style="padding-top: 3px;">Jenis Kelamin</label>
+                                                                                        <div class="form-group">
+                                                                                                <select class="form-control" name="jenis_kelamin1">
+                                                                                                        <option selected disabled value="">--Pilih Jenis Kelamin--</option>
+                                                                                                        <option value="Laki-laki">Laki-laki</option>
+                                                                                                        <option value="Perempuan">Perempuan</option>
+                                                                                                </select>
+                                                                                        </div>
+                                                                                <!-- -------------------------------- -->					
+                                                                                <label>Email</label>
+                                                                                        <div class="form-group">
+                                                                                                <input type="email" name="email_anggota1" placeholder="Email" class="form-control">
+                                                                                        </div>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="row ml-3">
+                                                                        <label>Upload Berkas Anggota 1</label>
+                                                                        <div class="input-group">
+                                                              <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroupFileAddon04">Upload</span>
+                                                              </div>
+                                                              <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="file_anggota1" id="inputGroupFile04"
+                                                                  aria-describedby="inputGroupFileAddon04">
+                                                                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                                              </div>
+                                                            </div>
+                                                                </div>
+
+
+
+
+                                                        </div>
+
+                                                        <!-- Tambah Angggota --->
+                                                        <div class="row my-5 ml-2">
+                                                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" id="addAnggota">Tambah Anggota</button>
+                                                                  <div id="demo" class="collapse">
+                                                                            <div class="my-2">
+                                                                                <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Anggota Tim 2</header>
+                                                                                <div class="row pl-3">
+                                                                                        <div class="col-6">
+                                                                                                <label style="padding-top: 3px;">Nama Anggota</label>
+                                                                                                        <div class="form-group">
+                                                                                                                <input type="text" name="nama_anggota2" placeholder="Nama Anggota" class="form-control">
+                                                                                                        </div>
+                                                                                                <!-- -------------------------------- -->
+                                                                                                <label>No. HP</label>
+                                                                                                        <div class="form-group">
+                                                                                                                <input type="number" name="no_hp_anggota2" placeholder="No. HP" class="form-control">
+                                                                                                        </div>
+                                                                                                <!-- -------------------------------- -->
+
+                                                                                        </div>
+                                                                                        <!-- batas kanan kiri-->
+                                                                                        <div class="col-6">
+                                                                                                <label style="padding-top: 3px;">Jenis Kelamin</label>
+                                                                                                        <div class="form-group">
+                                                                                                                <select class="form-control" name="jenis_kelamin2">
+                                                                                                                        <option selected disabled value="">--Pilih Jenis Kelamin--</option>
+                                                                                                                        <option value="Laki-laki">Laki-laki</option>
+                                                                                                                        <option value="Perempuan">Perempuan</option>
+                                                                                                                </select>
+                                                                                                        </div>
+                                                                                                <!-- -------------------------------- -->					
+                                                                                                <label>Email</label>
+                                                                                                        <div class="form-group">
+                                                                                                                <input type="email" name="email_anggota2" placeholder="Email" class="form-control">
+                                                                                                        </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="row ml-3">
+                                                                                        <label>Upload Berkas Anggota 2</label>
+                                                                                        <div class="input-group">
+                                                                              <div class="input-group-prepend">
+                                                                                <span class="input-group-text" id="inputGroupFileAddon07">Upload</span>
+                                                                              </div>
+                                                                              <div class="custom-file">
+                                                                                <input type="file" class="custom-file-input" id="inputGroupFile07" name="file_anggota2" 
+                                                                                  aria-describedby="inputGroupFileAddon07">
+                                                                                <label class="custom-file-label" for="inputGroupFile07">Choose file</label>
+                                                                              </div>
+                                                                            </div>
+                                                                                </div>
+
+                                                                        </div>
+                                                                  </div>
+                                                        </div>
+                                                        <!-- -- --->
+                                                        <div style="margin-top: 20px;">
+                                                                <button type="submit" class="btn btn-submit my-2">Submit</button> <br>
+                                                                <a href="<?= base_url();?>" class="btn btn-submit my-2">Beranda</a>
+                                                        </div>
+
+                                                </div>
+
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+	</section>
+
+
+
+        <script src="<?=base_url()?>assets/custom/js/jquery.min.js"></script>
+	<script src="<?=base_url()?>assets/custom/js/popper.min.js"></script>
+	<script src="<?=base_url()?>assets/custom/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	// Variable untuk pengecekan form
     var valid = true;
