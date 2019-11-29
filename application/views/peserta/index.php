@@ -3,7 +3,6 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/peserta.css') ?>">
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -85,7 +84,7 @@
        	<?php $this->load->view('peserta/navbar') ?>
         <!-- NAVBAR -->
 
-        <div id="contentPage" class="shadow-sm p-2 mb-5 bg-white rounded">
+        <div id="contentPage" style="margin-top: -30px;">
         	
         </div>
 

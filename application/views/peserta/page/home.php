@@ -1,71 +1,74 @@
-
-<div class="container-fluid bg-white" style="padding: 10px 10px 10px 10px;">
-	<div style="margin-bottom: 25px;">
-		<h4 class="">Dashboard Peserta | ITFest USU 2020</h4>
-		<hr>
-	</div>
-	<div class="row" style="margin-top: 20px; padding: 10px 10px 10px 10px;">
 		<?php foreach ($dataLomba as $key => $DLomba): ?>
 		<?php endforeach ?>
-		<?php foreach ($dataTim as $key => $value): ?>
-			
+		<?php foreach ($dataTim as $key => $value): ?>			
 		<?php endforeach ?>
-		<div class="col-10" style="width: auto;">
-			<table border="0" style="width: 400px; margin-top: 17px;" class="table table-borderless">
-				<tr>
-					<td>Nama Tim</td>
-					<td><?php echo $value->nama_team ?></td>
-				</tr>
-				<tr>
-					<td>Asal Universitas</td>
-					<td><?php echo $value->asal_univ ?></td>
-				</tr>
-				<tr>
-					<td>Status Pembayaran</td>
-					<td><?php echo $value->status_pembayaran ?></td>
-				</tr>
-			</table>
+<div class="row">
+	<div class="col-12">
+		<div class="card nonround">
+	  	<div class="card-header bg-custom text-white">
+		    <h4 class="">Dashboard Peserta | ITFest USU 2020</h4>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-4">
+					
+				</div>
+				<div class="col-8">
+					<div class="card nonround" >
+					  	<div class="card-header">
+					    	Info Team
+					  	</div>
+					  	<div class="card-body">
+					  		<div class="row">
+					  			<div class="col-6">
+					  			<table>
+					  			<tr>
+					  				<td>Nama Tim</td><td> : </td><td><?php echo $value->nama_team ?></td>
+					  			</tr>
+					  			<tr>
+					  				<td>Asal Universitas</td><td> : </td><td><?php echo $value->asal_univ ?></td>
+					  			</tr>
+					  			<tr>
+					  				<td>Status Pembayaran</td><td> : </td>
+					  				<td>
+					  					<?php if ($value->status_pembayaran=='Active'): ?>
+					  					Sudah Bayar
+					  					<?php endif ?>
+					  					<?php if ($value->status_pembayaran!='Active'): ?>
+					  						Belum bayar
+					  					<?php endif ?>
+					  				</td>
+					  			</tr>
+					  		</table>
+					  		</div>
+					  		<div class="col-6">
+					  			<table>
+					  			<tr>
+					  				<td>Jumlah Anggota</td><td> : </td><td><?php echo $value->nama_team ?></td>
+					  			</tr>
+					  			<tr>
+					  				<td>Status Tim</td><td> : </td><td><?php echo $value->asal_univ ?></td>
+					  			</tr>
+					  			<tr>
+					  				<td colspan="2">
+					  					<div style="text-decoration: underline;">
+					  						<?php if ($value->status_pembayaran=='Active'): ?>
+					  						<a href="">Download Bukti Pembayaran</a>
+						  					<?php endif ?>
+						  					<?php if ($value->status_pembayaran!='Active'): ?>
+						  						<a href="">Lakukan Pembayaran/Ganti Bukti Pembayaran</a>
+						  					<?php endif ?>
+					  					</div>
+					  				</td>
+					  			</tr>
+					  		</table>
+					  		</div>
+					  		</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		</div>
 	</div>
-	<div class="card bg-danger" style="width: auto; margin-top: 10px;">
-		  <div class="card-header">
-		    <b style="color: white; font-size: 22px;">INFORMASI </b>
-		  </div>
-		  <ul class="list-group list-group-flush">
-		    <li class="list-group-item">Isi informasi dari panitia </li>
-		  </ul>
-	</div>
-
-	
 </div>
-
-<!-- 
-<div id="progres-konten">
-		
-</div>
-<div id="home">
-	<div class="container border">
- -->
-<!-- 		<table class="table table-bordered" style="margin-top: 10px;">  -->
-			<!-- Tampilin data --->
-<!-- 			<tr>
-				<th>Nama Tim</th>
-				<th>Anggota Tim</th>
-				<th>Lomba</th>
-			</tr>		
-			<?php foreach ($dataTim as $key => $val): ?>
-				<tr>
-					<td><?php echo $val->nama_team ?></td>
-					<td><?php echo $val->nama_peserta ?></td>
-					<td><?php echo $val->nama_lomba ?></td>
-				</tr>
-			<?php endforeach ?>
-
-
-		</table>
-	</div>
-</div> -->
-
-<!-- <script type="text/javascript">
-	$('#progres-konten').load('<?php echo base_url('peserta/tahapPeserta') ?>');
-</script> -->
