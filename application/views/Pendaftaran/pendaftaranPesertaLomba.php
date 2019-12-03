@@ -224,7 +224,10 @@
 
                                                         <!-- Tambah Angggota --->
                                                         <div class="row my-5 ml-2">
-                                                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" id="addAnggota">Tambah Anggota</button>
+                                                        <button type="button" class="btn btn-info"  id="addAnggota">Tambah Anggota</button>
+                                                    	</div>
+                                                        <div class="row my-5 ml-2">
+                                                                
                                                                   <div id="demo" class="collapse">
                                                                             <div class="my-2">
                                                                                 <header style="padding: 3px 3px 3px 10px; background-color: #3d3b3b; color: white; font-family: JOST_BOLD;">Anggota Tim 2</header>
@@ -456,6 +459,11 @@
 	});
         
 });
+
+$('#addAnggota').click(function(event) {
+	$('#demo').toggle('slow');
+});
+
 
 </script>
 </body>

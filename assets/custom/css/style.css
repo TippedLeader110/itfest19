@@ -79,7 +79,7 @@ nav.black{
 .logo-nav{
 	width: 50px;
 	min-height: 50px;
-	background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;
+	/*background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;*/
 	background-size: cover;
 	background-position: center;
 	transition-duration: 1.5s;
