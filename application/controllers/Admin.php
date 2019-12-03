@@ -195,7 +195,7 @@ class Admin extends CI_Controller {
         echo $this->logoup->display_errors(); 
         $config['encrypt_name'] = TRUE;
         $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
-        $config['allowed_types']='pdf|PDF'; //type file yang boleh di upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
         $this->load->library('upload',$config,'ruleup');
         $this->ruleup->initialize($config);
         if($this->ruleup->do_upload("rule")){ //upload file
