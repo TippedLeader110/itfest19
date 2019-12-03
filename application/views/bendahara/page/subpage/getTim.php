@@ -22,7 +22,7 @@
 			<td>Email</td><td> : <?php echo $v->email ?></td>
 		</tr>
 		<tr>
-			<td>Bukti Pembayaran</td><td> : <a href="<?php echo base_url("public/kompetisi/userfile/buktipembayaran/"); echo $v->url_buktipembayaran ?>" style="text-decoration: underline;">Download</a></td>
+			<td>Bukti Pembayaran</td><td> : <a target="_blank" href="<?php echo base_url("public/kompetisi/userdata/buktipembayaran/"); echo $v->url_buktipembayaran ?>" style="text-decoration: underline;">Download</a></td>
 		</tr>
 		<tr>
 			<td>Status Pembayaran</td>
@@ -31,10 +31,10 @@
 				<select id="select" name="status" class="form-control">
 				<?php if ($v->status_pembayaran=='Active'): ?>
 						<option value="1">Diterima</option>
-						<option value="0">Ditolak</option>
+						<option value="0">Abaikan</option>
 				<?php endif ?>
 				<?php if ($v->status_pembayaran!='Active'): ?>
-						<option value="0">Ditolak</option>
+						<option value="0">Abaikan</option>
 						<option value="1">Diterima</option>
 				<?php endif ?>
 				</select>
@@ -73,6 +73,7 @@
 			type: 'post',
 			data: {sel: a, id : b},
 			success: function(event){
+				Swal.fire('Berhasil', 'Perubahan tersimpan', 'success');
 				$('#modalTim').modal('hide'); 
 				$('.modal-backdrop').remove();
 				$('#simpan').prop("disabled",false);

@@ -144,6 +144,10 @@
 					  	title: 'Selamat Datang',
 					  	text: 'Admin/Panitia ITFest 4.0',
 					  	showConfirmButton: false,
+					  	timerProgressBar: true,
+					  	timerProgressBar: true,
+					  	timerProgressBar: true,
+					  	timerProgressBar: true,
 					  	timer: 1500
 					});
 					setTimeout(function () {

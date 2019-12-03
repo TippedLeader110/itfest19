@@ -141,10 +141,18 @@
 					setTimeout(function(){window.open('<?php echo base_url("Peserta/")?>','_self');},2000);
 				}
 				else if (data=='blm') {
-					Swal.fire('Berkas belum diverifikasi', 'Berkas tim sedang diverifikasi silahkan menunggu sampai berkas diverifikasi oleh panitia. Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id', "info");
+					Swal.fire({
+						title : 'Berkas belum diverifikasi',
+						text:  'Berkas tim sedang diverifikasi silahkan menunggu sampai berkas diverifikasi oleh panitia.',
+						icon:  "info",
+						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id'});
 				}
 				else if (data=='tolak') {
-					Swal.fire('Berkas Tim ditolak', 'Berkas anda tidak memenuhi syarat atau melanggar aturan.Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id', "error");
+					Swal.fire({
+						title: 'Berkas Tim ditolak',
+						text: 'Berkas anda tidak memenuhi syarat atau melanggar aturan',
+						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id',
+						icon: "error"});
 				}
 				else{
 					console.log(data);

@@ -85,7 +85,7 @@
 	function timInfo(id)
 	{
 		console.log(id);
-		$('.modal-body').load('<?php echo base_url('panitia/modalTimseleksi?tim=') ?>' + id + '&id=<?php echo $id ?>');
+		$('.modal-body').load('<?php echo base_url('panitia/modalTimseleksi?tim=') ?>' + id + '&id=<?php echo $id ?>&tag=<?php echo $tag ?>');
 		$('#modalTim').modal('toggle');
 	}
 

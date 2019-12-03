@@ -36,7 +36,12 @@
 											<td>Sudah Terverifikasi</td>
 										<?php endif ?>
 										<?php if ($value->status_pembayaran=='Non-Active'): ?>
-											<td>Belum Melakukan pembayaran</td>
+											<?php if ($value->url_buktipembayaran==null): ?>
+											<td>Belum melakukan pembayaran</td>
+											<?php endif ?>
+											<?php if ($value->url_buktipembayaran!=null): ?>
+											<td>Belum diverifikasi</td>
+											<?php endif ?>
 										<?php endif ?>
 									<td><a href="#" onclick="bayar(<?php echo $value->id_tim ?>)"><i class="fas fa-search"></i>Info</a></td>
 								</tr>

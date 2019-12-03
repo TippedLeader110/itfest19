@@ -39,17 +39,17 @@
                 <?php endforeach ?>
                 <center>
                     <img width="150px;"  src="<?php 
-                    echo base_url('public/kompetisi/logo/');
-                    echo $DLomba->url_logo;
-                     ?>">
-                    <h5><?php echo $DLomba->nama_lomba ?></h5>
+                    echo base_url('assets/images/');
+                    // echo $DLomba->url_logo;
+                     ?>logo.png">
+                    <!-- <h5><?php echo $DLomba->nama_lomba ?></h5> -->
                 </center>
             </h3>
             <strong>
             	<img width="40px;"  src="<?php 
-                    echo base_url('public/kompetisi/logo/');
-                    echo $DLomba->url_logo;
-                     ?>">
+                    echo base_url('assets/images/');
+                    // echo $DLomba->url_logo;
+                     ?>logo.png">
             </strong>
         </div>
 
@@ -79,14 +79,16 @@
 	<!-- ----- >
 
     <!-- Page Content  -->
-    <div id="content">
+    <div id="content" class="row">
         <!-- NAVBAR -->
-       	<?php $this->load->view('peserta/navbar') ?>
+       	<div class="col-12">
+       		<?php $this->load->view('peserta/navbar') ?>
         <!-- NAVBAR -->
 
         <div id="contentPage" style="margin-top: -30px;">
         	
         </div>
+       	</div>
 
     </div>
 </body>
@@ -98,5 +100,18 @@
 <script type="text/javascript">
 	    $('#contentPage').load('<?php echo base_url('peserta/kontenHome') ?>');
 
-	    
+	$('#home').click(function(event) {
+	    event.preventDefault();
+	    $('#contentPage').load('<?php echo base_url('peserta/kontenHome') ?>');
+	});
+
+	$('#infoTim').click(function(event) {
+	    event.preventDefault();
+	    $('#contentPage').load('<?php echo base_url('peserta/informasiTim') ?>');
+	});
+
+	$('#tahapKompetisi').click(function(event) {
+	    event.preventDefault();
+	    $('#contentPage').load('<?php echo base_url('peserta/tahapKompetisi') ?>');
+	});
 </script>

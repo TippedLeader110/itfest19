@@ -283,15 +283,15 @@ class panitiaModel extends CI_Model {
 			return $query->result();
 		}
 		elseif ($tag==2) {
-			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim is null  AND b.nama_team  LIMIT ".$limit." OFFSET ".$from."  ");
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim is null  LIMIT ".$limit." OFFSET ".$from."  ");
 		return $query->result();
 		}
 		elseif ($tag==3) {
-			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 1 AND b.nama_team  LIMIT ".$limit." OFFSET ".$from."  ");
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 1 LIMIT ".$limit." OFFSET ".$from."  ");
 		return $query->result();
 		}
 		elseif ($tag==4) {
-			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 0 AND b.nama_team  LIMIT ".$limit." OFFSET ".$from."  ");
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 0 LIMIT ".$limit." OFFSET ".$from."  ");
 		return $query->result();
 		}
 	}

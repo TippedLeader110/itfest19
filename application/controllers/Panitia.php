@@ -352,11 +352,13 @@ class Panitia extends CI_Controller {
 		$this->loginProtocol();
 		$tim = $this->input->get('tim');
 		$id = $this->input->get('id');
+		$tag = $this->input->get('tag');
 		// var_dump($tim);
 		$dataGet = $this->panitiaModel->infoseleksiTim($tim,$id);
 		$data = [
 				'title' => 'Kelolah Tim Peserta',
-				'modalTim' => $dataGet
+				'modalTim' => $dataGet,
+				'tag' => $tag
 			];
 		$this->load->view('panitia/page/subpage/modalseleksiTim', $data);
 	}

@@ -54,7 +54,7 @@ class bendaharaModel extends CI_Model {
 			->get('user');
 		$id_panitia = $query->row()->id_user;
 		$data = array('ip_address' => $ip,
-			'keterangan' => 'Login Admin',
+			'keterangan' => 'Login Bendahara',
 			'waktu' => date("Y-m-d H:i:s"),
 			'id_panitia' => $id_panitia
 		 );

@@ -22,7 +22,7 @@ class Peserta extends CI_Controller {
 	 */
 	public function login_protocol(){
 		if(is_null($this->session->userdata('id_tim'))){
-			redirect(base_url('index.php/Peserta/login_page'));
+			redirect(base_url('Home/signin'));
 		}
 	}
 
@@ -52,7 +52,7 @@ class Peserta extends CI_Controller {
 		session_start();
 		session_unset();
 		session_destroy();
-		header("location:login_page");
+		redirect(base_url('Home/signin'));
 	}
 
 	public function index(){
@@ -69,7 +69,7 @@ class Peserta extends CI_Controller {
 	}
 	public function tahapPeserta(){
 		
-		$tahapPeserta = $this->Peserta_Model->getDatafullTable('tahap_tim');
+		
 		// var_dump($tahapPeserta);
 		$data = [
 			'tahapPeserta' => $tahapPeserta
@@ -96,12 +96,16 @@ class Peserta extends CI_Controller {
 		$id_team = $this->session->userdata('id_tim');
 		$id_lomba = $this->session->userdata('id_lomba');
 		// var_dump($id_lomba);die;
+		$ro = $this->db->where('id_tim', $id_team)->where('status_tim', 0)->get('tahap_tim')->num_rows();
 		$dataL = $this->Peserta_Model->getLomba($id_lomba);		
-		// var_dump($dataL);die;
+		$post = $this->Peserta_Model->getPost($id_lomba);		
+		// var_dump($dataL);die;	
 		$value = $this->Peserta_Model->ambil_data_tim($id_team);
 		$data = [
 			'dataLomba' => $dataL,
-			'dataTim' => $value
+			'dataTim' => $value,
+			'post' => $post,
+			'ro' => $ro
 		];
 		$this->load->view('peserta/page/home', $data);
 	}
@@ -118,24 +122,78 @@ class Peserta extends CI_Controller {
 		$this->load->view('peserta/page/upload_berkas');
 	}
 	public function informasiTim(){
-		$id = $this->session->userdata('id_tim');
-		// var_dump($id);
-		// die;
-		$value1 = $this->Peserta_Model->ambilDataLombaTim($id);
-		$value2 = $this->Peserta_Model->ambilDataAnggota($id);
+		$id_team = $this->session->userdata('id_tim');
+		$id_lomba = $this->session->userdata('id_lomba');
+		// var_dump($id_lomba);die;
+		$dataL = $this->Peserta_Model->getLomba($id_lomba);		
+		$value = $this->Peserta_Model->ambil_data_tim($id_team);
+		$value2 = $this->Peserta_Model->ambilDataAnggota($id_team);
 		// $value2 = $this->Peserta_Model->getDatafullTable('tim');
 
 		$data = [
-			'dataTim' => $value1,
-			'dataAnggota' => $value2
-
+			'dataTim' => $value,
+			'dataAnggota' => $value2,
+			'dataLomba' => $dataL
 		];
 
 
 		$this->load->view('peserta/page/infoTim', $data);
 	}
 	public function tahapKompetisi(){
-		$this->load->view('peserta/page/tahapKompetisi');
+		$id_team = $this->session->userdata('id_tim');
+		$ro = $this->db->where('id_tim', $id_team)->where('status_tim', 0)->get('tahap_tim')->num_rows();
+		if ($ro!=0) {
+			redirect(base_url('Peserta'));
+		}
+		else{
+			$rule = $this->db->where('id_tim', $id_team)->get('tim')->row()->status_pembayaran;
+		if ($rule!='Active') {
+			redirect(base_url('Peserta'));
+		}
+		else{
+			$id_lomba = $this->session->userdata('id_lomba');
+			$tahap = $this->Peserta_Model->getTahap($id_lomba);
+			// $tahapTim = $this->Peserta_Model->getTahapTim($id_team);
+
+			$data = [
+				'tahap' => $tahap
+			];
+
+			$this->load->view('peserta/page/tahapKompetisi',$data);
+		}
+		}
+		
+	}
+
+	public function detilTahap()	
+	{
+		$id_team = $this->session->userdata('id_tim');
+		$lel = $this->uri->segment(3);
+		$tahap['status'] = $this->Peserta_Model->getTahapTim($lel,$id_team);
+		$tahap['file'] = $this->Peserta_Model->getTahapTimfile($lel,$id_team);
+		$tahap['bef'] = $this->input->get('data');
+
+		$this->load->view('peserta/page/subfolder/tahap',$tahap);
+	}
+
+	public function uploadBukti()
+	{
+		$this->login_protocol();
+		$config['upload_path']="./public/kompetisi/userdata/buktipembayaran/"; //path folder file upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload',$config,'bayarup'); //call library upload 
+        $this->bayarup->initialize($config);
+        // var_dump("done1");
+        // echo $this->bayarup->display_errors(); 
+        if($this->bayarup->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->bayarup->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name'];
+            $this->Peserta_Model->bayarUpload($image); //simpan data sementara
+            echo "1";
+        }
+        else
+        echo $this->bayarup->display_errors();
 	}
 
 }
