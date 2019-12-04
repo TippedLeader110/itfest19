@@ -464,7 +464,18 @@ $('#addAnggota').click(function(event) {
 	$('#demo').toggle('slow');
 });
 
-
+	$('#inputGroupFile07').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+    $('#inputGroupFile01').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+    $('#inputGroupFile04').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
 </script>
 </body>
 </html>
