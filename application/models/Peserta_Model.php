@@ -1,4 +1,6 @@
 <?php
+define('PUBPATH',str_replace(SELF,'',FCPATH)); // added
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Peserta_Model extends CI_Model {
 
 	/**
@@ -55,6 +57,17 @@ class Peserta_Model extends CI_Model {
 		}
 	}
 
+	public function hapusTahap($id,$tim)
+	{
+		$data = $this->db->where('id_tahap', $id)->where('id_tim', $tim)->get('tahap_tim');
+		$file = $data->row()->file;
+		$filelink = PUBPATH.'public/kompetisi/userdata/tahap_tim/'.$file;
+		if (unlink($filelink)) {
+			echo "deleted file : " .$filelink;
+			$this->db->where('id_tahap', $id)->where('id_tim', $tim)->delete('tahap_tim');
+		}
+	}
+
 	public function logLoginTim(){
 		$ip = $this->getIP();
 		$user = $this->session->userdata('id_tim');
@@ -91,6 +104,18 @@ class Peserta_Model extends CI_Model {
 		$this->db->where('id_tim', $this->session->userdata('id_tim'));
 		$this->db->update('tim');
 	}
+
+	public function tahapUp($img,$id,$tim)
+	{
+		$data = array(
+			'id_tahap' => $id,
+			'id_tim' => $tim,
+			'file' => $img
+		 );
+		$this->db->insert('tahap_tim', $data);
+	}
+
+
 
 	public function getTahap($id_lomba)
 	{

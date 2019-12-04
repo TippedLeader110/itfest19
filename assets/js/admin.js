@@ -53,3 +53,7 @@ $('#logPanitia').click(function(event) {
   event.preventDefault();
   $('#contentPage').load('logPanitia');
 });
+$('#validatedCustomFile').on('change',function(){
+      var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })

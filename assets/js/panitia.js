@@ -45,3 +45,4 @@
       event.preventDefault();
       $('#contentPage').load('logout');
     });  
+

@@ -171,6 +171,11 @@ class Peserta extends CI_Controller {
 		$lel = $this->uri->segment(3);
 		$tahap['status'] = $this->Peserta_Model->getTahapTim($lel,$id_team);
 		$tahap['file'] = $this->Peserta_Model->getTahapTimfile($lel,$id_team);
+		$cek = $this->db->where('id_tim',$id_team)->where('id_tahap', $lel)->get('tahap_tim');
+		if ($cek->num_rows()!=0) {
+			$tahap['url'] = $cek->row()->file;
+		}
+		$tahap['id_tahap'] = $lel;
 		$tahap['bef'] = $this->input->get('data');
 
 		$this->load->view('peserta/page/subfolder/tahap',$tahap);
@@ -195,6 +200,52 @@ class Peserta extends CI_Controller {
         else
         echo $this->bayarup->display_errors();
 	}
+
+	public function uploadTahap()
+	{
+		$this->login_protocol();
+		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload',$config,'tahapUp'); //call library upload 
+        $this->tahapUp->initialize($config);
+        // var_dump("done1");
+        // echo $this->bayarup->display_errors(); 
+        if($this->tahapUp->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->tahapUp->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name'];
+            $id = $this->input->post('id');
+            $tim = $this->session->userdata('id_tim');
+            $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
+            echo "1";
+        }
+        else
+        echo $this->tahapUp->display_errors();
+	}
+
+	public function gantiTahap()
+	{
+		$this->login_protocol();
+		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
+        $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['encrypt_name'] = TRUE; //enkripsi file name upload
+        $this->load->library('upload',$config,'tahapUp'); //call library upload 
+        $this->tahapUp->initialize($config);
+        // var_dump("done1");
+        // echo $this->bayarup->display_errors(); 
+        if($this->tahapUp->do_upload("file")){ //upload file
+            $data = array('upload_data' => $this->tahapUp->data()); //ambil file name yang diupload
+            $image= $data['upload_data']['file_name'];
+            $id = $this->input->post('id');
+            $tim = $this->session->userdata('id_tim');
+            $this->Peserta_Model->hapusTahap($id,$tim);
+            $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
+            echo "1";
+        }
+        else
+        echo $this->tahapUp->display_errors();
+	}
+
 
 }
 ?>

@@ -4,6 +4,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/peserta.css') ?>">
+	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -79,15 +80,13 @@
 	<!-- ----- >
 
     <!-- Page Content  -->
-    <div id="content" class="row">
+    <div id="content" class="container-fluid">
         <!-- NAVBAR -->
-       	<div class="col-12">
-       		<?php $this->load->view('peserta/navbar') ?>
+       	<?php $this->load->view('peserta/navbar') ?>
         <!-- NAVBAR -->
 
         <div id="contentPage" style="margin-top: -30px;">
         	
-        </div>
        	</div>
 
     </div>

@@ -422,7 +422,7 @@ class Panitia extends CI_Controller {
 
 	public function doTambahtahap(){
 		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
-        $config['allowed_types']='PDF|JPEG|jpg|pdf'; //type file yang boleh di upload
+        $config['allowed_types']='PDF|JPEG|jpg|pdf|docx|doc'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUP'); //call library upload 
         $this->tahapUP->initialize($config);
@@ -437,13 +437,13 @@ class Panitia extends CI_Controller {
             echo "1";
         }
         else{
-        	echo "Gagal Upload / Unknown Folder / Tidak ada permission DIR";
+        	echo "Gagal Upload / Format file tidak didukung (jpg|pdf|docx|doc)";
         }
 	}
 
 	public function doEdittahap(){
 		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
-        $config['allowed_types']='PDF|JPEG|jpg|pdf'; //type file yang boleh di upload
+        $config['allowed_types']='PDF|JPEG|jpg|pdf|docx|doc'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUP'); //call library upload 
         $this->tahapUP->initialize($config);
@@ -459,7 +459,7 @@ class Panitia extends CI_Controller {
             echo "1";
         }
         else{
-        	echo "Gagal Upload / Unknown Folder / Tidak ada permission DIR";
+        	echo "Gagal Upload / Format file tidak didukung (jpg|pdf|docx|doc)";
         }	
 	}
 
