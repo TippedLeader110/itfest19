@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<button class="btn head1" onclick="$('#about-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">Tentang</button>
-					<a href="<?=base_url('ITFest/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
+					<a href="<?=base_url('Home/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
 				</div>
 			</div>
 		</div>
