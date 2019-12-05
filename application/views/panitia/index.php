@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
     <link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
+	<script type="text/javascript" src="<?php echo base_url('/assets/js/mdb.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('/assets/js/addons/datatables.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -64,11 +66,12 @@
                 </ul>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
-                    Tahapan Kompetisi
+                    Kelolah Kompetisi
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
                         <a href="#" id="KelolahTahapan">Kelolah Tahapan</a>
+                        <a href="#" id="kelolahPost">Pemberitahuan</a>
                     </li>
                 </ul>
             </li>
@@ -88,9 +91,10 @@
 </div>
 </body>
 </html>
-
+<script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/panitia.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
+
 
 <script type="text/javascript">
 	$('#contentPage').load('reSingkat');

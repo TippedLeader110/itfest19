@@ -393,9 +393,26 @@ class Panitia extends CI_Controller {
 		$this->load->view('panitia/page/tahap', $data);
 	}
 
+	public function Post()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->panitiaModel->getDatafullTable('post');
+		$data = [
+			'title' => 'Tambah Tahap',
+			'post' => $dataGet
+		];
+		$this->load->view('panitia/page/post', $data);	
+	}
+
 	public function hapusTahap(){
 		$id = $this->input->post('value');
 		$done = $this->panitiaModel->delDatabyid('tahap_lomba', 'id_tahap', $id);
+		echo $done;
+	}
+
+	public function hapusPost(){
+		$id = $this->input->post('value');
+		$done = $this->panitiaModel->delDatabyid('post', 'id_post', $id);
 		echo $done;
 	}
 
@@ -408,6 +425,15 @@ class Panitia extends CI_Controller {
 		$this->load->view('panitia/page/tambahTahap', $data);
 	}
 
+	public function tambahPost()
+	{
+		$this->loginProtocol();
+		$data = [
+			'title' => 'Tambah Tahap'
+		];
+		$this->load->view('panitia/page/tambahPost', $data);
+	}
+
 	public function editTahap()
 	{
 		$this->loginProtocol();
@@ -418,6 +444,31 @@ class Panitia extends CI_Controller {
 			'editTahap' => $editTahap
 		];
 		$this->load->view('panitia/page/editTahap', $data);
+	}
+
+	public function editPost()
+	{
+		$this->loginProtocol();
+		$id_post = $this->uri->segment(3);
+		$post = $this->db->where('id_post', $id_post)->get('post')->result();
+		$data = [
+			'title' => 'Edit post',
+			'editPost' => $post,
+			'post' => $id_post
+		];
+		$this->load->view('panitia/page/editPost', $data);
+	}
+
+	public function doSimpanPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		$oldid = $this->input->post('oldid');
+		if($this->panitiaModel->updatePost($judul,$isi,$id,$oldid)) {
+			echo "done";
+		}
 	}
 
 	public function doTambahtahap(){
@@ -441,7 +492,19 @@ class Panitia extends CI_Controller {
         }
 	}
 
+	public function doTambahPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		if ($this->panitiaModel->tambahPost($judul,$isi,$id)) {
+			echo "done";
+		}
+	}
+
 	public function doEdittahap(){
+		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/tahap/"; //path folder file upload
         $config['allowed_types']='PDF|JPEG|jpg|pdf|docx|doc'; //type file yang boleh di upload
         $config['encrypt_name'] = TRUE; //enkripsi file name upload

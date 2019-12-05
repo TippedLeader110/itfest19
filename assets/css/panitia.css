@@ -301,3 +301,7 @@ a.article:hover {
     background: #7386D5;
     background-color: #7386D5;
 }
+
+.antiblacktext p{
+    color: black;
+}

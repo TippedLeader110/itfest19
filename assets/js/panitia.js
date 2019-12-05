@@ -46,3 +46,8 @@
       $('#contentPage').load('logout');
     });  
 
+  $("#kelolahPost").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('Post');
+    });  
+

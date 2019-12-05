@@ -44,6 +44,22 @@ class panitiaModel extends CI_Model {
 		}
 	}
 
+	public function tambahPost($judul,$isi,$id)
+	{
+		$data = array('judul' => $judul , 'isi' => $isi , 'id_lomba' => $id);
+		$this->db->insert('post',$data);
+		return true;
+	}
+
+	public function updatePost($judul,$isi,$id,$oldid)
+	{
+		$this->db->set('judul', $judul);
+		$this->db->set('isi', $isi);
+		// $this->db->set('id_lomba', $id);
+		$this->db->where('id_post',$oldid)->update('post');
+		return true;
+	}
+
 	public function LogLoginPanitia(){
 		$ip = $this->getIP();
 		$user = $this->session->userdata('username');
@@ -206,6 +222,11 @@ class panitiaModel extends CI_Model {
 		->order_by("id_tim", "desc")
 		->get('tim');
 		return $query->result();
+	}
+
+	public function getDatafullTable($table){
+		$data = $this->db->get($table)->result();
+		return $data;
 	}	
 
 	// public function getTim($id)
