@@ -38,15 +38,27 @@
 											<div class="card-header text-white" style="background-color: #808FCF">
 												<center>Anggota #<?php echo $count ?></center>
 											</div>
-											<div class="card-body">
-												<div class="mx-auto d-block">
-													<center>
-														<img width="200px" src="<?php echo base_url('assets/images/user.png') ?>">
-														<h4><?php echo $v2->nama_peserta ?></h4>
-														<h5><?php echo $v2->email ?></h5>
-														<h5><?php echo $v2->jenis_kelamin ?></h5>
-														<h5><?php echo $v2->no_hp ?></h5>
-													</center>
+											<div>
+											<img class="card-img" src="<?php echo base_url('assets/images/user.png') ?>" style='opacity: 0.2'>
+											</div>
+											<div class="card-img-overlay" style="margin-top: 50px;">
+													<div class="table-responsive-sm">
+														<table class="table table-borderless">
+															<tr>
+																<td>Nama </td><td><?php echo $v2->nama_peserta ?></td>
+															</tr>
+															<tr>
+																<td>Email </td><td><?php echo $v2->email ?></td>
+															</tr>
+															<tr>
+																<td>Gender </td><td><?php echo $v2->jenis_kelamin ?></td>
+															</tr>
+															<tr>
+																<td>No.HP </td><td><?php echo $v2->no_hp ?></td>
+															</tr>
+
+														</table>
+													</div>
 												</div>
 											</div>
 										</div>

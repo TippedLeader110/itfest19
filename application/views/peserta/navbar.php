@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
     <div class="container-fluid">
 
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary bg-custom">
           <i class="fas fa-bars bg-custom"></i>
           <!-- <span>Toggle Sidebar</span> -->
         </button>

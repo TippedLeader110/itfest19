@@ -6,7 +6,7 @@
 	
 	<div class="row">
 		<div class="col-12 col-md-12">
-			<h4>Status : File sedang diseleksi - <a href="<?php echo base_url('public/kompetisi/userdata/tahap_tim/'); echo $url ?>" style="text-decoration: underline;">Download File</a></h4> 
+			<h4>Status : File sedang diseleksi - <a target="_blank" href="<?php echo base_url('public/kompetisi/userdata/tahap_tim/'); echo $url ?>" style="text-decoration: underline;">Download File</a></h4> 
 		</div>
 		<div class="col-12 col-md-2">
 			<button class="btn btn-light" data-toggle='collapse' data-target='#col'>Ganti File</button>

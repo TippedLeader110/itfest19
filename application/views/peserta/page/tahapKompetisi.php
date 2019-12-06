@@ -31,7 +31,7 @@
 						  					</div>
 						  					<div class="col-12 col-md-6">
 						  						<h5>File Rule</h5>
-						  						<p style="color: white"><a style="text-decoration: underline;" href="<?php echo base_url('public/kompetisi/tahap/'); echo $valreTahap->file_tahap ?>">Download File</a></p>
+						  						<p style="color: white"><a target="_blank" style="text-decoration: underline;" href="<?php echo base_url('public/kompetisi/tahap/'); echo $valreTahap->file_tahap ?>">Download File</a></p>
 						  					</div>
 						  					<div class="col-12 col-md-6">
 						  						<h5>Deadline</h5>

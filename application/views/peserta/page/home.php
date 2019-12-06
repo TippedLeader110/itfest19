@@ -25,8 +25,8 @@
 					    	Info Team
 					  	</div>
 					  	<div class="card-body">
-					  		<div class="row">
-					  			<div class="col-12">
+					  		
+					  			<div class="table-responsive">
 					  				<?php if ($ro!=0): ?>
 					  					<div class="alert alert-danger" role="alert">
   										Tim anda tidak dapat melanjutkan kompetisi karena tim anda sudah gugur !!!
@@ -100,7 +100,7 @@
 					  			</tr> -->
 					  		</table>
 					  		</div>
-					  		</div>
+					  		
 					  	</div>
 					</div>
 				</div>
@@ -117,7 +117,7 @@
 							</div>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item">
-									<center><h5><a href="#" id="showAll"><i class="fas fa-arrow-down"></i>Lihat Semua<i class="fas fa-arrow-down"></i></a><a href="#" id="hideAll" style="display: none;"><i class="fas fa-arrow-up"></i>Sembunyikan<i class="fas fa-arrow-up"></i></a></h5></center>
+									<center><h6><a href="#" id="showAll"><i class="fas fa-arrow-down"></i>Lihat Semua<i class="fas fa-arrow-down"></i></a><a href="#" id="hideAll" style="display: none;"><i class="fas fa-arrow-up"></i>Sembunyikan<i class="fas fa-arrow-up"></i></a></h6></center>
 								</li>
 							</ul>
 						</div>
