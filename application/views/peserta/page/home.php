@@ -111,12 +111,8 @@
 						<div class="card-header">
 							Pemberitahuan
 						</div>
-						<div class="card-body">
-							<ul>
-							<?php foreach ($post as $key => $dpost): ?>
-								<li><a href="<?php echo base_url('peserta/post/'); echo $dpost->id_post ?>"><?php echo $dpost->judul ?></a></li>
-							<?php endforeach ?>
-							</ul>
+						<div class="card-body" id="bodypost">
+							
 						</div>
 					</div>
 				</div>
@@ -128,6 +124,13 @@
 
 
 <script type="text/javascript">
+	$('#bodypost').load('<?php echo base_url('Peserta/kontentPost') ?>');
+
+	function doPost(id)
+	{
+		$('#contentPage').load("<?php echo base_url('Peserta/post/');?>"+ id);
+	}
+
 	var ver = "<?php echo $value->status_pembayaran ?>";
 	// console.log(ver);
 	if (ver!='Active') {

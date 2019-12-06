@@ -160,9 +160,8 @@
                                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                               </div>
                                                             </div>
-                                                            <i style="font-size: 12pt;color:red; line-height: 16px;"><br>Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan KTM yang dimasukkan ke dalam ZIP.</i>	
+                                                            <i style="font-size: 12pt;color:red; line-height: 16px;"><br>Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan KTM yang dicompress menjadi ZIP/RAR/7ZIP (Max Size = 2MB).</i>	
                                                                 </div>
-
                                                         </div>
                                                         <!-- ------------------------------------------------------------ -->
                                                 </div>
@@ -214,6 +213,7 @@
                                                                   aria-describedby="inputGroupFileAddon04">
                                                                 <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                                                               </div>
+                                                              <i style="font-size: 12pt;color:red; line-height: 16px;"><br>Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan KTM yang dicompress menjadi ZIP/RAR/7ZIP (Max Size = 2MB).</i>	
                                                             </div>
                                                                 </div>
 
@@ -274,6 +274,7 @@
                                                                                 <label class="custom-file-label" for="inputGroupFile07">Choose file</label>
                                                                               </div>
                                                                             </div>
+                                                                            <i style="font-size: 12pt;color:red; line-height: 16px;"><br>Data pribadi berupa pas foto, surat keterangan aktif kuliah dan scan KTM yang dicompress menjadi ZIP/RAR/7ZIP (Max Size = 2MB).</i>	
                                                                                 </div>
 
                                                                         </div>

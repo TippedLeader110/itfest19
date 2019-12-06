@@ -83,6 +83,11 @@ class Peserta_Model extends CI_Model {
 		$this->db->insert('log_tim', $data);
 	}
 
+	public function getPostbyId($id)
+	{
+		return $this->db->where('id_post', $id)->get('post')->result();
+	}
+
 	public function getIP(){
 		$ip = getenv('HTTP_CLIENT_IP')?:
 		getenv('HTTP_X_FORWARDED_FOR')?:

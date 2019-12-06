@@ -104,10 +104,16 @@ class Peserta extends CI_Controller {
 		$data = [
 			'dataLomba' => $dataL,
 			'dataTim' => $value,
-			'post' => $post,
 			'ro' => $ro
 		];
 		$this->load->view('peserta/page/home', $data);
+	}
+
+	public function kontentPost()
+	{
+		$id_lomba = $this->session->userdata('id_lomba');
+		$data['post'] = $this->Peserta_Model->getPost($id_lomba);
+		$this->load->view('peserta/page/postview', $data);
 	}
 	public function ambil_data_timlomba(){
 
@@ -221,6 +227,13 @@ class Peserta extends CI_Controller {
         }
         else
         echo $this->tahapUp->display_errors();
+	}
+
+	public function post()
+	{
+		$uri = $this->uri->segment(3);
+		$data['post'] = $this->Peserta_Model->getPostbyId($uri);
+		$this->load->view('peserta/page/post',$data);
 	}
 
 	public function gantiTahap()

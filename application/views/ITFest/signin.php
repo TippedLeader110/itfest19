@@ -118,7 +118,6 @@
 <script type="text/javascript">
 	$('#login').submit(function(e) {
 		e.preventDefault();
-		var showName = "<?php echo $this->session->userdata('nama_tim') ?>";
 		var user = $('#username_tim').val();
 		var pwd = $('#password_tim').val();
 		if (user==''&&pwd=='') {
@@ -137,8 +136,19 @@
 			success: function(data){
 				if (data==1) {
 					console.log(data);
-					Swal.fire('Berhasil', 'Selamat Datang ' + showName, "success");
-					setTimeout(function(){window.open('<?php echo base_url("Peserta/")?>','_self');},2000);
+					Swal.fire(
+						{
+							title: 'Berhasil',
+					 		text: 'Selamat Datang ' + user,
+					 		icon: "success",
+					 		timer: 2000,
+					 		timerProgressBar: true,
+					 		confirmButton: false,
+					 		onBeforeOpen: () => {
+					 			Swal.showLoading()
+					 		}
+					 	});
+					setTimeout(function(){window.open('<?php echo base_url("Peserta/")?>','_self');},1800);
 				}
 				else if (data=='blm') {
 					Swal.fire({
