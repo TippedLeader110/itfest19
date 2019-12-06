@@ -27,7 +27,7 @@
 <body>
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100mod">
+			<div class="wrap-login100 wrap-login100mod">
 				<a href="<?=base_url()?>"><div class="login100-pic js-tilt" data-tilt>
 					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
 				</div></a>
@@ -64,6 +64,14 @@
 						</span>
 						<a class="txt2" href="<?=base_url()?>">
 							Beranda
+						</a>
+					</div>
+					<div class="text-center p-t-0">
+						<span class="txt1">
+							Beralih ke
+						</span>
+						<a class="txt2" href="<?=base_url('panitia')?>">
+							Dashboard Panitia
 						</a>
 					</div>
 				</form>
@@ -136,7 +144,12 @@
 					  	title: 'Selamat Datang',
 					  	text: 'Admin/Panitia ITFest 4.0',
 					  	showConfirmButton: false,
-					  	timer: 1500
+					  	timerProgressBar: true,
+					  	timer: 1500,
+					 	nBeforeOpen: () => {
+					 		Swal.showLoading()
+					 	}
+
 					});
 					setTimeout(function () {
        				window.location.href = "<?php echo base_url('admin/') ?>"; //will redirect to your blog page (an ex: blog.html)

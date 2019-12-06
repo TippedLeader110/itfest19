@@ -71,7 +71,7 @@
 			success: function(er){
 				console.log(er);
 				$('#modalTim').modal('hide'); $('.modal-backdrop').remove();
-				$('#sub').load('<?php echo base_url('panitia/subTim?id='); echo $mTim->id_tahap ?>');		
+				$('#sub').load('<?php echo base_url('panitia/subTim?id='); echo $mTim->id_tahap; echo "&tag="; echo $tag; ?>');		
 				Swal.fire('Sukses','Perubahan disimpan','success');
 			},
 			error: function(er){

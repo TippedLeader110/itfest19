@@ -21,18 +21,18 @@ class LombaModel extends CI_Model {
 
 	public function insertData($data){
 		$work = "add new Lomba data";
-		$this->db->insert('Lomba', $data);
+		$this->db->insert('lomba', $data);
 		return $this->insertLogPanitia($this->session->userdata('id'), $work);
 	}
 
 	public function getAllData(){
-		return $this->db->get('Lomba');
+		return $this->db->get('lomba');
 	}
 
 	public function updateData($id, $data){
 		$work = "update Lomba data in ID = " . $id;
 		$this->db->where('id', $id);
-		$this->db->update('Lomba', $data);
+		$this->db->update('lomba', $data);
 		return $this->insertLogPanitia($this->session->userdata('id'), $work);
 	}
 
@@ -42,12 +42,14 @@ class LombaModel extends CI_Model {
 		$data = array(
 			'active' => '0'
 		);
-		$this->db->update('Lomba', $data);
+		$this->db->update('lomba', $data);
 		return $this->insertLogPanitia($this->session->userdata('id'), $work);
 	}
 
 	public function getDatabyName($name){
 		$this->db->where('nama_lomba', $name);
+		$this->db->where('namaLomba', $name);
+		$this->db->where('active', '1');
 		return $this->db->get('lomba');
 	}
 
@@ -55,6 +57,6 @@ class LombaModel extends CI_Model {
 	{
 		$this->db->where('id', $id);
 		$this->db->where('active', '1');
-		return $this->db->get('Lomba') ;
+		return $this->db->get('lomba') ;
 	}
 }

@@ -1,64 +1,51 @@
-<div class="row">
-	<div class="col-12">
-		<h3>Panitia</h3>
-	</div>
-</div>
-<div class="subpage">
-	<div class="row">
-		<div class="col-12">
-			<h4>Tambah Panitia</h4>
-			<hr>
-			Menambahkan hak akses untuk panitia cabang kompetisi baru ITFest 4.0 Universitas Sumatera Utara
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-12">
+				<h5>Menambahkan hak akses untuk panitia kompetisi | ITFest 4.0 Universitas Sumatera Utara</h5>
+				<hr>
+			</div>
 		</div>
-	</div>
-	<!-- <form id="datalomba" action="<?php echo base_url('admin\DoTambahlomba') ?>" method="post"> -->
-	<form id="form">
-	<div class="row">
-		<div class="col-12">
-			<div class="table-responsive">
-				<table class="table table-borderless">
-					<tr>
-						<td>
-							Username*
-						</td>
-						<td>
-							<input type="input" name="username">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Password*
-						</td>
-						<td>
-							<input type="password" name="password">
-						</td>
-					</tr>
-					<tr>
-						<td>Cabang Kompetisi*</td>
-						<td>
-							<select name="kompetisi" id="optionKompetisi">
+		<form id="form">
+		<div class="row">
+			<div class="col-12 col-md-12">
+				<div class="row">
+					<div class="col-12 col-md-12">
+						<div class="form-group">
+							<input type="text" hidden name="id" value="<?php echo $this->session->userdata('panitia-id'); ?>">
+							<label class="form-control-label" for="deskripsiSeleksi">Username Panitia</label>
+							<input type="text" class="form-control" name="username">
+								<div class="invalid-feedback">Tolong isi Username</div>
+						</div>
+						<div class="form-group">
+							<label class="form-control-label" for="deskripsiSeleksi">Password Panitia</label>
+							<input type="password" name="password" class="form-control">
+								<div class="invalid-feedback">Tolong Password</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="form-group">
+							<label class="form-control-label" for="optionKompetisi">Cabang Kompetisi</label>
+							<select name="kompetisi" id="optionKompetisi" class="form-control">
 									<option value="null">----- Pilih cabang kompetisi -----</option>
 								<?php foreach ($dataLomba as $key => $value): ?>
 									<option value="<?php echo $value->id_lomba ?>"><?php echo $value->nama_lomba ?></option>
 								<?php endforeach ?>
 							</select>
-						</td>
-					</tr>
-				</table>	
-				<hr>
+						</div>
+					</div>
+					<div class="col-12 col-md-12" style="margin-top: 20px;">
+						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-12">
-			<button class="btn btn-primary">Tambah</button>&nbsp;
-			</form>
-			<form action="<?php echo base_url('admin\panitia') ?>">
-			<button class="btn btn-danger">Batal</button>
-			</form>
-		</div>
+		</form>
 	</div>
 </div>
+
 
 <script type="text/javascript">
 	$('#form').submit(function(event) {
@@ -78,10 +65,18 @@
             success: function(data){
             	if (data==1) {
             	Swal.fire('Berhasil !!', 'Panitia berhasil ditambahkan !!', 'success')
+            	var delay = 1500; 
+				setTimeout(function(){ 
+					$('#contentPage').load('<?php echo base_url('admin/panitia') ?>'); }, delay);
             	}
             	else
             		Swal.fire('Kesalahan!!', 'Username telah digunakan !!', 'error')
             }
 		})
+	});
+
+	$('#return').click(function(event) {
+		event.preventDefault();
+		$('#contentPage').load('<?php echo base_url('admin/panitia') ?>');
 	});
 </script>

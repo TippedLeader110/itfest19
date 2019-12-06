@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 
 	function __construct(){
     	parent::__construct();
+    	// $this->load->library('session');
 	}
 
 	public function resentPembayaranemail(){
@@ -449,11 +450,5 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function signin(){
-		if($this->session->userdata('userTeam') == NULL){
-			$this->load->view("ITFest/signin");
-		} else{
-			redirect("Team");
-		}
-	}
+	
 }

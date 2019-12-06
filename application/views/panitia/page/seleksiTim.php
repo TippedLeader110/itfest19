@@ -10,7 +10,7 @@
 <?php $count=1; ?>
 <div class="row">
 <?php foreach ($seleksiTim as $key => $sTim): ?>
-	<div class="col-6">
+	<div class="col-12 col-md-6">
 		<div class="card text-white mb-3" style="background-color: #7386D5">
 		  	<div class="card-header" style="height: 80%;">
 	  			<div class="float-left" style="padding-top: 5px;">

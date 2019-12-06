@@ -24,20 +24,25 @@ class Pendaftaran_Model extends CI_Model {
 
 	// Fungsi untuk nambah data di tabel tim, terus ngasih id tim yg baru dimasukkan
 	public function tambah_tim($data_team){
+		$this->db->where('username_tim', $data_team['username_tim'])->get('tim')->num_rows();
 		$this->db->insert('tim',$data_team);
 		return $this->db->insert_id();
 	}
 
 	// Fungsi nambah peserta ketua dan ngembalikan id ketuanya
 	public function tambah_peserta($data_peserta){
-
+				
 		$this->db->insert('peserta',$data_peserta);
 		return $this->db->insert_id();
 	}
 
 	// Fungsi untuk update kolom id ketua di tabel tim
 	public function update_id_ketua($id_ketua,$id_team){
-		$this->db->query("update id_ketua='"+$id_ketua+"' from tim where id_tim = '"+$id_team+"';");
+		$this->db->query("update tim set id_ketua=".$id_ketua." where id_tim=".$id_team.";");
+	}
+
+	public function cek_nama_tim($nama_tim){
+		return $this->db->query("select * from tim where nama_team = '".$nama_tim."';")->num_rows();
 	}
 }
 ?>

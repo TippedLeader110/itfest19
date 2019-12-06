@@ -13,7 +13,7 @@
 	<?php foreach ($reSingkat as $key => $Singkat): ?>
 	<?php endforeach ?>
 	<div class="row" style="margin-top: 15px;">
-		<div class="col-6">
+		<div class="col-12 col-md-6">
 			<div class="card " style="background-color: #7386D5">
 			<div class="card-header text-white">
 				Laporan Berkas
@@ -34,7 +34,7 @@
 			</ul>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-12 col-md-6">
 			<div class="card " style="background-color: #7386D5">
 			<div class="card-header text-white">
 				Laporan Tim

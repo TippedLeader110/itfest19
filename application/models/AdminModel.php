@@ -14,6 +14,7 @@ class adminModel extends CI_Model {
 	{
 		$user = $this->db
 			->where('username', $user_real)
+			->where('id_lomba', 0)
 			->get('user');
 		// var_dump($user_real);die;
 		// var_dump($user->result());die;
@@ -45,11 +46,10 @@ class adminModel extends CI_Model {
 		$id_panitia = $query->row()->id_user;
 		$data = array('ip_address' => $ip,
 			'keterangan' => 'Login Admin',
-			'waktu' => time(),
+			'waktu' => date("Y-m-d H:i:s"),
 			'id_panitia' => $id_panitia
 		 );
 		$this->db->insert('log_panitia', $data);
-
 	}
 
 	public function getIP(){
@@ -86,6 +86,20 @@ class adminModel extends CI_Model {
 		$this->session->unset_userdata('logo');
 	}
 
+	public function kompetisiDoEdit($deskripsi, $nama,$id)
+	{	
+		$rule = $this->session->userdata('rule');
+		$logo = $this->session->userdata('logo');
+		$data = array('deskripsi' => $deskripsi,
+			'nama_lomba' => $nama,
+			'rule' => $rule,
+			'url_logo' => $logo
+		);
+		$this->db->where('id_lomba', $id)->update('lomba', $data);
+		$this->session->unset_userdata('rule');
+		$this->session->unset_userdata('logo');
+	}
+
 	public function tambahPanitia($username,$password,$kompetisi)
 	{	
 		$row = $this->db->where('username',$username)->get('user')->num_rows();
@@ -110,8 +124,28 @@ class adminModel extends CI_Model {
 	}
 
 	public function deleteDatabyID($id,$kolomID,$table){
-		$this->db->where($kolomID , $id)->delete($table);
-		return 1;
+		if ($this->db->where($kolomID , $id)->delete($table)) {
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getSingkat()
+	{
+		$query = $this->db->get('jumlah_all');
+        return $query->result();
+	}
+
+	public function getSingkat2()
+	{
+		$query = $this->db->get('jumlah_tim_lomba');
+        return $query->result();
+	}
+
+	public function getDatabyID($id,$kolomID,$table){
+		return $this->db->where($kolomID , $id)->get($table)->result();
 	}
 
 	public function deleteFile($id){
@@ -128,5 +162,26 @@ class adminModel extends CI_Model {
 			return 1;
 		}
 	}
+
+	public function sumPanitia()
+	{
+		return $this->db->get('user_lomba')->num_rows();
+	}
+
+	public function sumPanitiacari($cari)
+	{
+		return $this->db->like('username', $cari)->get('user_lomba')->num_rows();
+	}
+
+	public function getPanitia($number,$offset)
+	{
+		return $query = $this->db->get('user_lomba',$number,$offset)->result();		
+	}
+
+	public function getPanitiacari($number,$offset,$cari)
+	{
+		return $query = $this->db->like('username', $cari)->get('user_lomba',$number,$offset)->result();		
+	}
+
 }
 ?>

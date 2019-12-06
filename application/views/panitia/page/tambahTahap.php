@@ -8,9 +8,9 @@
 		</div>
 		<form id="formTahap">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 col-md-12">
 						<div class="form-group">
 							<input type="text" hidden name="id" value="<?php echo $this->session->userdata('panitia-id'); ?>">
 							<label class="form-control-label" for="deskripsiSeleksi">Deskripsi Tahapan Seleksi</label>
@@ -20,15 +20,17 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-8">
+					<div class="col-12 col-md-4">
+						<label class="form-control-label" for="e">Deadline</label>
+						<input class="form-control" type="date" name="deadline">
+					</div>
+					<div class="col-12 col-md-8">
+							<label class="form-control-label" for="validatedCustomFile">File Rule Kompetisi</label>
 						<div class="custom-file">
 						    <input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
-						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Tahapan Seleksi...</label>
+						    <label class="custom-file-label" for="validatedCustomFile">Upload File...</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
-					</div>
-					<div class="col-4">
-						<input class="form-control" type="date" name="deadline">
 					</div>
 					<div class="col-12" style="margin-top: 20px;">
 						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
@@ -41,6 +43,12 @@
 </div>
 
 <script type="text/javascript">
+
+    $('#validatedCustomFile').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+
 	$('#return').click(function(event) {
 		event.preventDefault();
 		$('#contentPage').load('Tahap');

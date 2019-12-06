@@ -5,138 +5,23 @@ class Bendahara extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('adminModel');
+		$this->load->model('bendaharaModel');
+		if (session_status() == PHP_SESSION_NONE) {
+		}
+    		$this->load->library('session');
 	}
 
 	public function index()
 	{
 		$this->loginProtocol();
 		$data = [
-			'page'=>'admin/page/dashboard',
 			'title' => 'Dashboard'
 		];
-		$this->load->view('admin/index', $data);
+		$this->load->view('bendahara/index', $data);
 	}
 	##################PANITIA###################
 
-	public function panitia(){
-		$this->loginProtocol();
-		$data = [
-			'page'=>'admin/page/Panitia',
-			'title' => 'Kompetisi'
-		];
-		$this->load->view('admin/index', $data);
-	}
-
-	public function dataPanitia(){
-		
-		$dataPanitia = $this->adminModel->getDatafullTable('panitia');
-		$data = [
-			'title' => 'Kompetisi',
-			'dataPanitia' => $dataPanitia
-		];
-		$this->load->view('admin/page/ajax/panitia', $data);
-	}
-
-	public function tambahPanitia(){
-		$this->loginProtocol();
-		$dataLomba = $this->adminModel->getDatafullTable('lomba');
-		$data = [
-			'page'=>'admin/page/tambahPanitia',
-			'title' => 'Tambah Panitia',
-			'dataLomba' => $dataLomba
-		];
-		$this->load->view('admin/index', $data);
-	}
-
-	public function DoTambahpanitia(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$kompetisi = $this->input->post('kompetisi');
-		$this->adminModel->tambahPanitia($username,$password,$kompetisi);
-		
-
-	}
-
-	##################PANITIA###################
-	##################LOMBA#####################
-
-
-
-	public function lomba(){
-		$this->loginProtocol();
-		$dataLomba = $this->adminModel->getDatafullTable('lomba');
-		$data = [
-			'page'=>'admin/page/Lomba',
-			'title' => 'Kompetisi',
-			'dataLomba' => $dataLomba
-		];
-		$this->load->view('admin/index', $data);
-	}
-
-	public function tambahLomba(){
-		$this->loginProtocol();
-		$data = [
-			'page'=>'admin/page/tambahLomba',
-			'title' => 'Tambah Kompetisi'
-		];
-		$this->load->view('admin/index', $data);
-	}
-	public function DoTambahlomba(){
-
-		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
-        $config['allowed_types']='gif|jpg|png'; //type file yang boleh di upload
-        $config['encrypt_name'] = TRUE; //enkripsi file name upload
-        $this->load->library('upload',$config,'logoup'); //call library upload 
-        $this->logoup->initialize($config);
-        if($this->logoup->do_upload("logo")){ //upload file
-            $data = array('upload_data' => $this->logoup->data()); //ambil file name yang diupload
-            $image= $data['upload_data']['file_name']; //set file name ke variable image
-            $this->adminModel->kompetisi_FlashLOGO($image); //simpan data sementara
-            $ver = 1;
-        }
-        else{
-        	$ver = 0;
-        }
-
-        $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
-        $config['allowed_types']='pdf'; //type file yang boleh di upload
-        $this->load->library('upload',$config,'ruleup');
-        $this->ruleup->initialize($config);
-        if($this->ruleup->do_upload("rule")){ //upload file
-            $data = array('upload_data' => $this->ruleup->data()); //ambil file name yang diupload
-            $pdf= $data['upload_data']['file_name']; //set file name ke variable pdf
-            $this->adminModel->kompetisi_FlashRULE($pdf); //simpan data sementara
-            $ver = 1;
-        }
-        else{
-        	$ver = 0;
-        }
-
-        if ($ver == 1) {
-        $ver=0;
-        $deskripsi = $this->input->post('deskripsi');
-        $nama = $this->input->post('nama');
-        $this->adminModel->kompetisiDoTambah($deskripsi,$nama);
-        echo "1";
-        }
-        else{
-        	echo "0";
-        }
-	}
-
-	public function doHapuslomba(){
-		$idLomba = $this->input->post('idLomba');
-		if ($this->adminModel->deleteFile($idLomba)==1) {
-			$this->adminModel->deleteDatabyID($idLomba,'id_lomba','lomba');
-			echo 'Deleted by ID : '.$idLomba.'';
-		}
-		else{
-			echo "Something went wrong !!";
-		}
-
-	}
-
+	
 	public function testdelete($idLomba){
 		$this->adminModel->deleteFile($idLomba);
 	}
@@ -144,10 +29,9 @@ class Bendahara extends CI_Controller {
 	##################Lomba#####################
 
 
-
 	public function login()
 	{
-		$this->load->view('admin/login');
+		$this->load->view('bendahara/login');
 	}
 
 	public function doLogin()
@@ -157,7 +41,7 @@ class Bendahara extends CI_Controller {
 		$pwd = $this->input->post('pwd');
 		// echo "0";
 		// var_dump($user);
-		$num = $this->adminModel->doLogin($user, $pwd);
+		$num = $this->bendaharaModel->doLogin($user, $pwd);
 		if ($num==0) {
 			echo "0";
 		}
@@ -176,8 +60,69 @@ class Bendahara extends CI_Controller {
 
 	public function loginProtocol()
 	{
-		if(($this->session->userdata('status') != "login-admin") && ($this->session->userdata('panitia-id') == NULL)){
-			redirect(base_url("admin/login"));
+		if(($this->session->userdata('status') == "login-bendahara")){
+			
 		}
+		else{
+			redirect(base_url("bendahara/login"));
+		}
+	}
+
+	public function reSingkat()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->bendaharaModel->getSingkat();
+		$dataGet2 = $this->bendaharaModel->getSingkat2();
+		$data = [
+			'title' => 'Laporan Singkat',
+			'reTahap' => $dataGet,
+			'reTahapkompe' => $dataGet2
+		];
+		$this->load->view('bendahara/page/reSingkat', $data);
+	}
+
+	public function logout()
+	{
+			$this->session->sess_destroy();
+			redirect(base_url("bendahara/login"));
+	}
+
+	public function cekBayar()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->bendaharaModel->getDatafullTable('data_tim_aktif');
+		$data = [
+			'title' => 'Laporan Singkat',
+			'cekBayar' => $dataGet
+		];
+		$this->load->view('bendahara/page/cekBayar', $data);
+	}
+
+	public function getTim()
+	{
+		$id = $this->input->get('tim');
+		$dataGet = $this->bendaharaModel->getTim($id);
+		// var_dump($dataGet);
+		// die;
+		$data = [
+			'title' => 'Ambil data tim',
+			'getTim' => $dataGet
+		];
+		$this->load->view('bendahara/page/subpage/getTim', $data);
+	}
+
+	public function doSimpan()
+	{
+		$status = $this->input->post('sel');
+		$id = $this->input->post('id');
+		if ($status==1) {
+			$status = 'Active';
+		}
+		else{
+			$status = 'Non-Active';	
+		}
+		$this->db->set('status_pembayaran', $status);
+		$this->db->where('id_tim', $id);
+		$this->db->update('tim');
 	}
 }

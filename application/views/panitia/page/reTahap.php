@@ -26,13 +26,13 @@
 	  			</div>
 	  			<div class="card-body collapse" id="collapse<?php echo $count ?>">
 	  				<div class="row">
-		  				<div class="col-6">
+		  				<div class="col-12 col-md-6">
 		  					<h5>Deskripsi</h5>
 		  					<p style="color: white"><?php echo $valreTahap->deskripsi_tahap; ?></p>
 		  					<h5>File Rule</h5>
 		  					<p style="color: white"><a href="<?php echo base_url('public/kompetisi/tahap/'); echo $valreTahap->file_tahap ?>">Download File</a></p>
 		  				</div>
-		  				<div class="col-6">
+		  				<div class="col-12 col-md-6">
 		  					<div id="load<?php echo $valreTahap->id_tahap ?>">
 		  					
 			  				</div>

@@ -1,33 +1,30 @@
 @font-face {
     font-family: "JOST_LIGHT";
-    src: url("../../../public/custom/fonts/Jost-300-Light.ttf") format('woff'),
-    url("https://localhost/itfest/public/custom/fonts/Jost-300-Light.ttf") format('woff');
+    src: url("../../../assets/custom/fonts/Jost-300-Light.ttf") format('woff');
 }
 @font-face {
     font-family: "JOST_BOOK";
-    src: url("../../../public/custom/fonts/Jost-400-Book.ttf") format('woff'),
-    url("https://localhost/itfest/public/custom/fonts/Jost-400-Book.ttf") format('woff');
+    src: url("../../../assets/custom/fonts/Jost-400-Book.ttf") format('woff');
 }
 @font-face {
     font-family: "JOST_BOLD";
-    src: url("../../../public/custom/fonts/Jost-700-Bold.ttf") format('woff'),
-    url("https://localhost/itfest/public/custom/fonts/Jost-700-Bold.ttf") format('woff');
+    src: url("../../../assets/custom/fonts/Jost-700-Bold.ttf") format('woff');
 }
 @font-face {
     font-family: "Gotham Thin";
-    src: url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff'),
-    url("../../../public/custom/fonts/Gotham-Thin.otf") format('woff');
+    src: url("../../../assets/custom/fonts/Gotham-Thin.otf") format('woff');
 }
+
 body{
 	margin: 0;
 	padding: 0;
-	font-family: 'JOST_BOOK', 'Arial';
+	font-family: 'JOST_BOOK';
         background-color: #E6E8FF;
         font-size: 20px;
 }
 @media screen and (max-width: 768px) {
 	body#itfest{
-		background: url('../../../public/images/itfest-mobile.jpg') no-repeat;
+		background: url('../../../assets/images/itfest-mobile.jpg') no-repeat;
 		background-size: cover;
 	}
 }
@@ -82,7 +79,7 @@ nav.black{
 .logo-nav{
 	width: 50px;
 	min-height: 50px;
-	background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;
+	/*background: url('../../../public/images/logo-itfest-white-edit.png') no-repeat;*/
 	background-size: cover;
 	background-position: center;
 	transition-duration: 1.5s;
@@ -445,16 +442,17 @@ h4.card-title{
 
 /*FORM-DAFTAR*/
 body.daftar{
-	background: url('../../../public/images/daftar.jpg') no-repeat;
+	background: url('../../../assets/images/daftar.jpg') no-repeat;
 	background-size: cover;
+        font-family: 'JOST_LIGHT';
 }
 #form-daftar{
 	padding-top: 10px;
 	padding-bottom: 100px;
-	font-family: 'JOST_LIGHT', 'Arial';
+
 }
 .form-title{
-	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
+	background: linear-gradient(to right bottom, #24c6dc, #514a9d);
 	width: 100%;
 	font-family: "JOST_BOLD", 'Roboto';
 	padding: 20px 0 10px 30px;
@@ -487,7 +485,8 @@ label.label-judul{
 .btn-submit{
 	width: 82%;
 	border-radius: 50px;
-	background: #36A07C;
+	background: #365CA0;
+        border:2px solid #365CA0;
 	color: #fff;
 	transition-duration: 0.5s;
 	-webkit-transition-duration: 0.5s;
@@ -495,7 +494,7 @@ label.label-judul{
 	letter-spacing: 2px;
 }
 .btn-submit:hover{
-	border:2px solid #36A07C;
+	border:2px solid #365CA0;
 	background: transparent;
 	color: #000;
 }

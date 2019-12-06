@@ -4,7 +4,7 @@
 	<title>Login ITFest 4.0</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!--===============================================================================================-->
 	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 <!--===============================================================================================-->
@@ -33,13 +33,13 @@
 					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
 				</div></a>
 
-				<form class="login100-form validate-form" method="POST" action="<?=base_url('Auth/login')?>">
+				<form class="login100-form validate-form" id="login">
 					<span class="login100-form-title text-white">
 						LOGIN
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Email is required">
-						<input class="input100" type="email" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username_tim" id="username_tim" placeholder="Username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-at" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						<input class="input100" type="password" name="password_tim" id="password_tim" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="text-center p-t-26">
-						<a class="txt2" href="<?=base_url('Home/signup')?>">
+						<a class="txt2" href="<?=base_url('pendaftaran/')?>">
 							Daftar Lomba ITFest 4.0
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
@@ -114,3 +114,64 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	$('#login').submit(function(e) {
+		e.preventDefault();
+		var user = $('#username_tim').val();
+		var pwd = $('#password_tim').val();
+		if (user==''&&pwd=='') {
+			Swal.fire('Kesalahan', 'Tolong isi kolom username dan password', "error");
+		}
+		else{
+		console.log(user);
+		console.log(pwd);
+		$.ajax({
+			url: '<?php echo base_url('Peserta/login') ?>',
+			type: 'post',
+			data: {user, pwd},
+			error: function(data){
+				Swal.fire('Kesalahan', 'Terjadi kesalahan dengan server', "error");
+			},
+			success: function(data){
+				if (data==1) {
+					console.log(data);
+					Swal.fire(
+						{
+							title: 'Berhasil',
+					 		text: 'Selamat Datang ' + user,
+					 		icon: "success",
+					 		timer: 2000,
+					 		timerProgressBar: true,
+					 		confirmButton: false,
+					 		onBeforeOpen: () => {
+					 			Swal.showLoading()
+					 		}
+					 	});
+					setTimeout(function(){window.open('<?php echo base_url("Peserta/")?>','_self');},1800);
+				}
+				else if (data=='blm') {
+					Swal.fire({
+						title : 'Berkas belum diverifikasi',
+						text:  'Berkas tim sedang diverifikasi silahkan menunggu sampai berkas diverifikasi oleh panitia.',
+						icon:  "info",
+						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id'});
+				}
+				else if (data=='tolak') {
+					Swal.fire({
+						title: 'Berkas Tim ditolak',
+						text: 'Berkas anda tidak memenuhi syarat atau melanggar aturan',
+						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id',
+						icon: "error"});
+				}
+				else{
+					console.log(data);
+					Swal.fire('Kesalahan', 'Username atau Password Salah', "error");
+				}
+
+			}
+		})
+		}
+	});
+
+</script>

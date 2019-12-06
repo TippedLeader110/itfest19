@@ -11,9 +11,10 @@ class panitiaModel extends CI_Model {
 
 	public function doLogin($user_real, $pwd)
 	{
-		$user = $this->db
-			->where('username', $user_real)
-			->get('user');
+		$user = $this->db->query("select * from user where username  = '$user_real' AND id_lomba  <> 0 ");
+			// ->where('username', $user_real)
+			// ->where('id_lomba', 0,FALSE)
+			// ->get('user');
 			
 		$match = password_verify($pwd , $user->row()->password);
 		$id = $user->row()->id_user;
@@ -43,6 +44,22 @@ class panitiaModel extends CI_Model {
 		}
 	}
 
+	public function tambahPost($judul,$isi,$id)
+	{
+		$data = array('judul' => $judul , 'isi' => $isi , 'id_lomba' => $id);
+		$this->db->insert('post',$data);
+		return true;
+	}
+
+	public function updatePost($judul,$isi,$id,$oldid)
+	{
+		$this->db->set('judul', $judul);
+		$this->db->set('isi', $isi);
+		// $this->db->set('id_lomba', $id);
+		$this->db->where('id_post',$oldid)->update('post');
+		return true;
+	}
+
 	public function LogLoginPanitia(){
 		$ip = $this->getIP();
 		$user = $this->session->userdata('username');
@@ -52,11 +69,10 @@ class panitiaModel extends CI_Model {
 		$id_panitia = $query->row()->id_user;
 		$data = array('ip_address' => $ip,
 			'keterangan' => 'Login Panitia',
-			'waktu' => time(),
+			'waktu' => date("Y-m-d H:i:s"),
 			'id_panitia' => $id_panitia
 		 );
 		$this->db->insert('log_panitia', $data);
-
 	}
 
 	public function getIP(){
@@ -206,6 +222,11 @@ class panitiaModel extends CI_Model {
 		->order_by("id_tim", "desc")
 		->get('tim');
 		return $query->result();
+	}
+
+	public function getDatafullTable($table){
+		$data = $this->db->get($table)->result();
+		return $data;
 	}	
 
 	// public function getTim($id)
@@ -276,25 +297,86 @@ class panitiaModel extends CI_Model {
 		$this->db->update('tahap_lomba');
 	}
 
-	public function getseleksiTim($limit,$from,$id){
-		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."  LIMIT ".$limit." OFFSET ".$from."  ");
+	public function getseleksiTim($limit,$from,$id,$tag){
+		// var_dump($tag);
+		if ($tag==1) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."  LIMIT ".$limit." OFFSET ".$from."  ");
+			return $query->result();
+		}
+		elseif ($tag==2) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim is null  LIMIT ".$limit." OFFSET ".$from."  ");
 		return $query->result();
+		}
+		elseif ($tag==3) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 1 LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+		}
+		elseif ($tag==4) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 0 LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+		}
 	}
 
-	public function sumseleksiTim($id){
-		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."");
+	public function sumseleksiTim($id,$tag){
+		if ($tag==1) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id."");
+			return $query->num_rows();
+		}
+		elseif ($tag==2) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim is null  AND b.nama_team");
 		return $query->num_rows();
+		}
+		elseif ($tag==3) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 1 AND b.nama_team");
+		return $query->num_rows();
+		}
+		elseif ($tag==4) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 0 AND b.nama_team");
+		return $query->num_rows();
+		}
 	}
 
-	public function getseleksiTimcari($limit,$from,$id,$cari){
-		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
+	public function getseleksiTimcari($limit,$from,$id,$cari,$tag){
+		if ($tag==1) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
+			return $query->result();
+		}
+		elseif ($tag==2) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim is null  AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
 		return $query->result();
+		}
+		elseif ($tag==3) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 1 AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+		}
+		elseif ($tag==4) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id." AND a.status_tim = 0 AND b.nama_team like CONCAT('%', '".$cari."' , '%')  LIMIT ".$limit." OFFSET ".$from."  ");
+		return $query->result();
+		}
 	}
 
-	public function sumseleksiTimcari($cari,$id_tahap)
+	public function sumseleksiTimcari($cari,$id_tahap,$tag)
 	{
-		$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  ");
-		return $query->num_rows();	
+	// 	$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND b.nama_team like CONCAT('%', '".$cari."' , '%')  ");
+	// 	return $query->num_rows();	
+	// }
+
+	if ($tag==1) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND b.nama_team like CONCAT('%', '".$cari."' , '%')");
+			return $query->num_rows();
+		}
+		elseif ($tag==2) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND a.status_tim is null  AND b.nama_team like CONCAT('%', '".$cari."' , '%')");
+		return $query->num_rows();
+		}
+		elseif ($tag==3) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND a.status_tim = 1 AND b.nama_team like CONCAT('%', '".$cari."' , '%')");
+		return $query->num_rows();
+		}
+		elseif ($tag==4) {
+			$query = $this->db->query("select a.id_tahap, a.id_tim,a.file, b.nama_team, b.asal_univ, a.status_tim from tahap_tim a join tim b on a.id_tim = b.id_tim where a.id_tahap =  ".$id_tahap." AND a.status_tim = 0 AND b.nama_team like CONCAT('%', '".$cari."' , '%')");
+		return $query->num_rows();
+		}
 	}
 }
 ?>

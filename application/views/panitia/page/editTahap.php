@@ -24,15 +24,17 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-4">
+						<label class="form-control-label" for="e">Deadline</label>
+						<input class="form-control" type="date" name="deadline" value="<?php echo $eTahap->deadline ?>">
+					</div>
 					<div class="col-8">
+							<label class="form-control-label" for="validatedCustomFile">File Rule Kompetisi</label>
 						<div class="custom-file">
 						    <input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
-						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Tahapan Seleksi...</label>
+						    <label class="custom-file-label" for="validatedCustomFile">Upload File...</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
-					</div>
-					<div class="col-4">
-						<input class="form-control" type="date" name="deadline">
 					</div>
 					<div class="col-12" style="margin-top: 20px;">
 						<button class="btn btn-outline-primary">Edit</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
@@ -45,6 +47,11 @@
 </div>
 
 <script type="text/javascript">
+	$('#validatedCustomFile').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+
 	$('#return').click(function(event) {
 		event.preventDefault();
 		$('#contentPage').load('Tahap');
@@ -63,10 +70,11 @@
 				if (er==1) {
 					console.log(er);
 					Swal.fire('Berhasil','Tahapan seleksi berhasil diedit', 'success');
+					$('#contentPage').load('tahap');
 				}
 				else{
 					console.log(er);
-					Swal.fire('Gagal','Terjadi kesalahan', 'error');
+					Swal.fire('Gagal',er, 'error');
 				}
 
 			},

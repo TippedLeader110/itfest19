@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 2020 Universitas Sumatera Utara</title>
-	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
+	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
+	<link rel="icon" href="<?=base_url()?>assets/images/favvicon.png" type="image/png" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -27,11 +27,11 @@
 							<div class="garis" id="br"></div>
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#seminar-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">SEMINAR
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kompetisi-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KOMPETISI
 							<div class="garis" id="br"></div>
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url('Home/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
+						<a href="<?=base_url('Peserta/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
 				</ul>
 			</div>
@@ -67,8 +67,8 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-                    <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
-					<h4 class="head-2">ITFEST 4.0 2020</h4>
+                                        <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+					<h4 class="head-2">ITFEST 2020</h4>
 					<div class="row row2">
 						<div class="col">
 							<img src="<?=base_url()?>assets/images/usu_4x.png" alt="" style="max-height: 100px; margin-right: 30px;">
@@ -76,12 +76,12 @@
 						</div>
 					</div>
 					<button class="btn head1" onclick="$('#about-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">Tentang</button>
-					<a href="<?=base_url('ITFest/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
+					<a href="<?=base_url('Peserta/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
 				</div>
 			</div>
 		</div>
 	</header>
-
+<!-- 
 	<section id="seminar-section">
 		<div class="container">
 			<div class="row">
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section id="about-section">
 		<div class="container">
@@ -116,8 +116,8 @@
 				</div>
 				<div class="col-md-5 col-about-2">
 					<div class="garis-text d-none d-lg-block"></div>
-					<h2 class="about2">Tentang ITFest 3.0 2019</h2>
-					ITFEST 2019 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2019 memiliki tema “Integrated Creation For Society”. Rangkaian kegiatan ITFEST 2019 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
+					<h2 class="about2">Tentang ITFest 2020</h2>
+					ITFEST 2020 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2020 memiliki tema “Social Culture Awareness Through Technology for Millenials”. Rangkaian kegiatan ITFEST 2020 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
 				</div>
 				<!-- <button class="btn px-4 btn-primary btn-about">DAFTAR SEMINAR DISINI</button> -->
 			</div>
@@ -158,7 +158,7 @@
 				<div class="col-md-12 col-acara">
 					<center><h1 class="h1-kompetisi">Video Teaser</h1>
 					<hr class="hr-kompetisi">
-					<p class="p-judul-kompetisi">Lihat keseruan dan acara apa saja yang akan hadir di ITFest 2019</p><br></center>
+					<p class="p-judul-kompetisi">Lihat keseruan dan acara apa saja yang akan hadir di ITFest 2020</p><br></center>
 				</div>
 				<div class="col-md-1"></div>
 				<div class="col-md-10">

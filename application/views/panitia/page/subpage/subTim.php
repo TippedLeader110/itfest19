@@ -1,9 +1,9 @@
 <?php if (isset($seleksiTim)): ?>
 	<div class="table-responsive">
 		<table class="table table-striped">
-			<tr>
+			<thead class="bg-custom text-white">
 				<th>Nama Tim</th><th>Universitas</th><th>Status Tim</th><th>Aksi</th>
-			</tr>
+			</thead>
 		<?php foreach ($seleksiTim as $key => $dTim): ?>
 			<tr>
 				<td><?php echo $dTim->nama_team ?></td>
@@ -19,7 +19,7 @@
 					<td>Ditolak</td>
 				<?php endif ?>
 
-				<td><button class="btn btn-outline-info" onclick="timInfo(<?php echo $dTim->id_tim ?>)">Seleksi</button></td>
+				<td><a href="#" onclick="timInfo(<?php echo $dTim->id_tim ?>)"><i class="fas fa-search"></i>Seleksi</a></td>
 			</tr>
 		<?php endforeach ?>
 		</table>
@@ -59,10 +59,10 @@
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
     	<?php if (isset($cari)): ?>
-		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
@@ -74,10 +74,10 @@
     	tag = $('#tag').val();
 		tag = encodeURIComponent(tag);
 		<?php if (isset($cari)): ?>
-		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
+		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
@@ -85,7 +85,7 @@
 	function timInfo(id)
 	{
 		console.log(id);
-		$('.modal-body').load('<?php echo base_url('panitia/modalTimseleksi?tim=') ?>' + id + '&id=<?php echo $id ?>');
+		$('.modal-body').load('<?php echo base_url('panitia/modalTimseleksi?tim=') ?>' + id + '&id=<?php echo $id ?>&tag=<?php echo $tag ?>');
 		$('#modalTim').modal('toggle');
 	}
 
