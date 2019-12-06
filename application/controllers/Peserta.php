@@ -59,7 +59,7 @@ class Peserta extends CI_Controller {
 	}
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect(base_url('Home/signin'));
+		redirect(base_url('Peserta/signin'));
 	}
 
 	public function index(){
