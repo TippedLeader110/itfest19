@@ -23,7 +23,7 @@ class Peserta extends CI_Controller {
 	 */
 	public function login_protocol(){
 		if(is_null($this->session->userdata('id_tim'))){
-			redirect(base_url('Home/signin'));
+			redirect(base_url('Peserta/signin'));
 		}
 	}
 
