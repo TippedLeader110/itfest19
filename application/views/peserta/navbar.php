@@ -17,7 +17,7 @@
                 Welcome <?php echo $var = $this->session->userdata('nama_tim'); ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('index.php/peserta/logout') ?>">Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url('Peserta/logout') ?>">Logout</a>
               </div>
             </li>
         </ul>
