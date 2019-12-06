@@ -87,16 +87,16 @@
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
-	$('#contentPage').load('reSingkat');   
+	$('#contentPage').load('<?php echo base_url('Bendahara/')?>reSingkat');   
 
     $('#buycheck').click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('bendahara/cekBayar') ?>');
+        $('#contentPage').load('<?php echo base_url('Bendahara/')?><?php echo base_url('bendahara/cekBayar') ?>');
     });
 
     $('#reSingkat').click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('bendahara/reSingkat') ?>');
+        $('#contentPage').load('<?php echo base_url('Bendahara/')?><?php echo base_url('bendahara/reSingkat') ?>');
     });
 
     $(document).ready(function () {

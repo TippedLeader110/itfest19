@@ -97,5 +97,46 @@
 
 
 <script type="text/javascript">
-	$('#contentPage').load('reSingkat');
+	$('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat');
+    $("#KelolahTahapan").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap');
+    });
+
+    $("#reportTahap").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reTahap');
+    });   
+    $("#reportSingkat").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat');
+    });  
+
+    $("#reportBerkas").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reBerkas');
+    });   
+
+    $("#daftarTim").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>daftarTim');
+    });   
+
+    $("#seleksiBerkas").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiBerkas');
+    });   
+    $("#seleksiTim").click(function(event) {
+        event.preventDefault();
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiTim');
+    });   
+  $("#logoout").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('<?php echo base_url('Panitia/')?>logout');
+    });  
+
+  $("#kelolahPost").click(function(event) {
+      event.preventDefault();
+      $('#contentPage').load('<?php echo base_url('Panitia/')?>Post');
+    });  
 </script>

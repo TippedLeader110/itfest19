@@ -103,5 +103,49 @@
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
-	$('#contentPage').load('reSingkat');
+	$('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat');
+    $("#KelolahTahapan").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap');
+});
+
+$("#logoutadmin").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logout');
+});
+
+$("#kompetisiPage").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>lomba');
+});
+
+$("#panitiaPage").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>panitia');
+});
+
+$("#editAdmin").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap');
+});
+
+$("#reSingkat").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat');
+});
+
+$("#reportTeam").click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>tim');
+});
+
+$('#logTim').click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logTim');
+});
+
+$('#logPanitia').click(function(event) {
+  event.preventDefault();
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logPanitia');
+});
 </script>
