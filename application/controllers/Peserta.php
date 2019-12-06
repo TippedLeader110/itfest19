@@ -58,9 +58,7 @@ class Peserta extends CI_Controller {
 		
 	}
 	public function logout(){
-		session_start();
-		session_unset();
-		session_destroy();
+		$this->session->sess_destroy();
 		redirect(base_url('Home/signin'));
 	}
 
