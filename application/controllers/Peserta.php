@@ -115,6 +115,14 @@ class Peserta extends CI_Controller {
 		$data['post'] = $this->Peserta_Model->getPost($id_lomba);
 		$this->load->view('peserta/page/postview', $data);
 	}
+
+	public function kontentPostAll()
+	{
+		$id_lomba = $this->session->userdata('id_lomba');
+		$data['post'] = $this->Peserta_Model->getPostAll($id_lomba);
+		$this->load->view('peserta/page/postview', $data);
+	}
+
 	public function ambil_data_timlomba(){
 
 	}

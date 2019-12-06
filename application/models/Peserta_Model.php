@@ -103,6 +103,11 @@ class Peserta_Model extends CI_Model {
 		return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC limit 5")->result();
 	}
 
+	public function getPostAll($id)
+	{
+		return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC")->result();
+	}
+
 	public function bayarUpload($img)
 	{
 		$this->db->set('url_buktipembayaran', $img);

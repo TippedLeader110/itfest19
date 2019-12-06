@@ -111,8 +111,15 @@
 						<div class="card-header">
 							Pemberitahuan
 						</div>
-						<div class="card-body" id="bodypost">
-							
+						<div class="card-body">
+							<div id="bodypost">
+								
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<center><h5><a href="#" id="showAll"><i class="fas fa-arrow-down"></i>Lihat Semua<i class="fas fa-arrow-down"></i></a><a href="#" id="hideAll" style="display: none;"><i class="fas fa-arrow-up"></i>Sembunyikan<i class="fas fa-arrow-up"></i></a></h5></center>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -122,9 +129,22 @@
 	</div>
 </div>
 
-
 <script type="text/javascript">
 	$('#bodypost').load('<?php echo base_url('Peserta/kontentPost') ?>');
+
+	$('#showAll').click(function(event) {
+		event.preventDefault();
+		$('#bodypost').load('<?php echo base_url('Peserta/kontentPostAll') ?>');
+		$(this).hide();
+		$('#hideAll').show();
+	});
+
+	$('#hideAll').click(function(event) {
+		event.preventDefault();
+		$('#bodypost').load('<?php echo base_url('Peserta/kontentPost') ?>');
+		$(this).hide();
+		$('#showAll').show();
+	});
 
 	function doPost(id)
 	{
