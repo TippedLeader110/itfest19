@@ -288,14 +288,12 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$dataGet = $this->adminModel->getSingkat();
 		$dataGet2 = $this->adminModel->getSingkat2();
-		var_dump($dataGet);
-		die;
-		// $data = [
-		// 	'title' => 'Laporan Singkat',
-		// 	'reTahap' => $dataGet,
-		// 	'reTahapkompe' => $dataGet2
-		// ];
-		// $this->load->view('admin/page/reSingkat', $data);
+		$data = [
+			'title' => 'Laporan Singkat',
+			'reTahap' => $dataGet,
+			'reTahapkompe' => $dataGet2
+		];
+		$this->load->view('admin/page/reSingkat', $data);
 	}
 
 	public function doHapusPanitia()
