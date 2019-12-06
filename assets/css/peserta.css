@@ -3,6 +3,7 @@
     DEMO STYLE
 */
 
+
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
@@ -15,6 +16,26 @@ p {
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #DFDCDC; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7386D5;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 a,

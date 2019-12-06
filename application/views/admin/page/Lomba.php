@@ -13,33 +13,23 @@
 		<?php if (isset($dataLomba)): ?>
 			<?php $cout = 1 ?>
 			<?php foreach ($dataLomba as $key => $dLomba): ?>
-				<div class="col-12 col-md-6" style="margin-top: 20px;">
-					<div class="card bg-light">
-					    <div class="card-header" id="headingThree">
-					      	<div class="text-title">
-					      		<h5 class="mb-0">
-					      		#<?php echo $cout ?>
-					      		<?php $cout++; ?>. <?php echo $dLomba->nama_lomba ?>
-					      		</h5>
-					      	</div>
+				<div class="col-12 col-md-4" style="margin-top: 20px;">
+					<div class="card ">
+					    <div class="card-header bg-custom text-white" id="headingThree">
+						   	<div class="text-title">
+						   		<h5 class="mb-0">
+						   		#<?php echo $cout ?>
+						   		<?php $cout++; ?>. <?php echo $dLomba->nama_lomba ?>
+						   		</h5>
+						   	</div>
 						</div>
-				    <div class="card-body" style="height: 300px;overflow: auto;
-					    	background: url('<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>');
-					    	position: relative;
-							display: block;
-							background-size: cover;
-							background-position: center center;
-							top: 0;
-							bottom: 0;
-							left: 0;
-							right: 0;
-							padding: 0px 0px 0px 0px;
-					    	">
-	    				<div style="color: black;background-color: rgba(250,250,250,0.9);min-height: 300px;padding: 20px 20px 20px 20px">
-	    					<?php echo $dLomba->deskripsi ?>
-	    				</div>
-					</div>
-					    <ul class="list-group list-group-flush">
+					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2">
+						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 50px;">
+					    	<div>
+					    		<?php echo $dLomba->deskripsi ?>
+					    	</div>
+						</div>
+						<ul class="list-group list-group-flush">
 					    	<li class="list-group-item">
 					    		<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dLomba->rule ?>');">Rule Book</button>&nbsp;<button onclick="editLomba(<?php echo $dLomba->id_lomba ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusLomba(<?php echo $dLomba->id_lomba ?>)" class="btn btn-outline-danger">Hapus</button></center>	
 					    	</li>

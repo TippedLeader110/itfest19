@@ -2,6 +2,10 @@
 /*
     DEMO STYLE
 */
+/*::-webkit-scrollbar-track {
+  background: #7386D5;
+    background-color: #7386D5;
+}*/
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
@@ -16,6 +20,26 @@ p {
     line-height: 1.7em;
     color: #999;
 }
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #DFDCDC; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7386D5;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 
 a,
 a:hover,
@@ -203,24 +227,6 @@ a.article:hover {
     background-color: #7386D5 !important;
 }
 
-.card-size{
-  height: 300px;
-}
-
-.text-card{
-  overflow: auto;
-  height: 220px;
-}
-
-.text-title{
-  max-width: 450px;
-  overflow: hidden;
-}
-
-.card-header-mod{
-  overflow: auto;
-  /*height: 80px;*/
-}
 
 #contentPage{
     background: white;

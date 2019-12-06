@@ -16,7 +16,7 @@
       <!-- Bootstrap core CSS -->
 	<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>"> -->
 
-    <link rel="stylesheet" href="<?php echo base_url('/assets/css/mdb.min.css') ?>">
+    <!-- <link rel="stylesheet" href="<?php echo base_url('/assets/css/mdb.min.css') ?>"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
