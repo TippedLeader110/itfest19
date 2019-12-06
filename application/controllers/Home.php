@@ -451,10 +451,11 @@ class Home extends CI_Controller {
 	}
 
 	public function signin(){
+		$this->load->library('session');
 		if($this->session->userdata('userTeam') == NULL){
 			$this->load->view("ITFest/signin");
 		} else{
-			redirect("Team");
+			redirect("Peserta");
 		}
 	}
 }
