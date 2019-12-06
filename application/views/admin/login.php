@@ -145,10 +145,11 @@
 					  	text: 'Admin/Panitia ITFest 4.0',
 					  	showConfirmButton: false,
 					  	timerProgressBar: true,
-					  	timerProgressBar: true,
-					  	timerProgressBar: true,
-					  	timerProgressBar: true,
-					  	timer: 1500
+					  	timer: 1500,
+					 	nBeforeOpen: () => {
+					 		Swal.showLoading()
+					 	}
+
 					});
 					setTimeout(function () {
        				window.location.href = "<?php echo base_url('admin/') ?>"; //will redirect to your blog page (an ex: blog.html)

@@ -109,7 +109,7 @@ class Pendaftaran extends CI_Controller {
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
 			$data_anggota1 = array(
-						'nama'=>$this->input->post('nama_anggota1'),
+						'nama_peserta'=>$this->input->post('nama_anggota1'),
 						'e-mail'=>$this->input->post('e-mail_anggota1'),
 						'no_hp'=>$this->input->post('no_hp_anggota1'),
 						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota1'),
@@ -137,7 +137,7 @@ class Pendaftaran extends CI_Controller {
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
 			$data_anggota1 = array(
-						'nama'=>$this->input->post('nama_anggota1'),
+						'nama_peserta'=>$this->input->post('nama_anggota1'),
 						'e-mail'=>$this->input->post('e-mail_anggota1'),
 						'no_hp'=>$this->input->post('no_hp_anggota1'),
 						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota1'),
@@ -161,7 +161,7 @@ class Pendaftaran extends CI_Controller {
 
 		    // Upload data anggota 2
 			$data_anggota2 = array(
-						'nama'=>$this->input->post('nama_anggota2'),
+						'nama_peserta'=>$this->input->post('nama_anggota2'),
 						'e-mail'=>$this->input->post('e-mail_anggota2'),
 						'no_hp'=>$this->input->post('no_hp_anggota2'),
 						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota2'),

@@ -148,7 +148,10 @@
 					  	timerProgressBar: true,
 					  	timerProgressBar: true,
 					  	timerProgressBar: true,
-					  	timer: 1500
+					  	timer: 1500,
+					 	onBeforeOpen: () => {
+					 	Swal.showLoading()
+					 	}
 					});
 					setTimeout(function () {
        				window.location.href = "<?php echo base_url('bendahara/') ?>"; //will redirect to your blog page (an ex: blog.html)
