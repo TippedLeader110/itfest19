@@ -27,14 +27,14 @@
 				<div class="row">
 					<div class="col-12 col-md-6">
 						<div class="custom-file">
-						    <input name="rule" type="file" class="custom-file-input" id="validatedCustomFile" required>
+						    <input name="rule" id="rule" type="file" class="custom-file-input" id="validatedCustomFile" required>
 						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Kompetisi</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
 					</div>
 					<div class="col-12 col-md-6">
 						<div class="custom-file">
-						    <input name="logo" type="file" class="custom-file-input" id="validatedCustomFile" required>
+						    <input name="logo" id="logo" type="file" class="custom-file-input" id="validatedCustomFile" required>
 						    <label class="custom-file-label" for="validatedCustomFile">Upload Logo Kompetisi</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
@@ -51,6 +51,17 @@
 
 
 <script type="text/javascript">
+
+	$('#rule').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+
+    $('#logo').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+
 	$('#form').submit(function(event) {
 		event.preventDefault(); 
 		$.ajax({
