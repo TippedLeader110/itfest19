@@ -13,7 +13,7 @@
 		<?php if (isset($dataTahap)): ?>
 			<?php $cout = 1 ?>
 			<?php foreach ($dataTahap as $key => $dTahap): ?>
-				<div class="col-4" style="margin-top: 20px;">
+				<div class="col-12 col-md-4" style="margin-top: 20px;">
 					<div class="card">
 					    <div class="card-header card-header-mod" id="headingThree">
 					      	<div class="text-title">
@@ -27,7 +27,9 @@
 				    	<div class="text-justify text-card">
 				    		<?php echo $dTahap->deskripsi_tahap ?>
 				    	</div>
-				    	<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
+				    	<div style="overflow: auto;">
+				    		<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
+				    	</div>
 				    </div>
 					</div>
 				</div>

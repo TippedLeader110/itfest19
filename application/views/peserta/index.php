@@ -2,6 +2,7 @@
 
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/peserta.css') ?>">
 	<link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
@@ -46,12 +47,12 @@
                     <!-- <h5><?php echo $DLomba->nama_lomba ?></h5> -->
                 </center>
             </h3>
-            <strong>
+            <!-- <strong>
             	<img width="40px;"  src="<?php 
                     echo base_url('assets/images/');
                     // echo $DLomba->url_logo;
                      ?>logo.png">
-            </strong>
+            </strong> -->
         </div>
 
         <ul class="list-unstyled components">
@@ -90,6 +91,7 @@
        	</div>
 
     </div>
+</div>
 </body>
 </html>
 

@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 col-md-12">
 			<h5>kelolah kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 			
@@ -13,7 +13,7 @@
 		<?php if (isset($dataLomba)): ?>
 			<?php $cout = 1 ?>
 			<?php foreach ($dataLomba as $key => $dLomba): ?>
-				<div class="col-6" style="margin-top: 20px;">
+				<div class="col-12 col-md-6" style="margin-top: 20px;">
 					<div class="card bg-light">
 					    <div class="card-header" id="headingThree">
 					      	<div class="text-title">

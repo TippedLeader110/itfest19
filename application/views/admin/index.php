@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,9 +31,9 @@
             	<h4>Dashboard
             	Admin ITFest4.0</h4>
             </center></h3>
-            <strong>
+            <!-- <strong>
             	<img width="40px" src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
-            </strong>
+            </strong> -->
         </div>
 
         <ul class="list-unstyled components">

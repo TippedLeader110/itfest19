@@ -1,16 +1,16 @@
 <div class="page">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<h5>Tambah kompetisi ITFest 4.0 Universitas Sumatera Utara</h5>
 				<hr>
 			</div>
 		</div>
 		<form id="form">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 col-md-12">
 						<div class="form-group">
 							<input type="text" hidden name="id" value="<?php echo $this->session->userdata('panitia-id'); ?>">
 							<label class="form-control-label" for="deskripsiSeleksi">Nama Kompetisi</label>
@@ -25,21 +25,21 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-6">
+					<div class="col-12 col-md-6">
 						<div class="custom-file">
 						    <input name="rule" type="file" class="custom-file-input" id="validatedCustomFile" required>
 						    <label class="custom-file-label" for="validatedCustomFile">Upload File Rule Kompetisi</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-12 col-md-6">
 						<div class="custom-file">
 						    <input name="logo" type="file" class="custom-file-input" id="validatedCustomFile" required>
 						    <label class="custom-file-label" for="validatedCustomFile">Upload Logo Kompetisi</label>
 						    <div class="invalid-feedback">Tolong input file</div>
 						</div>
 					</div>
-					<div class="col-12" style="margin-top: 20px;">
+					<div class="col-12 col-md-12" style="margin-top: 20px;">
 						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
 					</div>
 				</div>

@@ -1,16 +1,16 @@
 <div class="page">
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<h5>Menambahkan hak akses untuk panitia kompetisi | ITFest 4.0 Universitas Sumatera Utara</h5>
 				<hr>
 			</div>
 		</div>
 		<form id="form">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 col-md-12">
 						<div class="form-group">
 							<input type="text" hidden name="id" value="<?php echo $this->session->userdata('panitia-id'); ?>">
 							<label class="form-control-label" for="deskripsiSeleksi">Username Panitia</label>
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-6">
+					<div class="col-12 col-md-6">
 						<div class="form-group">
 							<label class="form-control-label" for="optionKompetisi">Cabang Kompetisi</label>
 							<select name="kompetisi" id="optionKompetisi" class="form-control">
@@ -36,7 +36,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="col-12" style="margin-top: 20px;">
+					<div class="col-12 col-md-12" style="margin-top: 20px;">
 						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button class="btn btn-outline-warning" id="return">Kembali</button>
 					</div>
 				</div>

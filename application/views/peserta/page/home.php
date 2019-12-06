@@ -10,7 +10,7 @@
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-4">
+				<div class="col-12 col-md-4">
 					<center>
 						<img width="180px;"  src="<?php 
                     echo base_url('public/kompetisi/logo/');
@@ -19,7 +19,7 @@
                      <h5><?php echo $DLomba->nama_lomba ?></h5>
 					</center>
 				</div>
-				<div class="col-8">
+				<div class="col-12 col-md-8">
 					<div class="card nonround" >
 					  	<div class="card-header">
 					    	Info Team

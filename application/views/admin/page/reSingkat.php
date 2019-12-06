@@ -13,7 +13,7 @@
 			
 		<?php endforeach ?>
 
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
 		    <div class="card-header text-capitalize text-center">Jumlah Tim</div>
 		  	<div class="card-body">
@@ -25,7 +25,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Jumlah Tin Seleksi</div>
 	  		<div class="card-body">
@@ -37,7 +37,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Jumlah Berkas belum di cek</div>
 	  		<div class="card-body">
@@ -49,7 +49,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Jumlah Tim sudah bayar</div>
 	  		<div class="card-body">
@@ -61,7 +61,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Jumlah Tim lulus berkas</div>
 	  		<div class="card-body">
@@ -73,7 +73,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Total Peserta</div>
 	  		<div class="card-body">
@@ -85,7 +85,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Berkas ditolak</div>
 	  		<div class="card-body">
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 	
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Tim belum bayar</div>
 	  		<div class="card-body">
@@ -110,7 +110,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-4 col-md-4">
+	<div class="col-12 col-md-4">
 		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Total Tim gugur</div>
 	  		<div class="card-body">

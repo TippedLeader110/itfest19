@@ -27,7 +27,7 @@
 <body>
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100mod">
+			<div class="wrap-login100 wrap-login100mod">
 				<a href="<?=base_url()?>"><div class="login100-pic js-tilt" data-tilt>
 					<img src="<?=base_url()?>assets/images/logo.png" alt="ITFest 4.0">
 				</div></a>

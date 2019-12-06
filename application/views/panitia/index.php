@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css') ?>">
     <link rel="icon" href="<?=base_url()?>assets/images/favico.png" type="image/ico" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
@@ -25,9 +25,9 @@
             	<h4><?php echo $value->nama_lomba ?></h4>
             	<?php $judul =$value->nama_lomba ?>
             </center></h3>
-            <strong>
+            <!-- <strong>
             	<img width="40px" src="<?php echo base_url("public/kompetisi/logo/"); echo $value->url_logo; ?>">
-            </strong>
+            </strong> -->
         </div>
 
         <ul class="list-unstyled components">
