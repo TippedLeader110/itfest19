@@ -450,7 +450,7 @@
 		            	if (data==1) {
 		            	Swal.fire('Pendaftaran Berhasil !!', 'Berkas tim akan diverifikasi Panitia !!', 'success')
 		            	setTimeout(function () {
-	       				window.location.href = "<?php echo base_url('admin/') ?>"; //will redirect to your blog page (an ex: blog.html)
+	       				window.location.href = "<?php echo base_url('Peserta/') ?>"; //will redirect to your blog page (an ex: blog.html)
 	    				}, 1500);
 		            	}
 		            	else
