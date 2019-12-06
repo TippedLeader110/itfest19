@@ -4,6 +4,7 @@ class Peserta extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Peserta_Model');
+		$this->load->library('session');
 	}
 	/**
 	 * Index Page for this controller

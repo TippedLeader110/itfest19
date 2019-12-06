@@ -6,6 +6,7 @@ class Admin extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('adminModel');
+		$this->load->library('session');
 	}
 
 	public function index()

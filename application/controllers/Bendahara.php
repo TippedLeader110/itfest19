@@ -6,6 +6,9 @@ class Bendahara extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('bendaharaModel');
+		if (session_status() == PHP_SESSION_NONE) {
+		}
+    		$this->load->library('session');
 	}
 
 	public function index()
