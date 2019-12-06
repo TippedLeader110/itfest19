@@ -1,7 +1,7 @@
 		
 <div class="row">
 	<div class="col-12 col-md-12">
-		<div class="card nonround">
+		<div class="card nonround shadow-sm p-3 mb-5 bg-white rounded">
 	  	<div class="card-header bg-custom text-white">
 		    <h4 class="">Tahap seleksi Kompetisi | ITFest USU 2020</h4>
 		</div>
