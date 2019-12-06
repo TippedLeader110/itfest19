@@ -27,11 +27,11 @@
 							<div class="garis" id="br"></div>
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#seminar-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">SEMINAR
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kompetisi-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KOMPETISI
 							<div class="garis" id="br"></div>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 	</header>
-
+<!-- 
 	<section id="seminar-section">
 		<div class="container">
 			<div class="row">
@@ -102,7 +102,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section id="about-section">
 		<div class="container">
