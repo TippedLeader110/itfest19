@@ -350,6 +350,7 @@
         				console.log(da);
 	        			if (da!=0) {
 	        				valid = false;	
+	        				$('#username_accept').hide('slow');
 	        				$('#username_warning_red_red').show('slow');
 	        			}
 	        			else
