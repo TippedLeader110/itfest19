@@ -120,14 +120,14 @@ class Admin extends CI_Controller {
 
 	
 
-	public function logTIm(){
+	public function logTim(){
 		$this->loginProtocol();
 		$logTim = $this->adminModel->getDatafullTable('log_tim_en');
 		$data = [
 			'title' => 'log TIm',
 			'logTim' => $logTim
 		];
-		$this->load->view('admin/page/logTIm', $data);
+		$this->load->view('admin/page/logTim', $data);
 	}
 
 
