@@ -3,14 +3,14 @@
 		<?php foreach ($dataTim as $key => $value): ?>			
 		<?php endforeach ?>
 <div class="row">
-	<div class="col-12">
+	<div class="col-12 col-md-12">
 		<div class="card nonround">
 	  	<div class="card-header bg-custom text-white">
 		    <h4 class="">Informasi Tim <?php echo $value->nama_team ?> | ITFest USU 2020</h4>
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12 col-md-12">
 					<div class="table-responsive">
 						<table class="table table-bordered">
 							<tr>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12 col-md-12">
 					<div class="card nonround">
 						<div class="card-header text-white" style="background-color: #7B8AC8">
 							Anggota Tim
@@ -33,7 +33,7 @@
 							<div class="row">
 								<?php $count=1; ?>
 								<?php foreach ($dataAnggota as $key => $v2): ?>
-									<div class="col-4">
+									<div class="col-12 col-md-4">
 										<div class="card">
 											<div class="card-header text-white" style="background-color: #808FCF">
 												<center>Anggota #<?php echo $count ?></center>

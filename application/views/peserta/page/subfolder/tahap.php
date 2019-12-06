@@ -5,17 +5,17 @@
 	<?php if ($file==1): ?>
 	
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 col-md-12">
 			<h4>Status : File sedang diseleksi - <a href="<?php echo base_url('public/kompetisi/userdata/tahap_tim/'); echo $url ?>" style="text-decoration: underline;">Download File</a></h4> 
 		</div>
-		<div class="col-2">
+		<div class="col-12 col-md-2">
 			<button class="btn btn-light" data-toggle='collapse' data-target='#col'>Ganti File</button>
 		</div>
-		<div class="col-10">
+		<div class="col-12 col-md-10">
 			<div class="collapse" id="col">
 			<form id="gantifile">
 			<div class="row">
-				<div class="col-10">
+				<div class="col-12 col-md-10">
 				<input type="text" hidden name="id" value="<?php echo $id_tahap ?>">
 				<div class="custom-file">
 				<input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -23,7 +23,7 @@
 				<div class="invalid-feedback">Tolong input file</div>
 			</div>
 			</div>
-			<div class="col-2">
+			<div class="col-12 col-md-2">
 				<button class="btn btn-light" id="gantifilekirim">Kirim</button>
 			</div>
 			</div>
@@ -36,10 +36,10 @@
 
 		<form id="upload">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-md-12">
 				<h4>Status : Belum mengirim</h4>
 			</div>
-			<div class="col-10">
+			<div class="col-12 col-md-10">
 			<input type="text" hidden name="id" value="<?php echo $id_tahap ?>">
 			<div class="custom-file">
 			<input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -47,7 +47,7 @@
 			<div class="invalid-feedback">Tolong input file</div>
 		</div>
 		</div>
-		<div class="col-2">
+		<div class="col-12 col-md-2">
 			<button class="btn btn-light" id="kirim">Kirim</button>
 		</div>
 		</div>
