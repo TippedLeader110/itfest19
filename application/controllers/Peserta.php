@@ -27,6 +27,14 @@ class Peserta extends CI_Controller {
 		}
 	}
 
+	public function signin(){
+		if($this->session->userdata('id_tim') == NULL){
+			$this->load->view("ITFest/signin");
+		} else{
+			redirect("Peserta");
+		}
+	}
+
 	public function login_page(){
 		$this->load->view('peserta/login');
 	}

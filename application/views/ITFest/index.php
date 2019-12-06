@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url('Home/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
+						<a href="<?=base_url('Peserta/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
 				</ul>
 			</div>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<button class="btn head1" onclick="$('#about-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">Tentang</button>
-					<a href="<?=base_url('Home/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
+					<a href="<?=base_url('Peserta/signin')?>"><button class="btn head2">Daftar/Masuk</button></a>
 				</div>
 			</div>
 		</div>
