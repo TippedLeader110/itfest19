@@ -66,12 +66,13 @@
 						  						<?php if ($value->url_buktipembayaran==null): ?>
 						  							<!-- <button class="btn btn-danger" data-toggle='collapse' data-target='#up'>Upload bukti pembayaran</button> -->
 						  							<form id="upload">
-								  						<div class="custom-file">
+								  						<div class="custom-file" style="margin-top: 10px;">
 														    <input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
 														    <label class="custom-file-label" for="validatedCustomFile">Upload bukti pembayaran</label>
 														    <div class="invalid-feedback">Tolong input file</div>
 														</div>
 								  					<button class="btn btn-primary" id="kirim">Kirim</button>
+								  					<button class="btn btn-success" onclick="bayar()">Cara Membayar</button>
 								  					</form>
 						  						<?php endif ?>
 						  						<?php if ($value->url_buktipembayaran!=null): ?>
@@ -131,6 +132,10 @@
 
 <script type="text/javascript">
 	$('#bodypost').load('<?php echo base_url('Peserta/kontentPost') ?>');
+    $('#validatedCustomFile').on('change',function(){
+    	var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
 
 	$('#showAll').click(function(event) {
 		event.preventDefault();
@@ -145,6 +150,17 @@
 		$(this).hide();
 		$('#showAll').show();
 	});
+
+	function bayar()
+	{
+		Swal.fire(
+		{
+			title : 'Cara Membayar',
+			html:  'Lakukan transkasi sebesar Rp.150.000,- ke rekening <br>1. BNI 0227457404 an Talitha Azura Putri Aulia <br>2. BCA 0222611332 a.n. Tirza Priskila Kinanti Sibuea <br> lalu upload bukti pembayaran.',
+			icon:  "info",
+			footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id'
+		})
+	}
 
 	function doPost(id)
 	{
