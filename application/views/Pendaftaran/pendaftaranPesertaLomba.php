@@ -101,6 +101,7 @@
                                                                                 <div class="form-group">
                                                                                         <input type="password" name="password_tim" id="password_tim" placeholder="Nama Tim" class="form-control" required>	
                                                                                 </div>
+                                                                                <i style="color:red; font-size: 12pt;" class="warning" id="password_tim_real">Password harus terdiri dari minmal 6 karakter</i>
                                                                         </div>
                                                                         <!-- batas kanan kiri-->
                                                                         <div class="col-6" style="padding-top: 3px;">
@@ -113,6 +114,7 @@
                                                                                 <div class="form-group">
                                                                                         <input type="password" name="konfirmasi_password_tim" placeholder="Konfirmasi Password" id="konfirmasi_password_tim" class="form-control" required>	
                                                                                 </div>
+                                                                                <i style="color:red; font-size: 12pt;" class="warning" id="password_warning_red">Password tidak sama</i>
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -175,7 +177,7 @@
                                                                         <div class="col-6" >
                                                                                 <label style="padding-top: 3px;">Nama Anggota</label>
                                                                                         <div class="form-group">
-                                                                                                <input type="text" name="nama_anggota1" placeholder="Nama Anggota" class="form-control">
+                                                                                                <input type="text" name="nama_anggota1" id="nama_anggota1" placeholder="Nama Anggota" class="form-control">
                                                                                         </div>
                                                                                 <!-- -------------------------------- -->
                                                                                 <label>No. HP</label>
@@ -224,6 +226,8 @@
 
                                                         <!-- Tambah Angggota --->
                                                         <div class="row my-5 ml-2">
+                                                        <i style="color:red; font-size: 12pt;" class="warning" id="anggota_miss">Tolong isi data anggota 1 dahulu sebelum menambah anggota</i>
+                                                        <br>
                                                         <button type="button" class="btn btn-info"  id="addAnggota">Tambah Anggota</button>
                                                     	</div>
                                                         <div class="row my-5 ml-2">
@@ -235,7 +239,8 @@
                                                                                         <div class="col-6">
                                                                                                 <label style="padding-top: 3px;">Nama Anggota</label>
                                                                                                         <div class="form-group">
-                                                                                                                <input type="text" name="nama_anggota2" placeholder="Nama Anggota" class="form-control">
+                                                                                                                <input type="text" name="nama_anggota2"
+                                                                                                                id="nama_anggota2" placeholder="Nama Anggota" class="form-control">
                                                                                                         </div>
                                                                                                 <!-- -------------------------------- -->
                                                                                                 <label>No. HP</label>
@@ -379,26 +384,15 @@
 
         $('#password_tim').keyup(function(){
         	var password = $('#password_tim').val();
-        	var konfirmasi = $('#konfirmasi_password_tim').val();
-        	if(password != konfirmasi)
-        		$('#password_warning_red').show('slow');
-        	else
-        		$('#password_warning_red').hide('slow');
-        });
-
-        $('#form_pendaftaran').submit(function(event){
-        	// Menambah jumlah anggota
-        	event.preventDefault();
-        	if($('#nama_anggota1').val() != ""){
-        		jumlah_anggota++;
-        		
+        	var panjang = password.length;
+        	if (panjang<6) {
+        		$('#password_warning_red_real').show('slow');
         	}
-        	//if($('#nama_anggota2').val() != ""){
-        	//	jumlah_anggota++;
-        	//}
-
-        	
+        	else{
+        		$('#password_warning_red_real').hide('slow');	
+        	}
         });
+
 
         //Fungsi cek form
         function cek_data_team(){
@@ -424,8 +418,22 @@
         	}
         } 
 
+        $('#nama_anggota1,#nama_anggota2').keyup(function(event) {
+        	if ($('#nama_anggota1').val()!='' && $('#nama_anggota2').val()=='') {
+        		jumlah_anggota = 1;
+        		console.log(jumlah_anggota);
+        	}
+        	else if ($('#nama_anggota2').val()!='' && $('#nama_anggota1').val()!='') {
+        		jumlah_anggota = 2;
+        		console.log(jumlah_anggota);
+        	}
+
+        	// console.log($('#nama_anggota2').val());
+        });
         // Fungsi yang dijalankan jika klik submit
         $('#form_pendaftaran').submit(function(event){
+        	
+
         	if(valid){
 	        	event.preventDefault(); 
 
@@ -443,14 +451,14 @@
 		            async:false,
 		            error: function(data){
 
-		            	Swal.fire('Kesalahan!!', 'Gagal menghubungkan ke server !!', 'error')
+		            	Swal.fire('Kesalahan!!', 'Terjadi Kesalahan dengan server !!', 'error')
 		            },
 		            success: function(data){
 		            	console.log(data);
 		            	if (data==1) {
 		            	Swal.fire('Pendaftaran Berhasil !!', 'Berkas tim akan diverifikasi Panitia !!', 'success')
 		            	setTimeout(function () {
-	       				window.location.href = "<?php echo base_url('Peserta/') ?>"; //will redirect to your blog page (an ex: blog.html)
+	       				window.location.href = "<?php echo base_url('Peserta/') ?>"; 
 	    				}, 1500);
 		            	}
 		            	else
@@ -466,7 +474,14 @@
 });
 
 $('#addAnggota').click(function(event) {
-	$('#demo').toggle('slow');
+	if ($('#nama_anggota1').val()=='') {
+		$('#anggota_miss').show('fast');
+		$('#demo').hide();
+	}
+	else{
+		$('#demo').toggle('slow');
+		$('#anggota_miss').hide('fast');
+	}
 });
 
 	$('#inputGroupFile07').on('change',function(){

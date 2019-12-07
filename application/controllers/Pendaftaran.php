@@ -39,6 +39,8 @@ class Pendaftaran extends CI_Controller {
 
 	public function daftar_kompetisi(){
 		// Nyusun data yang akan dikirim ke tabel tim
+		// echo $this->input->post('jumlah_anggota');
+		// die;
 		$pass = $this->input->post('password_tim');
 		$newpass = password_hash($pass, PASSWORD_DEFAULT);
 		$data_team = array(
@@ -55,7 +57,7 @@ class Pendaftaran extends CI_Controller {
 		// Persiapan config untuk upload berkas ketua
 		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
 	    $config['allowed_types']        = '*';
-	    $config['file_name']            = password_hash($this->input->post('file_ketua'), PASSWORD_DEFAULT);
+	    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
 
@@ -65,7 +67,7 @@ class Pendaftaran extends CI_Controller {
 
 	    if($this->upload->do_upload('file_ketua')) {
 	        $data = array('upload_data'=>$this->upload->data());
-	        $link_file= $data['upload_data']['file_name']; 
+	        $link_file_ketua= $data['upload_data']['file_name']; 
 	        $status_upload = 1;
 	    }
 	    else{
@@ -80,7 +82,7 @@ class Pendaftaran extends CI_Controller {
 						'no_hp'=>$this->input->post('no_hp_ketua'),
 						'jenis_kelamin'=>$this->input->post('jenis_kelamin_ketua'),
 						'id_tim' =>$id_team,
-						'url_berkas'=> $link_file
+						'url_berkas'=> $link_file_ketua
 		);
 		// insert data ketua dan nyimpan id nya
 		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);		
@@ -95,26 +97,27 @@ class Pendaftaran extends CI_Controller {
 		if($jumlah_anggota == 1){
 
 			// Persiapan config untuk upload berkas anggota 1
-			$config['upload_path']          = './file_pendaftaran/';
+			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
 		    $config['allowed_types']        = '*';
-		    $config['file_name']            = password_hash($this->input->post('file_anggota1'), PASSWORD_DEFAULT);
+		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
 
 		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
 		    $this->load->library('upload',$config);
 		    if ($this->upload->do_upload('file_anggota1')) {
-		        $link_file = $this->upload->data("file_name");
+		        $data = array('upload_data'=>$this->upload->data());
+	        	$link_file1= $data['upload_data']['file_name']; 
 		    }
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
 			$data_anggota1 = array(
 						'nama_peserta'=>$this->input->post('nama_anggota1'),
-						'email'=>$this->input->post('e-mail_anggota1'),
+						'email'=>$this->input->post('email_anggota1'),
 						'no_hp'=>$this->input->post('no_hp_anggota1'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota1'),
-						'id_team' =>$id_team,
-						'url_file'=>$link_file
+						'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
+						'id_tim' =>$id_team,
+						'url_berkas'=>$link_file1
 			);
 			//Nyimpan data anggota 1
 			$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
@@ -124,49 +127,53 @@ class Pendaftaran extends CI_Controller {
 		    $this->load->library('upload',$config,'ag1');
 		    $this->load->library('upload',$config,'ag2');
 
-			$config['upload_path']          = './file_pendaftaran/';
+			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
 		    $config['allowed_types']        = '*';
-		    $config['file_name']            = password_hash($this->input->post('file_anggota1'), PASSWORD_DEFAULT);
+		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
 		    $this->ag1->initialize($config);
 		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
 		    if ($this->ag1->do_upload('file_anggota1')) {
-		        $link_file = $this->ag1->data("file_name");
+		        $data = array('upload_data'=>$this->ag1->data());
+	        	$link_file1= $data['upload_data']['file_name']; 
 		    }
+		    // echo $this->ag1->display_errors();
+		    // die;
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
 			$data_anggota1 = array(
 						'nama_peserta'=>$this->input->post('nama_anggota1'),
-						'email'=>$this->input->post('e-mail_anggota1'),
+						'email'=>$this->input->post('email_anggota1'),
 						'no_hp'=>$this->input->post('no_hp_anggota1'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota1'),
-						'id_team' =>$id_team,
-						'url_file'=>$link_file
+						'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
+						'id_tim' =>$id_team,
+						'url_berkas'=>$link_file1
 			);
 			//Nyimpan data anggota 1
 			$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 			// Persiapan config untuk upload berkas anggota 1
-			$config['upload_path']          = './file_pendaftaran/';
+			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
 		    $config['allowed_types']        = '*';
-		    $config['file_name']            = password_hash($this->input->post('file_anggota2'), PASSWORD_DEFAULT);
+		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
 		    $this->ag2->initialize($config);
 		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
 		    // $this->load->library('upload',$config);
 		    if ($this->ag2->do_upload('file_anggota2')) {
-		        $link_file = $this->ag2->data("file_name");
+		        $data = array('upload_data'=>$this->ag2->data());
+	        	$link_file2= $data['upload_data']['file_name']; 
 		    }
 
 		    // Upload data anggota 2
 			$data_anggota2 = array(
 						'nama_peserta'=>$this->input->post('nama_anggota2'),
-						'email'=>$this->input->post('e-mail_anggota2'),
+						'email'=>$this->input->post('email_anggota2'),
 						'no_hp'=>$this->input->post('no_hp_anggota2'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin_anggota2'),
-						'id_team' =>$id_team,
-						'url_file' => $link_file
+						'jenis_kelamin'=>$this->input->post('jenis_kelamin2'),
+						'id_tim' =>$id_team,
+						'url_berkas' => $link_file2
 			);
 			// Nyimpan data anggota 2
 			$this->Pendaftaran_Model->tambah_peserta($data_anggota2);
