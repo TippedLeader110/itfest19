@@ -75,7 +75,7 @@
 						<?php
 							if($value->rule != NULL){
 							?>
-							<a href="assets/files/<?=$value->rule?>" class="btn btn-primary">Lihat Rulebook</a>
+							<a href="public/kompetisi/rule/<?=$value->rule?>" class="btn btn-primary">Lihat Rulebook</a>
 						<?php } ?>
 					</center>
 				</div>
