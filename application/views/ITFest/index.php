@@ -67,7 +67,7 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-                                        <h3 class="head">IMPACTFUL TECHNOLOGY<br> FOR SOCIAL<br>CULTURE AWERENESS</h3>
+                                        <h3 class="head">IMPACTFUL TECHNOLOGY<br> FOR SOCIAL CULTURE<br>AWERENESS</h3>
 					<h4 class="head-2">ITFEST 2020</h4>
 					<div class="row row2">
 						<div class="col">
