@@ -46,8 +46,8 @@ class LombaModel extends CI_Model {
 		return $this->insertLogPanitia($this->session->userdata('id'), $work);
 	}
 
-	public function getDatabyName($name){
-		$this->db->where('nama_lomba', $name);
+	public function getDatabyID($ID){
+		$this->db->where('id_lomba', $ID);
 		return $this->db->get('lomba');
 	}
 

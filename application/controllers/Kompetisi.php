@@ -9,7 +9,7 @@ class Kompetisi extends CI_Controller {
 	public function index(){
 		$kompetisi = $this->input->get("k");
 		$this->load->model('LombaModel');
-		$data['kompetisi'] = $this->LombaModel->getDatabyName($kompetisi)->result();
+		$data['kompetisi'] = $this->LombaModel->getDatabyID($kompetisi)->result();
 		$this->load->view('ITFest/kompetisi', $data);
 	}
 }

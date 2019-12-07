@@ -141,7 +141,7 @@
 								<img src="<?php echo base_url('public/kompetisi/logo/') ?><?=$value->url_logo?>" alt="" style="max-height: 100px;">
 								<img src="assets/images/<?=$value->url_logo?>" alt="" style="height: 100px;">
 								<h4 class="card-title"><?=$value->nama_lomba?></h4>
-								<a href="<?=base_url('kompetisi')?>?k=<?=$value->nama_lomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
+								<a href="<?=base_url('kompetisi')?>?k=<?=$value->id_lomba?>"><button class="btn btn-light btn-kompetisi">Read More...</button></a>
 							</div>
 						</div>
 						<?php
