@@ -27,11 +27,11 @@
 							<div class="garis" id="br"></div>
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#seminar-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">SEMINAR
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kompetisi-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KOMPETISI
 							<div class="garis" id="br"></div>
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?=base_url('Home/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
+						<a href="<?=base_url('Peserta/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
 				</ul>
 			</div>
