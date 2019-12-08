@@ -8,7 +8,7 @@
 			<?php if ($reTahap): ?>
 				<button class="btn btn-primary" id="tahapR">Kelolah Tahapan Seleksi</button>
 			<?php endif ?>
-			<?php if (!isset($reTahap)): ?>
+			<?php if (count($reTahap)<1): ?>
 				<center>Kompetisi ini belum memiliki tahapan seleksi <br> <button class="btn btn-primary" id="tahapP">Tambah Tahapan Seleksi</button></center>
 			<?php endif ?>
 		</div>
