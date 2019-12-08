@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
+	<title>ITFest 2020 Universitas Sumatera Utara</title>
 	<link rel="icon" href="<?=base_url()?>assets/images/favicon.ico" type="image/ico" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
@@ -22,36 +22,36 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#about-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">TENTANG
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
+					</li> -->
 					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#seminar-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">SEMINAR
 							<div class="garis" id="br"></div>
 						</a>
 					</li> -->
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kompetisi-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KOMPETISI
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
-					<li class="nav-item">
+					</li> -->
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#acara-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">ACARA
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
-					<li class="nav-item">
+					</li> -->
+<!-- 					<li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#timeline-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">TIMELINE
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
-					<li class="nav-item">
+					</li> -->
+					<!-- <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kontak-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KONTAK
 							<div class="garis" id="br"></div>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a href="<?=base_url('Peserta/signin')?>"><button class="btn px-5 signup">DAFTAR/MASUK</button></a>
 					</li>
