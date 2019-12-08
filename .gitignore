@@ -3,6 +3,7 @@
 application/cache/*
 !application/cache/index.html
 public/*
+application/controllers/Mail.php
 
 application/logs/*
 !application/logs/index.html
