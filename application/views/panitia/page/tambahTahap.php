@@ -51,7 +51,8 @@
 
 	$('#return').click(function(event) {
 		event.preventDefault();
-		$('#contentPage').addClass('lodtime');
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
         $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
@@ -71,7 +72,8 @@
 				if (er==1) {
 					console.log(er);
 					Swal.fire('Berhasil','Tahapan seleksi berhasil ditambahkan', 'success');
-					$('#contentPage').addClass('lodtime');
+					$('#loading').show();
+	    			$('#contentPage').addClass('lodtime');
         			$('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
             			$('#loading').hide();
             			$('#contentPage').removeClass('lodtime');

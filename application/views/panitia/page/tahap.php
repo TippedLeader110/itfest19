@@ -44,7 +44,8 @@
 <script type="text/javascript">
 	$('#tambahDO').click(function(event) {
 		// $('#contentPage').load('tambahTahap');
-		$('#contentPage').addClass('lodtime');
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
         $('#contentPage').load('<?php echo base_url('Panitia/')?>tambahTahap',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
@@ -58,7 +59,8 @@
 	}
 
 	function editTahap(id){
-		$('#contentPage').addClass('lodtime');
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
         $('#contentPage').load('<?php echo base_url('Panitia/editTahap/')?>'+id,function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
@@ -91,7 +93,8 @@
 						      'Tahapan seleksi dengan id #'+ value +' telah di hapus!!.',
 						      'success'
 						    );
-						    $('#contentPage').addClass('lodtime');
+						    $('#loading').show();
+	    					$('#contentPage').addClass('lodtime');
 		        			$('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
 		            			$('#loading').hide();
 		            			$('#contentPage').removeClass('lodtime');

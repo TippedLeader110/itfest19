@@ -39,7 +39,13 @@
 	CKEDITOR.replace( 'isi' );
 
 	$('#return').click(function(event) {
-		$('#contentPage').load('Post');
+		event.preventDefault();
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('panitia/')?>Post',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$('#formPost').submit(function(event) {
@@ -64,7 +70,12 @@
 				if (er=='done') {
 					console.log(er);
 					Swal.fire('Berhasil','Pemberitahuan berhasil ditambahkan', 'success');
-					$('#contentPage').load('Post');
+					$('#loading').show();
+	    			$('#contentPage').addClass('lodtime');
+        			$('#contentPage').load('<?php echo base_url('Panitia/')?>post',function() {
+            			$('#loading').hide();
+            			$('#contentPage').removeClass('lodtime');
+        			});   
 				}
 				else{
 					console.log(er);

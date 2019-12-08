@@ -21,6 +21,11 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
 	<title><?php echo $title ?></title>
+    <style type="text/css">
+        .lodtime{
+            opacity: 0.2;
+        }
+    </style>
 </head>
 <body style="background: #fafafa;">
 	<div class="wrapper">
@@ -80,11 +85,14 @@
 
     <!-- Page Content  -->
     <div id="content">
+        <!-- NAVBAR -->     
+        <?php $this->load->view('admin/navbar') ?>
         <!-- NAVBAR -->
-       	<?php $this->load->view('admin/navbar') ?>
-        <!-- NAVBAR -->
-        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded">
-        	
+        <div id="loading" style="position: absolute; top: 50%; left: 5%; height: 100%; width: 100%;">
+            <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
+        </div>
+        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded " >
+            
         </div>
     </div>
 </div>
@@ -103,49 +111,124 @@
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 <script type="text/javascript">
-	$('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat');
-    $("#KelolahTahapan").click(function(event) {
+    $('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+$("#KelolahTahapan").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#logoutadmin").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>logout');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logout',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#kompetisiPage").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>lomba');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>lomba',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#panitiaPage").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>panitia');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>panitia',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#editAdmin").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#reSingkat").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>reSingkat',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $("#reportTeam").click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>tim');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>tim',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $('#logTim').click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>logTim');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logTim',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 
 $('#logPanitia').click(function(event) {
   event.preventDefault();
-  $('#contentPage').load('<?php echo base_url('Admin/')?>logPanitia');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>logPanitia',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 });
 </script>

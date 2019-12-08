@@ -25,8 +25,9 @@
 					    	Info Team
 					  	</div>
 					  	<div class="card-body">
-					  		
-					  			<div class="table-responsive">
+					  		<div>
+					  		<div class="col-12 col-md-12">
+					  				<div class="table-responsive-lg">
 					  				<?php if ($ro!=0): ?>
 					  					<div class="alert alert-danger" role="alert">
   										Tim anda tidak dapat melanjutkan kompetisi karena tim anda sudah gugur !!!
@@ -101,7 +102,8 @@
 					  			</tr> -->
 					  		</table>
 					  		</div>
-					  		
+					  		</div>
+					  		</div>
 					  	</div>
 					</div>
 				</div>
@@ -158,7 +160,7 @@
 			title : 'Cara Membayar',
 			html:  'Lakukan transkasi sebesar Rp.150.000,- ke rekening <br>1. BNI 0227457404 an Talitha Azura Putri Aulia <br>2. BCA 0222611332 a.n. Tirza Priskila Kinanti Sibuea <br> lalu upload bukti pembayaran.',
 			icon:  "info",
-			footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id'
+			footer: 'Info lebih lanjut hubungi CS: itfestusu@gmail.com'
 		})
 	}
 

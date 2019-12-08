@@ -155,13 +155,13 @@
 						title : 'Berkas belum diverifikasi',
 						text:  'Berkas tim sedang diverifikasi silahkan menunggu sampai berkas diverifikasi oleh panitia.',
 						icon:  "info",
-						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id'});
+						footer: 'Info lebih lanjut hubungi CS: itfestusu@gmail.com'});
 				}
 				else if (data=='tolak') {
 					Swal.fire({
 						title: 'Berkas Tim ditolak',
 						text: 'Berkas anda tidak memenuhi syarat atau melanggar aturan',
-						footer: 'Info lebih lanjut hubungi CS: cs@itfest.usu.ac.id',
+						footer: 'Info lebih lanjut hubungi CS: itfestusu@gmail.com',
 						icon: "error"});
 				}
 				else{

@@ -25,6 +25,9 @@
 		  border-radius: 50%;
 		  display: inline-block;
 		}
+		.lodtime{
+			opacity: 0.2;
+		}
 	</style>
 </head>
 <body style="background: #fafafa;">
@@ -81,15 +84,16 @@
 	<!-- ----- >
 
     <!-- Page Content  -->
-    <div id="content" class="container-fluid">
-        <!-- NAVBAR -->
+    <div id="content">
+        <!-- NAVBAR -->     
        	<?php $this->load->view('peserta/navbar') ?>
         <!-- NAVBAR -->
-
-        <div id="contentPage" style="margin-top: -30px;">
+        <div id="loading" style="position: absolute; top: 50%; left: 5%; height: 100%; width: 100%;">
+            <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
+        </div>
+        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded " >
         	
-       	</div>
-
+        </div>
     </div>
 </div>
 </body>
@@ -103,16 +107,31 @@
 
 	$('#home').click(function(event) {
 	    event.preventDefault();
-	    $('#contentPage').load('<?php echo base_url('peserta/kontenHome') ?>');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Peserta/')?>kontenHome',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$('#infoTim').click(function(event) {
-	    event.preventDefault();
-	    $('#contentPage').load('<?php echo base_url('peserta/informasiTim') ?>');
+		event.preventDefault();
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Peserta/')?>informasiTim',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$('#tahapKompetisi').click(function(event) {
 	    event.preventDefault();
-	    $('#contentPage').load('<?php echo base_url('peserta/tahapKompetisi') ?>');
+	    $('#loading').show();
+	    $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Peserta/')?>tahapKompetisi',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 </script>

@@ -30,7 +30,14 @@
 									<td>
 										<?php echo $value->username ?>
 									</td>
-									<td><?php echo $value->nama_lomba; ?></td>
+									<td>
+										<?php if ($value->nama_lomba==''): ?>
+											Super Admin
+										<?php endif ?>
+										<?php if ($value->nama_lomba!=''): ?>
+											<?php echo $value->nama_lomba ?>
+										<?php endif ?>
+									</td>
 									<td>
 										<?php echo $value->keterangan ?>
 									</td>

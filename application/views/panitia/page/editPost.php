@@ -26,7 +26,7 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<input id="temp" hidden type="text" value="<?php echo $value->isi ?>" name="text">
+						<textarea id="temp" hidden><?php echo $value->isi ?></textarea>
 						<label class="form-control-label" for="isi">Isi Pemberitahuan</label>
 						<textarea name="isi" class="form-control" id="isi" id="isi"></textarea>
 						<div class="invalid-feedback">Tolong Deskripsi</div>
@@ -46,7 +46,12 @@
 	CKEDITOR.instances.isi.setData(val);
 
 	$('#return').click(function(event) {
-		$('#contentPage').load('Post');
+		$('#loading').show();
+	    $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('panitia/')?>Post',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$('#formPost').submit(function(event) {
@@ -71,7 +76,12 @@
 				if (er=='done') {
 					console.log(er);
 					Swal.fire('Berhasil','Perubahan berhasil disimpan', 'success');
-					$('#contentPage').load('Post');
+					$('#loading').show();
+	    			$('#contentPage').addClass('lodtime');
+        			$('#contentPage').load('<?php echo base_url('panitia/')?>Post',function() {
+            			$('#loading').hide();
+            			$('#contentPage').removeClass('lodtime');
+        			});   
 				}
 				else{
 					console.log(er);
