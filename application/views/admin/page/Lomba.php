@@ -43,7 +43,13 @@
 
 <script type="text/javascript">
 	$('#tambahDO').click(function(event) {
-		$('#contentPage').load('<?php echo base_url("admin/tambahLomba"); ?>');
+		event.preventDefault();
+		$('#loading').show();
+		$('#contentPage').addClass('lodtime');
+		$('#contentPage').load('<?php echo base_url("admin/tambahLomba"); ?>', function(){
+			$('#loading').hide();
+			$('#contentPage').removeClass('lodtime');
+		});
 	});
 
 	function openInNewTab(va) {
@@ -53,11 +59,16 @@
 	}
 
 	function editLomba(id){
-		$('#contentPage').load('<?php echo base_url('admin/editLomba/') ?>'+id);
+		$('#loading').show();
+		$('#contentPage').addClass('lodtime');
+		$('#contentPage').load('<?php echo base_url('admin/editLomba/') ?>'+id, function(){
+			$('#loading').hide();
+			$('#contentPage').removeClass('lodtime');
+		});
 	}
 
 	function reload(){
-		$('#contentPage').load('Tahap');
+		
 	}
 
 	function hapusLomba(value){
@@ -84,7 +95,12 @@
 						      'Lomba/Kompetisi dengan id #'+ value +' telah di hapus!!.',
 						      'success'
 						    );
-						    $('#contentPage').load('<?php echo base_url('admin/lomba') ?>');
+						    $('#loading').show();
+							$('#contentPage').addClass('lodtime');
+						    $('#contentPage').load('<?php echo base_url('admin/lomba') ?>', function(){
+						    	$('#loading').hide();
+								$('#contentPage').removeClass('lodtime');
+						    });
 			    	},
 			    	error: function(er){
 						console.log(er);

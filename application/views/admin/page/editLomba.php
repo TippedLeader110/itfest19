@@ -72,7 +72,12 @@
             	Swal.fire('Berhasil !!', 'Kompetisi berhasil diubah !!', 'success')
             	var delay = 1500; 
 				setTimeout(function(){ 
-					$('#contentPage').load('<?php echo base_url('admin/lomba') ?>'); }, delay);
+					$('#loading').show();
+					$('#contentPage').addClass('lodtime');
+					$('#contentPage').load('<?php echo base_url('admin/lomba') ?>', function(){
+						$('#loading').hide();
+						$('#contentPage').removeClass('lodtime');
+					})}, delay);
             	}
             	else
             		Swal.fire('Kesalahan!!', 'Gagal upload !!', 'error')
@@ -82,6 +87,11 @@
 
 	$('#return').click(function(event) {
 		event.preventDefault();
-		$('#contentPage').load('<?php echo base_url('admin/lomba') ?>');
+		$('#loading').show();
+		$('#contentPage').addClass('lodtime');
+		$('#contentPage').load('<?php echo base_url('admin/lomba') ?>', function(){
+			$('#loading').hide();
+			$('#contentPage').removeClass('lodtime');
+		});
 	});
 </script>

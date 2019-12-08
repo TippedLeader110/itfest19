@@ -142,16 +142,13 @@
 					Swal.fire({
 						icon: 'success',
 					  	title: 'Selamat Datang',
-					  	text: 'Admin/Panitia ITFest 4.0',
+					  	text: 'Bendahara/Admin ITFest 4.0',
 					  	showConfirmButton: false,
 					  	timerProgressBar: true,
-					  	timerProgressBar: true,
-					  	timerProgressBar: true,
-					  	timerProgressBar: true,
 					  	timer: 1500,
-					 	onBeforeOpen: () => {
-					 	Swal.showLoading()
-					 	}
+					  	onBeforeOpen: () => {
+					 			Swal.showLoading()
+					 		}
 					});
 					setTimeout(function () {
        				window.location.href = "<?php echo base_url('bendahara/') ?>"; //will redirect to your blog page (an ex: blog.html)
