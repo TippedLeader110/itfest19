@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ITFest 4.0 2019 Universitas Sumatera Utara</title>
+	<title>ITFest 2020 Universitas Sumatera Utara</title>
 	<link rel="icon" href="<?=base_url()?>assets/images/favvicon.png" type="image/png" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
@@ -67,7 +67,7 @@
 					<!-- <div class="logo-head">
 						<img src="./img/logo-itfest-white2.png" alt="" style="max-height: 250px;">
 					</div> -->
-                                        <h3 class="head">SOCIAL CULTURE AWARENESS <br> THROUGH TECHNOLOGY <br> FOR MILLENIALS</h3>
+                                        <h3 class="head">IMPACTFUL TECHNOLOGY<br> FOR SOCIAL CULTURE<br>AWERENESS</h3>
 					<h4 class="head-2">ITFEST 2020</h4>
 					<div class="row row2">
 						<div class="col">
@@ -117,7 +117,7 @@
 				<div class="col-md-5 col-about-2">
 					<div class="garis-text d-none d-lg-block"></div>
 					<h2 class="about2">Tentang ITFest 2020</h2>
-					ITFEST 2020 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2020 memiliki tema “Social Culture Awareness Through Technology for Millenials”. Rangkaian kegiatan ITFEST 2020 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
+					ITFEST 2020 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2020 memiliki tema “Impactful Technology For Social Culture Awareness”. Rangkaian kegiatan ITFEST 2020 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
 				</div>
 				<!-- <button class="btn px-4 btn-primary btn-about">DAFTAR SEMINAR DISINI</button> -->
 			</div>
@@ -184,13 +184,13 @@
 						<hr class="hr-timeline"><br>
 					</div>
 					<div class="text-timeline">
-						<p><b>25 November 2018 – 31 Desember 2018</b> Registrasi Kompetisi</p>
-						<p><b>7 Januari 2019 – 31 Januari 2019</b> Penyisihan I</p>
-						<p><b>1 Februari 2019 – 7 Februari 2019</b> Penjurian & Pengumuman I</p>
-						<p><b>8 Februari 2019 – 22 Februari 2019</b> Penyisihan II</p>
-						<p><b>23 Februari 2019 – 28 Februari 2019</b> Penjurian & Pengumuman II</p>
-						<p><b>1 Maret 2019 – 8 Maret 2019</b> Rentang waktu peserta sampai ke final</p>
-						<p><b>9 Maret 2019 – 10 Maret 2019</b> Final Kompetisi & Acara Puncak</p>
+						<p><b>9 Desember 2019 – 11 Januari 2020</b> Registrasi Kompetisi</p>
+						<p><b>14 Januari 2020 – 9 Februari 2020</b> Penyisihan I</p>
+						<p><b>10 Februari 2020 – 16 Februari 2020</b> Penjurian & Pengumuman I</p>
+						<p><b>17 Februari 2020 – 09 Maret 2020</b> Penyisihan II</p>
+						<p><b>10 Maret 2020 – 16 Maret 2020</b> Penjurian & Pengumuman II</p>
+						<p><b>17 Maret 2020 – 27 Maret 2020</b> Rentang waktu peserta sampai ke final</p>
+						<p><b>28 Maret 2020 – 29 Maret 2020</b> Final Kompetisi & Acara Puncak</p>
 					</div>
 				</div>
 			</div>
