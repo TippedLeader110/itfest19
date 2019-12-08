@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-			<h5>Daftar Tim | ITFest4.0 Universitas Sumatera Utara</h5>
+			<h5>Seleksi Berkas Tim | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 		</div>
 		<div class="container-fluid">

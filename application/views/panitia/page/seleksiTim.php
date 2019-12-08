@@ -1,6 +1,6 @@
 <div class="row">
 		<div class="col-12">
-			<h5>Seleksi Tim kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
+			<h5>Seleksi Tahap Tim kompetisi | ITFest4.0 Universitas Sumatera Utara</h5>
 			<hr>
 		</div>
 		<!-- <div class="container-fluid">
