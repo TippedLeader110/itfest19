@@ -68,7 +68,7 @@
 			<div class="row">
 				<div class="col-md-12 col-kompetisi">
 					<center>
-						<img src="assets/images/<?=$value->url_logo?>" alt="" style="height: 200px;">
+						<img src="public/kompetisi/logo/<?=$value->url_logo?>" alt="" style="height: 200px;">
 						<h1 class="h1-kompetisi card-title mt-2"><?=$value->nama_lomba?></h1>
 						<hr class="hr-kompetisi">
 						<font color="black"><p class="p-judul-kompetisi"><?=$value->deskripsi?></p></font><br>

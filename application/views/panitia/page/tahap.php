@@ -35,26 +35,6 @@
 					    	</div>
 					    </ul>
 					</div>
-
-
-					<!-- <div class="card">
-					    <div class="card-header card-header-mod" id="headingThree">
-					      	<div class="text-title">
-					      		<h5 class="mb-0">
-					      		Tahap #<?php echo $cout ?>
-					      		<?php $cout++; ?>
-					      		</h5>
-					      	</div>
-						</div>
-				    <div class="card-body card-size">
-				    	<div class="text-justify text-card">
-				    		<?php echo $dTahap->deskripsi_tahap ?>
-				    	</div>
-				    	<div style="overflow: auto;">
-				    		<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
-				    	</div>
-				    </div>
-					</div> -->
 				</div>
 			<?php endforeach ?>
 		<?php endif ?>
@@ -63,7 +43,12 @@
 
 <script type="text/javascript">
 	$('#tambahDO').click(function(event) {
-		$('#contentPage').load('tambahTahap');
+		// $('#contentPage').load('tambahTahap');
+		$('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>tambahTahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	function openInNewTab(va) {
@@ -73,11 +58,12 @@
 	}
 
 	function editTahap(id){
-		$('#contentPage').load('<?php echo base_url('panitia/editTahap/') ?>'+id);
-	}
-
-	function reload(){
-		$('#contentPage').load('Tahap');
+		$('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/editTahap/')?>'+id,function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+		// $('#contentPage').load('<?php echo base_url('panitia/editTahap/') ?>'+id);
 	}
 
 	function hapusTahap(value){
@@ -105,7 +91,11 @@
 						      'Tahapan seleksi dengan id #'+ value +' telah di hapus!!.',
 						      'success'
 						    );
-						    reload();
+						    $('#contentPage').addClass('lodtime');
+		        			$('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+		            			$('#loading').hide();
+		            			$('#contentPage').removeClass('lodtime');
+		        			});   
 						}
 						else{
 							console.log(er);

@@ -51,7 +51,11 @@
 
 	$('#return').click(function(event) {
 		event.preventDefault();
-		$('#contentPage').load('Tahap');
+		$('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$('#formTahap').submit(function(event) {
@@ -67,6 +71,11 @@
 				if (er==1) {
 					console.log(er);
 					Swal.fire('Berhasil','Tahapan seleksi berhasil ditambahkan', 'success');
+					$('#contentPage').addClass('lodtime');
+        			$('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+            			$('#loading').hide();
+            			$('#contentPage').removeClass('lodtime');
+        			});   
 				}
 				else{
 					console.log(er);

@@ -44,7 +44,11 @@
 
 <script type="text/javascript">
 	$('#tambahDO').click(function(event) {
-		$('#contentPage').load('tambahPost');
+		$('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>tambahPost',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
 	});
 
 	$(document).ready(function () {
@@ -59,7 +63,12 @@
 	}
 
 	function editPost(id){
-		$('#contentPage').load('<?php echo base_url('panitia/editPost/') ?>'+id);
+		$('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/editPost/')?>'+ id,function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+		// $('#contentPage').load('<?php echo base_url('panitia/editPost/') ?>'+id);
 	}
 
 	function hapusPost(value){
@@ -87,7 +96,11 @@
 						      'Pemberitahuan dengan id #'+ value +' telah di hapus!!.',
 						      'success'
 						    );
-						    $('#contentPage').load('Post');
+						    $('#contentPage').addClass('lodtime');
+        					$('#contentPage').load('<?php echo base_url('Panitia/')?>Post',function() {
+            					$('#loading').hide();
+            					$('#contentPage').removeClass('lodtime');
+        					});   
 						}
 						else{
 							console.log(er);
