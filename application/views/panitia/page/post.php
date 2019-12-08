@@ -16,25 +16,19 @@
 		<div class="col-12">
 			<div class="container-fluid">
 				<div class="table-responsive">
-					<table id="dtBasicExample" class="table table-borderless" cellspacing="0" width="100%">
-						<thead>
-							<th></th>
+					<table id="dtBasicExample" class="table table-bordered table-hover" cellspacing="0" width="100%">
+						<thead class="bg-custom text-white">
+							<th>#</th><th>Judul</th><th></th><th></th><th></th>
 						</thead>
 						<?php $count=1; ?>
 						<tbody>
 						<?php foreach ($post as $key => $var): ?>
 								<tr>
 									<td>
-										<div class="card">
-											<div class="card-header d-flex justify-content-between bg-custom text-white" >
-												<span style="overflow: hidden;"><h5><?php echo $var->judul ?></h5></span>
-												<span><button class="btn btn-light" data-toggle='collapse' data-target='#cbody<?php echo $count ?>' aria-expanded='false'>Isi</button>&nbsp;<button class="btn btn-danger" onclick="hapusPost(<?php echo $var->id_post ?>)">Hapus</button>&nbsp;<button class="btn btn-warning" onclick="editPost(<?php echo $var->id_post ?>)">Ubah</button></span>
-											</div>
-											<div class="card-body collapse" id="cbody<?php echo $count ?>" >
-												<div class="antiblacktext"><?php echo $var->isi ?></div>
-											</div>
-										</div>
+										<?php echo $count;$count++; ?>
 									</td>
+									<td><?php echo $var->judul ?></td>
+									<td><button class="btn btn-primary" data-toggle='collapse' data-target='#cbody<?php echo $count ?>' aria-expanded='false'>Isi</button></td><td><button class="btn btn-danger" onclick="hapusPost(<?php echo $var->id_post ?>)">Hapus</button></td><td><button class="btn btn-warning" onclick="editPost(<?php echo $var->id_post ?>)">Ubah</button></span></td>
 								</tr>
 							<?php $count++ ?>
 						<?php endforeach ?>

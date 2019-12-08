@@ -10,8 +10,18 @@
 	<script type="text/javascript" src="<?php echo base_url('/assets/js/mdb.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('/assets/js/addons/datatables.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" crossorigin="anonymous"></script>
+    <!-- MDBOOTSTRAP -->
+      <link href="<?php echo base_url('/assets/css/addons/datatables.min.css') ?>" rel="stylesheet">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
+    <style type="text/css">
+        .lodtime
+        {
+            opacity: 0.1;
+        }
+    </style>
 	<title><?php echo $title ?></title>
 </head>
 <body style="background: #fafafa;">
@@ -81,10 +91,13 @@
 
     <!-- Page Content  -->
     <div id="content">
-        <!-- NAVBAR -->
+        <!-- NAVBAR -->     
        	<?php $this->load->view('panitia/navbar') ?>
         <!-- NAVBAR -->
-        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded">
+        <div id="loading" style="position: absolute; top: 50%; left: 5%; height: 100%; width: 100%;display: none">
+            <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
+        </div>
+        <div id="contentPage" class="shadow-sm p-3 mb-5 bg-white rounded " >
         	
         </div>
     </div>
@@ -97,46 +110,99 @@
 
 
 <script type="text/javascript">
-	$('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat');
+    $(document).ready(function($) {
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+    });
+
     $("#KelolahTahapan").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });
 
     $("#reportTahap").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>reTahap');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reTahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });   
     $("#reportSingkat").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reSingkat',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });  
 
     $("#reportBerkas").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>reBerkas');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>reBerkas',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });   
 
     $("#daftarTim").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>daftarTim');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>daftarTim',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });   
 
     $("#seleksiBerkas").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiBerkas');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiBerkas',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });   
     $("#seleksiTim").click(function(event) {
         event.preventDefault();
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiTim');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiTim',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });   
   $("#logoout").click(function(event) {
       event.preventDefault();
-      $('#contentPage').load('<?php echo base_url('Panitia/')?>logout');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+      $('#contentPage').load('<?php echo base_url('Panitia/')?>logout',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });  
 
   $("#kelolahPost").click(function(event) {
       event.preventDefault();
-      $('#contentPage').load('<?php echo base_url('Panitia/')?>Post');
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+      $('#contentPage').load('<?php echo base_url('Panitia/')?>Post',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
     });  
 </script>

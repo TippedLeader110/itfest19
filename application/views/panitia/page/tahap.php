@@ -14,7 +14,30 @@
 			<?php $cout = 1 ?>
 			<?php foreach ($dataTahap as $key => $dTahap): ?>
 				<div class="col-12 col-md-4" style="margin-top: 20px;">
-					<div class="card">
+					<div class="card ">
+					    <div class="card-header bg-custom text-white" id="headingThree">
+						   	<div class="text-title">
+						   		<h5 class="mb-0">
+					      		Tahap #<?php echo $cout ?>
+					      		<?php $cout++; ?>
+					      		</h5>
+						   	</div>
+						</div>
+					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $logo ?>" class="card-img" alt="..." style="opacity: 0.2">
+						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 50px;">
+					    	<div>
+					    		<?php echo $dTahap->deskripsi_tahap ?>
+					    	</div>
+						</div>
+						<ul class="list-group list-group-flush">
+					    	<div style="overflow: auto">
+					    		<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>	
+					    	</div>
+					    </ul>
+					</div>
+
+
+					<!-- <div class="card">
 					    <div class="card-header card-header-mod" id="headingThree">
 					      	<div class="text-title">
 					      		<h5 class="mb-0">
@@ -31,7 +54,7 @@
 				    		<center><button class="btn btn-outline-success" onclick="openInNewTab('<?php echo $dTahap->file_tahap ?>');">Download</button>&nbsp;<button onclick="editTahap(<?php echo $dTahap->id_tahap ?>);" class="btn btn-outline-primary">Edit</button>&nbsp;<button onclick="hapusTahap(<?php echo $dTahap->id_tahap ?>)" class="btn btn-outline-danger">Hapus</button></center>
 				    	</div>
 				    </div>
-					</div>
+					</div> -->
 				</div>
 			<?php endforeach ?>
 		<?php endif ?>

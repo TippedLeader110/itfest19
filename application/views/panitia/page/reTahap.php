@@ -5,7 +5,7 @@
 			<hr>
 		</div>
 		<div class="container-fluid">
-			<button class="btn btn-primary" id="tambahDO">Kelolah Tahapan Seleksi</button>
+			<button class="btn btn-primary" id="tahapR">Kelolah Tahapan Seleksi</button>
 		</div>
 	</div>
 	<div class="row" style="margin-top: 15px;">
@@ -48,6 +48,15 @@
 </div>
 
 <script type="text/javascript">
+	$("#tahapR").click(function(event) {
+        event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
+    });   
 	function getSeleksi(id)
 	{
 		console.log(id);

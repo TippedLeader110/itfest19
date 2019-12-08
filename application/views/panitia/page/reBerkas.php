@@ -5,7 +5,7 @@
 			<hr>
 		</div>
 		<div class="container-fluid">
-			<button class="btn btn-primary" id="tambahDO">Seleksi Berkas</button>
+			<button class="btn btn-primary" id="seleksiB">Seleksi Berkas</button>
 		</div>
 	</div>
 	<?php foreach ($reBerkas as $key => $Berkas): ?>
@@ -58,3 +58,15 @@
 		
 	</div>
 </div>
+
+<script type="text/javascript">
+	$("#seleksiB").click(function(event) {
+        event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>seleksiBerkas',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
+    });   
+</script>

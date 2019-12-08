@@ -386,9 +386,12 @@ class Panitia extends CI_Controller {
 	{
 		$this->loginProtocol();
 		$dataGet = $this->panitiaModel->getKompetisiTahap();
+		$idl = $this->session->userdata('panitia-id');
+		$logo = $this->db->where('id_lomba' ,$idl)->get('lomba')->row()->url_logo;
 		$data = [
 			'title' => 'Tambah Tahap',
-			'dataTahap' => $dataGet
+			'dataTahap' => $dataGet,
+			'logo' => $logo
 		];
 		$this->load->view('panitia/page/tahap', $data);
 	}
