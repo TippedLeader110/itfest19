@@ -5,7 +5,12 @@
 			<hr>
 		</div>
 		<div class="container-fluid">
-			<button class="btn btn-primary" id="tahapR">Kelolah Tahapan Seleksi</button>
+			<?php if ($reTahap): ?>
+				<button class="btn btn-primary" id="tahapR">Kelolah Tahapan Seleksi</button>
+			<?php endif ?>
+			<?php if (!isset($reTahap)): ?>
+				<center>Kompetisi ini belum memiliki tahapan seleksi <br> <button class="btn btn-primary" id="tahapP">Tambah Tahapan Seleksi</button></center>
+			<?php endif ?>
 		</div>
 	</div>
 	<div class="row" style="margin-top: 15px;">
@@ -53,6 +58,15 @@
         $('#loading').show();
         $('#contentPage').addClass('lodtime');
         $('#contentPage').load('<?php echo base_url('Panitia/')?>Tahap',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
+    });   
+    $("#tahapP").click(function(event) {
+        event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('Panitia/')?>tambahTahap',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });
