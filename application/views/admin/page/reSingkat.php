@@ -131,8 +131,8 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<div class="table-responsive-md">
-				<table class="table table-sm  table-active table-hover">
+			<div class="table-responsive">
+				<table class="table table-active table-hover">
 					<tr>
 						<th>#</th><th>Nama Kompetisi</th><th>Jumlah Tim</th>
 					</tr>
