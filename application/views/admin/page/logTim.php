@@ -11,7 +11,7 @@
 			<div class="col-12">
 				<div class="table-responsive-sm">
 					<table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead class="bg-custom white-text">
+						<thead class="bg-custom text-white">
 						<th>#</th>
                         <th>Nama Tim</th>
                         <th>Kompetisi</th>
