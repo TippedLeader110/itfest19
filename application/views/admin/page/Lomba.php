@@ -23,7 +23,7 @@
 						   		</h5>
 						   	</div>
 						</div>
-					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2;max-height: 400px;">
+					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2;height: 400px;background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;">
 						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 60px;" id="marg">
 					    	<div>
 					    		<?php echo $dLomba->deskripsi ?>
