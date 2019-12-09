@@ -13,7 +13,7 @@
 		<?php if (isset($dataLomba)): ?>
 			<?php $cout = 1 ?>
 			<?php foreach ($dataLomba as $key => $dLomba): ?>
-				<div class="col-12 col-md-4" style="margin-top: 20px;">
+				<div class="col-12 col-md-6" style="margin-top: 20px;">
 					<div class="card ">
 					    <div class="card-header bg-custom text-white" id="headingThree">
 						   	<div class="text-title">
