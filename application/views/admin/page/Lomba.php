@@ -14,7 +14,7 @@
 			<?php $cout = 1 ?>
 			<?php foreach ($dataLomba as $key => $dLomba): ?>
 				<div class="col-12 col-md-6" style="margin-top: 20px;">
-					<div class="card ">
+					<div class="card" style="max-height: 400px;">
 					    <div class="card-header bg-custom text-white" id="headingThree">
 						   	<div class="text-title">
 						   		<h5 class="mb-0">
