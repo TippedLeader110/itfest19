@@ -14,7 +14,7 @@
 			<?php $cout = 1 ?>
 			<?php foreach ($dataLomba as $key => $dLomba): ?>
 				<div class="col-12 col-md-6" style="margin-top: 20px;">
-					<div class="card" style="max-height: 400px;">
+					<div class="card">
 					    <div class="card-header bg-custom text-white" id="headingThree">
 						   	<div class="text-title">
 						   		<h5 class="mb-0">
@@ -23,7 +23,7 @@
 						   		</h5>
 						   	</div>
 						</div>
-					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2">
+					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2;object-fit: cover;">
 						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 60px;" id="marg">
 					    	<div>
 					    		<?php echo $dLomba->deskripsi ?>
