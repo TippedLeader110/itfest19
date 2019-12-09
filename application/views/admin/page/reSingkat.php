@@ -133,9 +133,11 @@
 		<div class="col-12">
 			<div class="table-responsive">
 				<table class="table table-active table-hover">
-					<tr>
-						<th>#</th><th>Nama Kompetisi</th><th>Jumlah Tim</th>
-					</tr>
+					<thead class="bg-custom text-white">
+						<tr>
+							<th>#</th><th>Nama Kompetisi</th><th>Jumlah Tim</th>
+						</tr>
+					</thead>
 					<?php $count = 0 ?>
 					<?php foreach ($reTahapkompe as $key => $Dtable): ?>
 						<?php $count++; ?>
