@@ -24,10 +24,15 @@
 						   	</div>
 						</div>
 					  	<img src="<?php echo base_url('public/kompetisi/logo/'); echo $dLomba->url_logo ?>" class="card-img" alt="..." style="opacity: 0.2">
-						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 50px;">
+						<div class="card-img-overlay overflow-auto" style="margin-bottom: 50px;margin-top: 60px;" id="marg">
 					    	<div>
 					    		<?php echo $dLomba->deskripsi ?>
 					    	</div>
+							<!-- <script>
+								var a = $('#headingThree').height();
+								$('#marg').css('margin-top',a);
+								
+							</script> -->
 						</div>
 						<ul class="list-group list-group-flush">
 					    	<li class="list-group-item">
