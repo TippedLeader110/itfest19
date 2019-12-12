@@ -81,13 +81,13 @@
 				}
 				else{
 					console.log(er);
-					Swal.fire('Gagal','Terjadi kesalahan', 'error');
+					Swal.fire('Terjadi kesalahan',er, 'error');
 				}
 
 			},
 			error: function(er){
 				console.log(er);
-				Swal.fire('Gagal','Terjadi kesalahan', 'error');
+				Swal.fire('Terjadi kesalahan',er, 'error');
 			}
 		});
 		

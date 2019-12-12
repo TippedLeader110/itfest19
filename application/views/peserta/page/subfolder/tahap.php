@@ -1,5 +1,6 @@
-<?php if ($status==1): ?>
-	<h4>Status : Anda lulus seleksi ini</h4>
+
+	<?php if ($status==1): ?>
+	<h4>Status : Tim anda lulus seleksi ini</h4>
 <?php endif ?>
 <?php if ($status==2): ?>
 	<?php if ($file==1): ?>
@@ -7,6 +8,7 @@
 	<div class="row">
 		<div class="col-12 col-md-12">
 			<h4>Status : File sedang diseleksi - <a target="_blank" href="<?php echo base_url('public/kompetisi/userdata/tahap_tim/'); echo $url ?>" style="text-decoration: underline;">Download File</a></h4> 
+			
 		</div>
 		<div class="col-12 col-md-2">
 			<button class="btn btn-light" data-toggle='collapse' data-target='#col'>Ganti File</button>
@@ -24,7 +26,7 @@
 			</div>
 			</div>
 			<div class="col-12 col-md-2">
-				<button class="btn btn-light" id="gantifilekirim">Kirim</button>
+				<button class="btn btn-light" id="gantifilekirim<?php echo $id ?>">Kirim</button>
 			</div>
 			</div>
 			</form>
@@ -33,7 +35,7 @@
 	</div>
 	<?php endif ?>
 	<?php if ($file==0): ?>
-
+		
 		<form id="upload">
 		<div class="row">
 			<div class="col-12 col-md-12">
@@ -48,15 +50,17 @@
 		</div>
 		</div>
 		<div class="col-12 col-md-2">
-			<button class="btn btn-light" id="kirim">Kirim</button>
+			<button class="btn btn-light" id="kirim<?php echo $id ?>">Kirim</button>
 		</div>
 		</div>
 		</form>
 	<?php endif ?>
 <?php endif ?>
 <?php if ($status==0): ?>
-	<h4>Status : Anda gagal di seleksi ini</h4>
+	<h4>Status : Tim anda gagal di seleksi ini</h4>
+	
 <?php endif ?>
+
 
 <script type="text/javascript">
 	$('#validatedCustomFile').on('change',function(){
@@ -64,12 +68,12 @@
         $(this).next('.custom-file-label').html(fileName);
     })
 
-    $('#kirim').click(function(event) {
+    $('#kirim<?php echo $id ?>').click(function(event) {
 		event.preventDefault();
 		$('#upload').submit();
 	});
 
-	$('#gantifilekirim').click(function(event) {
+	$('#gantifilekirim<?php echo $id ?>').click(function(event) {
 		event.preventDefault();
 		$('#gantifile').submit();
 	});

@@ -163,10 +163,7 @@ class Peserta extends CI_Controller {
 	public function tahapKompetisi(){
 		$id_team = $this->session->userdata('id_tim');
 		$ro = $this->db->where('id_tim', $id_team)->where('status_tim', 0)->get('tahap_tim')->num_rows();
-		if ($ro!=0) {
-			redirect(base_url('Peserta'));
-		}
-		else{
+		
 			$rule = $this->db->where('id_tim', $id_team)->get('tim')->row()->status_pembayaran;
 		if ($rule!='Active') {
 			redirect(base_url('Peserta'));
@@ -179,9 +176,8 @@ class Peserta extends CI_Controller {
 			$data = [
 				'tahap' => $tahap
 			];
-
+			$this->session->set_userdata('valid', 1);
 			$this->load->view('peserta/page/tahapKompetisi',$data);
-		}
 		}
 		
 	}
@@ -189,6 +185,7 @@ class Peserta extends CI_Controller {
 	public function detilTahap()	
 	{
 		$id_team = $this->session->userdata('id_tim');
+		$tahap['id'] = $id_team;
 		$lel = $this->uri->segment(3);
 		$tahap['status'] = $this->Peserta_Model->getTahapTim($lel,$id_team);
 		$tahap['file'] = $this->Peserta_Model->getTahapTimfile($lel,$id_team);
@@ -200,6 +197,30 @@ class Peserta extends CI_Controller {
 		$tahap['bef'] = $this->input->get('data');
 
 		$this->load->view('peserta/page/subfolder/tahap',$tahap);
+	}
+
+	public function getTahap()
+	{
+		$id = $this->input->post('tahap');
+		$data = $this->db->where('id_tim', $this->session->userdata('id_tim'))->where('id_tahap', $id)->get('tahap_tim');
+		$row = $data->num_rows();
+		if ($row!=0) {
+			$val = $data->row()->status_tim;
+			if ($val==null) {
+				echo 0;
+			}
+			elseif ($val=='0') {
+				echo 0;
+			}
+			elseif ($val==1) {
+				echo 1;
+			}else{
+				echo 1;
+			}
+		}
+		elseif ($row==0) {
+			echo 0;
+		}
 	}
 
 	public function uploadBukti()

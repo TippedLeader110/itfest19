@@ -7,7 +7,9 @@
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<?php $count=1; ?>
+				<?php 
+					$count=1;
+				 ?>		 
 				<?php foreach ($tahap as $key => $valreTahap): ?>
 					<div class="col-12 col-md-12">
 						<div class="card text-white mb-3" style="background-color: #7386D5">
@@ -15,11 +17,47 @@
 				  				<div class="float-left" style="padding-top: 5px;">
 					  				<h5 class="">Seleksi ke #<?php echo $count; ?></h5>
 				  				</div>
-				  				<div class="float-right">
-				  					<button onclick="getSeleksi(<?php echo $valreTahap->id_tahap; echo ","; echo $count; ?>)" class="btn btn-outline-light" id='btn<?php echo $count ?>' data-toggle="collapse" data-target="#collapse<?php echo $count ?>" aria-expanded="true" aria-controls="collapse<?php echo $count ?>">
+				  						<input type="text" name="text" id="temp<?php echo $count ?>" hidden>
+				  				<?php if ($count==1): ?>
+				  						<div class="float-right">
+				  						<button onclick="getSeleksi(<?php echo $valreTahap->id_tahap; echo ","; echo $count; ?>)" class="btn btn-outline-light" id='btn<?php echo $count ?>' data-toggle="collapse" data-target="#collapse<?php echo $count ?>" aria-expanded="true" aria-controls="collapse<?php echo $count ?>">
 				  						Detail Seleksi
-				  					</button>
-				  				</div>
+				  						</button>
+				  						</div>
+				  						<script type="text/javascript">
+					  					$.post('<?php echo base_url('Peserta/getTahap') ?>', {tahap: '<?php echo $valreTahap->id_tahap ?>'}, function(data) {
+					  						// console.log(data);
+					  						$('#temp<?php echo $count ?>').val(data);
+					  						// console.log($('#temp<?php echo $count ?>').val());
+					  					});
+					  					</script>
+				  					<?php endif ?>
+
+				  					<?php if ($count!=1): ?>
+				  						<div class="float-right" id="message<?php echo $count ?>">
+				  						<button onclick="getSeleksi(<?php echo $valreTahap->id_tahap; echo ","; echo $count; ?>)" class="btn btn-outline-light" id='btn<?php echo $count ?>' data-toggle="collapse" data-target="#collapse<?php echo $count ?>" aria-expanded="true" aria-controls="collapse<?php echo $count ?>" style=''>
+				  						Detail Seleksi
+				  						</button>
+				  						</div>
+
+				  						<script type="text/javascript">
+				  						console.log($('#temp1').val());
+				  						$(document).ajaxStop((function() {
+				  							console.log($('#temp<?php echo $count-1 ?>').val());
+				  						
+				  						if ($('#temp<?php echo $count-1 ?>').val()==1) {
+				  							$('#message<?php echo $count ?>').show();
+				  						}
+				  						else{
+				  							$('#message<?php echo $count ?>').hide();	
+				  						}
+				  						}));
+					  					$.post('<?php echo base_url('Peserta/getTahap') ?>', {tahap: '<?php echo $valreTahap->id_tahap ?>'}, function(data) {
+					  						// console.log(data);
+					  						$('#temp<?php echo $count ?>').val(data);
+					  					});
+				  						</script>
+				  					<?php endif ?>
 				  			</div>
 				  			<div class="card-body collapse" id="collapse<?php echo $count ?>">
 				  				<div class="row">
