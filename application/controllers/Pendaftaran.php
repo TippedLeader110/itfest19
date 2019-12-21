@@ -56,7 +56,7 @@ class Pendaftaran extends CI_Controller {
 
 		// Persiapan config untuk upload berkas ketua
 		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-	    $config['allowed_types']        = '*';
+	    $config['allowed_types']        = 'zip|rar';
 	    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
@@ -72,6 +72,9 @@ class Pendaftaran extends CI_Controller {
 	    }
 	    else{
 	    	$status_upload = 0;
+	    	$this->db->where('id_tim', $id_team)->delete('tim');
+	    	echo "0";
+	    	die;
 	    }
 	    echo $this->upload->display_errors();
 
@@ -98,29 +101,39 @@ class Pendaftaran extends CI_Controller {
 
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = '*';
+		    $config['allowed_types']        = 'zip|rar';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
 
 		    //Upload berkas dan menyimpan nama berkas ke variabel link_file untuk dimasukkan ke database
-		    $this->load->library('upload',$config);
-		    if ($this->upload->do_upload('file_anggota1')) {
-		        $data = array('upload_data'=>$this->upload->data());
+		    $this->load->library('upload',$config,'agsolo');
+		    if ($this->agsolo->do_upload('file_anggota1')) {
+		        $data = array('upload_data'=>$this->agsolo->data());
 	        	$link_file1= $data['upload_data']['file_name']; 
+				$data_anggota1 = array(
+							'nama_peserta'=>$this->input->post('nama_anggota1'),
+							'email'=>$this->input->post('email_anggota1'),
+							'no_hp'=>$this->input->post('no_hp_anggota1'),
+							'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
+							'id_tim' =>$id_team,
+							'url_berkas'=>$link_file1
+				);
+				//Nyimpan data anggota 1
+				$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 		    }
+		    else{
+				// echo "angt = ";
+				// echo $jumlah_anggota;
+		    	$status_upload = 0;
+		    	$this->db->where('id_tim', $id_team)->delete('tim');
+		    	$this->db->where('id_peserta', $id_ketua)->delete('peserta');
+		    	echo "0";
+	    		die;
+	    	}
+	    	// echo $this->agsolo->display_errors();
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
-			$data_anggota1 = array(
-						'nama_peserta'=>$this->input->post('nama_anggota1'),
-						'email'=>$this->input->post('email_anggota1'),
-						'no_hp'=>$this->input->post('no_hp_anggota1'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
-						'id_tim' =>$id_team,
-						'url_berkas'=>$link_file1
-			);
-			//Nyimpan data anggota 1
-			$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 		}
 		elseif($jumlah_anggota == 2){
 
@@ -128,7 +141,7 @@ class Pendaftaran extends CI_Controller {
 		    $this->load->library('upload',$config,'ag2');
 
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = '*';
+		    $config['allowed_types']        = 'zip|rar';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -137,24 +150,31 @@ class Pendaftaran extends CI_Controller {
 		    if ($this->ag1->do_upload('file_anggota1')) {
 		        $data = array('upload_data'=>$this->ag1->data());
 	        	$link_file1= $data['upload_data']['file_name']; 
+				$data_anggota1 = array(
+							'nama_peserta'=>$this->input->post('nama_anggota1'),
+							'email'=>$this->input->post('email_anggota1'),
+							'no_hp'=>$this->input->post('no_hp_anggota1'),
+							'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
+							'id_tim' =>$id_team,
+							'url_berkas'=>$link_file1
+				);
+				$id_ag1 = $this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 		    }
+		    else{
+		    	$status_upload = 0;
+		    	$this->db->where('id_tim', $id_team)->delete('tim');
+		    	$this->db->where('id_peserta', $id_ketua)->delete('peserta');
+		    	echo "0";
+		    	die;
+	    	}
 		    // echo $this->ag1->display_errors();
 		    // die;
 
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
-			$data_anggota1 = array(
-						'nama_peserta'=>$this->input->post('nama_anggota1'),
-						'email'=>$this->input->post('email_anggota1'),
-						'no_hp'=>$this->input->post('no_hp_anggota1'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin1'),
-						'id_tim' =>$id_team,
-						'url_berkas'=>$link_file1
-			);
 			//Nyimpan data anggota 1
-			$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = '*';
+		    $config['allowed_types']        = 'zip|rar';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -164,26 +184,33 @@ class Pendaftaran extends CI_Controller {
 		    if ($this->ag2->do_upload('file_anggota2')) {
 		        $data = array('upload_data'=>$this->ag2->data());
 	        	$link_file2= $data['upload_data']['file_name']; 
+
+			    // Upload data anggota 2
+				$data_anggota2 = array(
+							'nama_peserta'=>$this->input->post('nama_anggota2'),
+							'email'=>$this->input->post('email_anggota2'),
+							'no_hp'=>$this->input->post('no_hp_anggota2'),
+							'jenis_kelamin'=>$this->input->post('jenis_kelamin2'),
+							'id_tim' =>$id_team,
+							'url_berkas' => $link_file2
+				);
+				// Nyimpan data anggota 2
+				$this->Pendaftaran_Model->tambah_peserta($data_anggota2);
 		    }
-
-		    // Upload data anggota 2
-			$data_anggota2 = array(
-						'nama_peserta'=>$this->input->post('nama_anggota2'),
-						'email'=>$this->input->post('email_anggota2'),
-						'no_hp'=>$this->input->post('no_hp_anggota2'),
-						'jenis_kelamin'=>$this->input->post('jenis_kelamin2'),
-						'id_tim' =>$id_team,
-						'url_berkas' => $link_file2
-			);
-			// Nyimpan data anggota 2
-			$this->Pendaftaran_Model->tambah_peserta($data_anggota2);
+		    else{
+		    	$status_upload = 0;
+		    	$this->db->where('id_tim', $id_team)->delete('tim');
+		    	$this->db->where('id_peserta', $id_ketua)->delete('peserta');
+		    	$this->db->where('id_peserta', $id_ag1)->delete('peserta');
+		    	echo "0";
+		    	die;
+	    	}
+			echo 1;
 		}
 
-		echo 1;
+	}
 
-		}
-
-		public function cek_nama_tim(){
+	public function cek_nama_tim(){
 			$nama_tim = $this->input->post('nama_tim');
 			$num_rows =  $this->Pendaftaran_Model->cek_nama_tim($nama_tim);
 			echo $num_rows;

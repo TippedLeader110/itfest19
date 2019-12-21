@@ -451,7 +451,12 @@
 		            async:false,
 		            error: function(data){
 
-		            	Swal.fire('Kesalahan!!', 'Terjadi Kesalahan dengan server !!', 'error')
+		            	if(data==0){
+		            		Swal.fire('Kesalahan!!', 'Perikas form anda kembali !!', 'error');
+		            	}	
+		            	else{
+		            		Swal.fire('Kesalahan!!', 'Terjadi Kesalahan dengan server !!', 'error');
+		            	}
 		            },
 		            success: function(data){
 		            	console.log(data);
@@ -461,6 +466,9 @@
 	       				window.location.href = "<?php echo base_url('Peserta/') ?>"; 
 	    				}, 1500);
 		            	}
+		            	else if(data==0){
+		            		Swal.fire('Kesalahan!!', 'Perikas form dan file anda kembali  !!', 'error');
+		            	}	
 		            	else
 		            		Swal.fire('Kesalahan!!', 'Username telah digunakan !!', 'error')
 		            }
