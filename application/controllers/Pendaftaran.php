@@ -132,7 +132,7 @@ class Pendaftaran extends CI_Controller {
 	    		die;
 	    	}
 	    	// echo $this->agsolo->display_errors();
-
+	    	echo 1;
 			//Nyusun data untuk disimpan ke tabel peserta sebagai anggota 1
 		}
 		elseif($jumlah_anggota == 2){
