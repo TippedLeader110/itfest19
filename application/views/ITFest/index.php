@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#514a9d"/>
 	<title>ITFest 2020 Universitas Sumatera Utara</title>
 	<link rel="icon" href="<?=base_url()?>assets/images/favvicon.png" type="image/png" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
