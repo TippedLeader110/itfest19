@@ -64,7 +64,7 @@
 										</div>
 									<?php $count++; ?>
 								<?php endforeach ?>
-							</div>
+								</div>
 							</div>
 						</div>
 					</div>

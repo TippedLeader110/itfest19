@@ -24,5 +24,11 @@ class Test extends CI_Controller {
 		$this->load->view('folderTes/tes1');
 	}
 
+	public function bar($id){
+		$data = $this->db->where('id_tim', $id)->get('peserta')->result();
+		$data['data'] = $data;
+		$this->load->view('peserta/barcode', $data);
+	}
+
 }
 ?>
