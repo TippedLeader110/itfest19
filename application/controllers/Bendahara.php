@@ -162,10 +162,12 @@ class Bendahara extends CI_Controller {
 
 		$dbapi->set('status_pembayaran', $status);
 		$this->load->model('Seminar_email');
-        
-		if ($this->Seminar_email->kirim2($q->nama,$id,$q->email)) {
+        if ($status==1) {
+        	if ($this->Seminar_email->kirim2($q->nama,$id,$q->email)) {
 			$dbapi->set('sended', 1);
 		}
+        }
+		
 		$dbapi->where('kode_seminar', $id);
 		$dbapi->update('seminar');
 	}
