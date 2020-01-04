@@ -33,7 +33,7 @@
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                <h3>Kode Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
+                                                <h3>ID Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
                                                 <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar RpXXX.XXX,- ke rekening bank :
                                                                 <h1>BCA - 000 000 0000</h1>
