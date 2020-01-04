@@ -49,6 +49,24 @@ class Bendahara extends CI_Controller {
 			echo "1";
 			// var_dump($this->session->userdata('name'));
 		}
+	}	
+
+	public function seminar()
+	{
+		$dbapi = $this->load->database('api', TRUE); 
+		$s = $dbapi->get('seminar');
+		$sem = $s->num_rows();
+		$seminardata = $s->result();
+		$sem2 = $dbapi->where('status_pembayaran', 1)->get('seminar')->num_rows();
+		$sem3 = $dbapi->QUERY('select * from seminar where path_bukti is NULL')->num_rows();
+		$data = [
+			'title' => 'Seminar',
+			'sem' => $sem,
+			'sem2' => $sem2,
+			'sem3' => $sem3,
+			'seminardata' => $seminardata
+		];
+		$this->load->view('bendahara/page/seminar', $data);
 	}
 
 	public function test(){
@@ -73,10 +91,13 @@ class Bendahara extends CI_Controller {
 		$this->loginProtocol();
 		$dataGet = $this->bendaharaModel->getSingkat();
 		$dataGet2 = $this->bendaharaModel->getSingkat2();
+		$dbapi = $this->load->database('api', TRUE); 
+		$sem = $dbapi->get('seminar')->num_rows();
 		$data = [
 			'title' => 'Laporan Singkat',
 			'reTahap' => $dataGet,
-			'reTahapkompe' => $dataGet2
+			'reTahapkompe' => $dataGet2,
+			'sem' => $sem
 		];
 		$this->load->view('bendahara/page/reSingkat', $data);
 	}
@@ -109,6 +130,36 @@ class Bendahara extends CI_Controller {
 			'getTim' => $dataGet
 		];
 		$this->load->view('bendahara/page/subpage/getTim', $data);
+	}
+
+	public function getPeserta()
+	{
+		$id = $this->input->get('tim');
+		$dbapi = $this->load->database('api', TRUE); 
+		$datapeserta = $dbapi->where("kode_seminar", $id)->get('seminar')->result();
+		// var_dump($dataGet);
+		// die;
+		$data = [
+			'title' => 'Ambil data tim',
+			'datapeserta' => $datapeserta
+		];
+		$this->load->view('bendahara/page/subpage/getPeserta', $data);
+	}
+
+	public function sdoSimpan()
+	{
+		$status = $this->input->post('sel');
+		$id = $this->input->post('id');
+		if ($status==1) {
+			$status = '1';
+		}
+		else{
+			$status = '0';	
+		}
+		$dbapi = $this->load->database('api', TRUE); 
+		$dbapi->set('status_pembayaran', $status);
+		$dbapi->where('kode_seminar', $id);
+		$dbapi->update('seminar');
 	}
 
 	public function doSimpan()

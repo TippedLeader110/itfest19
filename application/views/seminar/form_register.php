@@ -55,11 +55,11 @@
                                                                 </div>
                                                         <br>
                                                         <div class="form-group">
-                                                                <input type="submit" name="submit" value="Selanjutnya" class="btn btn-info btn-block">
+                                                                <input type="submit" id="next" name="submit" value="Selanjutnya" class="btn btn-info btn-block">
                                                                 <a href="<?= base_url(); ?>" class="btn btn-default btn-block">Batal</a>
                                                         </div>
                                                         
-                                                </form>
+                                                
                                         </div>
 
                                         <div class="col-lg-6 col-xs-12 px-5 float-left" id="right2" style="display: none;">
@@ -103,11 +103,11 @@
 
                                                 </table>
                                                 <div class="form-group">
-                                                        <input type="submit" name="submit" value="Daftar" class="btn btn-info btn-block">
+                                                        <input type="submit" name="submit" id="daft" value="Daftar" class="btn btn-info btn-block">
                                                         <a class="btn btn-default btn-block" id="batal">Batal</a>
                                                 </div>
                                         </div>
-
+                                                </form>
                                         <p class="p-judul-kompetisi">
                                                 
                                         </p>
@@ -127,7 +127,7 @@
                         });
                 });
         });
-        $('#subdaf').submit(function(event) {
+        $('#next').click(function(event) {
                 if (sub==0) {
                         event.preventDefault();
                         sub++;
@@ -144,8 +144,13 @@
                         });
                 }
                 else{
-
+                        console.log('do');
+                        $('#subdaf').unbind('submit').submit();
                 }
         });
+        // $('#daft').click(function(event) {
+        //         console.log(1);
+        //         CARI REENEABLE PREVENT DEFAULT
+        // });
 </script>
 <?php $this->load->view('seminar/seminar_footer'); ?>

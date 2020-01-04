@@ -36,7 +36,9 @@ class Seminar extends CI_Controller {
                                 
                 if($this->input->post('submit'))
                 {
-                        $kode_seminar = "ITF-".$huruf_random."-".$tanggal_waktu;
+                        $kode_seminar = "ITF-".$huruf_random."".$tanggal_waktu;
+                        $a = $kode_seminar;
+                        $p = password_hash($a, PASSWORD_DEFAULT);
                         $data = array(
                                 'kode_seminar' => $kode_seminar,
                                 'nama' => $this->input->post('nama'),
@@ -45,6 +47,7 @@ class Seminar extends CI_Controller {
                                 'identitas' => $this->input->post('identitas'),
                                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                                 'path_bukti' => NULL,
+                                'random' => $p,
                                 'status_pembayaran' => '0'
                         );
                         //Buat nomor identitas ke session
@@ -53,7 +56,8 @@ class Seminar extends CI_Controller {
                         if($this->Seminar_model->register_data($data))
                         {
                                 $this->session->set_flashdata('regis_berhasil','Registrasi Berhasil');
-                                redirect('Seminar/bayar');
+                                // $kode_seminar_en = ;
+                                redirect('Seminar/bayar?id='.urlencode($kode_seminar));
                         }
                 }
                 else
@@ -70,31 +74,52 @@ class Seminar extends CI_Controller {
         
         //Page 'Bayar Sekarang' atau 'Bayar Nanti'
         public function bayar()
-        {
-                $this->load->view('seminar/page_bayar');
+        {       
+                $id = $this->input->get('id');
+                $data = array( 'judul_seminar' => $this->judul_seminar,
+                                'nama_pembicara' => $this->nama_pembicara,
+                                'tulisan_seminar' => $this->tulisan_seminar,
+                                'id' => $id);
+                $this->load->view('seminar/page_bayar', $data);
         }
         
        //Page 'Masukkan Nomor Identitas'
         public function registered()
         {        
+            $da = $this->input->get('id');
+            if (isset($da)) {
+                $id = $this->input->get('id');
+                $data = [
+                        'judul_seminar' => $this->judul_seminar,
+                        'nama_pembicara' => $this->nama_pembicara,
+                        'tulisan_seminar' => $this->tulisan_seminar,
+                        'id' => $id
+                ];
+            }
+            else{
                 $data = [
                         'judul_seminar' => $this->judul_seminar,
                         'nama_pembicara' => $this->nama_pembicara,
                         'tulisan_seminar' => $this->tulisan_seminar
                 ];
+            }
+
                 $this->load->view('seminar/form_registered', $data);             
         }
         
         //Page upload bukti pembayaran
         public function upload_bukti()
         {
-                $data['identitas'] = $this->input->post('identitas');
-                $kode_seminar = $this->Seminar_model->getKode($data['identitas']);
-                        
-                $config['upload_path']       = './assets/seminar_assets/foto_bukti/';
-                $config['allowed_types']    = 'jpg';
-                $config['file_name']            = $kode_seminar;
-                $config['overwrite']		= true;
+                $kode_seminar = $this->input->post('identitas');
+                // $kode_seminar = $this->Seminar_model->getKode($data['identitas'];
+                $dbapi = $this->load->database('api', TRUE); 
+                $ver = $dbapi->where('kode_seminar', 'ITF-'.$kode_seminar)->get('seminar')->num_rows();
+                if ($ver!=0) {
+
+                $config['upload_path']       = './public/seminar/pembayaran/';
+                $config['allowed_types']    = 'jpg|png|bmp';
+                $config['file_name']            = 'ITF-'.$kode_seminar;
+                $config['overwrite']        = true;
                 $config['max_size']             = 1024; // 1MB
                 
                 $this->load->library('upload', $config);
@@ -103,19 +128,21 @@ class Seminar extends CI_Controller {
                 {
                         $this->session->set_flashdata('error_upload', $this->upload->display_errors());
                         redirect('Seminar/registered');
-		}
+                }
                 else
                 {
-                        $data = array(
-                                "path_bukti" => base_url()."assets/seminar_assets/foto_bukti/".$kode_seminar.".jpg"
-                        );
-
-                        $this->Seminar_model->registered_update($kode_seminar, $data);
-                        $this->session->set_flashdata('upload_berhasil','Upload Berhasil');
+                        $file = $this->upload->data('file_name');  
+                        $this->Seminar_model->registered_update($kode_seminar,$file);
+                        $this->session->set_flashdata('upload_berhasil','Upload Berhasil - Berkas akan diverifikasi');
                         $this->session->unset_userdata(['identitas' => $this->input->post('identitas') ]);
                         redirect('Seminar/register');
                         //echo "Bayar Berhasil";
-		}
+                }
+                }
+                else{
+                    $this->session->set_flashdata('error_upload', 'Kode Seminar tidak valid');
+                        redirect('Seminar/registered');
+                }
         }
         
         

@@ -63,6 +63,9 @@
                 	<li>
                 		<a href="#" id="buycheck">Seleksi Pembayaran</a>
                 	</li>
+                    <li>
+                        <a href="#" id="seminar">Seminar</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -112,6 +115,16 @@
         $('#loading').show();
         $('#contentPage').addClass('lodtime');
         $('#contentPage').load('<?php echo base_url('bendahara/cekBayar') ?>', function(){
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
+    });
+
+    $('#seminar').click(function(event) {
+        event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+        $('#contentPage').load('<?php echo base_url('bendahara/seminar') ?>', function(){
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });

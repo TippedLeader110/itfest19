@@ -34,14 +34,16 @@
                                                 <?php endif; ?>
                                                 
                                                 <?php echo form_open_multipart('Seminar/upload_bukti'); ?>
-                                                        <label for="identitas" class="fsmall">Nomor Identitas (No.KTP / No.Paspor / NIM) </label>
-                                                                <div class="form-group">
-                                                                <input type="text" name="identitas" id="identitas" placeholder="Nomor Identitas" class="form-control form-block rounded-0" required
-                                                                        <?php
-                                                                                if($this->session->userdata('identitas'))
-                                                                                        echo 'value = "'.$this->session->userdata('identitas').'" readonly';
-                                                                        ?>
-                                                                >
+                                                        <label for="identitas" class="fsmall">Nomor Pembayaran</label>
+                                                                <div class="input-group mb-3">
+                                                                        <div class="input-group-prepend">
+                                                                                <span class="input-group-text" id="basic-addon1">ITF</span>
+                                                                        </div>
+                                                                        &nbsp;-&nbsp;
+                                                                                <input type="text" name="identitas" id="identitas" placeholder="" class="form-control form-block rounded-0" required 
+                                                                                <?php if (isset($id)): ?>
+                                                                                        readonly value="<?php echo substr($id, 4) ?>"
+                                                                                <?php endif ?>>
                                                                 </div>
                                                         <br>
                                                         

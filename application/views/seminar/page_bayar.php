@@ -10,11 +10,11 @@
                                         </center>
                                         
                                         <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left">
-                                                <h1>Judul Seminar</h1>
-                                                <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary">Nama Pembicara</p>
+                                                <h1><?php echo $judul_seminar; ?></h1>
+                                                <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
                                                 <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
-                                                        Sepatah dua patah seminar. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, accusamus, sed, necessitatibus ea nemo hic molestias amet tempora fuga pariatur officia itaque eum quis rerum aliquam minus illo nulla laborum!
+                                                        <?php echo $tulisan_seminar; ?>
                                                 </p>
 
                                         </div>
@@ -26,13 +26,14 @@
                                                 <?php if($this->session->flashdata()):?>
                                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                                 <?php echo $this->session->flashdata('regis_berhasil'); ?>
-                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                                                                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
-                                                                </button>
+                                                                </button> -->
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                
+                                                <h3>Kode Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
                                                 <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar RpXXX.XXX,- ke rekening bank :
                                                                 <h1>BCA - 000 000 0000</h1>
@@ -40,7 +41,7 @@
                                                 </p>
                                                 <br>
                                                 
-                                                <a href="<?= base_url();?>Seminar/registered" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a>
+                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a>
                                                 <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Bayar Nanti</a>
                                                 <br>
 

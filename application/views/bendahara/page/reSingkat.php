@@ -38,11 +38,11 @@
 	</div>
 	<div class="col-12 col-md-4">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-	  	<div class="card-header text-capitalize text-center">Jumlah Berkas belum di cek</div>
+	  	<div class="card-header text-capitalize text-center">Jumlah Peserta Seminar</div>
 	  		<div class="card-body">
 	  			<div>
 	    			<h1 class="card-title text-center">
-						<?php echo $Ddash->jumlah_blmver ?>
+						<?php echo $sem ?>
 	    			</h1>
 	    		</div>
 	  		</div>

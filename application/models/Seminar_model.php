@@ -27,11 +27,13 @@ class Seminar_model extends CI_Model
                         return false;
         }
         
-        public function registered_update($kode_seminar, $data)
+        public function registered_update($kode_seminar,$file)
         {       
+                $kode = "ITF-".$kode_seminar;
                 $dbapi = $this->load->database('api', TRUE); 
-                $dbapi->where('kode_seminar', $kode_seminar);
-                $dbapi->update('seminar', $data);
+                $dbapi->where('kode_seminar', $kode);
+                $dbapi->set('path_bukti', $file);
+                $dbapi->update('seminar');
         }
 }
 
