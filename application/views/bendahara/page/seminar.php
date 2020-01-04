@@ -67,6 +67,7 @@
                         <th>No Telp.</th>
                         <th>Email</th>
                         <th>IDENTITAS</th>
+                        <th>SENDED</th>
                         <th>Status Pembayaran</th>
                         <th></th>
 						</thead>
@@ -83,6 +84,14 @@
 									<td><?php echo $value->email; ?></td>
 									<td>
 										<?php echo $value->identitas ?>
+									</td>
+									<td>
+										<?php if ($value->sended==1): ?>
+											Email Terkirim
+										<?php endif ?>
+										<?php if ($value->sended==0): ?>
+											Belum Terkirim
+										<?php endif ?>
 									</td>
 										<?php if ($value->status_pembayaran=='1'): ?>
 											<td>Sudah Terverifikasi</td>
