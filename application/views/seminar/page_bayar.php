@@ -35,9 +35,9 @@
                                                 <?php endif; ?>
                                                 <h3>ID Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
                                                 <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
-                                                        Pembayaran dilakukan dengan mentransfer dana sebesar RpXXX.XXX,- ke rekening bank :
-                                                                <h1>BCA - 000 000 0000</h1>
-                                                         a.n. Siapapun Itu
+                                                        Pembayaran dilakukan dengan mentransfer dana sebesar Rp60.000,00- ke rekening bank :
+                                                                <h1>BNI 0227457404 </h1>
+                                                         a.n. Talitha Azura Putri Aulia
                                                 </p>
                                                 <br>
                                                 

@@ -57,7 +57,7 @@ class Seminar extends CI_Controller {
                         if($this->Seminar_model->register_data($data))
                         {
                                 $this->load->model('Seminar_email');
-                                $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'));
+                                $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'),$kode_seminar);
                                 $this->session->set_flashdata('regis_berhasil','Registrasi Berhasil');
                                 // $kode_seminar_en = ;
                                 redirect('Seminar/bayar?id='.urlencode($kode_seminar));
