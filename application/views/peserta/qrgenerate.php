@@ -16,8 +16,8 @@
 		<script type="text/javascript">
 			$('#qr').qrcode({
 				render: "canvas",
-				width: 500,
-				height: 500,
+				width: 290,
+				height: 290,
 				text: "<?php echo $data ?>"
 			});
 		</script>
