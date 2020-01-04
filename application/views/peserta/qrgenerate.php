@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>GENERATE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-barcode.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/js/jqueryqr.js') ?>"></script>
@@ -9,7 +10,8 @@
 </head>
 <body>
 	<div style="width: 500px;">
-		<div class="row">
+		<div class="container">
+			<div class="row">
 			<div class="col-md-8 offset-md-1 col-12">
 				Jika QR tidak muncul tolong matikan fitur LITE dari Google Chrome <br>
 				<button onClick="window.print()" class="btn btn-primary">Page to PDF</button>
@@ -17,6 +19,7 @@
 					
 				</div>
 			</div>
+		</div>
 		</div>
 		<script type="text/javascript">
 			$('#qr').qrcode({
