@@ -37,8 +37,6 @@
                                                                 <h1>BNI 0227457404 </h1>
                                                          a.n. Talitha Azura Putri Aulia
                                                                 </p>
-                                                                <br>
-                                                
                                                 <?php echo form_open_multipart('Seminar/upload_bukti'); ?>
                                                         <label for="identitas" class="fsmall">ID Pembayaran</label>
                                                                 <div class="input-group mb-3">
