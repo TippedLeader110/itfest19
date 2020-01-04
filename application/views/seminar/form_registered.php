@@ -46,7 +46,12 @@
                                                                                 <?php endif ?>>
                                                                 </div>
                                                         <br>
-                                                        
+                                                        <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
+                                                        Pembayaran dilakukan dengan mentransfer dana sebesar Rp60.000,00- ke rekening bank :
+                                                                <h1>BNI 0227457404 </h1>
+                                                         a.n. Talitha Azura Putri Aulia
+                                                                </p>
+                                                                <br>
                                                         <label class="fsmall">Foto/Screenshot Bukti Pembayaran </label>
                                                                         <div class="input-group">
                                                                                 <div class="input-group-prepend">
