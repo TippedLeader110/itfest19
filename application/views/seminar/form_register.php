@@ -55,7 +55,7 @@
                                                                 </div>
                                                         <br>
                                                         <div class="form-group">
-                                                                <input type="submit" id="next" name="submit" value="Selanjutnya" class="btn btn-info btn-block">
+                                                                <input type="submit" id="next" name="submit" value="Selanjutnya" class="btn btn-info btn-block" disabled>
                                                                 <a href="<?= base_url(); ?>" class="btn btn-default btn-block">Batal</a>
                                                         </div>
                                                         
@@ -118,6 +118,19 @@
 	</section>
 <script type="text/javascript">
         var sub = 0;
+        var valid = false;
+        $('input[type="text"], input[type="date"]').keyup(function() {
+                $('input[type="text"], input[type="date"]').each(function() {
+                        if ($(this).val().length > 0) {
+                                valid = false;
+                        }
+                        else{
+                                valid = true;
+                        }
+                });
+                $('#next').prop('disabled', valid);
+        });
+
         $('#batal').click(function(event) {
                 event.preventDefault();
                 sub=0;
@@ -154,3 +167,5 @@
         // });
 </script>
 <?php $this->load->view('seminar/seminar_footer'); ?>
+
+<a href=""></a>
