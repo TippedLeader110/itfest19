@@ -119,15 +119,17 @@
 <script type="text/javascript">
         var sub = 0;
         var valid = false;
-        $('input[type="text"], input[type="date"]').on('click keyup change input', function(event) {
+        $('input').on('change input keyup', function(event) {
                 
-                $('input[type="text"], input[type="date"]').each(function() {
+                $('input').each(function() {
                         if ($(this).val().length > 0) {
                                 valid = false;
                         }
                         else{
                                 valid = true;
+                                return false;
                         }
+                        console.log(valid);
                 });
                 $('#next').prop('disabled', valid);
         
