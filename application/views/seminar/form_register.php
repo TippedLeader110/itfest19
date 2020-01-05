@@ -119,7 +119,8 @@
 <script type="text/javascript">
         var sub = 0;
         var valid = false;
-        $('input[type="text"], input[type="date"]').keyup(function() {
+        $('input[type="text"], input[type="date"]').on('click keyup change input', function(event) {
+                
                 $('input[type="text"], input[type="date"]').each(function() {
                         if ($(this).val().length > 0) {
                                 valid = false;
@@ -129,6 +130,8 @@
                         }
                 });
                 $('#next').prop('disabled', valid);
+        
+                /* Act on the event */
         });
 
         $('#batal').click(function(event) {
