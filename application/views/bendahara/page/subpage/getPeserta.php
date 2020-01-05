@@ -1,6 +1,43 @@
 <?php foreach ($datapeserta as $key => $v): ?>
 	
 <?php endforeach ?>
+<?php 
+$nama = $v->nama;
+$bayar = $v->kode_seminar;
+
+$em = urlencode('
+<!-- <img src="http://itfestusu.id/assets/images/video-teaser.jpg" class="back"> -->
+<div class="container" style="font-family:Arial, Helvetica, sans-serif; font-size:18px;">
+      <div class="row">
+        <div class="col align-self-center con border" style="margin-top: 25px;
+        margin-bottom: 25px;
+        padding: 20px 20px 20px 20px;
+        background-image:url(http://itfestusu.id/assets/images/video-teaser.jpg);">
+
+        <img src="http://itfestusu.id/assets/images/logo.png" width="150px">
+          <p>Kepada, <span class="user" style="font-weight: 500;">'.$nama.'</span>!</p>
+          <p>
+            Terima kasih telah mendaftar di Seminar ITFEST Universitas Utara 2020 <br>
+
+          </p>
+          <p>
+          Pembayaran dilakukan dengan mentransfer dana sebesar Rp60.000,00- ke rekening bank :
+                                                                <b>BNI 0227457404 </b>
+                                                         <br>a.n. Talitha Azura Putri Aulia<br>
+                                                         lalu dengan mengupload bukti pembayaran ke halaman pembayaran <a href="http://itfestusu.id/Seminar/registered?id='.$bayar.'">link</a>
+                                                         dengan ID Pembayaran = '.$bayar.'
+          </p>
+
+          <p>Jika ada keluhan anda dapat menghubungi cs : itfestusu@gmail.com</p>
+          <br>
+          <p>
+            Terima Kasih.
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>')
+ ?>
 <div id='loadingmessage' style='display:none;margin-top: 50px;'>
     <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
 </div>
@@ -55,7 +92,7 @@
 						<button id="cancelKonfirm" class="btn btn-primary">Batal Kirim</button>
 				<?php endif ?>
 				<?php if ($v->sended!='1' && $v->sended!='3'): ?>
-						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a> <button id="konfirm" class="btn btn-primary">Confirmasi</button>
+						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>?subject=Seminar%20ITFEST%20USU%202020&body=<?php echo $em ?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a> <button id="konfirm" class="btn btn-primary">Confirmasi</button>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -85,23 +122,23 @@
 
 	$('#konfirm').click(function(event) {
 		var id = $('#id').val();
-		$.post('<?php echo base_url('bendahara/EmailConfirm') ?>', {id: id}, function(data, textStatus, xhr) {
+		$.post('<?php echo base_url('bendahara/EmailConfirm/3') ?>', {id: id}, function(data, textStatus, xhr) {
 			Swal.fire('Berhasil', 'Perubahan tersimpan', 'success');
 				$('#modalTim').modal('hide'); 
 				$('.modal-backdrop').remove();
 				$('#simpan').prop("disabled",false);
-				$('#contentPage').load('<?php echo base_url('bendahara/seminar/3') ?>');
+				$('#contentPage').load('<?php echo base_url('bendahara/seminar') ?>');
 		});
 	});
 
 	$('#cancelKonfirm').click(function(event) {
 		var id = $('#id').val();
-		$.post('<?php echo base_url('bendahara/EmailConfirm') ?>', {id: id}, function(data, textStatus, xhr) {
+		$.post('<?php echo base_url('bendahara/EmailConfirm/0') ?>', {id: id}, function(data, textStatus, xhr) {
 			Swal.fire('Berhasil', 'Perubahan tersimpan', 'success');
 				$('#modalTim').modal('hide'); 
 				$('.modal-backdrop').remove();
 				$('#simpan').prop("disabled",false);
-				$('#contentPage').load('<?php echo base_url('bendahara/seminar/0') ?>');
+				$('#contentPage').load('<?php echo base_url('bendahara/seminar') ?>');
 		});
 	});
 
