@@ -87,10 +87,13 @@
 									</td>
 									<td>
 										<?php if ($value->sended==1): ?>
-											Email Terkirim
+											Terkirim Otomatis
 										<?php endif ?>
 										<?php if ($value->sended==0): ?>
 											Belum Terkirim
+										<?php endif ?>
+										<?php if ($value->sended==3): ?>
+											Terkirim Manual
 										<?php endif ?>
 									</td>
 										<?php if ($value->status_pembayaran=='1'): ?>

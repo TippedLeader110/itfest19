@@ -53,6 +53,7 @@ class Bendahara extends CI_Controller {
 
 	public function seminar()
 	{
+		$this->loginProtocol();
 		$dbapi = $this->load->database('api', TRUE); 
 		$s = $dbapi->get('seminar');
 		$sem = $s->num_rows();
@@ -70,10 +71,22 @@ class Bendahara extends CI_Controller {
 	}
 
 	public function test(){
+		$this->loginProtocol();
 		$a = 'itfestusu2020';
 		$p = password_hash("adminitfestusu2020admin", PASSWORD_DEFAULT);
 		$data = ['username'=>$a, 'password' => $p];
 		$this->db->insert('user', $data);
+	}
+
+	public function EmailConfirm()
+	{
+		$nilai = $this->uri->segment(3);
+		$this->loginProtocol();
+		$id = $this->input->post('id');
+		$dbapi = $this->load->database('api', TRUE); 
+		$dbapi->set('sended', $nilai);
+		$dbapi->where('kode_seminar', $id);
+		$dbapi->update('seminar');
 	}
 
 	public function loginProtocol()
@@ -121,6 +134,7 @@ class Bendahara extends CI_Controller {
 
 	public function getTim()
 	{
+		$this->loginProtocol();
 		$id = $this->input->get('tim');
 		$dataGet = $this->bendaharaModel->getTim($id);
 		// var_dump($dataGet);
@@ -134,6 +148,7 @@ class Bendahara extends CI_Controller {
 
 	public function getPeserta()
 	{
+		$this->loginProtocol();
 		$id = $this->input->get('tim');
 		$dbapi = $this->load->database('api', TRUE); 
 		$datapeserta = $dbapi->where("kode_seminar", $id)->get('seminar')->result();
@@ -148,6 +163,7 @@ class Bendahara extends CI_Controller {
 
 	public function sdoSimpan()
 	{
+		$this->loginProtocol();
 		$status = $this->input->post('sel');
 		$id = $this->input->post('id');
 		if ($status==1) {
@@ -174,6 +190,7 @@ class Bendahara extends CI_Controller {
 
 	public function doSimpan()
 	{
+		$this->loginProtocol();
 		$status = $this->input->post('sel');
 		$id = $this->input->post('id');
 		if ($status==1) {

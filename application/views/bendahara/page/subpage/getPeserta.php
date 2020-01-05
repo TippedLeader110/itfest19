@@ -27,19 +27,6 @@
 		<tr>
 			<td>Bukti Pembayaran</td><td> : <a target="_blank" href="<?php echo base_url("public/seminar/pembayaran/"); echo $v->path_bukti ?>" style="text-decoration: underline;">Download</a></td>
 		</tr>
-		<?php if ($v->status_pembayaran=='1'): ?>
-		<tr>
-			<td>Status Email</td>
-			<td>
-				<?php if ($v->sended=='1'): ?>
-						: Sudah Terikirim Otomatis
-				<?php endif ?>
-				<?php if ($v->sended!='1'): ?>
-						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a>
-				<?php endif ?>
-			</td>
-		</tr>
-		<?php endif ?>
 		<tr>
 			<td>Status Pembayaran</td>
 			<td>
@@ -56,6 +43,23 @@
 				</select>
 			</td>
 		</tr>
+		<?php if ($v->status_pembayaran=='1'): ?>
+		<tr>
+			<td>Status Email</td>
+			<td>
+				<?php if ($v->sended=='1'): ?>
+						: Sudah Terikirim Otomatis
+				<?php endif ?>
+				<?php if ($v->sended=='3'): ?>
+						: Sudah Terikirim Manual
+						<button id="cancelKonfirm" class="btn btn-primary">Batal Kirim</button>
+				<?php endif ?>
+				<?php if ($v->sended!='1' && $v->sended!='3'): ?>
+						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a> <button id="konfirm" class="btn btn-primary">Confirmasi</button>
+				<?php endif ?>
+			</td>
+		</tr>
+		<?php endif ?>
 	</table>
 </div>
 </div>
@@ -77,6 +81,28 @@
 
 	$('#select').change(function(event) {
 		$('#simpan').prop("disabled",false);
+	});
+
+	$('#konfirm').click(function(event) {
+		var id = $('#id').val();
+		$.post('<?php echo base_url('bendahara/EmailConfirm') ?>', {id: id}, function(data, textStatus, xhr) {
+			Swal.fire('Berhasil', 'Perubahan tersimpan', 'success');
+				$('#modalTim').modal('hide'); 
+				$('.modal-backdrop').remove();
+				$('#simpan').prop("disabled",false);
+				$('#contentPage').load('<?php echo base_url('bendahara/seminar/3') ?>');
+		});
+	});
+
+	$('#cancelKonfirm').click(function(event) {
+		var id = $('#id').val();
+		$.post('<?php echo base_url('bendahara/EmailConfirm') ?>', {id: id}, function(data, textStatus, xhr) {
+			Swal.fire('Berhasil', 'Perubahan tersimpan', 'success');
+				$('#modalTim').modal('hide'); 
+				$('.modal-backdrop').remove();
+				$('#simpan').prop("disabled",false);
+				$('#contentPage').load('<?php echo base_url('bendahara/seminar/0') ?>');
+		});
 	});
 
 	$('#dataTim').submit(function(event) {
