@@ -27,6 +27,19 @@
 		<tr>
 			<td>Bukti Pembayaran</td><td> : <a target="_blank" href="<?php echo base_url("public/seminar/pembayaran/"); echo $v->path_bukti ?>" style="text-decoration: underline;">Download</a></td>
 		</tr>
+		<?php if ($v->status_pembayaran=='1'): ?>
+		<tr>
+			<td>Status Email</td>
+			<td>
+				<?php if ($v->sended=='1'): ?>
+						: Sudah Terikirim Otomatis
+				<?php endif ?>
+				<?php if ($v->sended!='1'): ?>
+						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a>
+				<?php endif ?>
+			</td>
+		</tr>
+		<?php endif ?>
 		<tr>
 			<td>Status Pembayaran</td>
 			<td>
