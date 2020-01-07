@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<title>Pendaftaran Peserta Lomba - ITFest 4.0</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -265,8 +266,8 @@
                                                                                                         <div class="form-group">
                                                                                                                 <input type="email" name="email_anggota2" placeholder="Email" class="form-control">
                                                                                                         </div>
-                                                                                        </div>
-                                                                                </div>
+                                                                                                                                     </div>
+                                   </div>
                                                                                 <div class="row ml-3">
                                                                                         <label>Upload Berkas Anggota 2</label>
                                                                                         <div class="input-group">
@@ -442,7 +443,7 @@
 	        	data_form.append('jumlah_anggota',jumlah_anggota);
 
 				$.ajax({
-					url: '<?php echo base_url('index.php/Pendaftaran/daftar_kompetisi') ?>',
+					url: '<?php echo base_url('Pendaftaran/daftar_kompetisi') ?>',
 					type: 'POST',
 					data:data_form,
 		            processData:false,

@@ -120,7 +120,7 @@ class Seminar extends CI_Controller {
                 if ($ver!=0) {
 
                 $config['upload_path']       = './public/seminar/pembayaran/';
-                $config['allowed_types']    = 'jpg|png|bmp';
+                $config['allowed_types']    = 'jpg|png|bmp|jpeg';
                 $config['file_name']            = 'ITF-'.$kode_seminar;
                 $config['overwrite']        = true;
                 $config['max_size']             = 1024; // 1MB
