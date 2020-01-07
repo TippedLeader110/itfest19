@@ -506,9 +506,6 @@ label.label-judul{
     .form-mobile{
     	float: left;
     }
-    #form-daftar{
-		background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
-	}
 }
 
 /*DASBOARD*/

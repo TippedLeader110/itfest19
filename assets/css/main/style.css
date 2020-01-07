@@ -491,7 +491,7 @@ body.daftar{
 	font-family: 'JOST_LIGHT', 'Arial';
 }
 .form-title{
-	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
+/*	background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);*/
 	width: 100%;
 	font-family: "JOST_BOLD", 'Roboto';
 	padding: 20px 0 10px 30px;
@@ -544,9 +544,11 @@ label.label-judul{
     .form-mobile{
     	float: left;
     }
+/*
     #form-daftar{
 		background: linear-gradient(to right bottom, #ffcc33, #ffb846, #ffa659, #ff966c, #fd8b7c);
 	}
+*/
 }
 
 /*DASBOARD*/
