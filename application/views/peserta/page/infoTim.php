@@ -43,7 +43,7 @@
 											</div>
 											<div class="card-img-overlay" style="margin-top: 50px;">
 													<div class="">
-														<table class="table table-borderless">
+														<table class="table table-bordered">
 															<tr>
 																<td>Nama </td><td><?php echo $v2->nama_peserta ?></td>
 															</tr>
