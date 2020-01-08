@@ -42,13 +42,13 @@
 											<img class="card-img" src="<?php echo base_url('assets/images/user.png') ?>" style='opacity: 0.2'>
 											</div>
 											<div class="card-img-overlay" style="margin-top: 50px;">
-													<div class="table-responsive-sm">
+													<div class="">
 														<table class="table table-borderless">
 															<tr>
 																<td>Nama </td><td><?php echo $v2->nama_peserta ?></td>
 															</tr>
 															<tr>
-																<td>Email </td><td><?php echo $v2->email ?></td>
+																<td>Email </td><td style="overflow: hidden;"><?php echo $v2->email ?></td>
 															</tr>
 															<tr>
 																<td>Gender </td><td><?php echo $v2->jenis_kelamin ?></td>
