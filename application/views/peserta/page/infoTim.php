@@ -42,23 +42,13 @@
 											<img class="card-img" src="<?php echo base_url('assets/images/user.png') ?>" style='opacity: 0.2'>
 											</div>
 											<div class="card-img-overlay" style="margin-top: 50px;">
-													<div class="">
-														<table class="table table-bordered">
-															<tr>
-																<td>Nama </td><td><?php echo $v2->nama_peserta ?></td>
-															</tr>
-															<tr>
-																<td>Email </td><td style="overflow: hidden;"><?php echo $v2->email ?></td>
-															</tr>
-															<tr>
-																<td>Gender </td><td><?php echo $v2->jenis_kelamin ?></td>
-															</tr>
-															<tr>
-																<td>No.HP </td><td><?php echo $v2->no_hp ?></td>
-															</tr>
-
-														</table>
-													</div>
+												<ul class="list-group list-group-flush">
+												    <li class="list-group-item"><?php echo $v2->nama_peserta ?></li>
+												    <li class="list-group-item"><?php echo $v2->email ?></li>
+												    <li class="list-group-item"><?php echo $v2->jenis_kelamin ?></li>
+												    <li class="list-group-item"><?php echo $v2->no_hp ?></li>
+												  </ul>
+													
 												</div>
 											</div>
 										</div>
