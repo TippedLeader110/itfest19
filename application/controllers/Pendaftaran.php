@@ -69,6 +69,7 @@ class Pendaftaran extends CI_Controller {
 	        $data = array('upload_data'=>$this->upload->data());
 	        $link_file_ketua= $data['upload_data']['file_name']; 
 	        $status_upload = 1;
+	        echo "file ketua <br>";
 	    }
 	    else{
 	    	$status_upload = 0;
@@ -89,6 +90,7 @@ class Pendaftaran extends CI_Controller {
 		);
 		// insert data ketua dan nyimpan id nya
 		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);		
+		echo "db ketua <br>";
 		// Update data di tabel tim supaya kolom id_ketua enggak null
 
 	
@@ -96,6 +98,7 @@ class Pendaftaran extends CI_Controller {
 
 
 		$jumlah_anggota = $this->input->post('jumlah_anggota');
+		echo "jmlah anggota <br>".$jumlah_anggota;
 		//kalau jumlah anggota 1
 		if($jumlah_anggota == 1){
 
@@ -121,6 +124,7 @@ class Pendaftaran extends CI_Controller {
 				);
 				//Nyimpan data anggota 1
 				$this->Pendaftaran_Model->tambah_peserta($data_anggota1);
+				echo "db anggota  1<br>";
 		    }
 		    else{
 				// echo "angt = ";
@@ -159,6 +163,7 @@ class Pendaftaran extends CI_Controller {
 							'url_berkas'=>$link_file1
 				);
 				$id_ag1 = $this->Pendaftaran_Model->tambah_peserta($data_anggota1);
+				echo "db anggota  1<br>";
 		    }
 		    else{
 		    	$status_upload = 0;
@@ -196,6 +201,7 @@ class Pendaftaran extends CI_Controller {
 				);
 				// Nyimpan data anggota 2
 				$this->Pendaftaran_Model->tambah_peserta($data_anggota2);
+				echo "db anggota  2<br>";
 		    }
 		    else{
 		    	$status_upload = 0;
