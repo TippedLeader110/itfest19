@@ -42,13 +42,12 @@
 											<img class="card-img" src="<?php echo base_url('assets/images/user.png') ?>" style='opacity: 0.2'>
 											</div>
 											<div class="card-img-overlay" style="margin-top: 50px;">
-												<ul class="list-group list-group-flush">
+												<ul class="list-group list-group-flush" style="background-color: transparent;background: transparent;">
 												    <li class="list-group-item"><?php echo $v2->nama_peserta ?></li>
-												    <li class="list-group-item"><?php echo $v2->email ?></li>
+												    <li class="list-group-item" style="overflow: hidden;"><?php echo $v2->email ?></li>
 												    <li class="list-group-item"><?php echo $v2->jenis_kelamin ?></li>
 												    <li class="list-group-item"><?php echo $v2->no_hp ?></li>
 												  </ul>
-													
 												</div>
 											</div>
 										</div>
