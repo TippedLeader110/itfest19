@@ -56,7 +56,7 @@ class Pendaftaran extends CI_Controller {
 
 		// Persiapan config untuk upload berkas ketua
 		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-	    $config['allowed_types']        = 'zip|rar';
+	    $config['allowed_types']        = '*';
 	    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
@@ -75,8 +75,8 @@ class Pendaftaran extends CI_Controller {
 	    	$this->db->where('id_tim', $id_team)->delete('tim');
 	    	echo "0";
 	    	die;
+	    	echo $this->upload->display_errors();
 	    }
-	    echo $this->upload->display_errors();
 
 		// Nyusun data yang akan dikirim ke tabel peserta sebagai ketua
 		$data_ketua = array(
@@ -101,7 +101,7 @@ class Pendaftaran extends CI_Controller {
 
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -141,7 +141,7 @@ class Pendaftaran extends CI_Controller {
 		    $this->load->library('upload',$config,'ag2');
 
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -174,7 +174,7 @@ class Pendaftaran extends CI_Controller {
 			//Nyimpan data anggota 1
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
