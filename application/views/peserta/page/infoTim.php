@@ -44,7 +44,7 @@
 											<div class="card-img-overlay" style="margin-top: 50px;">
 												<ul class="list-group list-group-flush" >
 												    <li class="list-group-item" style="background-color: transparent;background: transparent;"><?php echo $v2->nama_peserta ?></li>
-												    <li class="list-group-item" style="background-color: transparent;background: transparent;" style="overflow: hidden;"><?php echo $v2->email ?></li>
+												    <li class="list-group-item" style="background-color: transparent;background: transparent;overflow: hidden;"><?php echo $v2->email ?></li>
 												    <li class="list-group-item" style="background-color: transparent;background: transparent;"><?php echo $v2->jenis_kelamin ?></li>
 												    <li class="list-group-item" style="background-color: transparent;background: transparent;"><?php echo $v2->no_hp ?></li>
 												  </ul>
