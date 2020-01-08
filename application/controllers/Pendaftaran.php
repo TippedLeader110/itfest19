@@ -75,7 +75,7 @@ class Pendaftaran extends CI_Controller {
 	    	$this->db->where('id_tim', $id_team)->delete('tim');
 	    	echo "0";
 	    	die;
-	    	echo $this->upload->display_errors();
+	    	// echo $this->upload->display_errors();
 	    }
 
 		// Nyusun data yang akan dikirim ke tabel peserta sebagai ketua
