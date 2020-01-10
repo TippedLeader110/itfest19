@@ -191,7 +191,7 @@
 						<p><b>17 Februari 2020 – 09 Maret 2020</b> Penyisihan II</p>
 						<p><b>10 Maret 2020 – 16 Maret 2020</b> Penjurian & Pengumuman II</p>
 						<p><b>17 Maret 2020 – 27 Maret 2020</b> Rentang waktu peserta sampai ke final</p>
-						<p><b>28 Maret 2020 – 29 Maret 2020</b> Final Kompetisi & Acara Puncak</p>
+						<p><b>4 April 2020 – 5 April 2020</b> Final Kompetisi & Acara Puncak</p>
 					</div>
 				</div>
 			</div>
