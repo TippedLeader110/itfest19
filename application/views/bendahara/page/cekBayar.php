@@ -14,6 +14,7 @@
 						<thead class="bg-custom white-text">
 						<th>#</th>
                         <th>Nama Tim</th>
+                        <th>Kompetisi</th>
                         <th>Email</th>
                         <th>Nama Ketua</th>
                         <th>Status Pembayaran</th>
@@ -27,6 +28,9 @@
 									<td><?php echo $count ?></td>
 									<td>
 										<?php echo $value->nama_team ?>
+									</td>
+									<td>
+										<?php echo $value->nama_lomba ?>
 									</td>
 									<td><?php echo $value->email; ?></td>
 									<td>
