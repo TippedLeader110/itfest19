@@ -15,7 +15,11 @@
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<script src="<?=base_url()?>assets/custom/js/sweetalert2.all.min.js"></script>
 </head>
-<body id="itfest" onload="swal('Perpanjang Masa Pendaftaran', 'Masa pendaftaran diperpanjang hingga<br> tanggal 25 Januari 2020','info');">
+<body id="itfest" onload="
+	if (-1 === document.cookie.indexOf('returning=true')) {
+		swal('Perpanjang Masa Pendaftaran', 'Masa pendaftaran diperpanjang hingga<br> tanggal 25 Januari 2020','info'); 
+		document.cookie = 'returning=true';
+	}">
 	<nav class="navbar navbar-expand-sm fixed-top">
 		<div class="container">
 			<a href="<?=base_url()?>" class="navbar-brand navbar-brand-edit" onclick="$('body').animatescroll();">
