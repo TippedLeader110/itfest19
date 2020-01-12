@@ -9,10 +9,13 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/main/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+	<link rel="stylesheet" href="<?=base_url()?>assets/custom/css/main/sweetalert2.min.css">
 	<script src="<?=base_url()?>assets/custom/js/jquery-3.3.1.js"></script>
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+	<script src="<?=base_url()?>assets/custom/js/sweetalert2.all.min.js"></script>
 </head>
-<body id="itfest">
+<body id="itfest" onload="swal('Perpanjang Masa Pendaftaran', 'Masa pendaftaran diperpanjang hingga<br> tanggal 25 Januari 2020','info');">
 	<nav class="navbar navbar-expand-sm fixed-top">
 		<div class="container">
 			<a href="<?=base_url()?>" class="navbar-brand navbar-brand-edit" onclick="$('body').animatescroll();">
