@@ -318,7 +318,7 @@
     		var nama_tim = $('#nama_tim').val();
     		$.ajax({
 					url: '<?php echo base_url('index.php/Pendaftaran/cek_nama_tim') ?>',
-					type: 'post',
+					type: 'POST',
 					data: {nama_tim},
 					error: function(data){		
 						console.log(data);

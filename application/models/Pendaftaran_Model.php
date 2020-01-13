@@ -19,7 +19,7 @@ class Pendaftaran_Model extends CI_Model {
 
 	//Fungsi untuk ngambil nama-nama lomba
 	public function ambil_data_lomba(){
-		return $this->db->query('select * from lomba')->result();
+		return $this->db->get("lomba")->result();
 	}
 
 	// Fungsi untuk nambah data di tabel tim, terus ngasih id tim yg baru dimasukkan
@@ -38,11 +38,15 @@ class Pendaftaran_Model extends CI_Model {
 
 	// Fungsi untuk update kolom id ketua di tabel tim
 	public function update_id_ketua($id_ketua,$id_team){
-		$this->db->query("update tim set id_ketua=".$id_ketua." where id_tim=".$id_team.";");
+		// $this->db->query("update tim set id_ketua=".$id_ketua." where id_tim=".$id_team.";");
+		$this->db->where("id_tim", $id_team)
+					->update("tim", ["id_ketua"=>$id_ketua]);
+
 	}
 
 	public function cek_nama_tim($nama_tim){
-		return $this->db->query("select * from tim where nama_team = '".$nama_tim."';")->num_rows();
+		// return $this->db->query("select * from tim where nama_team = '".$nama_tim."';")->num_rows();
+		return $this->db->where("nama_team", $nama_tim)->get("tim")->num_rows();
 	}
 }
 ?>
