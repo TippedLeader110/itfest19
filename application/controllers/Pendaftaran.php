@@ -88,7 +88,6 @@ class Pendaftaran extends CI_Controller {
 						'url_berkas'=> $link_file_ketua
 		);
 		// insert data ketua dan nyimpan id nya
-		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);		
 		// Update data di tabel tim supaya kolom id_ketua enggak null
 
 	
@@ -96,6 +95,11 @@ class Pendaftaran extends CI_Controller {
 
 
 		$jumlah_anggota = $this->input->post('jumlah_anggota');
+		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);
+		if ($jumlah_anggota==0) {
+			echo "1";
+			die;
+		}		
 		//kalau jumlah anggota 1
 		if($jumlah_anggota == 1){
 
