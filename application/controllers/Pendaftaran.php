@@ -91,11 +91,11 @@ class Pendaftaran extends CI_Controller {
 		// Update data di tabel tim supaya kolom id_ketua enggak null
 
 	
+		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);
 		$this->Pendaftaran_Model->update_id_ketua($id_ketua,$id_team);
 
 
 		$jumlah_anggota = $this->input->post('jumlah_anggota');
-		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);
 		if ($jumlah_anggota==0) {
 			echo 1;
 			die;
