@@ -105,6 +105,8 @@ class Peserta_Model extends CI_Model {
 		return $this->db->where("id_lomba", $id)
 						->or_where("id_lomba", "0")
 						->order_by("id_post", "DESC")
+						->limit(5)
+						->get('post')
 						->result();
 	}
 
@@ -114,6 +116,7 @@ class Peserta_Model extends CI_Model {
 		return $this->db->where("id_lomba", $id)
 						->or_where("id_lomba", "0")
 						->order_by("id_post", "DESC")
+						->get('post')
 						->result();
 	}
 
