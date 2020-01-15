@@ -225,6 +225,7 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
         $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['file_size']= '0';
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'logoup'); //call library upload 
         $this->logoup->initialize($config);
@@ -242,7 +243,8 @@ class Admin extends CI_Controller {
         echo $this->logoup->display_errors(); 
         $config['encrypt_name'] = TRUE;
         $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
-        $config['allowed_types']='pdf|PDF'; //type file yang boleh di upload
+        $config['allowed_types']='*';
+                $config['file_size']= '0';
         $this->load->library('upload',$config,'ruleup');
         $this->ruleup->initialize($config);
         if($this->ruleup->do_upload("rule")){ //upload file
@@ -267,6 +269,9 @@ class Admin extends CI_Controller {
         echo "1";
         }
         else{
+        	// echo $this->logoup->display_errors();
+        	// echo $this->ruleup->display_errors();
+
         	echo "0";
         }
 	}
