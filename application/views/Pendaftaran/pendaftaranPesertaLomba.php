@@ -318,7 +318,7 @@
     		var nama_tim = $('#nama_tim').val();
     		$.ajax({
 					url: '<?php echo base_url('index.php/Pendaftaran/cek_nama_tim') ?>',
-					type: 'POST',
+					type: 'post',
 					data: {nama_tim},
 					error: function(data){		
 						console.log(data);
@@ -440,10 +440,8 @@
 	        	event.preventDefault(); 
 
 	        	var data_form = new FormData(this);
-	        	if (jumlah_anggota==0) {
-	        		var dddd = "0";
-	        	}
-	        	data_form.append('jumlah_anggota',dddd);
+
+	        	data_form.append('jumlah_anggota',jumlah_anggota);
 
 				$.ajax({
 					url: '<?php echo base_url('Pendaftaran/daftar_kompetisi') ?>',

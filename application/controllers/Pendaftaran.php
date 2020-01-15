@@ -97,7 +97,7 @@ class Pendaftaran extends CI_Controller {
 		$jumlah_anggota = $this->input->post('jumlah_anggota');
 		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);
 		if ($jumlah_anggota==0) {
-			echo "1";
+			echo 1;
 			die;
 		}		
 		//kalau jumlah anggota 1
