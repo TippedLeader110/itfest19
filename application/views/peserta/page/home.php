@@ -42,7 +42,7 @@
 					  			</tr>
 					  			<?php if ($value->url_buktipembayaran!=null): ?>
 					  			<tr>
-					  				<td>Bukti Pembayaran</td><td>&emsp; : &emsp;</td><td><a target="_blank" href="<?php echo base_url('public/kompetisi/userdata/buktipembayaran/'); echo $value->url_buktipembayaran; ?>">Link</a></td>
+					  				<td>Bukti Pembayaran</td><td>&emsp; : &emsp;</td><td><a target="_blank" href="<?php echo base_url('public/kompetisi/userdata/buktipembayaran/'); echo $value->url_buktipembayaran; ?>" style='text-decoration: underline;'>Link</a></td>
 					  			</tr>
 				  				<?php endif ?>
 					  			<tr>
