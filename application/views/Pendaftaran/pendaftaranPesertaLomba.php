@@ -440,8 +440,10 @@
 	        	event.preventDefault(); 
 
 	        	var data_form = new FormData(this);
-
-	        	data_form.append('jumlah_anggota',jumlah_anggota);
+	        	if (jumlah_anggota==0) {
+	        		var dddd = "0";
+	        	}
+	        	data_form.append('jumlah_anggota',dddd);
 
 				$.ajax({
 					url: '<?php echo base_url('Pendaftaran/daftar_kompetisi') ?>',
