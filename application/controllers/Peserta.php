@@ -293,8 +293,8 @@ class Peserta extends CI_Controller {
             $image= $data['upload_data']['file_name'];
             $id = $this->input->post('id');
             $tim = $this->session->userdata('id_tim');
-            $this->Peserta_Model->hapusTahap($id,$tim);
             $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
+            $this->Peserta_Model->hapusTahap($id,$tim);
             echo "1";
         }
         else
