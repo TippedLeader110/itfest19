@@ -252,7 +252,7 @@ class Peserta extends CI_Controller {
 		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
         $config['allowed_types']='*';
         $config['overwrite']        = true;
-        $new_name                   = $tim.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
+        $new_name                   = $tim.'-'.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
         $config['file_name']        = $new_name;
         // $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUp'); //call library upload 
@@ -285,7 +285,7 @@ class Peserta extends CI_Controller {
 		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
         $config['allowed_types']='*'; //type file yang boleh di upload
         $config['overwrite']        = true;
-        $new_name                   = $tim.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
+        $new_name                   = $tim.'-'.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
         $config['file_name']        = $new_name;//enkripsi file name upload
         $this->load->library('upload',$config,'tahapUp'); //call library upload 
         $this->tahapUp->initialize($config);
