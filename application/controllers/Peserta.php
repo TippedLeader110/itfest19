@@ -246,11 +246,13 @@ class Peserta extends CI_Controller {
 
 	public function uploadTahap()
 	{
+		$id = $this->input->post('id');
+        $tim = $this->session->userdata('id_tim');
 		$this->login_protocol();
 		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
         $config['allowed_types']='*';
         $config['overwrite']        = true;
-        $new_name                   = time().'_'.$_FILES["file"]['name']; //type file yang boleh di upload
+        $new_name                   = $tim.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
         $config['file_name']        = $new_name;
         // $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'tahapUp'); //call library upload 
@@ -260,8 +262,7 @@ class Peserta extends CI_Controller {
         if($this->tahapUp->do_upload("file")){ //upload file
             $data = array('upload_data' => $this->tahapUp->data()); //ambil file name yang diupload
             $image= $data['upload_data']['file_name'];
-            $id = $this->input->post('id');
-            $tim = $this->session->userdata('id_tim');
+            
             $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
             echo "1";
         }
@@ -278,11 +279,13 @@ class Peserta extends CI_Controller {
 
 	public function gantiTahap()
 	{
+		$tim = $this->session->userdata('id_tim');
+		$id = $this->input->post('id');
 		$this->login_protocol();
 		$config['upload_path']="./public/kompetisi/userdata/tahap_tim/"; //path folder file upload
         $config['allowed_types']='*'; //type file yang boleh di upload
         $config['overwrite']        = true;
-        $new_name                   = time().'_'.$_FILES["file"]['name']; //type file yang boleh di upload
+        $new_name                   = $tim.$id.'_'.$_FILES["file"]['name']; //type file yang boleh di upload
         $config['file_name']        = $new_name;//enkripsi file name upload
         $this->load->library('upload',$config,'tahapUp'); //call library upload 
         $this->tahapUp->initialize($config);
@@ -292,8 +295,7 @@ class Peserta extends CI_Controller {
             $data = array('upload_data' => $this->tahapUp->data()); //ambil file name yang diupload
             $image= $data['upload_data']['file_name'];
             $id = $this->input->post('id');
-            $tim = $this->session->userdata('id_tim');
-            $this->Peserta_Model->hapusTahap($id,$tim);
+            // $this->Peserta_Model->hapusTahap($id,$tim);
             $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
             echo "1";
         }
