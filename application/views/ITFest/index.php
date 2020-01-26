@@ -14,7 +14,7 @@
 	<script src="<?=base_url()?>assets/custom/js/jquery-3.3.1.js"></script>
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<script src="<?=base_url()?>assets/custom/js/sweetalert2.all.min.js"></script>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	function checkCookie()
 	{
 		 if (-1 === document.cookie.indexOf('returning=true')) {
@@ -26,7 +26,7 @@
 		}
 	}
 
-	</script>
+	</script> -->
 </head>
 <body id="itfest" onload="checkCookie();">	
 	<nav class="navbar navbar-expand-sm fixed-top">
