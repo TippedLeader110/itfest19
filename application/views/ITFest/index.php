@@ -201,7 +201,7 @@
 						<hr class="hr-timeline"><br>
 					</div>
 					<div class="text-timeline">
-						<p><b>9 Desember 2019 – 11 Januari 2020</b> Registrasi Kompetisi</p>
+						<p><b>9 Desember 2019 – 25 Januari 2020</b> Registrasi Kompetisi</p>
 						<p><b>14 Januari 2020 – 9 Februari 2020</b> Penyisihan I</p>
 						<p><b>10 Februari 2020 – 16 Februari 2020</b> Penjurian & Pengumuman I</p>
 						<p><b>17 Februari 2020 – 09 Maret 2020</b> Penyisihan II</p>
