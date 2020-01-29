@@ -6,7 +6,7 @@
 	<div class="col-12 col-md-12">
 		<div class="card nonround">
 	  	<div class="card-header bg-custom text-white">
-		    <button type="button" class="btn btn-secondary" id="back">Kembali</button>
+		    <button type="button" class="btn btn-primary" id="back">Kembali</button>
 		</div>
 		<div class="card-body">
 			<div class="row">
