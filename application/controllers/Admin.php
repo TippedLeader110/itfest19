@@ -115,6 +115,21 @@ class Admin extends CI_Controller {
 		];
 		$this->load->view('admin/page/tim', $data);
 	}
+
+	public function modalTim()
+	{
+		$this->loginProtocol();
+		$tim = $this->input->get('tim');
+		$tag = $this->input->get('tag');
+		// var_dump($tim);
+		$dataGet = $this->adminModel->infoTim($tim);
+		$data = [
+				'title' => 'Kelolah Tim Peserta',
+				'modalTim' => $dataGet,
+				'tag' => $tag
+			];
+		$this->load->view('admin/page/ajax/modalTim', $data);
+	}
 	##################TIM#######################
 
 	##################LOMBA#####################
@@ -274,6 +289,17 @@ class Admin extends CI_Controller {
 
         	echo "0";
         }
+	}
+
+	public function gpass(){
+		$this->loginProtocol();
+		$val = $this->input->post('val');
+		$tim = $this->input->post('tim');
+		$newpass = password_hash($tim, PASSWORD_DEFAULT);
+		// echo $newpass.' '.$tim;
+		$this->db->where('id_tim', $val);
+		$this->db->set('password_tim', $newpass);
+		$this->db->update('tim');
 	}
 
 	public function doHapuslomba(){

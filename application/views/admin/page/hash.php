@@ -7,10 +7,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<input type="text" name="hesh" id="hesh" class="form-control" placeholder="Ketik sesuatu">
+		<input type="text" name="" id="nama">
+		<input type="text" name="hesh" id="hesh" class="form-control" placeholder="Password baru">
 		<br>
 		<br>
-		<p>Hasil : &nbsp;<div id="hasil"></div></p>
+		<!-- <p>Hasil : &nbsp;<div id="hasil"></div></p> -->
 	</div>
 </div>
 

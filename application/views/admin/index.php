@@ -77,9 +77,9 @@
                     <li>
                         <a href="#" id="logPanitia">Log Panitia</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#" id="heshG">Hesh Generator</a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
         </ul>

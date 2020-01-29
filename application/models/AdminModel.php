@@ -10,6 +10,10 @@ class adminModel extends CI_Model {
 
 	}
 
+	function infoTim($id){
+		return $query = $this->db->query('CALL tim_info('.$id.')')->result();
+	}
+
 	public function doLogin($user_real, $pwd)
 	{
 		$user = $this->db
