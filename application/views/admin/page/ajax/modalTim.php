@@ -8,6 +8,7 @@
 <div id="wo">
 	<div class="row">
 	<div class="col-12">
+		<h3 style="margin-bottom: 10px;">ID TIM : <?php echo $mTim->id_tim ?></h3>
 		<button class="btn btn-outline-warning" onclick="$('#pass').toggle('fast')">Ganti Password</button>
 		<br>
 		<div id="pass" style="margin-top: 15px;display: none">
