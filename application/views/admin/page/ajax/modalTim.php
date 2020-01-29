@@ -41,6 +41,9 @@
 				<td>Nama Team</td><td> : <?php echo $mTim->nama_team ?></td>
 			</tr>
 			<tr>
+				<td>Lomba</td><td> : <?php echo $mTim->nama_lomba ?></td>
+			</tr>
+			<tr>
 				<td>Universitas</td><td> : <?php echo $mTim->asal_univ ?></td>
 			</tr>
 			<tr>
