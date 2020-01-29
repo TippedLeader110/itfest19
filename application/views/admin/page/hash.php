@@ -15,7 +15,7 @@
 </div>
 
 <script type="text/javascript">
-	$('#hesh').on('click keyup change', function(event) {
+	$('#hesh').on('keyup', function(event) {
 		event.preventDefault();
 		$.post('<?php echo base_url('Admin/hashg') ?>', {val: $(this).val()}, function(data) {
 			$('#hasil').html(data);
