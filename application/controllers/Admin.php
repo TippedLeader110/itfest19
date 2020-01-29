@@ -366,5 +366,16 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function hashgen()
+	{
+		$this->loginProtocol();
+		$this->load->view('admin/page/hash');
+	}
+
+	public function hashg(){
+		$p = password_hash($this->input->post('val'), PASSWORD_DEFAULT);
+		echo $p;
+	}
+
 	
 }

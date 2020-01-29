@@ -77,6 +77,9 @@
                     <li>
                         <a href="#" id="logPanitia">Log Panitia</a>
                     </li>
+                    <li>
+                        <a href="#" id="heshG">Hesh Generator</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -227,6 +230,19 @@ $('#logPanitia').click(function(event) {
             $('#contentPage').removeClass('lodtime');
         });   
   $('#contentPage').load('<?php echo base_url('Admin/')?>logPanitia',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+});
+
+$('#heshG').click(function(event) {
+  event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>hashgen',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });   
