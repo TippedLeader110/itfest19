@@ -2,7 +2,11 @@
 <?php $count=1; ?>
 <?php foreach ($modalTim as $key => $mTim): ?>
 <?php endforeach ?>
-<div class="row">
+<div id='loadingmessage' style='display:none;margin-top: 50px;'>
+    <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
+</div>
+<div id="wo">
+	<div class="row">
 	<div class="col-12">
 		<button class="btn btn-outline-warning" onclick="$('#pass').toggle('fast')">Ganti Password</button>
 		<br>
@@ -89,13 +93,13 @@
 		</div>
 	</div>
 </div>
+</div>
 <script type="text/javascript">
 	
-$(document).ajaxStart(function() {
+	$(document).ajaxStart(function() {
+		$('#wo').toggleClass('opaci');
 		$('#loadingmessage').show();
-	}).ajaxStop((function() {
-		$('#loadingmessage').hide();
-	}));
+	});
 
 
 	function ganti(id)
