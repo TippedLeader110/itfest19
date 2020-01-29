@@ -47,7 +47,7 @@
 	$('#tambahDO').click(function(event) {
 		$('#loading').show();
 	    $('#contentPage').addClass('lodtime');
-        $('#contentPage').load('<?php echo base_url('Panitia/')?>tambahPost',function() {
+        $('#contentPage').load('<?php echo base_url('Admin/')?>tambahPost',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });   
@@ -67,11 +67,11 @@
 	function editPost(id){
 		$('#loading').show();
 	    $('#contentPage').addClass('lodtime');
-        $('#contentPage').load('<?php echo base_url('Panitia/editPost/')?>'+ id,function() {
+        $('#contentPage').load('<?php echo base_url('Admin/editPost/')?>'+ id,function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });   
-		// $('#contentPage').load('<?php echo base_url('panitia/editPost/') ?>'+id);
+		// $('#contentPage').load('<?php echo base_url('Admin/editPost/') ?>'+id);
 	}
 
 	function hapusPost(value){
@@ -88,7 +88,7 @@
 		}).then((result) => {
 			if (result.value) {
 			    $.ajax({
-			    	url: '<?php echo base_url('panitia/hapusPost') ?>',
+			    	url: '<?php echo base_url('admin/hapusPost') ?>',
 			    	type: 'post',
 			    	data: {value:value},
 			    	success: function(er){
@@ -101,7 +101,7 @@
 						    );
 						    $('#loading').show();
 	    					$('#contentPage').addClass('lodtime');
-        					$('#contentPage').load('<?php echo base_url('Panitia/')?>Post',function() {
+        					$('#contentPage').load('<?php echo base_url('Admin/')?>Post',function() {
             					$('#loading').hide();
             					$('#contentPage').removeClass('lodtime');
         					});   

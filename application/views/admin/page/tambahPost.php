@@ -26,7 +26,7 @@
 						<textarea name="isi" class="form-control" id="isi" id="isi"></textarea>
 						<div class="invalid-feedback">Tolong Deskripsi</div>
 					<div class="col-12" style="margin-top: 20px;">
-						<button class="btn btn-outline-primary" onclick="do()">Tambah</button>&nbsp;<button type="button" class="btn btn-outline-warning" id="return">Kembali</button>
+						<button class="btn btn-outline-primary">Tambah</button>&nbsp;<button type="button" class="btn btn-outline-warning" id="return">Kembali</button>
 					</div>
 				</div>
 			</div>
@@ -38,16 +38,11 @@
 <script type="text/javascript">
 	CKEDITOR.replace( 'isi' );
 
-	function do()
-	{
-		$('#formPost').submit();
-	}
-
 	$('#return').click(function(event) {
 		event.preventDefault();
 		$('#loading').show();
 	    $('#contentPage').addClass('lodtime');
-        $('#contentPage').load('<?php echo base_url('panitia/')?>Post',function() {
+        $('#contentPage').load('<?php echo base_url('admin/')?>Post',function() {
             $('#loading').hide();
             $('#contentPage').removeClass('lodtime');
         });   
@@ -65,7 +60,7 @@
 		form.append('isi', isi);
 
 		$.ajax({
-			url: '<?php echo base_url('panitia/doTambahPost') ?>',
+			url: '<?php echo base_url('admin/doTambahPost') ?>',
 			type: 'post',
 			data:form,
 			processData:false,
@@ -77,7 +72,7 @@
 					Swal.fire('Berhasil','Pemberitahuan berhasil ditambahkan', 'success');
 					$('#loading').show();
 	    			$('#contentPage').addClass('lodtime');
-        			$('#contentPage').load('<?php echo base_url('Panitia/')?>post',function() {
+        			$('#contentPage').load('<?php echo base_url('admin/')?>post',function() {
             			$('#loading').hide();
             			$('#contentPage').removeClass('lodtime');
         			});   

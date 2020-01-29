@@ -127,6 +127,22 @@ class adminModel extends CI_Model {
 		return $data;
 	}
 
+	public function tambahPost($judul,$isi,$id)
+	{
+		$data = array('judul' => $judul , 'isi' => $isi , 'id_lomba' => $id);
+		$this->db->insert('post',$data);
+		return true;
+	}
+
+	public function updatePost($judul,$isi,$id,$oldid)
+	{
+		$this->db->set('judul', $judul);
+		$this->db->set('isi', $isi);
+		// $this->db->set('id_lomba', $id);
+		$this->db->where('id_post',$oldid)->update('post');
+		return true;
+	}
+
 	public function deleteDatabyID($id,$kolomID,$table){
 		if ($this->db->where($kolomID , $id)->delete($table)) {
 			return true;

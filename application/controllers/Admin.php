@@ -302,6 +302,67 @@ class Admin extends CI_Controller {
 		$this->db->update('tim');
 	}
 
+	public function Post()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->db->get('post')->result();
+		$data = [
+			'title' => 'Tambah Post',
+			'post' => $dataGet
+		];
+		$this->load->view('admin/page/post', $data);	
+	}
+
+	public function editPost()
+	{
+		$this->loginProtocol();
+		$id_post = $this->uri->segment(3);
+		$post = $this->db->where('id_post', $id_post)->get('post')->result();
+		$data = [
+			'title' => 'Edit post',
+			'editPost' => $post,
+			'post' => $id_post
+		];
+		$this->load->view('admin/page/editPost', $data);
+	}
+
+	public function doSimpanPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		$oldid = $this->input->post('oldid');
+		if($this->adminModel->updatePost($judul,$isi,$id,$oldid)) {
+			echo "done";
+		}
+	}
+	public function tambahPost()
+	{
+		$this->loginProtocol();
+		$data = [
+			'title' => 'Tambah Tahap'
+		];
+		$this->load->view('admin/page/tambahPost', $data);
+	}
+
+	public function doTambahPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		if ($this->adminModel->tambahPost($judul,$isi,$id)) {
+			echo "done";
+		}
+	}
+
+	public function hapusPost(){
+		$id = $this->input->post('value');
+		$done = $this->adminModel->deleteDatabyID($id, 'id_post', 'post');
+		echo $done;
+	}
+
 	public function doHapuslomba(){
 		$this->loginProtocol();
 		$idLomba = $this->input->post('value');
