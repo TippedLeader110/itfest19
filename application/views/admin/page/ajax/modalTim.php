@@ -18,8 +18,8 @@
 				$('#p1, #p2').on('click keyup change', function(event) {
 					var p1 = $('#p1').val();
 					var p2 = $('#p2').val();
-					console.log(p1);
-					console.log(p2);
+					// console.log(p1);
+					// console.log(p2);
 					event.preventDefault();
 					if (p1!=p2) {
 						$('#ok').prop('disabled', true);
@@ -97,9 +97,13 @@
 <script type="text/javascript">
 	
 	$(document).ajaxStart(function() {
-		$('#wo').toggleClass('opaci');
+		// console.log(1);
+		$('#wo').addClass('opaci');
 		$('#loadingmessage').show();
-	});
+	}).ajaxStop((function() {
+		$('#wo').removeClass('opaci');
+		$('#loadingmessage').hide();
+	}));
 
 
 	function ganti(id)
