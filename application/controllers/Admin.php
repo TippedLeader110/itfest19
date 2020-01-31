@@ -138,7 +138,7 @@ class Admin extends CI_Controller {
 
 	public function logTim(){
 		$this->loginProtocol();
-		$logTim = $this->adminModel->getDatafullTable('log_tim_en');
+		$logTim = $this->db->from('log_tim_en')->order_by('waktu', 'desc')->get()->result();
 		$data = [
 			'title' => 'log TIm',
 			'logTim' => $logTim
