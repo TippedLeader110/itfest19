@@ -18,7 +18,7 @@
 				<div class="table-responsive">
 					<table id="dtBasicExample" class="table table-bordered table-hover" cellspacing="0" width="100%">
 						<thead class="bg-custom text-white">
-							<th>#</th><th>Judul</th><th></th><th></th><th></th>
+							<th>#</th><th>Judul</th><th></th><th></th>
 						</thead>
 						<?php $count=1; ?>
 						<tbody>
