@@ -27,7 +27,7 @@ class Verifikasi extends CI_Controller {
 	public function generate(){
 		$id = $this->input->get('api-key');
 		$dbapi = $this->load->database('api', TRUE); 
-		$query = $dbapi->where('qr', $id)->where('status_pembayaran', '1')->get('seminar');
+		$query = $dbapi->where('qr', $id)->get('seminar');
 		$val = $query->num_rows();
 		if ($val == 0) {
 			redirect(base_url());
