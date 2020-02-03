@@ -190,6 +190,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/page/tambahLomba', $data);
 	}
 
+	public function simpanIT(){
+		$nama_t = $this->input->post('nama_t');
+		$this->db->set('nama_team', $nama_t);
+		$univ_t = $this->input->post('univ_t');
+		$this->db->set('asal_univ', $univ_t);
+		$this->db->where('id_tim', $this->input->post('id'));
+		$this->db->update('tim');
+		echo "done1";
+	}
+
 	public function DoTambahlomba(){
 		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload

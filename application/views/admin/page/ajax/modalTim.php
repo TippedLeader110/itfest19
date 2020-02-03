@@ -1,3 +1,6 @@
+<script type="text/javascript">
+	$('#dataI').fadeOut('fast');
+</script>
 <!-- <?php echo $tag ?> -->
 <?php $count=1; ?>
 <?php foreach ($modalTim as $key => $mTim): ?>
@@ -9,7 +12,7 @@
 	<div class="row">
 	<div class="col-12">
 		<h3 style="margin-bottom: 10px;">ID TIM : <?php echo $mTim->id_tim ?></h3>
-		<button class="btn btn-outline-warning" onclick="$('#pass').toggle('fast')">Ganti Password</button>
+		<button class="btn btn-outline-warning" onclick="$('#pass').toggle('fast')">Ganti Password</button>&nbsp;<button class="btn btn-outline-info" onclick="showData()">Edit Info Tim</button>
 		<br>
 		<div id="pass" style="margin-top: 15px;display: none">
 			<input type="text" id="p1" class="form-control" placeholder="Password baru" style="margin-top: 10px;">
@@ -32,20 +35,64 @@
 						$('#ok').prop('disabled', false);
 					}
 				});
+
+				function showData()
+				{
+					$('#nama_t').fadeToggle('fast');
+					$('#univ_t').fadeToggle('fast');
+					$('#save').fadeToggle('fast');
+					$('#simpanIT').fadeToggle('fast');
+					$('.dataD').each(function(index, el) {
+						$(this).fadeToggle('fast');
+					});
+				}
 			</script>
 			<button id="ok" disabled class="btn btn-danger" onclick="ganti(<?php echo $mTim->id_tim ?>)"style="margin-top: 10px;">Kirim</button>
 		</div>
 		<div class="table-responsive">
 			<table class="table table-borderless">
-			<tr>
-				<td>Nama Team</td><td> : <?php echo $mTim->nama_team ?></td>
-			</tr>
-			<tr>
-				<td>Lomba</td><td> : <?php echo $mTim->nama_lomba ?></td>
-			</tr>
-			<tr>
-				<td>Universitas</td><td> : <?php echo $mTim->asal_univ ?></td>
-			</tr>
+			<div id="showD">
+				<tr>
+					<td>Nama Team</td><td><span class="dataD"> : <?php echo $mTim->nama_team ?></span><input id="nama_t" type="text" class="form-control" style="display: none;" value="<?php echo $mTim->nama_team ?>" name=""> </td>
+				</tr>
+				<tr>
+					<td>Universitas</td><td><span class="dataD"> : <?php echo $mTim->asal_univ ?></span><input id="univ_t" type="text" class="form-control" style="display: none;" value="<?php echo $mTim->asal_univ ?>" name=""> </td>
+				</tr>
+				<tr>
+					<td>Lomba</td><td> : <?php echo $mTim->nama_lomba ?></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button style="display: none;" class="btn btn-primary" id="simpanIT">Simpan</button></td>
+				</tr>
+			</div>
+			<script type="text/javascript">
+				$('#simpanIT').click(function(event) {
+					event.preventDefault();
+					var nama_t = $('#nama_t').val();
+					var univ_t = $('#univ_t').val();
+					var idt = '<?php echo $mTim->id_tim ?>';
+
+					$.post('<?php echo base_url('Admin/simpanIT') ?>', {id: idt ,nama_t : nama_t, univ_t : univ_t}, function(data, textStatus, xhr) {
+						console.log(data);
+						if (data=='done1') {
+							Swal.fire('Berhasil !!', "Data berhasil disimpan", 'success');
+							    $('#loading').show();
+							    $('#contentPage').addClass('lodtime',function() {
+						            $('#loading').hide();
+						            $('#contentPage').removeClass('lodtime');
+						        });   
+						  		$('#contentPage').load('<?php echo base_url('Admin/')?>tim',function() {
+						            $('#loading').hide();
+						            $('#contentPage').removeClass('lodtime');
+						        });   
+						        $('#modalTim').modal('hide'); $('.modal-backdrop').remove();
+						}
+						else{
+							Swal.fire('Kesalahan !!', "Terjadi kesalahan dengan server", 'error');
+						}
+					});
+				});
+			</script>
 			<tr>
 				<?php if ($mTim->status_pembayaran=='Active'): ?>
 					<td>Verifikasi Pembayaran</td><td> : Sudah terverifikasi</td>
