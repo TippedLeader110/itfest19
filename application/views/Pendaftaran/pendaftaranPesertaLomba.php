@@ -419,7 +419,8 @@
         	}
         } 
 
-        $('#nama_anggota1,#nama_anggota2').keyup(function(event) {
+        $('input').on("keyup change input" , function(event) {
+        	console.log(jumlah_anggota);
         	if ($('#nama_anggota1').val()!='' && $('#nama_anggota2').val()=='') {
         		jumlah_anggota = 1;
         		console.log(jumlah_anggota);

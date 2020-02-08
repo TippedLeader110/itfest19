@@ -115,6 +115,21 @@ class Admin extends CI_Controller {
 		];
 		$this->load->view('admin/page/tim', $data);
 	}
+
+	public function modalTim()
+	{
+		$this->loginProtocol();
+		$tim = $this->input->get('tim');
+		$tag = $this->input->get('tag');
+		// var_dump($tim);
+		$dataGet = $this->adminModel->infoTim($tim);
+		$data = [
+				'title' => 'Kelolah Tim Peserta',
+				'modalTim' => $dataGet,
+				'tag' => $tag
+			];
+		$this->load->view('admin/page/ajax/modalTim', $data);
+	}
 	##################TIM#######################
 
 	##################LOMBA#####################
@@ -123,7 +138,7 @@ class Admin extends CI_Controller {
 
 	public function logTim(){
 		$this->loginProtocol();
-		$logTim = $this->adminModel->getDatafullTable('log_tim_en');
+		$logTim = $this->db->from('log_tim_en')->order_by('waktu', 'desc')->get()->result();
 		$data = [
 			'title' => 'log TIm',
 			'logTim' => $logTim
@@ -173,6 +188,16 @@ class Admin extends CI_Controller {
 			'title' => 'Tambah Kompetisi'
 		];
 		$this->load->view('admin/page/tambahLomba', $data);
+	}
+
+	public function simpanIT(){
+		$nama_t = $this->input->post('nama_t');
+		$this->db->set('nama_team', $nama_t);
+		$univ_t = $this->input->post('univ_t');
+		$this->db->set('asal_univ', $univ_t);
+		$this->db->where('id_tim', $this->input->post('id'));
+		$this->db->update('tim');
+		echo "done1";
 	}
 
 	public function DoTambahlomba(){
@@ -225,6 +250,7 @@ class Admin extends CI_Controller {
 		$this->loginProtocol();
 		$config['upload_path']="./public/kompetisi/logo/"; //path folder file upload
         $config['allowed_types']='*'; //type file yang boleh di upload
+        $config['max_size']= '0';
         $config['encrypt_name'] = TRUE; //enkripsi file name upload
         $this->load->library('upload',$config,'logoup'); //call library upload 
         $this->logoup->initialize($config);
@@ -242,7 +268,8 @@ class Admin extends CI_Controller {
         echo $this->logoup->display_errors(); 
         $config['encrypt_name'] = TRUE;
         $config['upload_path']="./public/kompetisi/rule/"; //path folder file upload
-        $config['allowed_types']='pdf|PDF'; //type file yang boleh di upload
+        $config['allowed_types']='*';
+                $config['max_size']= '0';
         $this->load->library('upload',$config,'ruleup');
         $this->ruleup->initialize($config);
         if($this->ruleup->do_upload("rule")){ //upload file
@@ -267,8 +294,83 @@ class Admin extends CI_Controller {
         echo "1";
         }
         else{
+        	// echo $this->logoup->display_errors();
+        	// echo $this->ruleup->display_errors();
+
         	echo "0";
         }
+	}
+
+	public function gpass(){
+		$this->loginProtocol();
+		$val = $this->input->post('val');
+		$tim = $this->input->post('tim');
+		$newpass = password_hash($tim, PASSWORD_DEFAULT);
+		// echo $newpass.' '.$tim;
+		$this->db->where('id_tim', $val);
+		$this->db->set('password_tim', $newpass);
+		$this->db->update('tim');
+	}
+
+	public function Post()
+	{
+		$this->loginProtocol();
+		$dataGet = $this->db->get('post')->result();
+		$data = [
+			'title' => 'Tambah Post',
+			'post' => $dataGet
+		];
+		$this->load->view('admin/page/post', $data);	
+	}
+
+	public function editPost()
+	{
+		$this->loginProtocol();
+		$id_post = $this->uri->segment(3);
+		$post = $this->db->where('id_post', $id_post)->get('post')->result();
+		$data = [
+			'title' => 'Edit post',
+			'editPost' => $post,
+			'post' => $id_post
+		];
+		$this->load->view('admin/page/editPost', $data);
+	}
+
+	public function doSimpanPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		$oldid = $this->input->post('oldid');
+		if($this->adminModel->updatePost($judul,$isi,$id,$oldid)) {
+			echo "done";
+		}
+	}
+	public function tambahPost()
+	{
+		$this->loginProtocol();
+		$data = [
+			'title' => 'Tambah Tahap'
+		];
+		$this->load->view('admin/page/tambahPost', $data);
+	}
+
+	public function doTambahPost()
+	{
+		$this->loginProtocol();
+		$judul = $this->input->post('judul');
+		$isi = $this->input->post('isi');
+		$id = $this->input->post('id');
+		if ($this->adminModel->tambahPost($judul,$isi,$id)) {
+			echo "done";
+		}
+	}
+
+	public function hapusPost(){
+		$id = $this->input->post('value');
+		$done = $this->adminModel->deleteDatabyID($id, 'id_post', 'post');
+		echo $done;
 	}
 
 	public function doHapuslomba(){
@@ -359,6 +461,17 @@ class Admin extends CI_Controller {
 		else{
 			redirect(base_url("admin/login"));
 		}
+	}
+
+	public function hashgen()
+	{
+		$this->loginProtocol();
+		$this->load->view('admin/page/hash');
+	}
+
+	public function hashg(){
+		$p = password_hash($this->input->post('val'), PASSWORD_DEFAULT);
+		echo $p;
 	}
 
 	

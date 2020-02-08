@@ -68,7 +68,7 @@
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="<?=base_url('Home/forgotPassword')?>">
+						<a class="txt2" href="javascript:void()" onclick="doFo()">
 							Password?
 						</a>
 					</div>
@@ -174,4 +174,12 @@
 		}
 	});
 
+	function doFo()
+	{
+		Swal.fire({
+						title : 'Lupa Password ?',
+						text:  'Untuk mengganti password silahkan hubungi CS panitia atau kontak panitia lainnya yang tersedia.',
+						icon:  "info",
+						footer: 'CS: itfestusu@gmail.com'});
+	}
 </script>

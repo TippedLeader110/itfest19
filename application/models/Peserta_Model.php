@@ -85,7 +85,8 @@ class Peserta_Model extends CI_Model {
 
 	public function getPostbyId($id)
 	{
-		return $this->db->where('id_post', $id)->get('post')->result();
+		// return $this->db->where('id_post', $id)->get('post')->result();
+		return $this->db->get('post')->result();
 	}
 
 	public function getIP(){
@@ -100,12 +101,22 @@ class Peserta_Model extends CI_Model {
 
 	public function getPost($id)
 	{
-		return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC limit 5")->result();
+		// return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC limit 5")->result();
+
+		return $this->db->order_by("id_post", "DESC")
+						->limit(5)
+						->get('post')
+						->result();
 	}
 
 	public function getPostAll($id)
 	{
-		return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC")->result();
+		// return $this->db->query("select * from post where id_lomba = ".$id." or id_lomba = 0  order by id_post DESC")->result();
+		return $this->db->where("id_lomba", $id)
+						->or_where("id_lomba", "0")
+						->order_by("id_post", "DESC")
+						->get('post')
+						->result();
 	}
 
 	public function bayarUpload($img)

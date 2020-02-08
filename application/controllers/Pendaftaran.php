@@ -56,7 +56,7 @@ class Pendaftaran extends CI_Controller {
 
 		// Persiapan config untuk upload berkas ketua
 		$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-	    $config['allowed_types']        = 'zip|rar';
+	    $config['allowed_types']        = '*';
 	    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 	    $config['overwrite']			= true;
 	    $config['max_size']             = 2048;
@@ -75,8 +75,8 @@ class Pendaftaran extends CI_Controller {
 	    	$this->db->where('id_tim', $id_team)->delete('tim');
 	    	echo "0";
 	    	die;
+	    	// echo $this->upload->display_errors();
 	    }
-	    echo $this->upload->display_errors();
 
 		// Nyusun data yang akan dikirim ke tabel peserta sebagai ketua
 		$data_ketua = array(
@@ -88,20 +88,24 @@ class Pendaftaran extends CI_Controller {
 						'url_berkas'=> $link_file_ketua
 		);
 		// insert data ketua dan nyimpan id nya
-		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);		
 		// Update data di tabel tim supaya kolom id_ketua enggak null
 
 	
+		$id_ketua = $this->Pendaftaran_Model->tambah_peserta($data_ketua);
 		$this->Pendaftaran_Model->update_id_ketua($id_ketua,$id_team);
 
 
 		$jumlah_anggota = $this->input->post('jumlah_anggota');
+		if ($jumlah_anggota==0) {
+			echo 1;
+			die;
+		}		
 		//kalau jumlah anggota 1
 		if($jumlah_anggota == 1){
 
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -141,7 +145,7 @@ class Pendaftaran extends CI_Controller {
 		    $this->load->library('upload',$config,'ag2');
 
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;
@@ -174,7 +178,7 @@ class Pendaftaran extends CI_Controller {
 			//Nyimpan data anggota 1
 			// Persiapan config untuk upload berkas anggota 1
 			$config['upload_path']          = './public/kompetisi/file_pendaftaran/';
-		    $config['allowed_types']        = 'zip|rar';
+		    $config['allowed_types']        = '*';
 		    $config['encrypt_name'] = TRUE; //enkripsi file name upload
 		    $config['overwrite']			= true;
 		    $config['max_size']             = 2048;

@@ -19,6 +19,7 @@
     <!-- <link rel="stylesheet" href="<?php echo base_url('/assets/css/mdb.min.css') ?>"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/panitia.css') ?>">
+    <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/admin.css') ?>">
 	<title><?php echo $title ?></title>
     <style type="text/css">
@@ -77,6 +78,12 @@
                     <li>
                         <a href="#" id="logPanitia">Log Panitia</a>
                     </li>
+                    <li>
+                        <a href="#" id="kelolahPost">Pemberitahuan</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" id="heshG">Hesh Generator</a>
+                    </li> -->
                 </ul>
             </li>
         </ul>
@@ -231,4 +238,26 @@ $('#logPanitia').click(function(event) {
             $('#contentPage').removeClass('lodtime');
         });   
 });
+
+$('#heshG').click(function(event) {
+  event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+  $('#contentPage').load('<?php echo base_url('Admin/')?>hashgen',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });   
+});
+$("#kelolahPost").click(function(event) {
+      event.preventDefault();
+        $('#loading').show();
+        $('#contentPage').addClass('lodtime');
+      $('#contentPage').load('<?php echo base_url('Admin/')?>Post',function() {
+            $('#loading').hide();
+            $('#contentPage').removeClass('lodtime');
+        });
+    });  
 </script>

@@ -10,6 +10,10 @@ class adminModel extends CI_Model {
 
 	}
 
+	function infoTim($id){
+		return $query = $this->db->query('CALL tim_info('.$id.')')->result();
+	}
+
 	public function doLogin($user_real, $pwd)
 	{
 		$user = $this->db
@@ -121,6 +125,22 @@ class adminModel extends CI_Model {
 	public function getDatafullTable($table){
 		$data = $this->db->get($table)->result();
 		return $data;
+	}
+
+	public function tambahPost($judul,$isi,$id)
+	{
+		$data = array('judul' => $judul , 'isi' => $isi , 'id_lomba' => $id);
+		$this->db->insert('post',$data);
+		return true;
+	}
+
+	public function updatePost($judul,$isi,$id,$oldid)
+	{
+		$this->db->set('judul', $judul);
+		$this->db->set('isi', $isi);
+		// $this->db->set('id_lomba', $id);
+		$this->db->where('id_post',$oldid)->update('post');
+		return true;
 	}
 
 	public function deleteDatabyID($id,$kolomID,$table){
