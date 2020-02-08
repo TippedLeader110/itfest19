@@ -11,6 +11,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<script src="<?=base_url()?>assets/custom/js/jquery-3.3.1.js"></script>
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <style>
+                .gbwh{ border-bottom: 4px solid rgba(255,255,255,0.00); transition: 5s all; }
+                .gbwh:hover{ border-bottom: 4px solid rgba(59,82,122,0.65); border-radius: 0px; }
+        </style>
 </head>
 <body id="itfest">
 	<nav class="navbar navbar-expand-sm fixed-top">
@@ -33,6 +37,11 @@
 							<div class="garis" id="br"></div>
 						</a>
 					</li> -->
+                                        <li class="nav-item">
+						<a class="nav-link nav-link-edit" onclick="$('#esport-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">E-SPORT
+							<div class="garis" id="br"></div>
+						</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#kompetisi-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">KOMPETISI
 							<div class="garis" id="br"></div>
@@ -121,6 +130,45 @@
 					ITFEST 2020 adalah kompetisi bidang Teknologi Informasi dan Komunikasi tingkat mahasiswa se-Indonesia yang diselenggarakan oleh Himpunan Mahasiswa Teknologi Informasi (HIMATIF) Universitas Sumatera Utara, sebagai upaya untuk membangkitkan semangat para mahasiswa/i Indonesia untuk berinovasi menciptakan solusi dari masalah-masalah yang dialami bangsa ini serta mampu ambil bagian sebagai agen perubahan dalam memajukan Teknologi Informasi dan Komunikasi serta pemanfaaaannya di Indonesia.<br><br>ITFEST 2020 memiliki tema “Impactful Technology For Social Culture Awareness”. Rangkaian kegiatan ITFEST 2020 terdiri dari kompetisi tingkat mahasiswa se-Indonesia, pameran hasil karya finalis kompetisi, seminar tentang topik-topik terkini di bidang TIK, dan hiburan.
 				</div>
 				<!-- <button class="btn px-4 btn-primary btn-about">DAFTAR SEMINAR DISINI</button> -->
+			</div>
+		</div>
+	</section>
+        
+        <section id="esport-section" class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-kompetisi">                                        
+					<center><h1 class="h1-kompetisi"><br><br><br>E-Sport Competition</h1>
+					<hr class="hr-kompetisi"><br></center>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
+                                        <a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<img src="<?=base_url()?>assets/images/logo-esport/ml.png" alt="" width="250px">
+                                        </a>
+				</div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
+					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<img src="<?=base_url()?>assets/images/logo-esport/pubgm.png" alt="" width="250px">
+                                        </a>
+				</div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
+					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<img src="<?=base_url()?>assets/images/logo-esport/codm.png" alt="" width="250px">
+                                        </a>
+				</div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
+					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<img src="<?=base_url()?>assets/images/logo-esport/freefire.png" alt="" width="250px">
+                                        </a>
+				</div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-timeline text-center gbwh">
+					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<img src="<?=base_url()?>assets/images/logo-esport/dota2valve.png" alt="" width="250px">
+                                        </a>
+				</div>
+				<div class="col-md-6 col-timeline">
+					<br><br>
+				</div>
 			</div>
 		</div>
 	</section>
