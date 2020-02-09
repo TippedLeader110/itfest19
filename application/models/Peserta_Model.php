@@ -66,6 +66,9 @@ class Peserta_Model extends CI_Model {
 			echo "deleted file : " .$filelink;
 			$this->db->where('id_tahap', $id)->where('id_tim', $tim)->delete('tahap_tim');
 		}
+		else{
+			die();
+		}
 	}
 
 	public function logLoginTim(){
@@ -146,7 +149,6 @@ class Peserta_Model extends CI_Model {
 		//  );
 		$this->db->set('file', $img);
 		$this->db->where('id_tahap', $id);
-
 		$this->db->where('id_tim', $tim);
 		$this->db->update('tahap_tim');
 	}

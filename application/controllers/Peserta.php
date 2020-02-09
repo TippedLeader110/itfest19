@@ -289,13 +289,14 @@ class Peserta extends CI_Controller {
         $this->tahapUp->initialize($config);
         // var_dump("done1");
         // echo $this->bayarup->display_errors(); 
+        $id = $this->input->post('id');
+        $tim = $this->session->userdata('id_tim');
+        // if($this->tahapUp->do_upload("file") && $this->Peserta_Model->hapusTahap($id,$tim)){ //upload file
         if($this->tahapUp->do_upload("file")){ //upload file
             $data = array('upload_data' => $this->tahapUp->data()); //ambil file name yang diupload
             $image= $data['upload_data']['file_name'];
-            $id = $this->input->post('id');
-            $tim = $this->session->userdata('id_tim');
-            $this->Peserta_Model->hapusTahap($id,$tim);
-            $this->Peserta_Model->tahapUp($image,$id,$tim);
+            
+            $this->Peserta_Model->tahapUpd($image,$id,$tim);
             // $this->Peserta_Model->tahapUp($image,$id,$tim); //simpan data sementara
             echo "1";
         }
