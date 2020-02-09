@@ -137,6 +137,18 @@ class Peserta_Model extends CI_Model {
 	}
 
 
+	public function tahapUpd($img,$id,$tim)
+	{
+		// $data = array(
+		// 	'id_tahap' => $id,
+		// 	'id_tim' => $tim,
+		// 	'file' => $img
+		//  );
+		$this->db->set('id_tahap', $id);
+		$this->db->set('id_tim', $tim);
+		$this->db->set('file', $img);
+		$this->db->update('tahap_tim');
+	}
 
 	public function getTahap($id_lomba)
 	{
