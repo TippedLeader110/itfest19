@@ -73,12 +73,12 @@
                 </a>
             </li>
 
-            <!-- <li>
+            <li>
                 <a href="#tahapKompetisi" id="tahapKompetisi" class="">
                     <i class="fa fa-step-forward" aria-hidden="true"></i>
                     Tahap Kompetisi
                 </a>
-            </li> -->
+            </li>
         </ul>
     </nav>
 	<!-- ----- >
