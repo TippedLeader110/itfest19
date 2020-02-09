@@ -295,7 +295,7 @@ class Peserta extends CI_Controller {
             $id = $this->input->post('id');
             $tim = $this->session->userdata('id_tim');
             $this->Peserta_Model->hapusTahap($id,$tim);
-            $this->Peserta_Model->tahapUpd($image,$id,$tim); //simpan data sementara
+            // $this->Peserta_Model->tahapUpd($image,$id,$tim); //simpan data sementara
             echo "1";
         }
         else
