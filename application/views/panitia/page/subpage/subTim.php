@@ -62,7 +62,7 @@
 		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>&id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
@@ -77,7 +77,7 @@
 		$('#sub').load('<?php echo base_url('panitia/subTim'); ?>' + href + '?tag=<?php echo $tag ?>cari=<?php echo urldecode($cari) ?>'+ '&id=<?php echo $id ?>');
 		<?php endif ?>
 		<?php if (!isset($cari)): ?>
-    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>id=<?php echo $id ?>');
+    	$('#sub').load('<?php echo base_url('panitia/subTim')?>' + href + '?tag=<?php echo $tag ?>&id=<?php echo $id ?>');
 		<?php endif ?>
 	});
 
