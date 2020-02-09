@@ -18,6 +18,7 @@
 			<form id="gantifile">
 			<div class="row">
 				<div class="col-12 col-md-10">
+					
 				<input type="text" hidden name="id" value="<?php echo $id_tahap ?>">
 				<div class="custom-file">
 				<input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>

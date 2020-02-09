@@ -144,10 +144,10 @@ class Peserta_Model extends CI_Model {
 		// 	'id_tim' => $tim,
 		// 	'file' => $img
 		//  );
+		$this->db->set('file', $img);
 		$this->db->where('id_tahap', $id);
 
 		$this->db->where('id_tim', $tim);
-		$this->db->set('file', $img);
 		$this->db->update('tahap_tim');
 	}
 
