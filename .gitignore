@@ -34,3 +34,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/config/database.php
 application/config/config.php
 application/models/Seminar_email.php
+application/config/database.php
+database.php
