@@ -192,6 +192,8 @@ class Peserta extends CI_Controller {
 		$tahap['status'] = $this->Peserta_Model->getTahapTim($lel,$id_team);
 		$tahap['file'] = $this->Peserta_Model->getTahapTimfile($lel,$id_team);
 		$cek = $this->db->where('id_tim',$id_team)->where('id_tahap', $lel)->get('tahap_tim');
+		$date = $this->db->where('id_tahap', $lel)->get('tahap_lomba')->row();
+		$tahap['date'] = $date->deadline;
 		if ($cek->num_rows()!=0) {
 			$tahap['url'] = $cek->row()->file;
 		}

@@ -1,4 +1,8 @@
-
+<?php 
+	$cur = date("Y-m-d");
+	$now  = strtotime($cur);
+	$dead  = strtotime($date);
+ ?>
 	<?php if ($status==1): ?>
 	<h4>Status : Tim anda lulus seleksi ini</h4>
 <?php endif ?>
@@ -10,9 +14,16 @@
 			<h4>Status : File sedang diseleksi - <a target="_blank" href="<?php echo base_url('public/kompetisi/userdata/tahap_tim/'); echo $url ?>" style="text-decoration: underline;">Download File</a></h4> 
 			
 		</div>
-		<div class="col-12 col-md-2">
-			<button class="btn btn-light" data-toggle='collapse' data-target='#col'>Ganti File</button>
-		</div>
+		<?php if ($now < $dead): ?>
+			<div class="col-12 col-md-2">
+				<button class="btn btn-light" data-toggle='collapse' data-target='#col'>Ganti File</button>
+			</div>
+		<?php endif ?>
+		<?php if ($now > $dead): ?>
+			<div class="col-12 col-md-10">
+				<h2>Masa seleksi ini sudah habis.</h2>
+			</div>
+		<?php endif ?>
 		<div class="col-12 col-md-10">
 			<div class="collapse" id="col">
 			<form id="gantifile">
@@ -42,7 +53,8 @@
 			<div class="col-12 col-md-12">
 				<h4>Status : Belum mengirim</h4>
 			</div>
-			<div class="col-12 col-md-10">
+			<?php if ($now < $dead): ?>
+				<div class="col-12 col-md-10">
 			<input type="text" hidden name="id" value="<?php echo $id_tahap ?>">
 			<div class="custom-file">
 			<input name="file" type="file" class="custom-file-input" id="validatedCustomFile" required>
@@ -50,8 +62,17 @@
 			<div class="invalid-feedback">Tolong input file</div>
 		</div>
 		</div>
+			<?php endif ?>
+			<?php if ($now > $dead): ?>
+				<div class="col-12 col-md-10">
+					<h2>Masa seleksi ini sudah habis.</h2>
+				</div>
+			<?php endif ?>
 		<div class="col-12 col-md-2">
-			<button class="btn btn-light" id="kirim<?php echo $id ?>">Kirim</button>
+			<?php if ($now < $dead): ?>
+				<button class="btn btn-light" id="kirim<?php echo $id ?>">Kirim</button>
+			<?php endif ?>
+			
 		</div>
 		</div>
 		</form>
