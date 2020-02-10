@@ -21,7 +21,7 @@
 		<?php endif ?>
 		<?php if ($now > $dead): ?>
 			<div class="col-12 col-md-10">
-				<h2>Masa seleksi ini sudah habis.</h2>
+				<h3>Masa seleksi ini sudah habis.</h3>
 			</div>
 		<?php endif ?>
 		<div class="col-12 col-md-10">
@@ -65,7 +65,7 @@
 			<?php endif ?>
 			<?php if ($now > $dead): ?>
 				<div class="col-12 col-md-10">
-					<h2>Masa seleksi ini sudah habis.</h2>
+					<h3>Masa seleksi ini sudah habis.</h3>
 				</div>
 			<?php endif ?>
 		<div class="col-12 col-md-2">
