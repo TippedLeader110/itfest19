@@ -297,6 +297,7 @@ class panitiaModel extends CI_Model {
 		$this->db->update('tahap_lomba');
 	}
 
+// INI DIA DUDE FAKHRI
 	public function getseleksiTim($limit,$from,$id,$tag){
 		// var_dump($tag);
 		if ($tag==1) {
