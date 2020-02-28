@@ -158,27 +158,27 @@
 					<hr class="hr-kompetisi"><br></center>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
-                                        <a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+                                        <a href="http://bit.ly/itfest2020e-sport" target="_blank">
 					<img src="<?=base_url()?>assets/images/logo-esport/ml.png" alt="" width="250px">
                                         </a>
 				</div>
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
-					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<a href="http://bit.ly/itfest2020e-sport" target="_blank">
 					<img src="<?=base_url()?>assets/images/logo-esport/pubgm.png" alt="" width="250px">
                                         </a>
 				</div>
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
-					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<a href="http://bit.ly/itfest2020e-sport" target="_blank">
 					<img src="<?=base_url()?>assets/images/logo-esport/codm.png" alt="" width="250px">
                                         </a>
 				</div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-timeline text-center gbwh">
-					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<a href="http://bit.ly/itfest2020e-sport" target="_blank">
 					<img src="<?=base_url()?>assets/images/logo-esport/freefire.png" alt="" width="250px">
                                         </a>
 				</div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-timeline text-center gbwh">
-					<a href="http://bit.ly/EsportITFestUSU2020" target="_blank">
+					<a href="http://bit.ly/itfest2020e-sport" target="_blank">
 					<img src="<?=base_url()?>assets/images/logo-esport/dota2valve.png" alt="" width="250px">
                                         </a>
 				</div>
