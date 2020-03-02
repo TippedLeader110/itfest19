@@ -98,7 +98,7 @@ class Bendahara extends CI_Controller {
 		$em = $dd->email;
 		$nama = $dd->nama;
 		$warn = $dd->warn;
-		$warn = $warn++;
+		$warn = $warn+1;
 		$this->load->model('Seminar_email');
 		if ($this->Seminar_email->warnSend($em,$warn,$nama)==true) {
 			$dbapi->set('warn', $warn);
