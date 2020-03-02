@@ -89,6 +89,28 @@ class Bendahara extends CI_Controller {
 		$dbapi->update('seminar');
 	}
 
+	public function warning()
+	{
+		$this->loginProtocol();
+		$id = $this->input->post('id');
+		$dbapi = $this->load->database('api', TRUE); 
+		$dd = $dbapi->where('kode_seminar', $id)->get('seminar')->row();
+		$em = $dd->email;
+		$nama = $dd->nama;
+		$warn = $dd->warn;
+		$warn = $warn++;
+		$this->load->model('Seminar_email');
+		if ($this->Seminar_email->warnSend($em,$warn,$nama)==true) {
+			$dbapi->set('warn', $warn);
+			$dbapi->where('kode_seminar', $id);
+			$dbapi->update('seminar');
+			echo "1";
+		}
+		else{
+			echo "0";
+		}
+	}
+
 	public function loginProtocol()
 	{
 		if(($this->session->userdata('status') == "login-bendahara")){

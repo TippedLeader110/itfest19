@@ -112,6 +112,51 @@ $em = urlencode('
 		$('#dataTim').submit();
 	});
 
+	$('#peringatan').click(function(event) {
+		var id = $('#id').val();
+		Swal.fire({
+		title: 'Tunggu Dulu !!',
+		text: "Apakah anda ingin mengirim email peringatan untuk mengirim berkas lang ?",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya, Kirim!!',
+		cancelButtonText: 'Mungkin tidak'
+		}).then((result) => {
+			if (result.value) {
+			    $.ajax({
+			    	url: '<?php echo base_url('Bedhara/warning') ?>',
+			    	type: 'post',
+			    	data: {val:id},
+			    	success: function(er){
+							console.log(er);
+							if (er==1) {
+								Swal.fire(
+							      'Berhasil!!',
+							      'Peserta seminar dengan nomor seminar '+ id +' telah diberi peringatan !!.',
+							      'success'
+						    	);
+							}else{
+								Swal.fire(
+							      'Gagal !!',
+							      'Peringatan gagal dikirim. Mungkin kena limit gmail, coba lagi nanti !!.',
+							      'success'
+						    	);
+							}
+			    	},
+			    	error: function(er){
+						console.log(er);
+						Swal.fire('Gagal','Terjadi kesalahan', 'error');
+
+			    	}
+			    });
+			}
+			else{
+			}
+		})
+	});
+
 	$('#batal').click(function(event) {
 		$('#simpan').prop("disabled",true);
 	});
