@@ -80,6 +80,11 @@ $em = urlencode('
 				</select>
 			</td>
 		</tr>
+		<?php if ($v->warn>=1): ?>
+		<tr>
+			<td>Total Peringatan</td><td> : <?php echo $v->warn ?></td>
+		</tr>
+		<?php endif ?>
 		<?php if ($v->status_pembayaran=='1'): ?>
 		<tr>
 			<td>Status Email</td>
