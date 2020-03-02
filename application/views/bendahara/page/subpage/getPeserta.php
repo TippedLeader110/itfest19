@@ -126,7 +126,7 @@ $em = urlencode('
 		}).then((result) => {
 			if (result.value) {
 			    $.ajax({
-			    	url: '<?php echo base_url('Bedhara/warning') ?>',
+			    	url: '<?php echo base_url('bendahara/warning') ?>',
 			    	type: 'post',
 			    	data: {val:id},
 			    	success: function(er){
