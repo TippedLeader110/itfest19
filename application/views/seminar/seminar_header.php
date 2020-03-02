@@ -33,7 +33,7 @@
 <body>
 	<nav class="navbar navbar-expand-sm fixed-top">
 		<div class="container">
-			<a href="<?=base_url()?>" class="navbar-brand navbar-brand-edit" onclick="$('body').animatescroll();">
+			<a href="http://itfestusu.id" class="navbar-brand navbar-brand-edit" onclick="$('body').animatescroll();">
 				<div class="logo-nav"></div>
 			</a>
 			<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#mynavbar">
