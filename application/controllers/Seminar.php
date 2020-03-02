@@ -7,11 +7,15 @@ date_default_timezone_set('Asia/Jakarta');
 class Seminar extends CI_Controller { 
         
         //Ganti Variabel di View
-        protected $judul_seminar = 'Judul Seminar (set dari controller)';
-        protected $nama_pembicara = 'Nama pembicara (set dari controller)';
+        protected $judul_seminar = '[Seminar Nasional & Talkshow Interaktif]';
+        protected $nama_pembicara = '';
         protected $tulisan_seminar = "
-                Sepatah dua patah kata kata seminar. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, accusamus, sed, necessitatibus ea nemo hic molestias amet tempora fuga pariatur officia itaque eum quis rerum aliquam minus illo nulla laborum! <br>
-                 (set dari controller)
+                
+
+IT Fest USU 2020 hadir kembali di tahun ini dengan bertemakan “Impactful Technology for Social Culture Awereness”. Nantinya bakalan ada Seminar Nasional, Talkshow inspiratif, dan hiburan lhoo! And here they are...
+Para pembicara-pembicara kece dan expert dibidangnya bakalan ada di acara ini.
+So, tunggu apalagi? Now ticket is open!!
+Grab on your ticket on tiket.itfestusu.id and see you guys on April 05th!
         ";
         
         public function __construct()
@@ -24,7 +28,7 @@ class Seminar extends CI_Controller {
 	public function index()
 	{
                 $this->session->unset_userdata('identitas');
-                redirect('Home');
+                redirect('Seminar/register');
 	}
         
         //Pengguna baru yg mau daftar
