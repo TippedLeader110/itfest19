@@ -92,7 +92,7 @@ class Bendahara extends CI_Controller {
 	public function warning()
 	{
 		$this->loginProtocol();
-		$id = $this->input->post('id');
+		$id = $this->input->post('val');
 		$dbapi = $this->load->database('api', TRUE); 
 		$dd = $dbapi->where('kode_seminar', $id)->get('seminar')->row();
 		$em = $dd->email;
