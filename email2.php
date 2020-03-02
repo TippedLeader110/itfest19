@@ -18,13 +18,14 @@
           </p>
 
           <div class="col text-center">
-            <a  name="link_cetak_tiket" class="btn btn-dark" href="" style="padding: 13px 13px 13px 13px;
+            <a  name="link_cetak_tiket" class="btn btn-dark" href="http://itfestusu.id/Verifikasi/generate?api-key='.$qr.'" style="padding: 13px 13px 13px 13px;
         border-radius: 5px;
         background-color: #514a9d;
         text-decoration: none;
-        color: white;">Download</a>
+        color: white;">Link QR</a>
           </div>
           <br>
+
           <div class="detail-head" style="font-weight: 500;
         margin-top: 10px;">
             Berikut detail pesanan Anda:
@@ -35,7 +36,7 @@
             <tr>
               <td style="width: 20%;">Event Name</td>
               <td style="width: 2%;">:</td>
-              <td style="width: 83%;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</td>
+              <td style="width: 83%;">Seminar Nasional & Talkshow Interaktif IT Fest USU 2020</td>
             </tr>
             <tr>
               <td scope="col">Event Location</td>
@@ -45,7 +46,7 @@
             <tr>
               <td scope="col">Event Schedule</td>
               <td>:</td>
-              <td>4 Mei 2020 10.00 - 16.00</td>
+              <td>5 April 2020 10.00 - 18.00 WIB</td>
             </tr>
             <tr>
               <td scope="col">Invoice Code</td>
@@ -87,12 +88,12 @@
             </tr>
             <tr>
               <td style="padding: 15px;">Event show: 10.00 - 16.00</td style="padding: 15px;">
-              <td style="padding: 15px;">Rp 60.000,00</td style="padding: 15px;">
-              <td style="padding: 15px;">Rp 60.000,00</td style="padding: 15px;">
+              <td style="padding: 15px;">Rp 35.000,00</td style="padding: 15px;">
+              <td style="padding: 15px;">Rp 35.000,00</td style="padding: 15px;">
             </tr>
             <tr>
               <td style="padding: 15px;" colspan="2" class="total">Grand Total</td style="padding: 15px;">
-              <td style="padding: 15px;" class="total" style="font-weight: 700;">Rp 60.000,00</td style="padding: 15px;">
+              <td style="padding: 15px;" class="total" style="font-weight: 700;">Rp 35.000,00</td style="padding: 15px;">
             </tr>
           </table>
           <p>Jika ada keluhan anda dapat menghubungi cs : itfestusu@gmail.com</p>
