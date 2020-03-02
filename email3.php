@@ -8,7 +8,8 @@
         <img src="http://itfestusu.id/assets/images/logo.png" width="150px">
           <p>Hi, <span class="user" style="font-weight: 500;">'.$nama.'</span>!</p>
           <p>
-            Terjadi kesalahan / bukti pembayaran yang anda kirim tidak valid !! <br>
+            Terjadi kesalahan !!! bukti pembayaran yang anda kirim tidak valid !! <br>
+            Anda diharapkan mengirim ulang bukti pembayaran anda <br>
             Untuk informasi lebih lanjut anda dapat menghubungi cs : itfestusu@gmail.com .
           </p>
           <p>Terima Kasih.</p>
