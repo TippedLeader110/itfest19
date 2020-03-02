@@ -28,48 +28,8 @@ Grab on your ticket on tiket.itfestusu.id and see you guys on April 05th!
 	public function index()
 	{
                 $this->session->unset_userdata('identitas');
-                // redirect('Seminar/register');
-                $huruf_random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4);
-                $tanggal_waktu = date('dmHis');
-                                
-                if($this->input->post('submit'))
-                {
-                        $kode_seminar = "ITF-".$huruf_random."".$tanggal_waktu;
-                        $a = $kode_seminar;
-                        $p = password_hash($a, PASSWORD_DEFAULT);
-                        $data = array(
-                                'kode_seminar' => $kode_seminar,
-                                'nama' => $this->input->post('nama'),
-                                'email' => $this->input->post('email'),
-                                'telepon' => $this->input->post('telepon'),
-                                'identitas' => $this->input->post('identitas'),
-                                'tgl_lahir' => $this->input->post('tgl_lahir'),
-                                'path_bukti' => NULL,
-                                'random' => $p,
-                                'qr' => md5($kode_seminar),
-                                'status_pembayaran' => '0'
-                        );
-                        //Buat nomor identitas ke session
-                        $this->session->set_userdata(['identitas' => $this->input->post('identitas') ]);
-                        
-                        if($this->Seminar_model->register_data($data))
-                        {
-                                $this->load->model('Seminar_email');
-                                $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'),$kode_seminar);
-                                $this->session->set_flashdata('regis_berhasil','Registrasi Berhasil');
-                                // $kode_seminar_en = ;
-                                redirect('Seminar/bayar?id='.urlencode($kode_seminar));
-                        }
-                }
-                else
-                {
-                        $data = [
-                                'judul_seminar' => $this->judul_seminar,
-                                'nama_pembicara' => $this->nama_pembicara,
-                                'tulisan_seminar' => $this->tulisan_seminar
-                        ];
-                        $this->load->view('seminar/form_register', $data);
-                }
+                redirect('Seminar/register');
+                
 
 	}
         

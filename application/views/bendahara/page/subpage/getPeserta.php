@@ -116,7 +116,7 @@ $em = urlencode('
 		var id = $('#id').val();
 		Swal.fire({
 		title: 'Tunggu Dulu !!',
-		text: "Apakah anda ingin mengirim email peringatan untuk mengirim berkas lang ?",
+		text: "Apakah anda yakin ingin mengirim email peringatan kepada peserta seminar agar mengirim ulang berkas pembayaran ?",
 		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
