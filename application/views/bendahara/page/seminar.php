@@ -129,7 +129,7 @@
       		<div class="modal-footer">
         		<button type="button" class="btn btn-primary" id="simpan" disabled >Simpan</button>
         		&nbsp;<button type="button" class="btn btn-warning" id="batal" style="display: block;" data-dismiss="modal">Batal</button>
-        		&nbsp;<button type="button" class="btn btn-danger" id="peringatan" disabled >Beri Peringatan</button>
+        		&nbsp;<button type="button" class="btn btn-danger" id="peringatan"  >Beri Peringatan</button>
       		</div>
     	</div>
   	</div>
