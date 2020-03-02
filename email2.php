@@ -87,7 +87,7 @@
               <th style="padding: 15px;">Jumlah</th style="padding: 15px;">
             </tr>
             <tr>
-              <td style="padding: 15px;">Event show: 10.00 - 16.00</td style="padding: 15px;">
+              <td style="padding: 15px;">Event show: 10.00 - 18.00 WIB</td style="padding: 15px;">
               <td style="padding: 15px;">Rp 35.000,00</td style="padding: 15px;">
               <td style="padding: 15px;">Rp 35.000,00</td style="padding: 15px;">
             </tr>
