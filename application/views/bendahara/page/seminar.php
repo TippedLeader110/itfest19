@@ -35,11 +35,11 @@
 	</div>
 	<div class="col-12 col-md-4">
 		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-	  	<div class="card-header text-capitalize text-center">Pembayaran belum di cek</div>
+	  	<div class="card-header text-capitalize text-center">Belum di verifikasi</div>
 	  		<div class="card-body">
 	  			<div>
 	    			<h1 class="card-title text-center">
-						<?php echo $sem3 ?>
+						<?php echo $sem-$sem3; ?>
 	    			</h1>
 	    		</div>
 	  		</div>
