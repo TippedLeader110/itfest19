@@ -58,8 +58,8 @@ class Bendahara extends CI_Controller {
 		$s = $dbapi->get('seminar');
 		$sem = $s->num_rows();
 		$seminardata = $s->result();
-		$sem2 = $dbapi->where('status_pembayaran', 1)->get('seminar')->num_rows();
-		$sem3 = $dbapi->QUERY('select * from seminar where path_bukti is not NULL and status_pembayaran = 0')->num_rows();
+		$sem2 = $dbapi->where('status_pembayaran', '1')->get('seminar')->num_rows();
+		$sem3 = $dbapi->where('path_bukti', NULL, false)->get('seminar')->num_rows();
 		$data = [
 			'title' => 'Seminar',
 			'sem' => $sem,
