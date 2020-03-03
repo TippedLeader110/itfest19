@@ -91,24 +91,24 @@
 									</td>
 									<td>
 										<?php if ($value->sended==1): ?>
-											Terkirim Otomatis
+											<b>Terkirim Otomatis</b>
 										<?php endif ?>
 										<?php if ($value->sended==0): ?>
-											Belum Terkirim
+											<b>Belum Terkirim</b>
 										<?php endif ?>
 										<?php if ($value->sended==3): ?>
-											Terkirim Manual
+											<b>Terkirim Manual</b>
 										<?php endif ?>
 									</td>
 										<?php if ($value->status_pembayaran=='1'): ?>
-											<td>Sudah Terverifikasi</td>
+											<th>Sudah Terverifikasi</th>
 										<?php endif ?>
 										<?php if ($value->status_pembayaran=='0'): ?>
 											<?php if ($value->path_bukti==NULL): ?>
-											<td>Belum melakukan pembayaran</td>
+											<th>Belum melakukan pembayaran</th>
 											<?php endif ?>
 											<?php if ($value->path_bukti!=NULL): ?>
-											<td>Belum diverifikasi</td>
+											<th>Belum diverifikasi</th>
 											<?php endif ?>
 										<?php endif ?>
 									<td><a href="#" onclick="bayar('<?php echo $value->kode_seminar ?>')"><i class="fas fa-search"></i>Info</a></td>
