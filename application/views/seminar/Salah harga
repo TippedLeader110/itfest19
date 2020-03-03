@@ -33,7 +33,7 @@
                                                         <br>
                                                 <?php endif; ?>
                                                         <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
-                                                        Pembayaran dilakukan dengan mentransfer dana sebesar Rp60.000,00- ke rekening bank :
+                                                        Pembayaran dilakukan dengan mentransfer dana sebesar Rp35.000,00- ke rekening bank :
                                                                 <h1>BNI 0227457404 </h1>
                                                          a.n. Talitha Azura Putri Aulia
                                                                 </p>
