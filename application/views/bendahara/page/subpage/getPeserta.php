@@ -61,9 +61,11 @@ $em = urlencode('
 		<tr>
 			<td>Nomor Identitas</td><td> : <?php echo $v->identitas ?></td>
 		</tr>
+		<?php if ($v->path_bukti!=''): ?>
 		<tr>
 			<td>Bukti Pembayaran</td><td> : <a target="_blank" href="<?php echo base_url("public/seminar/pembayaran/"); echo $v->path_bukti ?>" style="text-decoration: underline;">Download</a></td>
 		</tr>
+		<?php endif ?>
 		<tr>
 			<td>Status Pembayaran</td>
 			<td>
