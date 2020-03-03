@@ -62,6 +62,7 @@
 	<div class="table-responsive-lg">
 		<table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead class="bg-custom white-text">
+						<th>No.</th>
                         <th>ID</th>
                         <th>Nama</th>
                         <th>No Telp.</th>
@@ -76,6 +77,9 @@
 							<?php foreach ($seminardata as $key => $value): ?>
 								<?php $count++; ?>
 								<tr>
+									<td>
+										<?php echo $count; ?>
+									</td>
 									<td><?php echo $value->kode_seminar ?></td>
 									<td>
 										<?php echo $value->nama ?>
