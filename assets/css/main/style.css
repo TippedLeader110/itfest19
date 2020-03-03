@@ -31,6 +31,12 @@ body{
 		background-size: cover;
 	}
 }
+@media screen and (min-width: 767px) {
+	.plr-5{
+		padding-left:  3rem!important;
+		padding-right:  3rem!important;
+	}
+}
 nav{
 	background: transparent;
 	transition-duration: 1.5s;
@@ -520,6 +526,9 @@ label.label-judul{
 }
 .form-block{
 	width: 82%;
+}
+.form-blockk{
+	width: 100%;
 }
 .btn-submit{
 	width: 82%;
