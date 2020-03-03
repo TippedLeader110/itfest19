@@ -70,6 +70,14 @@ class Bendahara extends CI_Controller {
 		$this->load->view('bendahara/page/seminar', $data);
 	}
 
+	public function emailManual(){
+		$data = array('nama' => $this->input->get('nama'),
+			'bayar' => $this->input->get('bayar'),
+			'qr' => $this->input->get('qr')
+		 );
+		$this->load->view('Bendahara/page/email/email2', $data);
+	}
+
 	public function test(){
 		$this->loginProtocol();
 		$a = 'itfestusu2020';
