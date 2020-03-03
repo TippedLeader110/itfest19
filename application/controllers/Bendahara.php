@@ -75,7 +75,7 @@ class Bendahara extends CI_Controller {
 			'bayar' => $this->input->get('bayar'),
 			'qr' => $this->input->get('qr')
 		 );
-		$this->load->view('Bendahara/page/email/email2', $data);
+		$this->load->view('bendahara/page/email/email2', $data);
 	}
 
 	public function test(){
