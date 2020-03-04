@@ -5,11 +5,11 @@
 			<div class="row">
 				<div class="col-md-12 col-acara">
 					<center>
-                                                <h1 class="h1-kompetisi">Pembayaran</h1>
+                        <h1 class="h1-kompetisi">Pembayaran</h1>
 					        <hr class="hr-kompetisi mb-5">
                                         </center>
                                         
-                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left">
+                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left quickinfo">
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>

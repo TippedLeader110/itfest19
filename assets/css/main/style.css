@@ -580,3 +580,11 @@ label.label-judul{
 		padding-bottom: 50px;
 	}
 }
+
+@media screen and (min-width: 768px) {
+
+	.quickinfo{
+		display: none;
+	}
+
+}
