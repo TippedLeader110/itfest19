@@ -9,7 +9,7 @@
 	<div class="row" style="margin-top: 0px;">
 		
 
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
 		    <div class="card-header text-capitalize text-center">Peserta Seminar</div>
 		  	<div class="card-body">
@@ -21,7 +21,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Pembayaran Diterima</div>
 	  		<div class="card-body">
@@ -33,19 +33,30 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-	  	<div class="card-header text-capitalize text-center">Pembayaran belum di cek</div>
+	  	<div class="card-header text-capitalize text-center">Belum di verifikasi</div>
 	  		<div class="card-body">
 	  			<div>
 	    			<h1 class="card-title text-center">
-						<?php echo $sem3 ?>
+						<?php echo $sem-$sem3; ?>
 	    			</h1>
 	    		</div>
 	  		</div>
 		</div>
 	</div>
-	
+	<div class="col-12 col-md-3">
+		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+	  	<div class="card-header text-capitalize text-center">Gagal Kirim Email</div>
+	  		<div class="card-body">
+	  			<div>
+	    			<h1 class="card-title text-center">
+						<?php echo $fail; ?>
+	    			</h1>
+	    		</div>
+	  		</div>
+		</div>
+	</div>
 	</div>
 
 	
@@ -62,6 +73,7 @@
 	<div class="table-responsive-lg">
 		<table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead class="bg-custom white-text">
+						<th>No.</th>
                         <th>ID</th>
                         <th>Nama</th>
                         <th>No Telp.</th>
@@ -76,6 +88,9 @@
 							<?php foreach ($seminardata as $key => $value): ?>
 								<?php $count++; ?>
 								<tr>
+									<td>
+										<?php echo $count; ?>
+									</td>
 									<td><?php echo $value->kode_seminar ?></td>
 									<td>
 										<?php echo $value->nama ?>
@@ -87,24 +102,24 @@
 									</td>
 									<td>
 										<?php if ($value->sended==1): ?>
-											Terkirim Otomatis
+											<b>Terkirim Otomatis</b>
 										<?php endif ?>
 										<?php if ($value->sended==0): ?>
-											Belum Terkirim
+											<b>Belum Terkirim</b>
 										<?php endif ?>
 										<?php if ($value->sended==3): ?>
-											Terkirim Manual
+											<b>Terkirim Manual</b>
 										<?php endif ?>
 									</td>
 										<?php if ($value->status_pembayaran=='1'): ?>
-											<td>Sudah Terverifikasi</td>
+											<th>Sudah Terverifikasi</th>
 										<?php endif ?>
 										<?php if ($value->status_pembayaran=='0'): ?>
 											<?php if ($value->path_bukti==NULL): ?>
-											<td>Belum melakukan pembayaran</td>
+											<th>Belum melakukan pembayaran</th>
 											<?php endif ?>
 											<?php if ($value->path_bukti!=NULL): ?>
-											<td>Belum diverifikasi</td>
+											<th>Belum diverifikasi</th>
 											<?php endif ?>
 										<?php endif ?>
 									<td><a href="#" onclick="bayar('<?php echo $value->kode_seminar ?>')"><i class="fas fa-search"></i>Info</a></td>

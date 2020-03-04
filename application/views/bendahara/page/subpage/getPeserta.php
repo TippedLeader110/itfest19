@@ -2,6 +2,7 @@
 	
 <?php endforeach ?>
 <?php 
+$qr = $v->qr;
 $nama = $v->nama;
 $bayar = $v->kode_seminar;
 
@@ -61,9 +62,11 @@ $em = urlencode('
 		<tr>
 			<td>Nomor Identitas</td><td> : <?php echo $v->identitas ?></td>
 		</tr>
+		<?php if ($v->path_bukti!=''): ?>
 		<tr>
 			<td>Bukti Pembayaran</td><td> : <a target="_blank" href="<?php echo base_url("public/seminar/pembayaran/"); echo $v->path_bukti ?>" style="text-decoration: underline;">Download</a></td>
 		</tr>
+		<?php endif ?>
 		<tr>
 			<td>Status Pembayaran</td>
 			<td>
@@ -97,7 +100,12 @@ $em = urlencode('
 						<button id="cancelKonfirm" class="btn btn-primary">Batal Kirim</button>
 				<?php endif ?>
 				<?php if ($v->sended!='1' && $v->sended!='3'): ?>
-						: Gagal terkirim-<a href="mailto:<?php echo $v->email?>?subject=Seminar%20ITFEST%20USU%202020&body=<?php echo $em ?>" style='text-decoration: underline;'>Kirim Manual</a> - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a> <button id="konfirm" class="btn btn-primary">Confirmasi</button>
+						: Gagal terkirim-
+						<!-- <a href="mailto:<?php echo $v->email?>?subject=Seminar%20ITFEST%20USU%202020&body=<?php echo $em ?>" style='text-decoration: underline;'>Kirim Manual</a> -->
+
+						<a target="_blank" href="<?php echo base_url('bendahara/emailManual?nama='); echo urlencode($nama).'&bayar='.urlencode($bayar).'&qr='.urlencode($qr); ?>" style='text-decoration: underline;'>Kirim Manual</a>
+
+						 - <a href="<?php echo base_url('email2.php')?>" style='text-decoration: underline;'>Template</a> <button id="konfirm" class="btn btn-primary">Confirmasi</button>
 				<?php endif ?>
 			</td>
 		</tr>

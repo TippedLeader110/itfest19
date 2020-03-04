@@ -5,15 +5,15 @@
 			<div class="row">
 				<div class="col-md-12 col-acara">
 					<center>
-                                                <h1 class="h1-kompetisi">Pembayaran</h1>
+                        <h1 class="h1-kompetisi">Pembayaran</h1>
 					        <hr class="hr-kompetisi mb-5">
                                         </center>
                                         
-                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left">
+                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left quickinfo">
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
-                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
+                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="left">
                                                         <?php echo $tulisan_seminar; ?>
                                                 </p>
 
@@ -33,16 +33,16 @@
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                <h3>ID Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
-                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
+                                                <h4>Kode Pembayaran anda telah dikirim ke Email <b><?php echo $email; ?></b>.<br><br> Silahkan mengecheck email anda untuk melakukan pembayaran. <br> </h4>
+                                                <!-- <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar Rp35.000,00- ke rekening bank :
                                                                 <h1>BNI 0227457404 </h1>
                                                          a.n. Talitha Azura Putri Aulia
-                                                </p>
+                                                </p> -->
                                                 <br>
-                                                
-                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a>
-                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Bayar Nanti</a>
+<!--                                                 
+                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a> -->
+                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Beli Tiket Lagi</a>
                                                 <br>
 
 

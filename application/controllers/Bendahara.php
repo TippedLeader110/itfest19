@@ -58,16 +58,26 @@ class Bendahara extends CI_Controller {
 		$s = $dbapi->get('seminar');
 		$sem = $s->num_rows();
 		$seminardata = $s->result();
-		$sem2 = $dbapi->where('status_pembayaran', 1)->get('seminar')->num_rows();
-		$sem3 = $dbapi->QUERY('select * from seminar where path_bukti is not NULL and status_pembayaran = 0')->num_rows();
+		$sem2 = $dbapi->where('status_pembayaran', '1')->get('seminar')->num_rows();
+		$sem3 = $dbapi->where('path_bukti', NULL, false)->get('seminar')->num_rows();
+		$fail = $dbapi->where('sended','0')->where('status_pembayaran', '1')->get('seminar')->num_rows();
 		$data = [
 			'title' => 'Seminar',
 			'sem' => $sem,
 			'sem2' => $sem2,
 			'sem3' => $sem3,
-			'seminardata' => $seminardata
+			'seminardata' => $seminardata,
+			'fail' => $fail
 		];
 		$this->load->view('bendahara/page/seminar', $data);
+	}
+
+	public function emailManual(){
+		$data = array('nama' => $this->input->get('nama'),
+			'bayar' => $this->input->get('bayar'),
+			'qr' => $this->input->get('qr')
+		 );
+		$this->load->view('bendahara/page/email/email2', $data);
 	}
 
 	public function test(){
