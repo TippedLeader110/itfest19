@@ -13,7 +13,7 @@
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
-                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
+                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="left">
                                                         <?php echo $tulisan_seminar; ?>
                                                 </p>
 

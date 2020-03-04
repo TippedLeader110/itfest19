@@ -581,7 +581,7 @@ label.label-judul{
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
 
 	.quickinfo{
 		display: none;
