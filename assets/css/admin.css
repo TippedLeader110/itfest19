@@ -13,3 +13,7 @@ input{
 .opaci{
 	opacity: 0.5;
 }
+
+.card{
+	border-radius: 0;
+}
