@@ -45,7 +45,18 @@
 	  		</div>
 		</div>
 	</div>
-	
+	<div class="col-12 col-md-4">
+		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+	  	<div class="card-header text-capitalize text-center">Gagal Kirim Email</div>
+	  		<div class="card-body">
+	  			<div>
+	    			<h1 class="card-title text-center">
+						<?php echo $fail; ?>
+	    			</h1>
+	    		</div>
+	  		</div>
+		</div>
+	</div>
 	</div>
 
 	

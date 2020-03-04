@@ -60,12 +60,14 @@ class Bendahara extends CI_Controller {
 		$seminardata = $s->result();
 		$sem2 = $dbapi->where('status_pembayaran', '1')->get('seminar')->num_rows();
 		$sem3 = $dbapi->where('path_bukti', NULL, false)->get('seminar')->num_rows();
+		$fail = $dbapi->where('sended','0')->where('status_pembayaran', '1')->get('seminar')->num_rows();
 		$data = [
 			'title' => 'Seminar',
 			'sem' => $sem,
 			'sem2' => $sem2,
 			'sem3' => $sem3,
-			'seminardata' => $seminardata
+			'seminardata' => $seminardata,
+			'fail' => $fail
 		];
 		$this->load->view('bendahara/page/seminar', $data);
 	}

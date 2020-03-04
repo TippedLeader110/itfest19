@@ -33,16 +33,16 @@
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                <h3>ID Pembayaran anda : </h3><h3> <?php echo $id ?></h3>
-                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
+                                                <h3>Kode Pembayaran anda telah dikirim ke Email <b><?php echo $email; ?></b>.<br><br> Silahkan mengecheck email anda untuk melakukan pembayaran. <br> 
+                                                <!-- <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar Rp35.000,00- ke rekening bank :
                                                                 <h1>BNI 0227457404 </h1>
                                                          a.n. Talitha Azura Putri Aulia
-                                                </p>
+                                                </p> -->
                                                 <br>
-                                                
-                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a>
-                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Bayar Nanti</a>
+<!--                                                 
+                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a> -->
+                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Beli Tiket Lagi</a>
                                                 <br>
 
 

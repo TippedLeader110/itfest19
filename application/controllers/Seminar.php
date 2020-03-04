@@ -64,9 +64,10 @@ Grab on your ticket on tiket.itfestusu.id and see you guys on April 05th!
                         {
                                 $this->load->model('Seminar_email');
                                 $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'),$kode_seminar);
+                                $email = $this->input->post('email');
                                 $this->session->set_flashdata('regis_berhasil','Registrasi Berhasil');
                                 // $kode_seminar_en = ;
-                                redirect('Seminar/bayar?id='.urlencode($kode_seminar));
+                                redirect('Seminar/bayar?id='.urlencode($kode_seminar).'&email='.urlencode($email));
                         }
                 }
                 else
@@ -85,10 +86,13 @@ Grab on your ticket on tiket.itfestusu.id and see you guys on April 05th!
         public function bayar()
         {       
                 $id = $this->input->get('id');
+                $email = $this->input->get('email');
                 $data = array( 'judul_seminar' => $this->judul_seminar,
                                 'nama_pembicara' => $this->nama_pembicara,
                                 'tulisan_seminar' => $this->tulisan_seminar,
-                                'id' => $id);
+                                'id' => $id,
+                                'email' => $email)
+                ;
                 $this->load->view('seminar/page_bayar', $data);
         }
         
