@@ -3,10 +3,10 @@
 	<section class="mt-5 pt-5">
 		<div class="container pt-12 video-content">
 			<center>
-				<img src="<?=base_url()?>assets/images/flyer_seminar.png" alt="" style="width: 80%; ">
+				<img class="w80 w100" src="<?=base_url()?>assets/images/flyer_seminar.png" alt="" >
 			</center>
 		</div>
-		<div class="container pt-5">
+		<div class="container ptop-5">
 			<div class="row">
 				<div class="col-md-12 col-acara">
 					<center>

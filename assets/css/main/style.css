@@ -30,11 +30,20 @@ body{
 		background: url('../../images/itfest-mobile.jpg') no-repeat;
 		background-size: cover;
 	}
+	.w100{
+		width: 100%!important;
+	}
 }
 @media screen and (min-width: 767px) {
 	.plr-5{
 		padding-left:  3rem!important;
 		padding-right:  3rem!important;
+	}
+	.ptop-5{
+		padding-top: 3rem!important;
+	}
+	.w80{
+		width: 80%!important;
 	}
 }
 nav{
@@ -588,4 +597,12 @@ label.label-judul{
 		background-size: cover;
 		padding-bottom: 50px;
 	}
+}
+
+@media screen and (max-width: 768px) {
+
+	.quickinfo{
+		display: none;
+	}
+
 }
