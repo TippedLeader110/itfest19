@@ -33,7 +33,7 @@
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                <h3>Kode Pembayaran anda telah dikirim ke Email <b><?php echo $email; ?></b>.<br><br> Silahkan mengecheck email anda untuk melakukan pembayaran. <br> 
+                                                <h4>Kode Pembayaran anda telah dikirim ke Email <b><?php echo $email; ?></b>.<br><br> Silahkan mengecheck email anda untuk melakukan pembayaran. <br> </h4>
                                                 <!-- <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar Rp35.000,00- ke rekening bank :
                                                                 <h1>BNI 0227457404 </h1>
