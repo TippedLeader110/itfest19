@@ -9,7 +9,7 @@
 	<div class="row" style="margin-top: 0px;">
 		
 
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
 		    <div class="card-header text-capitalize text-center">Peserta Seminar</div>
 		  	<div class="card-body">
@@ -21,7 +21,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Pembayaran Diterima</div>
 	  		<div class="card-body">
@@ -33,7 +33,7 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-3">
 		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Belum di verifikasi</div>
 	  		<div class="card-body">
@@ -45,8 +45,8 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="col-12 col-md-4">
-		<div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+	<div class="col-12 col-md-3">
+		<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 	  	<div class="card-header text-capitalize text-center">Gagal Kirim Email</div>
 	  		<div class="card-body">
 	  			<div>
