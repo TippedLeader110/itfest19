@@ -21,7 +21,6 @@
 												<p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
 														<?php echo $tulisan_seminar; ?>
 												</p>
-
 										</div>
 										<div class="col-lg-6 col-xs-12 plr-5 float-left" id="right1">
 												<h2>Informasi Personal</h2>
