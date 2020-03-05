@@ -55,6 +55,22 @@ nav.black{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: #fff;
 }
+.w100{
+	width: 100%!important;
+}
+@media screen and (min-width: 767px) {
+	.plr-5{
+		padding-left:  3rem!important;
+		padding-right:  3rem!important;
+	}
+	.ptop-5{
+		padding-top: 3rem!important;
+	}
+	.w80{
+		width: 80%!important;
+	}
+}
+
 .navbar-toggler{
 	border:none;
 }

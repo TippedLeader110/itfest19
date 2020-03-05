@@ -1,6 +1,11 @@
 <?php $this->load->view('seminar/seminar_header'); ?>
 
 	<section class="mt-5 pt-5">
+                <div class="container pt-12 video-content">
+                        <center>
+                                <img class="w80 w100" src="<?=base_url()?>assets/images/flyer_seminar.jpg" alt="" >
+                        </center>
+                </div>
 		<div class="container pt-5">
 			<div class="row">
 				<div class="col-md-12 col-acara">
@@ -9,16 +14,16 @@
 					        <hr class="hr-kompetisi mb-5">
                                         </center>
                                         
-                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left">
+                                        <div class="col-lg-6 col-xs-12 plr-5 float-left">
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
-                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="left">
+                                                <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         <?php echo $tulisan_seminar; ?>
                                                 </p>
 
                                         </div>
-                                        <div class="col-lg-6 col-xs-12 px-5 float-left" id="right1">
+                                        <div class="col-lg-6 col-xs-12 plr-5 float-left" id="right1">
                                                 <h2>Informasi Personal</h2>
                                                 <br>
                                                 
