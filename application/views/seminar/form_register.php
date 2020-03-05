@@ -55,8 +55,8 @@
                                                                 </div>
                                                         <br>
                                                         <div class="form-group">
-                                                                <input type="submit" id="next" name="submit" value="Selanjutnya" class="btn btn-info btn-block" disabled>
-                                                                <a href="<?= base_url(); ?>" class="btn btn-default btn-block">Batal</a>
+                                                                <input type="submit" id="next" name="submit" value="Daftar" class="btn btn-info" disabled>
+                                                                <a href="<?= base_url('seminar/bayar'); ?>" class="btn btn-default btn-block">Sudah pernah daftar? Konfirmasi pembayaran disini!</a>
                                                         </div>
                                                         
                                                 
