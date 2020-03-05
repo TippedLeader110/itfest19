@@ -35,23 +35,23 @@
                                                 <form action="register" method="post" id="subdaf">
                                                         <label for="nama" class="fsmall">Nama</label>
                                                                 <div class="form-group">
-                                                                <input type="text" name="nama" id="nama" placeholder="Nama" class="form-control form-block rounded-0" required>
+                                                                <input type="text" name="nama" id="nama" placeholder="Nama" class="form-control form-blockk rounded-0" required>
                                                                 </div>
                                                         <label for="email" class="fsmall">Email</label>
                                                                 <div class="form-group">
-                                                                <input type="email" name="email" id="email" placeholder="Email" class="form-control form-block rounded-0" required>
+                                                                <input type="email" name="email" id="email" placeholder="Email" class="form-control form-blockk rounded-0" required>
                                                                 </div>
                                                         <label for="telepon" class="fsmall">Telepon</label>
                                                                 <div class="form-group">
-                                                                <input type="number" name="telepon" id="telepon" placeholder="Telepon" class="form-control form-block rounded-0" required>
+                                                                <input type="number" name="telepon" id="telepon" placeholder="Telepon" class="form-control form-blockk rounded-0" required>
                                                                 </div>
                                                         <label for="identitas" class="fsmall">Nomor Identitas (No.KTP / No.Paspor / NIM) </label>
                                                                 <div class="form-group">
-                                                                <input type="text" name="identitas" id="identitas" placeholder="Nomor Identitas" class="form-control form-block rounded-0" required>
+                                                                <input type="text" name="identitas" id="identitas" placeholder="Nomor Identitas" class="form-control form-blockk rounded-0" required>
                                                                 </div>
                                                         <label for="nama" class="fsmall">Tanggal Lahir</label>
                                                                 <div class="form-group">
-                                                                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control form-block rounded-0" required>
+                                                                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control form-blockk rounded-0" required>
                                                                 </div>
                                                         <br>
                                                         <div class="form-group">
@@ -104,7 +104,7 @@
                                                 </table>
                                                 <div class="form-group">
                                                         <input type="submit" name="submit" id="daft" value="Daftar" class="btn btn-info btn-block">
-                                                        <a class="btn btn-default btn-block" id="batal">Batal</a>
+                                                        <a class="btn btn-outline-primary btn-block" id="batal">Batal</a>
                                                 </div>
                                         </div>
                                                 </form>
