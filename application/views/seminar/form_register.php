@@ -104,7 +104,7 @@
                                                 </table>
                                                 <div class="form-group">
                                                         <input type="submit" name="submit" id="daft" value="Daftar" class="btn btn-info btn-block">
-                                                        <a class="btn btn-outline-primary btn-block" id="batal">Batal</a>
+                                                        <a class="btn btn-outline-primary btn-block" id="batal">Sudah pernah daftar? Konfirmasi pembayaran disini!</a>
                                                 </div>
                                         </div>
                                                 </form>
