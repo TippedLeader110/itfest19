@@ -58,6 +58,9 @@ switch ( $_SERVER['HTTP_HOST'] ) {
     case 'itfestusu.id':
         $route['default_controller'] = "Home";
     break;
+    case 'localhost':
+        $route['default_controller'] = "Home";
+    break;
     case 'tiket.itfestusu.id':
         $route['default_controller'] = "Seminar";
     default:
