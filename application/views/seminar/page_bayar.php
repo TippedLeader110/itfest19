@@ -9,7 +9,7 @@
 					        <hr class="hr-kompetisi mb-5">
                                         </center>
                                         
-                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left quickinfo">
+                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left head-t">
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
@@ -33,16 +33,16 @@
                                                         </div>
                                                         <br>
                                                 <?php endif; ?>
-                                                <h4>Kode Pembayaran anda telah dikirim ke Email <b><?php echo $email; ?></b>.<br><br> Silahkan mengecheck email anda untuk melakukan pembayaran. <br> </h4>
+                                                <h4>Kode Pembayaran anda adalah <br> <b><?php echo $id; ?></b>.<br><br> Pastikan email anda  <b>(<?php echo $email ?>)</b> sudah benar, karena nantinya tiket akan dikirim ke email tersebut. <br> </h4>
                                                 <!-- <p  style="font-family: 'JOST_LIGHT';" class="text-secondary" align="justify">
                                                         Pembayaran dilakukan dengan mentransfer dana sebesar Rp35.000,00- ke rekening bank :
                                                                 <h1>BNI 0227457404 </h1>
                                                          a.n. Talitha Azura Putri Aulia
                                                 </p> -->
                                                 <br>
-<!--                                                 
-                                                <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a> -->
-                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Beli Tiket Lagi</a>
+
+                                                <!-- <a href="<?= base_url();?>Seminar/registered?id=<?php echo urlencode($id) ?>" class="btn btn-info btn-block rounded-0">Bayar Sekarang</a> -->
+                                                <a href="<?= base_url();?>Seminar" class="btn btn-secondary btn-block rounded-0">Kembali</a>
                                                 <br>
 
 

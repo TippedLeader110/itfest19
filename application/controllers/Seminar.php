@@ -63,7 +63,7 @@ Grab on your ticket on tiket.itfestusu.id and see you guys on April 05th!
                         if($this->Seminar_model->register_data($data))
                         {
                                 $this->load->model('Seminar_email');
-                                $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'),$kode_seminar);
+                                // $this->Seminar_email->kirim1($this->input->post('nama'),$this->input->post('email'),$kode_seminar);
                                 $email = $this->input->post('email');
                                 $this->session->set_flashdata('regis_berhasil','Registrasi Berhasil');
                                 // $kode_seminar_en = ;

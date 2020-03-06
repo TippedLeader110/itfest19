@@ -9,7 +9,7 @@
 					        <hr class="hr-kompetisi mb-5">
                                         </center>
                                         
-                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left">
+                                        <div class="col-lg-6 col-xs-12 px-5 pb-5 float-left head-t" id="head-t">
                                                 <h1><?php echo $judul_seminar; ?></h1>
                                                 <p style="font-family: 'Architects Daughter', cursive;" class="text-secondary"><?php echo $nama_pembicara; ?></p>
                                                 <br>
