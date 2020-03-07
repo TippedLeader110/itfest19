@@ -293,13 +293,18 @@ button.head2:hover{
 	background: url('../../images/seminar-section1a-01.jpg') no-repeat;
 	background-size: contain;
 }
+.semins{
+        color: #FFF;
+}
 @media screen and (max-width: 768px) {
 	#seminar-section{
 		padding-left: 0px;
 		background: transparent;
 		background-size: cover;
-                color: #000;
 	}
+        .semins{
+                color: #000;
+        }
 }
 /* END-SEMINAR */
 

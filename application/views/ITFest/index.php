@@ -48,11 +48,11 @@
 							<div class="garis" id="br"></div>
 						</a>
 					</li>
-					<!-- <li class="nav-item">
+					 <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#seminar-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">SEMINAR
 							<div class="garis" id="br"></div>
 						</a>
-					</li> -->
+					</li> 
                                         <li class="nav-item">
 						<a class="nav-link nav-link-edit" onclick="$('#esport-section').animatescroll({scrollSpeed:1500,easing:'easeInOutBack'});">E-SPORT
 							<div class="garis" id="br"></div>
@@ -107,28 +107,28 @@
 			</div>
 		</div>
 	</header>
-<!-- 
+ 
 	<section id="seminar-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-kompetisi">
-					<center><h1 class="h1-kompetisi text-white">Seminar & Talkshow</h1>
+					<center><h1 class="h1-kompetisi semins">Seminar & Talkshow</h1>
 					<hr class="hr-kompetisi"><br></center>
 				</div>
 				<div class="col-md-6 col-timeline">
-					<center><img src="<?=base_url()?>assets/images/poster-seminar.jpg" alt="Seminar & Talkshow ITFest 3.0" width="70%"></center>
+					<center><img src="<?=base_url()?>assets/images/flyer_seminar2.png" alt="Seminar & Talkshow ITFest 3.0" width="70%"></center>
 				</div>
 				<div class="col-md-6 col-timeline">
 					<div class="text-timeline" style="margin-top:20%;">
+                                                <br>
 						<center><h3 class="h1-timeline">Dapatkan Tiketmu Segera!</h3>
-						<p><b><a href="https://tiket.itfestusu.id/"><button class="btn px-5 daftar h1-timeline">DAFTAR SEMINAR</button></a></b></p>
-						<h3 class="h1-timeline">GRATIS!</h3></center>
-						<p>Untuk <b>anak putus sekolah</b> mendapatkan tiket <b>GRATIS</b>. Syarat dan ketentuan hubungi ke <b>+6285216011504</b></p>
+                                                <br>
+						<p><b><a href="http://tiket.itfestusu.id/"><button class="btn px-5 daftar h1-timeline">DAFTAR SEMINAR</button></a></b></p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section> -->
+	</section> 
 
 	<section id="about-section">
 		<div class="container">
