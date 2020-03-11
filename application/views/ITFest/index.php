@@ -116,7 +116,7 @@
 					<hr class="hr-kompetisi"><br></center>
 				</div>
 				<div class="col-md-6 col-timeline">
-					<center><img src="<?=base_url()?>assets/images/flyer_seminar2.png" alt="Seminar & Talkshow ITFest 3.0" width="70%"></center>
+					<center><img src="<?=base_url()?>assets/images/flyer_seminar.jpg" alt="Seminar & Talkshow ITFest 3.0" width="70%"></center>
 				</div>
 				<div class="col-md-6 col-timeline">
 					<div class="text-timeline" style="margin-top:20%;">
