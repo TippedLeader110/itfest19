@@ -29,6 +29,7 @@
 <script type="text/javascript">
 	function getList(id)
 	{
-		$('#contentPage').load('<?php echo base_url('panitia/subseleksiTim?id=') ?>'+ id);
+		console.log(id);
+		$('#contentPage').load('<?php echo base_url('panitia/subseleksiTim/') ?>'+ id);
 	}
 </script>

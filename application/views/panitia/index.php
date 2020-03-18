@@ -106,6 +106,13 @@
 </html>
 <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/panitia.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>
+  <!-- Bootstrap core JavaScript -->
+  <!-- MDB core JavaScript -->
+<script type="text/javascript" src="<?php echo base_url('/assets/js/mdb.min.js') ?>"></script>
+  <!-- Your custom scripts (optional) -->
+<script type="text/javascript" src="<?php echo base_url('/assets/js/addons/datatables.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('/assets/js/bootstrap.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/js/mmouse.js') ?>"></script>
 
 

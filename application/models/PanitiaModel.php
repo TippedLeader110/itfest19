@@ -277,9 +277,9 @@ class panitiaModel extends CI_Model {
 		return $query = $this->db->query('CALL tim_info('.$id.')')->result();
 	}
 
-	function infoseleksiTim($tim,$id){
+	function infoseleksiTim($id){
 		
-		return $query = $this->db->query('CALL tahap_tim('.$id.', '.$tim.')')->result();
+		return $query = $this->db->query('CALL tahap_timGet('.$id.')')->result();
 	}
 
 	public function kompetisi_tahapEdit($file,$desk,$id,$deadline,$id_tahap)
@@ -295,6 +295,11 @@ class panitiaModel extends CI_Model {
 		$this->db->set('file_tahap',$file);
 		$this->db->where('id_tahap',$id_tahap);
 		$this->db->update('tahap_lomba');
+	}
+
+	public function loadDataseleksi($id, $tahap){
+		$query = $this->db->query("CALL cariTahap(".$id.", ".$tahap.")");
+			return $query->result();
 	}
 
 // INI DIA DUDE FAKHRI

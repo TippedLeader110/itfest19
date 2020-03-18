@@ -3,7 +3,8 @@
 <?php endforeach ?>
 <div class="row">
 	<div class="col-12">
-		<table>
+		<div class="table-responsive">
+		<table class="table table-borderless">
 			<tr>
 				<td>Nama Team</td><td> : <?php echo $mTim->nama_team ?></td>
 			</tr>
@@ -44,6 +45,7 @@
 			<input hidden type="text" name="tahap" id="tahap" value="<?php echo $mTim->id_tahap ?>">
 			<input hidden type="text" name="tim" id="tim" value="<?php echo $mTim->id_tim ?>">
 		</table>
+		</div>
 		<div id='loadingmessage' style='display:none;margin-top: 50px;'>
 		       <center><img src='<?php echo base_url('assets/file/load.gif') ?>'/></center>
 		</div>
