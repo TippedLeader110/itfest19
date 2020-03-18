@@ -16,7 +16,7 @@
 						<td><?php echo $dTim->asal_univ ?></td>
 
 						<?php if ($dTim->status_tim>=1): ?>
-							<td>Sudah Terverifikasi</td>
+							<td>Lulus</td>
 						<?php endif ?>
 						<?php if ($dTim->status_tim==NULL): ?>
 							<?php if ($dTim->j!=0): ?>
